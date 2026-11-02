@@ -1,4 +1,6 @@
-# qet-io-builder
+# QET制御図面ビルダー
+
+PLC・GOTの構成図・配線図をQElectroTech向けに生成します。
 
 ![PLC・GOT 図面生成のユニット構成画面](docs/images/app-screenshot.png)
 
