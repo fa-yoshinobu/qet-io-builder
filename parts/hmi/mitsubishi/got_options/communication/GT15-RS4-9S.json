@@ -1,0 +1,70 @@
+{
+  "category": "got_option",
+  "model": "GT15-RS4-9S",
+  "definition": {
+    "series": "GOTオプション",
+    "option_type": "serial",
+    "interfaces": [
+      {
+        "name": "RS-422/485",
+        "kind": "dsub9",
+        "ports": [],
+        "connector_label": "D-sub 9pin メス",
+        "pinout": [
+          {
+            "pin": 1,
+            "signal": "SDA"
+          },
+          {
+            "pin": 2,
+            "signal": "RDA"
+          },
+          {
+            "pin": 3,
+            "signal": "RSA"
+          },
+          {
+            "pin": 4,
+            "signal": "CSA"
+          },
+          {
+            "pin": 5,
+            "signal": "SG"
+          },
+          {
+            "pin": 6,
+            "signal": "SDB"
+          },
+          {
+            "pin": 7,
+            "signal": "RDB"
+          },
+          {
+            "pin": 8,
+            "signal": "RSB"
+          },
+          {
+            "pin": 9,
+            "signal": "CSB"
+          }
+        ]
+      }
+    ],
+    "compatible_series": [
+      "GOT2000",
+      "GOT3000"
+    ],
+    "applicability_notes": "GOT2000:GT27/GT25。GT25除外は本文注A。GOT3000:GT37+GT37-IF2000",
+    "adapter_required": {
+      "GOT3000": "GT37-IF2000"
+    },
+    "source": "IB-0800325E-P;SH-081200ENG-AS 個別2/3;接続編印刷50/85/251",
+    "power_notes": "GOT内部5V 0.33A",
+    "settings_notes": "終端抵抗100ohm:SW1/2ともON。温調等のRS485 2線式には使用不可",
+    "verification_note": "シールド/シェルの内部FG接続は未確認",
+    "diagram_notes": [
+      "温調等のRS-485 2線式は不可"
+    ],
+    "auto_wiring": false
+  }
+}

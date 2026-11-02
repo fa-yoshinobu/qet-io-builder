@@ -1,0 +1,66 @@
+{
+  "category": "standard_device",
+  "model": "LF1B-NC3P-2THWW2-1M",
+  "definition": {
+    "manufacturer": "IDEC",
+    "series": "LF1B-N",
+    "device_type": "lighting",
+    "source": "P1510-4 LF1B-N形 LED照明ユニット p.2–4",
+    "official_html": "https://www.idec.com/ja-jp/industrial-components/led-lighting/led-light-indicators/lf1b-n-series",
+    "light_source": "LED",
+    "usage": "盤内照明",
+    "color": "昼光色",
+    "cover": "クリア",
+    "rated_supply": "DC24V",
+    "ratings": {
+      "supply_vdc": 24,
+      "power_w_typ": 4.4,
+      "operating_voltage_vdc": [
+        21.6,
+        26.4
+      ]
+    },
+    "dimensions_mm": {
+      "length": 330,
+      "width": 27.5,
+      "height": 16
+    },
+    "cable_length_m": 1,
+    "power_supply_included": false,
+    "built_in_switch": false,
+    "protective_earth_terminal": false,
+    "terminal_numbering": "wire_color_and_polarity",
+    "external_connections": [
+      {
+        "wire_color": "茶",
+        "function": "positive",
+        "polarity": "+"
+      },
+      {
+        "wire_color": "青",
+        "function": "negative",
+        "polarity": "-"
+      }
+    ],
+    "symbol_bindings": [
+      {
+        "name": "lighting",
+        "symbol": "cabinet_lighting",
+        "terminals": {
+          "first": [
+            "茶 (+)"
+          ],
+          "second": [
+            "青 (-)"
+          ]
+        }
+      }
+    ],
+    "display_ratings": "LED DC24V 4.4W typ. / 330mm",
+    "notes": [
+      "器具全体を汎用ランプ記号で表す。蛍光灯・表示灯・LED素子単体ではない。",
+      "電源は外付けDC24V。内蔵ヒューズ・保護回路は器具内の情報として保持し、外部端子を追加しない。"
+    ],
+    "verification_note": "公式カタログの形名・回路図・配線色・定格を照合。実機未確認。"
+  }
+}

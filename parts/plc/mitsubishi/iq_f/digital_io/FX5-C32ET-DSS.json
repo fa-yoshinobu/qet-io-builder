@@ -1,0 +1,46 @@
+{
+  "category": "fx5_ext",
+  "model": "FX5-C32ET/DSS",
+  "definition": {
+    "variants": [
+      ""
+    ],
+    "inputs": 16,
+    "outputs": [
+      [
+        0,
+        16
+      ]
+    ],
+    "in_common": "COM0",
+    "confirmed": true,
+    "source": "SH-082451Q 6.3 印刷120 / PDF122",
+    "physical_io": {
+      "input_commons": [
+        {
+          "name": "COM0",
+          "start": "0",
+          "points": 16,
+          "contacts": 2,
+          "internal_group": "input:COM0"
+        }
+      ],
+      "output_commons": [
+        {
+          "group": 0,
+          "name": "+V0",
+          "contacts": 2,
+          "internal_group": "output:0"
+        }
+      ],
+      "input_signal_contacts": 1,
+      "output_signal_contacts": 1,
+      "source": {
+        "document": "SH-082451Q",
+        "section": "6.3",
+        "printed_pages": "120",
+        "pdf_pages": "122"
+      }
+    }
+  }
+}

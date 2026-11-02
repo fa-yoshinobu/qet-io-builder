@@ -1,0 +1,33 @@
+{
+  "category": "iqr_q",
+  "model": "QY18A",
+  "definition": {
+    "io": "out",
+    "out": "independent_relay",
+    "points": 8,
+    "pins": [
+      "TB2",
+      "TB4",
+      "TB6",
+      "TB8",
+      "TB10",
+      "TB12",
+      "TB14",
+      "TB16"
+    ],
+    "feed_pins": [
+      "TB1",
+      "TB3",
+      "TB5",
+      "TB7",
+      "TB9",
+      "TB11",
+      "TB13",
+      "TB15"
+    ],
+    "confirmed": true,
+    "source": "SH-080042AH 3.3",
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E5%85%A5%E5%87%BA%E5%8A%9B"
+  }
+}

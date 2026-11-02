@@ -1,0 +1,310 @@
+{
+  "category": "remote_mixed",
+  "model": "NZ2GFCF1-32DT",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "module_role": "main",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female"
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female"
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT",
+        "connector_type": "terminal_3",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "24G"
+          ],
+          [
+            "3",
+            "FG"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "1",
+        "+24V"
+      ],
+      [
+        "2",
+        "24G"
+      ],
+      [
+        "3",
+        "FG"
+      ]
+    ],
+    "confirmed": true,
+    "source": "SH-081114ENG-T 4.2 印刷125,126,127 / PDF127,128,129",
+    "source_reference": {
+      "document": "SH-081114ENG-T",
+      "section": "4.2",
+      "printed_pages": [
+        125,
+        126,
+        127
+      ],
+      "pdf_pages": [
+        127,
+        128,
+        129
+      ]
+    },
+    "lifecycle": "公式ラインアップ掲載（発売中の断定ではない）",
+    "extension_support": "最大1台",
+    "note": "局内X/Y番号を表示。CPU側の割付はネットワーク設定で確認。",
+    "power_notes": [],
+    "io_connectors": [
+      {
+        "name": "CON1",
+        "connector_type": "fcn_40",
+        "pins": [
+          [
+            "A1",
+            "CTL+"
+          ],
+          [
+            "A2",
+            "COM-"
+          ],
+          [
+            "A3",
+            "Y1F"
+          ],
+          [
+            "A4",
+            "Y1E"
+          ],
+          [
+            "A5",
+            "Y1D"
+          ],
+          [
+            "A6",
+            "Y1C"
+          ],
+          [
+            "A7",
+            "Y1B"
+          ],
+          [
+            "A8",
+            "Y1A"
+          ],
+          [
+            "A9",
+            "Y19"
+          ],
+          [
+            "A10",
+            "Y18"
+          ],
+          [
+            "A11",
+            "アキ"
+          ],
+          [
+            "A12",
+            "COM"
+          ],
+          [
+            "A13",
+            "XF"
+          ],
+          [
+            "A14",
+            "XE"
+          ],
+          [
+            "A15",
+            "XD"
+          ],
+          [
+            "A16",
+            "XC"
+          ],
+          [
+            "A17",
+            "XB"
+          ],
+          [
+            "A18",
+            "XA"
+          ],
+          [
+            "A19",
+            "X9"
+          ],
+          [
+            "A20",
+            "X8"
+          ],
+          [
+            "B1",
+            "CTL+"
+          ],
+          [
+            "B2",
+            "COM-"
+          ],
+          [
+            "B3",
+            "Y17"
+          ],
+          [
+            "B4",
+            "Y16"
+          ],
+          [
+            "B5",
+            "Y15"
+          ],
+          [
+            "B6",
+            "Y14"
+          ],
+          [
+            "B7",
+            "Y13"
+          ],
+          [
+            "B8",
+            "Y12"
+          ],
+          [
+            "B9",
+            "Y11"
+          ],
+          [
+            "B10",
+            "Y10"
+          ],
+          [
+            "B11",
+            "アキ"
+          ],
+          [
+            "B12",
+            "COM"
+          ],
+          [
+            "B13",
+            "X7"
+          ],
+          [
+            "B14",
+            "X6"
+          ],
+          [
+            "B15",
+            "X5"
+          ],
+          [
+            "B16",
+            "X4"
+          ],
+          [
+            "B17",
+            "X3"
+          ],
+          [
+            "B18",
+            "X2"
+          ],
+          [
+            "B19",
+            "X1"
+          ],
+          [
+            "B20",
+            "X0"
+          ]
+        ],
+        "no_connect_pins": [
+          "A11",
+          "B11"
+        ]
+      }
+    ],
+    "input": {
+      "io": "in",
+      "points": 16,
+      "pins": [
+        "B20",
+        "B19",
+        "B18",
+        "B17",
+        "B16",
+        "B15",
+        "B14",
+        "B13",
+        "A20",
+        "A19",
+        "A18",
+        "A17",
+        "A16",
+        "A15",
+        "A14",
+        "A13"
+      ],
+      "terminal_block": "FCN 40ピン",
+      "common": [
+        "A12",
+        "B12"
+      ],
+      "input_common": "positive",
+      "show_all_commons": true,
+      "start_offset": 0
+    },
+    "output": {
+      "io": "out",
+      "points": 16,
+      "pins": [
+        "B10",
+        "B9",
+        "B8",
+        "B7",
+        "B6",
+        "B5",
+        "B4",
+        "B3",
+        "A10",
+        "A9",
+        "A8",
+        "A7",
+        "A6",
+        "A5",
+        "A4",
+        "A3"
+      ],
+      "terminal_block": "FCN 40ピン",
+      "out": "sink",
+      "vplus": "A1/B1",
+      "com": "A2/B2",
+      "start_offset": 16,
+      "terminal_names": {
+        "A1": "CTL+",
+        "B1": "CTL+",
+        "A2": "COM-",
+        "B2": "COM-"
+      }
+    }
+  }
+}

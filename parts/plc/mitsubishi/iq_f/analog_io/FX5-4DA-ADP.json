@@ -1,0 +1,43 @@
+{
+  "category": "fx5_analog",
+  "model": "FX5-4DA-ADP",
+  "definition": {
+    "channels": [
+      "出力",
+      "出力",
+      "出力",
+      "出力"
+    ],
+    "terminals": [
+      "V{n}+",
+      "I{n}+",
+      "COM{n}"
+    ],
+    "power": [
+      "+24V",
+      "0V",
+      "接地"
+    ],
+    "power_pins": [
+      "+",
+      "-",
+      "⏚"
+    ],
+    "signal_labels_by_direction": {
+      "出力": {
+        "V{n}+": "電圧出力",
+        "I{n}+": "電流出力",
+        "COM{n}": "コモン"
+      }
+    },
+    "source": "SH-082451Q 9.1,15.7 印刷134–135,212 / PDF136–137,214",
+    "unconnected_ports": [
+      {
+        "signal": "NC",
+        "channel": 4,
+        "channel_position": 3
+      }
+    ],
+    "unconnected_ports_source": "SH-082451Q 9.1 PDF137/印刷135（COM4の次、端子番号の記載なし）"
+  }
+}

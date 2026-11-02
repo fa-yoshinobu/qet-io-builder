@@ -1,0 +1,65 @@
+{
+  "category": "got_body",
+  "model": "GT2505HS-VTBD",
+  "definition": {
+    "series": "GOT2000",
+    "subseries": "GT25ハンディ",
+    "display": "5.7型",
+    "screen_size_inch": 5.7,
+    "power": {
+      "supply": "DC24V",
+      "ports": [],
+      "port_pins": [],
+      "ground_terminals": [],
+      "connection": "ハンディ複合コネクタ経由"
+    },
+    "interfaces": [
+      {
+        "name": "ハンディ複合接続",
+        "kind": "handheld32",
+        "connector_label": "丸32pin オス",
+        "ports": [],
+        "pinout_status": "未確認",
+        "functions": [
+          "電源",
+          "通信",
+          "操作信号"
+        ]
+      },
+      {
+        "name": "USB HOST 上面",
+        "kind": "usb_a",
+        "connector_label": "USB Type-A",
+        "ports": [],
+        "position": "上面"
+      },
+      {
+        "name": "USB DEVICE 上面",
+        "kind": "usb_mini_b",
+        "connector_label": "USB Mini-B",
+        "ports": [],
+        "position": "上面"
+      },
+      {
+        "name": "SD CARD",
+        "kind": "sd",
+        "connector_label": "SD/SDHC",
+        "ports": []
+      }
+    ],
+    "battery_supported": true,
+    "battery_type": "GT11-50BAT",
+    "usb_host_ports": 1,
+    "usb_device_ports": 1,
+    "sd_card_supported": true,
+    "sd_card_optional": false,
+    "sd_card_option": "",
+    "source": "SH-081194ENG-AW 3.2 印刷94/PDF96;8.2–8.3 印刷326–328/PDF328–330; SH-081200ENG-AS 1.4/PDF51–52,2.3/PDF83–88",
+    "diagram_notes": [
+      "電源・通信は専用外部ケーブル経由"
+    ],
+    "verification_note": "コネクタ形状・端子印字を資料照合。配線方式・実機は未確認",
+    "resolution": "640x480",
+    "resolution_source": "SH-081194ENG-AW 3.2 印刷94/PDF96"
+  }
+}

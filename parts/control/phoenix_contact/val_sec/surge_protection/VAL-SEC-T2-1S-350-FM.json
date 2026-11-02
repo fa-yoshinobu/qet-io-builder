@@ -1,0 +1,135 @@
+{
+  "category": "standard_device",
+  "model": "VAL-SEC-T2-1S-350-FM",
+  "definition": {
+    "manufacturer": "PHOENIX CONTACT",
+    "series": "VAL-SEC",
+    "device_type": "surge_protection",
+    "article_number": "2905333",
+    "source": "公式製品番号2905333のTechnical data・Circuit diagram、施工要領MNR 9065230-03; 現行公式製品ページ Protective circuit（SCCRとバックアップgG条件）",
+    "official_html": "https://www.phoenixcontact.com/en-us/products/surge-arrester-val-sec-t2-1s-350-fm-2905333",
+    "rated_supply": "単相 AC240V TN-S / TT（N・PE分離）",
+    "spd_class": "IEC Type 2 / Class II",
+    "ratings": {
+      "max_continuous_voltage_vac": {
+        "L-N": 350,
+        "L-PE": 350,
+        "N-PE": 264
+      },
+      "nominal_discharge_current_a": 20000,
+      "maximum_discharge_current_a": 40000
+    },
+    "connection": "parallel",
+    "terminal_type": "ねじ",
+    "physical_wiring_terminals": 6,
+    "protective_paths": [
+      {
+        "terminals": [
+          "L1",
+          "N"
+        ],
+        "element": "varistor"
+      },
+      {
+        "terminals": [
+          "N",
+          "PE"
+        ],
+        "element": "gas_discharge"
+      }
+    ],
+    "internal_connections": [],
+    "visual_indication": true,
+    "internal_disconnector": true,
+    "external_backup_protection": {
+      "status": "確認済み",
+      "branch_max_gg_a": 315,
+      "v_through_max_gg_a": [
+        40,
+        63
+      ],
+      "conditions": [
+        "分岐接続は最大315A gG。上位保護・短絡電流・配線条件に従って選定。",
+        "SCCRはバックアップgGヒューズ315A以下で25kA、200A以下で50kA。上限315Aだけを独立して適用しない。",
+        "V接続はBiconnect M4・6mm²で最大40A gG、TWIN 2×10mm²で最大63A gG。",
+        "最大許容値を推奨定格として自動選定しない。",
+        "MNR 9065230-03: PVC絶縁銅線で前置ヒューズ200A超の場合、短絡・地絡に対する特別な配線措置が必要。"
+      ],
+      "short_circuit_conditions": [
+        {
+          "backup_fuse_type": "gG",
+          "backup_fuse_max_a": 315,
+          "short_circuit_rating_ka": 25
+        },
+        {
+          "backup_fuse_type": "gG",
+          "backup_fuse_max_a": 200,
+          "short_circuit_rating_ka": 50
+        }
+      ]
+    },
+    "remote_indication": {
+      "present": true,
+      "type": "changeover",
+      "common": "11",
+      "diagram_closed": "12",
+      "diagram_open": "14",
+      "normal_service_state": "未確認",
+      "ratings": {
+        "ac_voltage_min_v": 5,
+        "ac_voltage_max_v": 250,
+        "ac_current_min_ma": 5,
+        "ac_current_max_a": 1,
+        "dc_current_a_by_voltage": {
+          "30": 1,
+          "125": 0.2
+        }
+      }
+    },
+    "display_ratings": "Type 2 / Uc(L-N) AC350V",
+    "symbol_bindings": [
+      {
+        "name": "spd",
+        "symbol": "surge_protection_1p",
+        "terminals": {
+          "line_a": [
+            "N"
+          ],
+          "line_b": [
+            "L1"
+          ],
+          "earth": [
+            "PE"
+          ]
+        }
+      },
+      {
+        "name": "alarm_contact_1",
+        "symbol": "spd_alarm_changeover",
+        "terminals": {
+          "common": [
+            "11"
+          ],
+          "no": [
+            "14"
+          ],
+          "nc": [
+            "12"
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "L1・N・PEを別接続点として表す。NとPEは内部短絡しない。",
+      "電源に並列接続する機能記号。内部のMOV・放電管結線は別途メーカー回路図による。",
+      "外部保護器の最大許容値と実際の選定定格を混同しない。",
+      "FM接点はメーカー回路図と同じ11–12閉・11–14開で表す。健全装着時の状態を意味するとの確認は未完了。",
+      "SPD本体とFM接点には同じ機器タグを入力する。コイルはなく、本体との自動クロスリファレンスには対応しない。",
+      "SCCR: gG315A以下で25kA、gG200A以下で50kA。MNR 9065230-03の配線・断面積条件と組み合わせる。"
+    ],
+    "verification_note": "現行公式製品ページと公式回路図画像を照合。公式施工要領MNR 9065230-03を保存・照合済み。実機未確認。",
+    "part_display_ratings": {
+      "alarm_contact_1": "FM 警報接点 / AC250V 1A max"
+    }
+  }
+}

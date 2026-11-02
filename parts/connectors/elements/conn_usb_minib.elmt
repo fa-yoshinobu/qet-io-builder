@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="43" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{d0aa2281-0d6d-5546-bde5-9cadd17c6d60}" />
+  <names>
+    <name lang="ja">USB Mini-B</name>
+    <name lang="en">conn_usb_minib</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <rect x="5" y="-9" width="28" height="18" rx="2" ry="2" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <polygon x1="9" y1="-5" x2="29" y2="-5" x3="29" y3="1" x4="25" y4="5" x5="13" y5="5" x6="9" y6="1" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="13" y="-2" width="12" height="3" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <terminal uuid="{8aad9f5b-a06e-5aec-810b-1055a701a2ab}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

@@ -1,0 +1,136 @@
+{
+  "category": "standard_device",
+  "model": "H3CR-A8 AC24-48/DC12-48",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "H3CR-A",
+    "device_type": "timer",
+    "source": "CSM_H3CR_L084-E1_3_6 p.4–6・10–11・55（仕様・端子・Aモード・ソケット）",
+    "official_html": "https://www.fa.omron.co.jp/product/item/H3CR-A8_AC24-48_DC12-48/",
+    "operation": "power_on_delay",
+    "reset": "self_reset",
+    "contact_configuration": "限時2c",
+    "instantaneous_contacts": 0,
+    "coil": {
+      "terminals": [
+        "2",
+        "7"
+      ],
+      "rated_voltage": "AC24–48V / DC12–48V",
+      "voltages": {
+        "ac_v": [
+          "24–48"
+        ],
+        "dc_v": [
+          "12–48"
+        ]
+      },
+      "voltage_selection_required": false,
+      "polarity_by_terminal": {
+        "2": "− (DC)",
+        "7": "+ (DC)"
+      }
+    },
+    "ratings": {
+      "supply_vac_range": [
+        24,
+        48
+      ],
+      "supply_vdc_range": [
+        12,
+        48
+      ],
+      "resistive_contact_rating": {
+        "voltage_v_ac": 250,
+        "current_a": 5,
+        "voltage_v_dc": 30,
+        "dc_current_a": 5
+      }
+    },
+    "time": {
+      "setting_range_total": "0.05秒～300時間",
+      "mode": "on_delay",
+      "unit_options": [
+        "s",
+        "×10s",
+        "min",
+        "×10min",
+        "h",
+        "×10h"
+      ],
+      "full_scale_options": [
+        1.2,
+        3,
+        12,
+        30
+      ],
+      "distinct_range_count": 18
+    },
+    "selection_required": [
+      "time_range",
+      "set_time"
+    ],
+    "socket_candidates": [
+      "P2CF-08"
+    ],
+    "terminal_numbering": "timer_body_physical_pin",
+    "display_ratings": "AC24–48V / DC12–48V A：オンディレイ / 限時2c",
+    "default_configuration": "on_delay",
+    "configuration_options": [
+      {
+        "id": "on_delay",
+        "label": "オンディレイ",
+        "symbol_bindings": [
+          {
+            "name": "timer",
+            "symbol": "timer_on_delay",
+            "terminals": {
+              "a1": [
+                "2"
+              ],
+              "a2": [
+                "7"
+              ]
+            }
+          },
+          {
+            "name": "timed_contact_1",
+            "symbol": "timer_changeover_on_delay",
+            "terminals": {
+              "common": [
+                "1"
+              ],
+              "no": [
+                "3"
+              ],
+              "nc": [
+                "4"
+              ]
+            }
+          },
+          {
+            "name": "timed_contact_2",
+            "symbol": "timer_changeover_on_delay",
+            "terminals": {
+              "common": [
+                "8"
+              ],
+              "no": [
+                "6"
+              ],
+              "nc": [
+                "5"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "作図はA：オンディレイのみ。他モードの動作・結線へ流用しない。",
+      "DC時は2−・7＋。AC電源では極性なし。電源仕様が違う注文形名と混在させない。",
+      "時間単位・目盛・設定値は実機で合わせる。11ピン形のスタート・リセット・ゲート端子はない。"
+    ],
+    "verification_note": "公式カタログで端子・動作を照合。実機未確認。"
+  }
+}

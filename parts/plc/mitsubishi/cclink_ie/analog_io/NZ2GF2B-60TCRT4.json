@@ -1,0 +1,220 @@
+{
+  "category": "remote_analog",
+  "model": "NZ2GF2B-60TCRT4",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "出力",
+      "出力",
+      "出力",
+      "出力"
+    ],
+    "terminals": [],
+    "power": [],
+    "auto_wiring": false,
+    "module_role": "remote_station",
+    "network": "CC-Link IE Field",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female"
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female"
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT",
+        "connector_type": "terminal_3",
+        "pins": [
+          [
+            "+24V",
+            "+24V"
+          ],
+          [
+            "24G",
+            "24G"
+          ],
+          [
+            "⏚",
+            "FG"
+          ]
+        ],
+        "position": "正面上から",
+        "terminal_type": "screw"
+      }
+    ],
+    "supply_voltage": "24V DC",
+    "supply_voltage_range": "20.4-28.8V DC",
+    "terminal_type": "18点ネジ端子台",
+    "channel_isolation": true,
+    "lifecycle": "current_catalog",
+    "verification_status": "一部確認",
+    "verification_remaining": [
+      "加熱冷却拡張/混在など全制御モードの最終用途設定。物理端子は保持。"
+    ],
+    "network_condition": "Field専用。SimpleのIP設定・配線として扱わない",
+    "source": "SH-081210F; 仕様PDF37-38;端子PDF95;電源外観PDF34;通信PDF34;配線PDF97-102; 印刷頁=PDF頁-2",
+    "manual_references": [
+      {
+        "document_number": "SH-081210F",
+        "pages": "仕様PDF37-38;端子PDF95;電源外観PDF34;通信PDF34;配線PDF97-102"
+      }
+    ],
+    "wiring_notes": [
+      "OUT1～4の用途は制御モードにより異なる。入力CH番号と出力番号を固定で対応させない。",
+      "出力共通は端子5 COM-。温度入力モードではOUT1～4/COM-を使用しない。",
+      "A/B/bの3線式。出力割付は制御モード依存"
+    ],
+    "auxiliary_terminals": [
+      {
+        "pin": "5",
+        "signal": "COM-",
+        "description": "シンク制御出力共通",
+        "group": "制御出力共通"
+      }
+    ],
+    "unused_pins": [
+      {
+        "connector": "温調I/O端子台",
+        "pin": "6",
+        "signal": "NC",
+        "connectable": false
+      }
+    ],
+    "channel_labels": [
+      "入力CH1",
+      "入力CH2",
+      "入力CH3",
+      "入力CH4",
+      "制御OUT1",
+      "制御OUT2",
+      "制御OUT3",
+      "制御OUT4"
+    ],
+    "input_channels": 4,
+    "control_outputs": 4,
+    "output_type": "sink",
+    "output_current_per_point_amps": 0.1,
+    "output_current_per_common_amps": 0.4,
+    "output_load_voltage_range": "10-30V DC",
+    "terminals_by_channel": [
+      [
+        "IN1 A",
+        "IN1 B",
+        "IN1 b"
+      ],
+      [
+        "IN2 A",
+        "IN2 B",
+        "IN2 b"
+      ],
+      [
+        "IN3 A",
+        "IN3 B",
+        "IN3 b"
+      ],
+      [
+        "IN4 A",
+        "IN4 B",
+        "IN4 b"
+      ],
+      [
+        "OUT1"
+      ],
+      [
+        "OUT2"
+      ],
+      [
+        "OUT3"
+      ],
+      [
+        "OUT4"
+      ]
+    ],
+    "pins_by_channel": [
+      [
+        "7",
+        "9",
+        "11"
+      ],
+      [
+        "8",
+        "10",
+        "12"
+      ],
+      [
+        "13",
+        "15",
+        "17"
+      ],
+      [
+        "14",
+        "16",
+        "18"
+      ],
+      [
+        "1"
+      ],
+      [
+        "2"
+      ],
+      [
+        "3"
+      ],
+      [
+        "4"
+      ]
+    ],
+    "signal_labels_by_direction": {
+      "入力": {
+        "IN1 A": "3線式測温抵抗体入力",
+        "IN1 B": "3線式測温抵抗体入力",
+        "IN1 b": "3線式測温抵抗体入力",
+        "IN2 A": "3線式測温抵抗体入力",
+        "IN2 B": "3線式測温抵抗体入力",
+        "IN2 b": "3線式測温抵抗体入力",
+        "IN3 A": "3線式測温抵抗体入力",
+        "IN3 B": "3線式測温抵抗体入力",
+        "IN3 b": "3線式測温抵抗体入力",
+        "IN4 A": "3線式測温抵抗体入力",
+        "IN4 B": "3線式測温抵抗体入力",
+        "IN4 b": "3線式測温抵抗体入力"
+      },
+      "出力": {
+        "OUT1": "シンク制御出力（モード依存）",
+        "OUT2": "シンク制御出力（モード依存）",
+        "OUT3": "シンク制御出力（モード依存）",
+        "OUT4": "シンク制御出力（モード依存）"
+      }
+    },
+    "output_assignments_by_mode": {
+      "温度入力": {
+        "OUT1": "未使用",
+        "OUT2": "未使用",
+        "OUT3": "未使用",
+        "OUT4": "未使用"
+      },
+      "標準制御": {
+        "OUT1": "CH1出力",
+        "OUT2": "CH2出力",
+        "OUT3": "CH3出力",
+        "OUT4": "CH4出力"
+      },
+      "加熱冷却通常": {
+        "OUT1": "CH1加熱",
+        "OUT2": "CH1冷却",
+        "OUT3": "CH2加熱",
+        "OUT4": "CH2冷却"
+      }
+    },
+    "diagram_note": "制御出力はモード依存"
+  }
+}

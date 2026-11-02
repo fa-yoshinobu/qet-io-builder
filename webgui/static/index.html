@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PLC・GOT 図面生成</title>
+<link rel="stylesheet" href="app.css">
+<script src="mode.js"></script>
+</head>
+<body>
+<div class="app">
+  <header class="toolbar">
+    <button type="button" class="tbtn home-btn" data-action="home" aria-label="メニューへ戻る" title="メニューへ戻る">≡ メニュー</button>
+    <span class="title" id="app-title">PLC・GOT 図面生成</span>
+    <span class="file" id="file"></span>
+    <span class="dirty" id="dirty"></span>
+    <span class="spacer"></span>
+    <div class="group" id="tools-drawing">
+      <button type="button" class="tbtn" data-action="new">新規</button>
+      <button type="button" class="tbtn" data-action="open">開く</button>
+      <button type="button" class="tbtn" data-action="save">保存</button>
+      <button type="button" class="tbtn" data-action="save-as">名前を付けて保存</button>
+      <button type="button" class="tbtn" data-action="undo" id="undo" title="Ctrl+Z">元に戻す</button>
+      <button type="button" class="tbtn" data-action="redo" id="redo" title="Ctrl+Y">やり直す</button>
+      <span class="sep"></span>
+      <button type="button" class="tbtn" data-action="check">構成チェック</button>
+      <button type="button" class="tbtn" data-action="differences">構成との比較</button>
+      <button type="button" class="tbtn primary" data-action="generate">図面生成（.qet）</button>
+    </div>
+    <div class="group" id="tools-parts">
+      <button type="button" class="tbtn" data-action="xrefs">a・b接点の参照表を更新</button>
+    </div>
+  </header>
+
+  <!-- 最初のメニュー -->
+  <div class="home" id="view-home">
+    <div class="home-inner">
+      <h1>何をしますか</h1>
+      <div class="home-cards">
+        <section class="home-card">
+          <h2>PLC・GOT の図面を作る</h2>
+          <p>PLC・GOT・リモートIOの構成を組み、構成図・入出力・通信などの図面（.qet）を生成します。</p>
+          <div class="home-actions">
+            <button type="button" class="btn solid big" data-action="home-new">新しく作る</button>
+            <button type="button" class="btn big" data-action="home-open">プロジェクトを開く</button>
+            <button type="button" class="btn big" data-action="home-continue" id="home-continue" hidden>作業中のプロジェクトに戻る</button>
+          </div>
+        </section>
+        <section class="home-card">
+          <h2>制御部品の書出し・ユーザーコレクション登録</h2>
+          <p>リレー・接触器・スイッチ・センサ・電源・ハブなどを、QETのユーザーコレクションに登録、または部品ファイル（.elmt）として書き出します。</p>
+          <div class="home-actions">
+            <button type="button" class="btn solid big" data-action="home-parts">部品を選ぶ</button>
+          </div>
+        </section>
+        <section class="home-card">
+          <h2>a・b接点の参照表を更新</h2>
+          <p>QETでコイルと接点を関連付けて保存した図面の、接点の参照表を作り直します。</p>
+          <div class="home-actions">
+            <button type="button" class="btn solid big" data-action="xrefs">図面を選ぶ</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLC・GOT 図面 -->
+  <div class="body" id="view-drawing" hidden>
+    <section class="pane pages" aria-label="ページ">
+      <div class="pane-head">ページ<span class="count" id="page-count"></span></div>
+      <div class="page-list" id="pages"></div>
+      <div class="pane-foot">
+        <button type="button" class="btn solid" data-action="add-page">＋ ページ追加</button>
+      </div>
+    </section>
+    <main class="main" id="main"></main>
+    <aside class="drawer" id="drawer" aria-label="選択中の項目"></aside>
+  </div>
+
+  <!-- 制御部品の書出し -->
+  <div class="body" id="view-parts" hidden>
+    <section class="pane filters-pane" aria-label="絞り込み" id="parts-filters"></section>
+    <main class="pane parts-main" id="parts-table"></main>
+    <aside class="drawer" id="parts-drawer" aria-label="選んだ部品"></aside>
+  </div>
+
+  <div class="status" id="status" role="status"></div>
+</div>
+<div id="dialogs"></div>
+<script src="app.js"></script>
+</body>
+</html>

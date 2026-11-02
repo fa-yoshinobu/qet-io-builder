@@ -1,0 +1,174 @@
+{
+  "category": "standard_device",
+  "model": "TP58X2",
+  "definition": {
+    "manufacturer": "富士電機",
+    "series": "TP",
+    "device_type": "socket",
+    "source": "富士電機公式 D&C Catalog Industrial Control Relays 03/26・03/28・03/30–33・03/36（PDF p12・14・16–19・22）",
+    "official_html": "https://www.fujielectric.co.jp/products/industrial_control_relay/hh56/",
+    "terminal_numbering": "socket_body_pin_numbers",
+    "terminal_view": "公式ソケット外形・配線図の刻印番号。リレー本体と同番号。",
+    "terminal_type": "DINレール取付 ねじ端子 M3.5",
+    "compatible_relays": [
+      "HH52P",
+      "HH52P-L"
+    ],
+    "socket_compatibility_scope": "本プロジェクト登録機種の範囲。磁気保持形などは対象外。",
+    "electrical_terminals": 8,
+    "terminal_map": [
+      {
+        "socket_marking": "1",
+        "relay_pin": "1",
+        "function": "nc",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "4",
+        "relay_pin": "4",
+        "function": "nc",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "5",
+        "relay_pin": "5",
+        "function": "no",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "8",
+        "relay_pin": "8",
+        "function": "no",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "9",
+        "relay_pin": "9",
+        "function": "common",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "12",
+        "relay_pin": "12",
+        "function": "common",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "13",
+        "relay_pin": "13",
+        "function": "coil",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "14",
+        "relay_pin": "14",
+        "function": "coil",
+        "wire_entries": 1
+      }
+    ],
+    "display_ratings": "HH用 M3.5 8端子 / リレー別部品",
+    "symbol_bindings": [
+      {
+        "name": "pin_1",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "1"
+          ]
+        }
+      },
+      {
+        "name": "pin_4",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "4"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "pin_5",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "5"
+          ],
+          "second": [
+            "5"
+          ]
+        }
+      },
+      {
+        "name": "pin_8",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "8"
+          ],
+          "second": [
+            "8"
+          ]
+        }
+      },
+      {
+        "name": "pin_9",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "9"
+          ],
+          "second": [
+            "9"
+          ]
+        }
+      },
+      {
+        "name": "pin_12",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "12"
+          ],
+          "second": [
+            "12"
+          ]
+        }
+      },
+      {
+        "name": "pin_13",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "13"
+          ],
+          "second": [
+            "13"
+          ]
+        }
+      },
+      {
+        "name": "pin_14",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "14"
+          ],
+          "second": [
+            "14"
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "ソケット外部端子→リレー本体ピンを標準端子記号で表す受動部品。接点・コイルは含まない。",
+      "サージ吸収素子のない基本形。-CR等の内蔵形へ流用しない。"
+    ],
+    "verification_note": "公式資料の形名・回路・端子番号を照合。実機配線・動作は未確認。"
+  }
+}

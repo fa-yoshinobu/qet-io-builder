@@ -1,0 +1,2 @@
+[gotbody]
+fields = ["model", "title", "battery", "sd_card", "sd_card_model", "serial_mode", "ip", "station", "dip"]

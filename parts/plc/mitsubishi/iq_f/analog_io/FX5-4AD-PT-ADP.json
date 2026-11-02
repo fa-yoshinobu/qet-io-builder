@@ -1,0 +1,39 @@
+{
+  "category": "fx5_analog",
+  "model": "FX5-4AD-PT-ADP",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "L{n}+",
+      "L{n}-",
+      "I{n}-"
+    ],
+    "power": [],
+    "signal_labels_by_direction": {
+      "入力": {
+        "L{n}+": "測温抵抗体＋入力",
+        "L{n}-": "測温抵抗体－入力",
+        "I{n}-": "測温抵抗体コモン"
+      }
+    },
+    "source": "JY997D60501H 3.6 印刷126–127 / PDF128–129",
+    "sensor_types": [
+      "Pt100",
+      "Ni100"
+    ],
+    "sensor_wire_count": 3,
+    "unconnected_ports": [
+      {
+        "signal": "NC",
+        "channel": 4,
+        "channel_position": 3
+      }
+    ],
+    "unconnected_ports_source": "SH-082451Q 9.1 PDF137/印刷135（I4-の次、端子番号の記載なし）"
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "category": "remote_io",
+  "model": "NZ2GNCF1-32D",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "confirmed": true,
+    "source": "SH-082239-L 印刷38-40;適用112-113/切替123 / PDF40-42;114-115/125",
+    "note": "局内X/Y番号を表示。CPU側の割付はネットワーク設定で確認。 プラス/マイナスコモン共用。標準図はプラスコモン。",
+    "network_modes": [
+      "CC-Link IE TSN",
+      "CC-Link IE Field"
+    ],
+    "field_mode": {
+      "switch": "NETWORK(SW1)",
+      "value": "ON",
+      "minimum_firmware": "02",
+      "legacy_compatibility_firmware": "10"
+    },
+    "power_notes": [
+      "CC-Link IE FieldはNETWORK(SW1)=ON（電源OFF時に変更）、FW02以降",
+      "旧GF互換機能は別設定・FW10以降"
+    ],
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female",
+        "pins": []
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female",
+        "pins": []
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT POWER",
+        "connector_type": "terminal_3",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "FG"
+          ],
+          [
+            "2",
+            "24G"
+          ],
+          [
+            "3",
+            "+24V"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "UNIT POWER 1",
+        "FG"
+      ],
+      [
+        "UNIT POWER 2",
+        "24G"
+      ],
+      [
+        "UNIT POWER 3",
+        "+24V"
+      ]
+    ],
+    "terminal_block": "40ピンコネクタ",
+    "io": "in",
+    "points": 32,
+    "pins": [
+      "B20",
+      "B19",
+      "B18",
+      "B17",
+      "B16",
+      "B15",
+      "B14",
+      "B13",
+      "B12",
+      "B11",
+      "B10",
+      "B9",
+      "B8",
+      "B7",
+      "B6",
+      "B5",
+      "A20",
+      "A19",
+      "A18",
+      "A17",
+      "A16",
+      "A15",
+      "A14",
+      "A13",
+      "A12",
+      "A11",
+      "A10",
+      "A9",
+      "A8",
+      "A7",
+      "A6",
+      "A5"
+    ],
+    "common": [
+      "B1",
+      "B2"
+    ],
+    "input_common": "positive",
+    "show_all_commons": false,
+    "terminal_names": {
+      "B1": "COM",
+      "B2": "COM"
+    },
+    "input_common_options": [
+      "positive",
+      "negative"
+    ],
+    "io_connectors": [
+      {
+        "name": "I/O",
+        "connector_type": "fcn_40",
+        "gender": "unspecified",
+        "pins": [
+          [
+            "B1",
+            "COM"
+          ],
+          [
+            "A1",
+            "アキ"
+          ],
+          [
+            "B2",
+            "COM"
+          ],
+          [
+            "A2",
+            "アキ"
+          ],
+          [
+            "B3",
+            "アキ"
+          ],
+          [
+            "A3",
+            "アキ"
+          ],
+          [
+            "B4",
+            "アキ"
+          ],
+          [
+            "A4",
+            "アキ"
+          ],
+          [
+            "B5",
+            "XF"
+          ],
+          [
+            "A5",
+            "X1F"
+          ],
+          [
+            "B6",
+            "XE"
+          ],
+          [
+            "A6",
+            "X1E"
+          ],
+          [
+            "B7",
+            "XD"
+          ],
+          [
+            "A7",
+            "X1D"
+          ],
+          [
+            "B8",
+            "XC"
+          ],
+          [
+            "A8",
+            "X1C"
+          ],
+          [
+            "B9",
+            "XB"
+          ],
+          [
+            "A9",
+            "X1B"
+          ],
+          [
+            "B10",
+            "XA"
+          ],
+          [
+            "A10",
+            "X1A"
+          ],
+          [
+            "B11",
+            "X9"
+          ],
+          [
+            "A11",
+            "X19"
+          ],
+          [
+            "B12",
+            "X8"
+          ],
+          [
+            "A12",
+            "X18"
+          ],
+          [
+            "B13",
+            "X7"
+          ],
+          [
+            "A13",
+            "X17"
+          ],
+          [
+            "B14",
+            "X6"
+          ],
+          [
+            "A14",
+            "X16"
+          ],
+          [
+            "B15",
+            "X5"
+          ],
+          [
+            "A15",
+            "X15"
+          ],
+          [
+            "B16",
+            "X4"
+          ],
+          [
+            "A16",
+            "X14"
+          ],
+          [
+            "B17",
+            "X3"
+          ],
+          [
+            "A17",
+            "X13"
+          ],
+          [
+            "B18",
+            "X2"
+          ],
+          [
+            "A18",
+            "X12"
+          ],
+          [
+            "B19",
+            "X1"
+          ],
+          [
+            "A19",
+            "X11"
+          ],
+          [
+            "B20",
+            "X0"
+          ],
+          [
+            "A20",
+            "X10"
+          ]
+        ],
+        "no_connect_pins": [
+          "A1",
+          "A2",
+          "B3",
+          "A3",
+          "B4",
+          "A4"
+        ]
+      }
+    ]
+  }
+}

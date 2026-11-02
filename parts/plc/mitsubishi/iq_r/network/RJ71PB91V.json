@@ -1,0 +1,84 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71PB91V",
+  "definition": {
+    "network": "PROFIBUS-DP",
+    "ports": [
+      "PROFIBUS-DP"
+    ],
+    "source": "SH-081855ENG-J 2.1/PDF23,6.1/PDF35",
+    "slots": 1,
+    "occupied_io_points": 32,
+    "panel_interfaces": true,
+    "interfaces": [
+      {
+        "name": "PROFIBUS-DP",
+        "kind": "dsub9",
+        "connector_label": "D-sub 9pin メス",
+        "pinout": [
+          {
+            "pin": 3,
+            "signal": "RxD/TxD-P",
+            "code": "B/B'"
+          },
+          {
+            "pin": 5,
+            "signal": "DGND"
+          },
+          {
+            "pin": 6,
+            "signal": "VP"
+          },
+          {
+            "pin": 8,
+            "signal": "RxD/TxD-N",
+            "code": "A/A'"
+          }
+        ],
+        "unconnected_pins": [
+          "1",
+          "2",
+          "4",
+          "7",
+          "9"
+        ],
+        "unconnected_ports": [
+          {
+            "pin": "1",
+            "signal": "NC",
+            "description": "未使用",
+            "position": 0
+          },
+          {
+            "pin": "2",
+            "signal": "NC",
+            "description": "未使用",
+            "position": 1
+          },
+          {
+            "pin": "4",
+            "signal": "NC",
+            "description": "未使用",
+            "position": 3
+          },
+          {
+            "pin": "7",
+            "signal": "NC",
+            "description": "未使用",
+            "position": 6
+          },
+          {
+            "pin": "9",
+            "signal": "NC",
+            "description": "未使用",
+            "position": 8
+          }
+        ]
+      }
+    ],
+    "diagram_notes": [
+      "赤: B/B' (+) / 緑: A/A' (-)",
+      "5 DGND・6 VPは終端用"
+    ]
+  }
+}

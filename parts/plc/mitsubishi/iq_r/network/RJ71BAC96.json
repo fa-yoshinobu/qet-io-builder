@@ -1,0 +1,22 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71BAC96",
+  "definition": {
+    "network": "BACnet/IP",
+    "ports": [
+      "Ethernet"
+    ],
+    "source": "SH-081699ENG-D 1/PDF18,2.1/PDF20,6.1",
+    "slots": 1,
+    "occupied_io_points": 32,
+    "panel_interfaces": true,
+    "interfaces": [
+      {
+        "name": "Ethernet",
+        "kind": "rj45",
+        "connector_label": "RJ-45 10/100BASE-T"
+      }
+    ],
+    "diagram_notes": []
+  }
+}

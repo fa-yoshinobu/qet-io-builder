@@ -1,0 +1,41 @@
+{
+  "category": "remote_io",
+  "model": "NZ2GF2S1-16D",
+  "definition": {
+    "io": "in",
+    "points": 16,
+    "pins": [
+      "TB1",
+      "TB2",
+      "TB3",
+      "TB4",
+      "TB5",
+      "TB6",
+      "TB7",
+      "TB8",
+      "TB9",
+      "TB10",
+      "TB11",
+      "TB12",
+      "TB13",
+      "TB14",
+      "TB15",
+      "TB16"
+    ],
+    "network": "CC-Link IE Field",
+    "terminal_block": "スプリング端子台",
+    "confirmed": true,
+    "source": "SH-081114ENG-T pp.54–55",
+    "note": "局内X/Y番号を表示。CPU側の割付はネットワーク設定で確認。ユニット電源と通信は構成ページで接続。 挿入口には1線のみ接続。",
+    "common": [
+      "TB17",
+      "TB18"
+    ],
+    "input_common": "positive",
+    "show_all_commons": true,
+    "terminal_names": {
+      "TB17": "COM",
+      "TB18": "COM"
+    }
+  }
+}

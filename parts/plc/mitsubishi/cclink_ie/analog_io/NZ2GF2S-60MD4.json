@@ -1,0 +1,150 @@
+{
+  "category": "remote_analog",
+  "model": "NZ2GF2S-60MD4",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "V-/B",
+      "V+/A",
+      "b",
+      "I+",
+      "SH2",
+      "SH1"
+    ],
+    "power": [],
+    "auto_wiring": false,
+    "module_role": "remote_station",
+    "network": "CC-Link IE Field",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female"
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female"
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT",
+        "connector_type": "terminal_3",
+        "pins": [
+          [
+            "+24V",
+            "+24V"
+          ],
+          [
+            "24G",
+            "24G"
+          ],
+          [
+            "⏚",
+            "FG"
+          ]
+        ],
+        "position": "正面上から",
+        "terminal_type": "spring_clamp"
+      }
+    ],
+    "supply_voltage": "24V DC",
+    "supply_voltage_range": "20.4-28.8V DC",
+    "terminal_type": "24点スプリングクランプ;電源3点スプリングクランプ",
+    "channel_isolation": true,
+    "lifecycle": "current_catalog",
+    "verification_status": "確認済み",
+    "verification_remaining": [],
+    "network_condition": "Field専用。SimpleのIP設定・配線として扱わない",
+    "source": "SH-081681D; 仕様PDF16-17;端子PDF43;電源外観PDF13;通信PDF13;配線PDF44-49; 印刷頁=PDF頁-2",
+    "manual_references": [
+      {
+        "document_number": "SH-081681D",
+        "pages": "仕様PDF16-17;端子PDF43;電源外観PDF13;通信PDF13;配線PDF44-49"
+      }
+    ],
+    "wiring_notes": [
+      "端子台に資料上の数値端子番号なし。CHごとの上段左V-/B・右V+/A、中段左b・右I+、下段左SH2・右SH1を保持する。",
+      "電流時SH1–SH2を外部短絡。TC冷接点補償は内蔵センサ。RTDは3線式"
+    ],
+    "auxiliary_terminals": [],
+    "unused_pins": [],
+    "pins_by_channel": [
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "terminal_positions": {
+      "V-/B": "上段左",
+      "V+/A": "上段右",
+      "b": "中段左",
+      "I+": "中段右",
+      "SH2": "下段左",
+      "SH1": "下段右"
+    },
+    "supported_input_types": [
+      "電圧",
+      "電流",
+      "微小電圧",
+      "熱電対",
+      "3線式測温抵抗体"
+    ],
+    "required_jumpers": [
+      {
+        "when": "電流入力",
+        "terminals": [
+          "SH1",
+          "SH2"
+        ],
+        "scope": "same_channel",
+        "automatic": false
+      }
+    ],
+    "signal_labels_by_direction": {
+      "入力": {
+        "V-/B": "入力－／RTD B",
+        "V+/A": "入力＋／RTD A",
+        "b": "RTD補助導線b",
+        "I+": "電流入力＋",
+        "SH2": "電流入力短絡用",
+        "SH1": "電流入力短絡用"
+      }
+    },
+    "diagram_note": "電流時SH1-SH2短絡／SHはシールドではない"
+  }
+}

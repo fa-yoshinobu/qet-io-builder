@@ -1,0 +1,60 @@
+{
+  "category": "q_analog",
+  "model": "Q64AD-GH",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "V+",
+      "V-",
+      "I+",
+      "SLD"
+    ],
+    "power": [],
+    "pins_by_channel": [
+      [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      [
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      [
+        "15",
+        "16",
+        "17",
+        "18"
+      ]
+    ],
+    "signal_labels_by_direction": {
+      "入力": {
+        "V+": "電圧/電流入力＋",
+        "V-": "入力－",
+        "I+": "電流入力短絡用",
+        "SLD": "シールド"
+      }
+    },
+    "source": "SH-080277-O 4.3 PDF100/4-3; 4.4.2 PDF103/4-6",
+    "wiring_notes": [
+      "電流入力時は同一CHのV+とI+を接続する。",
+      "SLDは基板内部未配線。FGへ内部接続済みとみなさない。"
+    ],
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E3%82%A2%E3%83%8A%E3%83%AD%E3%82%B0"
+  }
+}

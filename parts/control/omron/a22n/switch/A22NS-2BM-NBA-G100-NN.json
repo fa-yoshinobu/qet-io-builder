@@ -1,0 +1,57 @@
+{
+  "category": "standard_device",
+  "model": "A22NS-2BM-NBA-G100-NN",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "A22N",
+    "device_type": "switch",
+    "source": "CSM_A22N_M22N_A30N_A254-E1_4_13 p12,21,31（定格・2位置動作・端子）; 国内公式個別商品",
+    "official_html": "https://www.fa.omron.co.jp/product/item/A22NS-2BM-NBA-G100-NN/",
+    "terminal_view": "BOTTOM VIEW",
+    "ratings": {
+      "rated_through_current_a": 10,
+      "ac_15_at_240v_a": 3,
+      "dc_13_at_24v_a": 4
+    },
+    "verification_note": "端子表示と接点を資料照合。操作部と接点ユニットの実配置・実機動作は未確認。",
+    "operation": "maintained",
+    "positions": [
+      "1",
+      "2"
+    ],
+    "operation_angle_deg": 90,
+    "color": "黒",
+    "illuminated": false,
+    "terminal_type": "ねじ端子",
+    "contact_configuration": "1a",
+    "contact_operation": {
+      "1": "open",
+      "2": "closed"
+    },
+    "display_ratings": "2位置保持 1a / 1:開 2:閉",
+    "symbol_bindings": [
+      {
+        "name": "selector",
+        "symbol": "selector_2position",
+        "terminals": {
+          "first": [
+            "3"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      }
+    ],
+    "standard_text_overrides": {
+      "selector_2position": {
+        "0": "1",
+        "1": "2"
+      }
+    },
+    "notes": [
+      "接点構成100のユニット位置1はNO。操作位置1で開、位置2で閉。",
+      "2位置保持式。3位置・自動復帰・キー式へ流用しない。"
+    ]
+  }
+}

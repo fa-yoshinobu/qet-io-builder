@@ -1,0 +1,38 @@
+{
+  "category": "standard_device",
+  "model": "M2BJ-B24B",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "M2BJ",
+    "device_type": "buzzer",
+    "source": "CSM_M2BJ_DS_E_4_1 p1–4（形式、定格、無極性電源2端子）",
+    "official_html": "https://www.fa.omron.co.jp/products/family/1106/lineup/",
+    "terminal_type": "はんだ付け端子",
+    "terminal_label_basis": "底面図の左／右。メーカー端子番号は付いていない。",
+    "ratings": {
+      "supply_voltage": "AC/DC12–24V",
+      "polarity": "none",
+      "minimum_sound_pressure_db_at_0_1m": 80
+    },
+    "display_ratings": "AC/DC12–24V 無極性",
+    "symbol_bindings": [
+      {
+        "name": "buzzer",
+        "symbol": "buzzer",
+        "terminals": {
+          "first": [
+            "電源（左）"
+          ],
+          "second": [
+            "電源（右）"
+          ]
+        }
+      }
+    ],
+    "verification_note": "公式資料の電源2端子・無極性を照合。実機動作は未確認。",
+    "notes": [
+      "左右は底面図を見た方向。端子番号1/2は付与しない。",
+      "音切替用ジャンパは配線用端子として数えない。外部信号切替形BH24D-DAは対象外。"
+    ]
+  }
+}

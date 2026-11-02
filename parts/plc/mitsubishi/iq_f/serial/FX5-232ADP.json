@@ -1,0 +1,84 @@
+{
+  "category": "fx5_comm",
+  "model": "FX5-232ADP",
+  "definition": {
+    "network": "RS-232C",
+    "ports": [
+      "1 CD",
+      "2 RD",
+      "3 SD",
+      "4 ER",
+      "5 SG",
+      "6 DR"
+    ],
+    "terminal_labels": true,
+    "form": "adapter",
+    "source": "SH-082451Q 9.2 印刷136–137 / PDF138–139",
+    "connector": {
+      "type": "D-sub",
+      "pins": 9,
+      "gender": "male",
+      "fixing_screw": "#4-40UNC",
+      "signals": {
+        "1": "CD",
+        "2": "RD",
+        "3": "SD",
+        "4": "ER",
+        "5": "SG",
+        "6": "DR"
+      },
+      "unused_pins": [
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    "interfaces": [
+      {
+        "name": "RS-232C",
+        "kind": "dsub9_male",
+        "ports": [],
+        "connector_label": "D-sub 9pin オス",
+        "pinout": [
+          {
+            "pin": 1,
+            "signal": "CD"
+          },
+          {
+            "pin": 2,
+            "signal": "RD"
+          },
+          {
+            "pin": 3,
+            "signal": "SD"
+          },
+          {
+            "pin": 4,
+            "signal": "ER"
+          },
+          {
+            "pin": 5,
+            "signal": "SG"
+          },
+          {
+            "pin": 6,
+            "signal": "DR"
+          },
+          {
+            "pin": 7,
+            "signal": "NC"
+          },
+          {
+            "pin": 8,
+            "signal": "NC"
+          },
+          {
+            "pin": 9,
+            "signal": "NC"
+          }
+        ]
+      }
+    ],
+    "panel_interfaces": true
+  }
+}

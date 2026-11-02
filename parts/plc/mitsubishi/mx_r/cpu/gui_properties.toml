@@ -1,0 +1,2 @@
+[iqrbody]
+fields = ["model", "power_model", "base_model", "title", "battery", "sd_card", "sd_card_model"]

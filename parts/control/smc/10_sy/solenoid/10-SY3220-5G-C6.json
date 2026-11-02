@@ -1,0 +1,53 @@
+{
+  "category": "standard_device",
+  "model": "10-SY3220-5G-C6",
+  "definition": {
+    "manufacturer": "SMC",
+    "series": "10-SY",
+    "device_type": "solenoid",
+    "source": "cat02-23-dc-sy p73、p162（正式手配例）、p171（グロメットのリード線・配線）",
+    "official_html": "https://www.smcworld.com/webcatalog/ja-jp/",
+    "terminal_type": "グロメット リード線",
+    "terminal_label_basis": "リード線色。端子番号A1/A2はメーカー刻印として付与しない。",
+    "ratings": {
+      "coil_voltage": "DC24V",
+      "pneumatic_ports": 5,
+      "coil_count": 2,
+      "surge_suppressor": false,
+      "indicator": false
+    },
+    "display_ratings": "DC24V 5ポート ダブル",
+    "symbol_bindings": [
+      {
+        "name": "coil_a",
+        "symbol": "solenoid_coil",
+        "terminals": {
+          "a1": [
+            "A赤 (+)"
+          ],
+          "a2": [
+            "A黒 (-)"
+          ]
+        }
+      },
+      {
+        "name": "coil_b",
+        "symbol": "solenoid_coil",
+        "terminals": {
+          "a1": [
+            "B赤 (+)"
+          ],
+          "a2": [
+            "B黒 (-)"
+          ]
+        }
+      }
+    ],
+    "verification_note": "公式手配例の型式、DC24V、グロメット、ソレノイド数を照合。赤+/黒−は個別注意事項による。実機は未確認。",
+    "notes": [
+      "電気回路側のコイルだけを標準記号で表す。空気圧弁の流路図は描かない。",
+      "G（標準リード線長さ300mm）、ランプ・サージ保護回路なし。Z/S/U/R仕様へ型式を書き換えて流用しない。",
+      "A/Bはソレノイドの区別。赤/黒はリード線色であり、端子番号ではない。"
+    ]
+  }
+}

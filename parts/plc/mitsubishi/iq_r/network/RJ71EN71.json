@@ -1,0 +1,13 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71EN71",
+  "definition": {
+    "network": "Ethernet",
+    "ports": [
+      "P1",
+      "P2"
+    ],
+    "source": "SH-081820ENG 4.4.1",
+    "connector_type": "rj45"
+  }
+}

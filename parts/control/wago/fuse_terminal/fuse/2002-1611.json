@@ -1,0 +1,50 @@
+{
+  "category": "standard_device",
+  "model": "2002-1611",
+  "definition": {
+    "manufacturer": "WAGO",
+    "series": "TOPJOB S ヒューズ端子台",
+    "device_type": "fuse_holder",
+    "standard_family": "fuse",
+    "terminal_type": "push_in",
+    "terminal_numbering": "physical_position",
+    "fuse_selection_required": true,
+    "fuse_included": false,
+    "indicator": false,
+    "ratings": {
+      "holder_rated_voltage_v": 250,
+      "holder_rated_current_a": 6.3,
+      "selected_fuse_current_a": null,
+      "applicable_fuse_size_mm": [
+        5,
+        20
+      ],
+      "max_fuse_power_loss_w": 1.6
+    },
+    "symbol_bindings": [
+      {
+        "name": "fuse",
+        "symbol": "fuse_1p",
+        "terminals": {
+          "first": [
+            "配線口1"
+          ],
+          "second": [
+            "配線口2"
+          ]
+        }
+      }
+    ],
+    "source": "2002-1611 Data Sheet Version 27.10.2026 p.1–3",
+    "official_html": "https://www.wago.com/gb/rail-mount-terminal-blocks/2-conductor-fuse-terminal-block/p/2002-1611",
+    "verification_note": "公式データシートの形名・定格・ヒューズ寸法・許容損失・回路を照合。QET実画面・実機は未確認。",
+    "notes": [
+      "ヒューズ切れ表示なし。標準ヒューズ記号はヒューズを装着した回路機能を表す。",
+      "ホルダ定格はIEC/EN 60947-7-3の250V・6.3A。UL定格10Aと混同しない。",
+      "ヒューズは別選定。許容損失1.6Wと実装温度条件を照合する。寸法のみで適合としない。",
+      "2mmテストスロットは最大100mAの高インピーダンス測定用。負荷電流用接続点として追加しない。",
+      "配線口名は説明用で刻印番号ではない。"
+    ],
+    "display_ratings": "ホルダ IEC 6.3A / 250V・5×20mm・ヒューズ未選択"
+  }
+}

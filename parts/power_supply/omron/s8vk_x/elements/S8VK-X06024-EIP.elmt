@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="280" height="358" hotspot_x="20" hotspot_y="38" link_type="simple">
+  <uuid uuid="{366cfa5c-a5bd-54ca-be43-3b7696b05b68}" />
+  <names>
+    <name lang="ja">OMRON S8VK-X06024-EIP DC24V電源</name>
+    <name lang="en">S8VK-X06024-EIP</name>
+  </names>
+  <elementInformations />
+  <informations>OMRON DC24V電源 自作回路図部品。資料: T210-E1-13 p2（型式・定格）p13–14（内部回路）p15–16（端子・各部）; オムロン公式形式/種類</informations>
+  <description>
+    <rect x="0" y="0" width="240" height="300" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="0" y="-18" width="240" height="18" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="79" y1="-18" x2="79" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="137" y1="-18" x2="137" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <text x="6" y="-4.333333333333334" text="ユニットNo." rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <text x="148.5" y="-3.666666666666667" text="S8VK-X06024-EIP" rotation="0" color="#000000" font="MS Gothic,8,-1,5,75,0,0,0,0,0" />
+    <text x="16" y="44" text="DC24V  2.5A" rotation="0" color="#000000" font="MS Gothic,9,-1,5,50,0,0,0,0,0" />
+    <line x1="10" y1="54" x2="230" y2="54" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <text x="16" y="71" text="入力" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <text x="171" y="71" text="出力" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="86" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="94" text="L1" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="114" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="122" text="L2" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="142" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="150" text="N1" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="170" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="178" text="N2" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="198" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="206" text="PE" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <circle x="232" y="86" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="232" y="114" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="232" y="142" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="232" y="170" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="232" y="198" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="190" y="210" width="40" height="40" rx="3" ry="3" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <polygon x1="196" y1="218" x2="224" y2="218" x3="224" y3="237" x4="216" y4="237" x5="216" y5="243" x6="204" y6="243" x7="204" y7="237" x8="196" y8="237" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="199.5" y1="218" x2="199.5" y2="224" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="202.5" y1="218" x2="202.5" y2="224" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="205.5" y1="218" x2="205.5" y2="224" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="208.5" y1="218" x2="208.5" y2="224" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="211.5" y1="218" x2="211.5" y2="224" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="214.5" y1="218" x2="214.5" y2="224" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="217.5" y1="218" x2="217.5" y2="224" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="220.5" y1="218" x2="220.5" y2="224" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <rect x="194" y="212" width="5" height="3" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <rect x="221" y="212" width="5" height="3" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <text x="105" y="234" text="Ethernet" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <text x="16" y="285" text="AC100～240V" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <dynamic_text uuid="{db5fa813-6d3d-53c1-9a95-cc19e8d6c0da}" x="57.33333333333333" y="-17.7" z="5" text_from="ElementInfo" Halignment="AlignHCenter" Valignment="AlignTop" rotation="0" text_width="21.66666666666667" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text />
+      <info_name>auxiliary1</info_name>
+    </dynamic_text>
+    <dynamic_text uuid="{a2dc89f4-4b53-56d3-beaa-f706fe497cc9}" x="79" y="-17.7" z="5" text_from="ElementInfo" Halignment="AlignHCenter" Valignment="AlignTop" rotation="0" text_width="58" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,75,0,0,0,0,0">
+      <text />
+      <info_name>label</info_name>
+    </dynamic_text>
+    <terminal uuid="{9ad96fac-5c97-539a-bab1-bea7d7e1e636}" orientation="w" x="0" y="90" name="L1" type="Generic" />
+    <terminal uuid="{a5ccdff6-ec6f-5018-b851-3ff2dffce70b}" orientation="w" x="0" y="118" name="L2" type="Generic" />
+    <terminal uuid="{87077521-db33-5042-b89a-b1525ac32605}" orientation="w" x="0" y="146" name="N1" type="Generic" />
+    <terminal uuid="{94462a54-421a-54e3-b15f-ef5055558d40}" orientation="w" x="0" y="174" name="N2" type="Generic" />
+    <terminal uuid="{9c72685f-4d23-5f97-9965-3e6bef26d2ba}" orientation="w" x="0" y="202" name="PE" type="Generic" />
+    <terminal uuid="{1ec6029e-ace2-55ab-8ca5-4e3bacb1dc5f}" orientation="e" x="240" y="90" name="+V1" type="Generic" />
+    <terminal uuid="{526203fc-13e8-50d3-a5bc-fa1f19256334}" orientation="e" x="240" y="118" name="+V2" type="Generic" />
+    <terminal uuid="{d995bde8-9e00-5e40-aeeb-4f5eb1734f4b}" orientation="e" x="240" y="146" name="-V1" type="Generic" />
+    <terminal uuid="{4ab7a7d8-2052-5fd1-bee4-84be79872c12}" orientation="e" x="240" y="174" name="-V2" type="Generic" />
+    <terminal uuid="{df557b4d-0ca9-5f9c-a90a-04cf6a99afa8}" orientation="e" x="240" y="202" name="-V3" type="Generic" />
+    <terminal uuid="{3f1647c5-5fbd-5d5f-a3bb-51224a4ee726}" orientation="e" x="230" y="230" name="Ethernet" type="Generic" />
+    <dynamic_text uuid="{d5f17cdc-3e8d-55bc-be61-8e64b209c988}" x="146" y="81" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,8,-1,5,50,0,0,0,0,0">
+      <text>+V1</text>
+    </dynamic_text>
+    <dynamic_text uuid="{403a7386-adc9-5914-972e-5d1ed0fdf487}" x="146" y="109" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,8,-1,5,50,0,0,0,0,0">
+      <text>+V2</text>
+    </dynamic_text>
+    <dynamic_text uuid="{57f3d8d3-a192-5eaf-86ce-0cf1c3dbb99f}" x="146" y="137" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,8,-1,5,50,0,0,0,0,0">
+      <text>-V1</text>
+    </dynamic_text>
+    <dynamic_text uuid="{8de8898a-a828-5c67-a69f-ed0e417f979c}" x="146" y="165" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,8,-1,5,50,0,0,0,0,0">
+      <text>-V2</text>
+    </dynamic_text>
+    <dynamic_text uuid="{fcef11f3-ff5c-595f-925a-331c77bba3b0}" x="146" y="193" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,8,-1,5,50,0,0,0,0,0">
+      <text>-V3</text>
+    </dynamic_text>
+  </description>
+</definition>

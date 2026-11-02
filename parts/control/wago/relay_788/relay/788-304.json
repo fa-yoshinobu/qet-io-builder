@@ -1,0 +1,62 @@
+{
+  "category": "standard_device",
+  "model": "788-304",
+  "definition": {
+    "manufacturer": "WAGO",
+    "series": "788",
+    "device_type": "relay",
+    "standard_family": "relay",
+    "terminal_numbering": "relay_module_external_terminals",
+    "terminal_view": "ベースを含むモジュールの外部端子。接点は無励磁状態。リレー単体の差込ピン番号とは区別する。",
+    "coil": {
+      "terminals": [
+        "A1",
+        "A2"
+      ],
+      "rated_voltage": "DC24V",
+      "voltages": {
+        "dc_v": [
+          "24"
+        ]
+      },
+      "polarity": "polarized",
+      "polarity_by_terminal": {
+        "A1": "+",
+        "A2": "-"
+      },
+      "surge": "diode",
+      "voltage_selection_required": false
+    },
+    "contacts": [
+      {
+        "type": "changeover",
+        "common": [
+          "11"
+        ],
+        "no": [
+          "14"
+        ],
+        "nc": [
+          "12"
+        ]
+      }
+    ],
+    "indicator": "LED",
+    "terminal_type": "push_in",
+    "source": "リレーモジュール製品概要 p.7; 公式商品ページ 回路図（788-304）",
+    "official_html": "https://www.wago.com/global/relay-and-optocoupler-modules/relay-module/p/788-304",
+    "display_ratings": "DC24V LED 1c / AC250V 16A（抵抗負荷）",
+    "ratings": {
+      "coil_vdc": 24,
+      "resistive_current_a": 16,
+      "resistive_voltage_vac": 250
+    },
+    "verification_note": "公式回路図・商品情報で外部端子、極性、接点構成を照合。QET実画面と実機配線は未確認。",
+    "notes": [
+      "コイルと接点を分離した標準記号で表す。QETで同じ機器番号を付け、コイルと接点を関連付ける。",
+      "LED・ダイオード付きモジュール。A1は＋、A2は－。内部表示・保護回路は機種情報に保持する。",
+      "接点の許容電流は負荷・電圧・温度により異なる。連続通電電流を全負荷の開閉容量として扱わない。",
+      "隣接モジュールへの渡り・コモニングは別途指定し、自動短絡しない。"
+    ]
+  }
+}

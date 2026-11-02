@@ -1,0 +1,79 @@
+{
+  "category": "iqr_analog",
+  "model": "R60DAH4",
+  "definition": {
+    "channels": [
+      "出力",
+      "出力",
+      "出力",
+      "出力"
+    ],
+    "terminals": [
+      "V+",
+      "COM",
+      "I+"
+    ],
+    "power": [
+      "+24V",
+      "24G",
+      "FG"
+    ],
+    "source": "SH-081655ENG-B 6.1 PDF28/印刷26",
+    "pins_by_channel": [
+      [
+        "1",
+        "2",
+        "3"
+      ],
+      [
+        "5",
+        "6",
+        "7"
+      ],
+      [
+        "9",
+        "10",
+        "11"
+      ],
+      [
+        "13",
+        "14",
+        "15"
+      ]
+    ],
+    "power_pins": [
+      "16",
+      "17",
+      "18"
+    ],
+    "unconnected_pins": [
+      "4",
+      "8",
+      "12"
+    ],
+    "diagram_note": "外部24VDC電源が必要。端子4/8/12はNCのため配線しない。",
+    "unconnected_ports": [
+      {
+        "pin": "4",
+        "signal": "NC",
+        "description": "配線不可",
+        "channel": 1,
+        "position": 3
+      },
+      {
+        "pin": "8",
+        "signal": "NC",
+        "description": "配線不可",
+        "channel": 2,
+        "position": 7
+      },
+      {
+        "pin": "12",
+        "signal": "NC",
+        "description": "配線不可",
+        "channel": 3,
+        "position": 11
+      }
+    ]
+  }
+}

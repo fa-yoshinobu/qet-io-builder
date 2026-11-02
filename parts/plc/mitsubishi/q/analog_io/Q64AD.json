@@ -1,0 +1,63 @@
+{
+  "category": "q_analog",
+  "model": "Q64AD",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "V+",
+      "V-",
+      "I+",
+      "SLD"
+    ],
+    "power": [
+      "AG",
+      "FG"
+    ],
+    "pins_by_channel": [
+      [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      [
+        "13",
+        "14",
+        "15",
+        "16"
+      ]
+    ],
+    "power_pins": [
+      "17",
+      "18"
+    ],
+    "signal_labels_by_direction": {
+      "入力": {
+        "V+": "電圧/電流入力＋",
+        "V-": "入力－",
+        "I+": "電流入力短絡用",
+        "SLD": "シールド"
+      }
+    },
+    "source": "SH-080055U 4.4",
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E3%82%A2%E3%83%8A%E3%83%AD%E3%82%B0"
+  }
+}

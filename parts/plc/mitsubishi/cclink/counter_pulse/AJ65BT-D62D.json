@@ -1,0 +1,154 @@
+{
+  "category": "remote_pulse",
+  "model": "AJ65BT-D62D",
+  "definition": {
+    "network_terminals": [
+      [
+        "1",
+        "DA"
+      ],
+      [
+        "2",
+        "DB"
+      ],
+      [
+        "3",
+        "DG"
+      ],
+      [
+        "4",
+        "SLD"
+      ],
+      [
+        "5",
+        "+24V"
+      ],
+      [
+        "6",
+        "FG"
+      ],
+      [
+        "7",
+        "24G"
+      ]
+    ],
+    "source": "IB-66823-I 4.3 PDF45-46;4.6 PDF51-55",
+    "manual_references": [
+      {
+        "document_number": "IB-66823-I",
+        "pages": "51-55"
+      }
+    ],
+    "diagram_note": "相補入力は信号名の先頭に/を付記。電圧・信号方式・出力負荷は資料に従い配線。",
+    "function": "高速カウンタ 2CH",
+    "signal_terminals": [
+      {
+        "pin": "8",
+        "signal": "A",
+        "description": "CH1 A相入力"
+      },
+      {
+        "pin": "9",
+        "signal": "/A",
+        "description": "CH1 A相反転入力"
+      },
+      {
+        "pin": "10",
+        "signal": "B",
+        "description": "CH1 B相入力"
+      },
+      {
+        "pin": "11",
+        "signal": "/B",
+        "description": "CH1 B相反転入力"
+      },
+      {
+        "pin": "12",
+        "signal": "PRESET",
+        "description": "CH1 プリセット入力"
+      },
+      {
+        "pin": "13",
+        "signal": "COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "14",
+        "signal": "F.START",
+        "description": "CH1 機能開始入力"
+      },
+      {
+        "pin": "15",
+        "signal": "A",
+        "description": "CH2 A相入力"
+      },
+      {
+        "pin": "16",
+        "signal": "/A",
+        "description": "CH2 A相反転入力"
+      },
+      {
+        "pin": "17",
+        "signal": "B",
+        "description": "CH2 B相入力"
+      },
+      {
+        "pin": "18",
+        "signal": "/B",
+        "description": "CH2 B相反転入力"
+      },
+      {
+        "pin": "19",
+        "signal": "PRESET",
+        "description": "CH2 プリセット入力"
+      },
+      {
+        "pin": "20",
+        "signal": "COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "21",
+        "signal": "F.START",
+        "description": "CH2 機能開始入力"
+      },
+      {
+        "pin": "22",
+        "signal": "EQU1",
+        "description": "CH1 一致出力"
+      },
+      {
+        "pin": "23",
+        "signal": "EQU2",
+        "description": "CH1 一致出力"
+      },
+      {
+        "pin": "24",
+        "signal": "EQU1",
+        "description": "CH2 一致出力"
+      },
+      {
+        "pin": "25",
+        "signal": "EQU2",
+        "description": "CH2 一致出力"
+      },
+      {
+        "pin": "26",
+        "signal": "12/24V",
+        "description": "外部電源"
+      },
+      {
+        "pin": "27",
+        "signal": "COM",
+        "description": "コモン"
+      }
+    ],
+    "module_role": "remote_station",
+    "network": "CC-Link",
+    "auto_wiring": false,
+    "verification_status": "資料照合",
+    "verification_remaining": [
+      "実機未確認"
+    ]
+  }
+}

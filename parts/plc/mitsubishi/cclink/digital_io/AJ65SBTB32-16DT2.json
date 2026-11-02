@@ -1,0 +1,144 @@
+{
+  "category": "remote_mixed",
+  "model": "AJ65SBTB32-16DT2",
+  "definition": {
+    "network": "CC-Link",
+    "network_terminals": [
+      [
+        "TB1",
+        "DA"
+      ],
+      [
+        "TB2",
+        "DB"
+      ],
+      [
+        "TB3",
+        "DG"
+      ],
+      [
+        "TB4",
+        "SLD"
+      ],
+      [
+        "TB5",
+        "+24V"
+      ],
+      [
+        "TB6",
+        "FG"
+      ],
+      [
+        "TB7",
+        "24G"
+      ]
+    ],
+    "source": "SH-4007AK 6.1.8",
+    "note": "コモン・入力電源はIOページに表示し、手動配線。出力はシンク。",
+    "input": {
+      "io": "in",
+      "points": 8,
+      "pins": [
+        "TB8",
+        "TB10",
+        "TB12",
+        "TB14",
+        "TB16",
+        "TB18",
+        "TB20",
+        "TB22"
+      ],
+      "common": [],
+      "input_common": "positive",
+      "manual_input_power": true,
+      "start_offset": 0,
+      "manual_input_note": "入力コモンは同じIOページで接続",
+      "extra_terminals": [
+        [
+          "TB9",
+          "COM+"
+        ],
+        [
+          "TB11",
+          "COM-"
+        ],
+        [
+          "TB13",
+          "COM+"
+        ],
+        [
+          "TB15",
+          "COM-"
+        ],
+        [
+          "TB17",
+          "COM+"
+        ],
+        [
+          "TB19",
+          "COM-"
+        ],
+        [
+          "TB21",
+          "COM+"
+        ],
+        [
+          "TB23",
+          "COM-"
+        ]
+      ]
+    },
+    "output": {
+      "io": "out",
+      "out": "sink",
+      "points": 8,
+      "pins": [
+        "TB24",
+        "TB26",
+        "TB28",
+        "TB30",
+        "TB32",
+        "TB34",
+        "TB36",
+        "TB38"
+      ],
+      "vplus": "TB40",
+      "com": "TB41",
+      "start_offset": 8,
+      "extra_terminals": [
+        [
+          "TB25",
+          "COM+"
+        ],
+        [
+          "TB27",
+          "COM+"
+        ],
+        [
+          "TB29",
+          "COM+"
+        ],
+        [
+          "TB31",
+          "COM+"
+        ],
+        [
+          "TB33",
+          "COM+"
+        ],
+        [
+          "TB35",
+          "COM+"
+        ],
+        [
+          "TB37",
+          "COM+"
+        ],
+        [
+          "TB39",
+          "COM+"
+        ]
+      ]
+    }
+  }
+}

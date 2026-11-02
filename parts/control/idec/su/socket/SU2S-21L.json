@@ -1,0 +1,183 @@
+{
+  "category": "standard_device",
+  "model": "SU2S-21L",
+  "definition": {
+    "manufacturer": "IDEC",
+    "series": "SU",
+    "device_type": "socket",
+    "source": "P1720-Push-in-SU p.4–6、B-2145-4-J 端子配列TOP VIEW",
+    "official_html": "https://www.idec.com/ja-jp/industrial-components/relays-timers/sockets/su-series/su2s-21l",
+    "terminal_numbering": "socket_nema_and_iec_marking",
+    "terminal_view": "ソケットTOP VIEW。刻印はIEC番号、括弧内はNEMA番号。図面はNEMA(IEC)で併記。",
+    "terminal_type": "Push-in端子 DINレール取付",
+    "compatible_relays": [
+      "RU2S-D24",
+      "RU2S-C-D24"
+    ],
+    "socket_compatibility_scope": "本プロジェクト登録RUリレー・GT5Yタイマの範囲。",
+    "electrical_terminals": 8,
+    "terminal_map": [
+      {
+        "socket_marking": "1(12)",
+        "relay_pin": "1",
+        "function": "nc",
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "4(42)",
+        "relay_pin": "4",
+        "function": "nc",
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "5(14)",
+        "relay_pin": "5",
+        "function": "no",
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "8(44)",
+        "relay_pin": "8",
+        "function": "no",
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "9(11)",
+        "relay_pin": "9",
+        "function": "common",
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "12(41)",
+        "relay_pin": "12",
+        "function": "common",
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "13(A1)",
+        "relay_pin": "13",
+        "function": "coil",
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "14(A2)",
+        "relay_pin": "14",
+        "function": "coil",
+        "wire_entries": 2
+      }
+    ],
+    "ratings": {
+      "rated_insulation_voltage_v": 300,
+      "rated_thermal_current_a": 12
+    },
+    "display_ratings": "RU用 Push-in 8端子 / リレー別部品",
+    "symbol_bindings": [
+      {
+        "name": "pin_1",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "1(12)"
+          ],
+          "second": [
+            "1"
+          ]
+        }
+      },
+      {
+        "name": "pin_4",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "4(42)"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "pin_5",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "5(14)"
+          ],
+          "second": [
+            "5"
+          ]
+        }
+      },
+      {
+        "name": "pin_8",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "8(44)"
+          ],
+          "second": [
+            "8"
+          ]
+        }
+      },
+      {
+        "name": "pin_9",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "9(11)"
+          ],
+          "second": [
+            "9"
+          ]
+        }
+      },
+      {
+        "name": "pin_12",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "12(41)"
+          ],
+          "second": [
+            "12"
+          ]
+        }
+      },
+      {
+        "name": "pin_13",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "13(A1)"
+          ],
+          "second": [
+            "13"
+          ]
+        }
+      },
+      {
+        "name": "pin_14",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "14(A2)"
+          ],
+          "second": [
+            "14"
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "標準端子でソケット刻印→リレー本体ピンを表す受動部品。接点やコイルを含まない。",
+      "各電気端子の配線口は2か所。独立回路ではなく、接続点を別端子として増やさない。",
+      "定格通電電流は使用温度・リレーとの組合せに応じたディレーティングが必要。",
+      "A2渡り金具は別部品、未装着。コイル極性は装着するリレーに従う。"
+    ],
+    "verification_note": "公式カタログと取扱説明書を照合。実機未確認。",
+    "compatible_timers": [
+      "GT5Y-2SN1D24"
+    ]
+  }
+}

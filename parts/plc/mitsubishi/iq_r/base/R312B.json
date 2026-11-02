@@ -1,0 +1,8 @@
+{
+  "category": "iqr_base",
+  "model": "R312B",
+  "definition": {
+    "slots": 12,
+    "source": "MELSEC iQ-R Basic system configuration"
+  }
+}

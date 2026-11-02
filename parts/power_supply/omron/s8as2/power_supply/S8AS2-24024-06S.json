@@ -1,0 +1,397 @@
+{
+  "category": "power_supply",
+  "model": "S8AS2-24024-06S",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "S8AS2",
+    "component_style": "smart_power_supply",
+    "input": {
+      "voltage": "単相AC100～240V",
+      "ac_voltage_range_v": [
+        85,
+        264
+      ],
+      "frequency_hz": [
+        50,
+        60
+      ]
+    },
+    "output": {
+      "voltage_v": 24,
+      "current_a": 10,
+      "power_w": 240,
+      "branches": 6,
+      "max_branch_current_a": 3.8,
+      "parameter_settings_changeable": true,
+      "branch_current_setting": {
+        "min_a": 0.5,
+        "max_a": 3.8,
+        "step_a": 0.1
+      }
+    },
+    "terminal_groups": [
+      {
+        "name": "入力・保護接地",
+        "role": "input",
+        "terminals": [
+          {
+            "id": "input_l1",
+            "label": "L",
+            "signal": "L"
+          },
+          {
+            "id": "input_l2",
+            "label": "L",
+            "signal": "L"
+          },
+          {
+            "id": "input_n1",
+            "label": "N",
+            "signal": "N"
+          },
+          {
+            "id": "input_n2",
+            "label": "N",
+            "signal": "N"
+          },
+          {
+            "id": "input_pe",
+            "label": "⏚",
+            "signal": "⏚"
+          }
+        ]
+      },
+      {
+        "name": "分岐出力",
+        "role": "output",
+        "terminals": [
+          {
+            "id": "ch1_p_1",
+            "label": "CH1 +",
+            "signal": "CH1_POS",
+            "channel": 1,
+            "polarity": "+",
+            "hole": 1
+          },
+          {
+            "id": "ch1_p_2",
+            "label": "CH1 +",
+            "signal": "CH1_POS",
+            "channel": 1,
+            "polarity": "+",
+            "hole": 2
+          },
+          {
+            "id": "ch1_n_1",
+            "label": "CH1 −",
+            "signal": "OUTPUT_0V",
+            "channel": 1,
+            "polarity": "−",
+            "hole": 1
+          },
+          {
+            "id": "ch1_n_2",
+            "label": "CH1 −",
+            "signal": "OUTPUT_0V",
+            "channel": 1,
+            "polarity": "−",
+            "hole": 2
+          },
+          {
+            "id": "ch2_p_1",
+            "label": "CH2 +",
+            "signal": "CH2_POS",
+            "channel": 2,
+            "polarity": "+",
+            "hole": 1
+          },
+          {
+            "id": "ch2_p_2",
+            "label": "CH2 +",
+            "signal": "CH2_POS",
+            "channel": 2,
+            "polarity": "+",
+            "hole": 2
+          },
+          {
+            "id": "ch2_n_1",
+            "label": "CH2 −",
+            "signal": "OUTPUT_0V",
+            "channel": 2,
+            "polarity": "−",
+            "hole": 1
+          },
+          {
+            "id": "ch2_n_2",
+            "label": "CH2 −",
+            "signal": "OUTPUT_0V",
+            "channel": 2,
+            "polarity": "−",
+            "hole": 2
+          },
+          {
+            "id": "ch3_p_1",
+            "label": "CH3 +",
+            "signal": "CH3_POS",
+            "channel": 3,
+            "polarity": "+",
+            "hole": 1
+          },
+          {
+            "id": "ch3_p_2",
+            "label": "CH3 +",
+            "signal": "CH3_POS",
+            "channel": 3,
+            "polarity": "+",
+            "hole": 2
+          },
+          {
+            "id": "ch3_n_1",
+            "label": "CH3 −",
+            "signal": "OUTPUT_0V",
+            "channel": 3,
+            "polarity": "−",
+            "hole": 1
+          },
+          {
+            "id": "ch3_n_2",
+            "label": "CH3 −",
+            "signal": "OUTPUT_0V",
+            "channel": 3,
+            "polarity": "−",
+            "hole": 2
+          },
+          {
+            "id": "ch4_p_1",
+            "label": "CH4 +",
+            "signal": "CH4_POS",
+            "channel": 4,
+            "polarity": "+",
+            "hole": 1
+          },
+          {
+            "id": "ch4_p_2",
+            "label": "CH4 +",
+            "signal": "CH4_POS",
+            "channel": 4,
+            "polarity": "+",
+            "hole": 2
+          },
+          {
+            "id": "ch4_n_1",
+            "label": "CH4 −",
+            "signal": "OUTPUT_0V",
+            "channel": 4,
+            "polarity": "−",
+            "hole": 1
+          },
+          {
+            "id": "ch4_n_2",
+            "label": "CH4 −",
+            "signal": "OUTPUT_0V",
+            "channel": 4,
+            "polarity": "−",
+            "hole": 2
+          },
+          {
+            "id": "ch5_p_1",
+            "label": "CH5 +",
+            "signal": "CH5_POS",
+            "channel": 5,
+            "polarity": "+",
+            "hole": 1
+          },
+          {
+            "id": "ch5_p_2",
+            "label": "CH5 +",
+            "signal": "CH5_POS",
+            "channel": 5,
+            "polarity": "+",
+            "hole": 2
+          },
+          {
+            "id": "ch5_n_1",
+            "label": "CH5 −",
+            "signal": "OUTPUT_0V",
+            "channel": 5,
+            "polarity": "−",
+            "hole": 1
+          },
+          {
+            "id": "ch5_n_2",
+            "label": "CH5 −",
+            "signal": "OUTPUT_0V",
+            "channel": 5,
+            "polarity": "−",
+            "hole": 2
+          },
+          {
+            "id": "ch6_p_1",
+            "label": "CH6 +",
+            "signal": "CH6_POS",
+            "channel": 6,
+            "polarity": "+",
+            "hole": 1
+          },
+          {
+            "id": "ch6_p_2",
+            "label": "CH6 +",
+            "signal": "CH6_POS",
+            "channel": 6,
+            "polarity": "+",
+            "hole": 2
+          },
+          {
+            "id": "ch6_n_1",
+            "label": "CH6 −",
+            "signal": "OUTPUT_0V",
+            "channel": 6,
+            "polarity": "−",
+            "hole": 1
+          },
+          {
+            "id": "ch6_n_2",
+            "label": "CH6 −",
+            "signal": "OUTPUT_0V",
+            "channel": 6,
+            "polarity": "−",
+            "hole": 2
+          }
+        ]
+      },
+      {
+        "name": "コモン出力",
+        "role": "output_common",
+        "terminals": [
+          {
+            "id": "common_1",
+            "label": "−",
+            "signal": "OUTPUT_0V"
+          },
+          {
+            "id": "common_2",
+            "label": "−",
+            "signal": "OUTPUT_0V"
+          }
+        ]
+      },
+      {
+        "name": "入出力信号",
+        "role": "signal",
+        "terminals": [
+          {
+            "id": "signal_TRP",
+            "label": "TRP",
+            "signal": "TRP",
+            "function": "異常遮断出力"
+          },
+          {
+            "id": "signal_LOW",
+            "label": "LOW",
+            "signal": "LOW",
+            "function": "不足電圧検出出力"
+          },
+          {
+            "id": "signal_LFE",
+            "label": "LFE",
+            "signal": "LFE",
+            "function": "交換時期お知らせ出力"
+          },
+          {
+            "id": "signal_TMP",
+            "label": "TMP",
+            "signal": "TMP",
+            "function": "温度出力"
+          },
+          {
+            "id": "signal_COM",
+            "label": "COM",
+            "signal": "COM",
+            "function": "信号出力コモン"
+          },
+          {
+            "id": "signal_TRG+",
+            "label": "TRG+",
+            "signal": "TRG+",
+            "function": "外部遮断入力＋"
+          },
+          {
+            "id": "signal_TRG-",
+            "label": "TRG-",
+            "signal": "TRG-",
+            "function": "外部遮断入力－"
+          }
+        ]
+      }
+    ],
+    "mounting": "DINレール",
+    "connection_type": "プッシュインPlus",
+    "source": "T243-E1-03 p.13–18（形式・定格）、p.20（端子・内部回路）／5833886-3C1（取扱説明書）",
+    "official_html": "https://www.fa.omron.co.jp/products/family/3956/lineup/",
+    "terminal_number_basis": "端子名称を表示。CH番号と各極2穴の識別は図面用で、メーカーの固有端子番号ではない。入力L/Nは各2穴、PE1穴、共通−は2穴。",
+    "signal_output": {
+      "type": "MOSFET relay",
+      "max_voltage_vdc": 30,
+      "max_current_ma": 50,
+      "common": "COM",
+      "polarity": "none"
+    },
+    "verification_note": "公式外観・結線図と照合。実機未確認。",
+    "wiring_notes": [
+      "各CHの＋端子2穴は同一分岐。各分岐の−およびコモン−は内部共通。",
+      "異なるCHの＋出力を並列接続しない。",
+      "信号COMはMOSFETリレー出力のコモンであり、電源−に自動接続しない。",
+      "TRG+/-は外部信号遮断入力。極性に注意。"
+    ],
+    "internal_connections": [
+      [
+        "ch1_n_1",
+        "ch1_n_2",
+        "ch2_n_1",
+        "ch2_n_2",
+        "ch3_n_1",
+        "ch3_n_2",
+        "ch4_n_1",
+        "ch4_n_2",
+        "ch5_n_1",
+        "ch5_n_2",
+        "ch6_n_1",
+        "ch6_n_2",
+        "common_1",
+        "common_2"
+      ],
+      [
+        "ch1_p_1",
+        "ch1_p_2"
+      ],
+      [
+        "ch2_p_1",
+        "ch2_p_2"
+      ],
+      [
+        "ch3_p_1",
+        "ch3_p_2"
+      ],
+      [
+        "ch4_p_1",
+        "ch4_p_2"
+      ],
+      [
+        "ch5_p_1",
+        "ch5_p_2"
+      ],
+      [
+        "ch6_p_1",
+        "ch6_p_2"
+      ],
+      [
+        "input_l1",
+        "input_l2"
+      ],
+      [
+        "input_n1",
+        "input_n2"
+      ]
+    ]
+  }
+}

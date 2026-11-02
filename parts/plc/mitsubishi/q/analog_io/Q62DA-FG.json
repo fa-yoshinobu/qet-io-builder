@@ -1,0 +1,52 @@
+{
+  "category": "q_analog",
+  "model": "Q62DA-FG",
+  "definition": {
+    "channels": [
+      "出力",
+      "出力"
+    ],
+    "terminals": [
+      "V+",
+      "COM{n}",
+      "I+"
+    ],
+    "power": [
+      "24V",
+      "24G",
+      "FG"
+    ],
+    "source": "SH-080281E-N 4.3 PDF68/4-4; 4.4.2 PDF70/4-6",
+    "pins_by_channel": [
+      [
+        "1",
+        "2",
+        "3"
+      ],
+      [
+        "9",
+        "10",
+        "11"
+      ]
+    ],
+    "power_pins": [
+      "16",
+      "17",
+      "18"
+    ],
+    "channel_isolation": true,
+    "external_power_isolation": true,
+    "signal_labels_by_direction": {
+      "出力": {
+        "V+": "電圧出力＋",
+        "COM{n}": "出力コモン（チャンネル間絶縁）",
+        "I+": "電流出力＋"
+      }
+    },
+    "wiring_notes": [
+      "COM1とCOM2はチャンネル間絶縁。相互または24Gへ自動接続しない。"
+    ],
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E3%82%A2%E3%83%8A%E3%83%AD%E3%82%B0"
+  }
+}

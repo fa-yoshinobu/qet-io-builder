@@ -1,0 +1,17 @@
+{
+  "category": "fx5_comm",
+  "model": "FX5-485ADP",
+  "definition": {
+    "network": "RS-485",
+    "ports": [
+      "RDA",
+      "RDB",
+      "SDA",
+      "SDB",
+      "SG"
+    ],
+    "terminal_labels": true,
+    "form": "adapter",
+    "source": "SH-082451Q 9.2 印刷136–137 / PDF138–139"
+  }
+}

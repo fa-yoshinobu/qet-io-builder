@@ -1,0 +1,147 @@
+{
+  "category": "remote_io",
+  "model": "NZ2GF2B2-16R",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "module_role": "main",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female"
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female"
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT",
+        "connector_type": "terminal_3",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "24G"
+          ],
+          [
+            "3",
+            "FG"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "1",
+        "+24V"
+      ],
+      [
+        "2",
+        "24G"
+      ],
+      [
+        "3",
+        "FG"
+      ]
+    ],
+    "confirmed": true,
+    "source": "SH-081114ENG-T 4.2 印刷73,74,75 / PDF75,76,77",
+    "source_reference": {
+      "document": "SH-081114ENG-T",
+      "section": "4.2",
+      "printed_pages": [
+        73,
+        74,
+        75
+      ],
+      "pdf_pages": [
+        75,
+        76,
+        77
+      ]
+    },
+    "lifecycle": "公式ラインアップ掲載（発売中の断定ではない）",
+    "extension_support": "最大1台",
+    "note": "COM Aはリレー接点共通、COM Bは負荷電源分配用。両系統を短絡しない。",
+    "power_notes": [],
+    "io": "out",
+    "points": 16,
+    "pins": [
+      "TB1",
+      "TB3",
+      "TB5",
+      "TB7",
+      "TB9",
+      "TB11",
+      "TB13",
+      "TB15",
+      "TB17",
+      "TB19",
+      "TB21",
+      "TB23",
+      "TB25",
+      "TB27",
+      "TB29",
+      "TB31"
+    ],
+    "terminal_block": "ねじ端子台",
+    "out": "relay",
+    "vplus": "",
+    "com": "TB33",
+    "paired_com_pins": [
+      "TB2",
+      "TB4",
+      "TB6",
+      "TB8",
+      "TB10",
+      "TB12",
+      "TB14",
+      "TB16",
+      "TB18",
+      "TB20",
+      "TB22",
+      "TB24",
+      "TB26",
+      "TB28",
+      "TB30",
+      "TB32"
+    ],
+    "paired_com_labels": [
+      "COM B",
+      "COM B",
+      "COM B",
+      "COM B",
+      "COM B",
+      "COM B",
+      "COM B",
+      "COM B",
+      "COM B",
+      "COM B",
+      "COM B",
+      "COM B",
+      "COM B",
+      "COM B",
+      "COM B",
+      "COM B"
+    ],
+    "paired_power_terminals": [
+      [
+        "COM A",
+        "TB33",
+        "P"
+      ],
+      [
+        "COM B",
+        "TB34",
+        "N"
+      ]
+    ]
+  }
+}

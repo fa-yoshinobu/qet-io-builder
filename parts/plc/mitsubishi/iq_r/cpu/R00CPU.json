@@ -1,0 +1,22 @@
+{
+  "category": "iqr_cpu",
+  "model": "R00CPU",
+  "definition": {
+    "usb_port": true,
+    "ethernet": true,
+    "battery_supported": true,
+    "battery_type": "FX3U-32BL",
+    "cc_link_ie": false,
+    "source": "SH-082488ENG-E 1章・3.2;SH-081262ENG-AS 4.6;SH-081256ENG-AA 1.2",
+    "sd_card_supported": false,
+    "usb_type": "Mini-B",
+    "sd_card_models": [],
+    "memory_cassette_supported": false,
+    "memory_cassette_models": [],
+    "memory_card_supported": false,
+    "memory_card_models": [],
+    "memory_source": "SH-081262ENG-AS 1.2 印刷77/PDF79（CPU別SD・カセット適合）; 4.4 印刷145/PDF147（SD容量）; SH-082488ENG-E 5.2 印刷67/PDF69（SRAM容量・R00/R01/R02非対応）; 付12 印刷707/PDF709（NZ2MC-16MBSはCPUファームウェア12以降・GX Works3 1.015R以降）",
+    "batteryless_supported": false,
+    "batteryless_source": "SH-082488ENG-E 1.3/1.4・2章・5.3; SH-081262ENG-AS 1.2（CPU別適合）"
+  }
+}

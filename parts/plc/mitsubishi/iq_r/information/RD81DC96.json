@@ -1,0 +1,48 @@
+{
+  "category": "iqr_comm",
+  "model": "RD81DC96",
+  "definition": {
+    "network": "高速データコミュニケーション",
+    "ports": [
+      "Ethernet"
+    ],
+    "source": "SH-082360ENG-B 1, 2.1 (印刷19-21)",
+    "connector_type": "rj45",
+    "occupied_io_points": 32,
+    "slots": 1,
+    "interfaces": [
+      {
+        "name": "Ethernet",
+        "kind": "rj45",
+        "ports": [],
+        "connector_label": "RJ-45"
+      },
+      {
+        "name": "SD CARD",
+        "kind": "sd",
+        "ports": [],
+        "connector_label": "SD / SDHC (2～16GB)"
+      }
+    ],
+    "sd_card": true,
+    "sd_card_standards": [
+      "SD",
+      "SDHC"
+    ],
+    "sd_card_capacity_gb": [
+      2,
+      16
+    ],
+    "usb": false,
+    "external_power": false,
+    "internal_current_5v_a": 1.1,
+    "ethernet_standards": [
+      "1000BASE-T",
+      "100BASE-TX",
+      "10BASE-T"
+    ],
+    "confirmation": "コネクタ種別・口数・SD・占有点数を資料照合。実機未確認",
+    "panel_interfaces": true,
+    "diagram_notes": []
+  }
+}

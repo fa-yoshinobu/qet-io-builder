@@ -1,0 +1,36 @@
+{
+  "category": "standard_device",
+  "model": "AR22F0R-01R",
+  "definition": {
+    "manufacturer": "FUJI ELECTRIC",
+    "series": "AR22",
+    "device_type": "switch",
+    "source": "62E2-J-0040d_04 4-13・22・26・31・37・64（ねじ端子・形式・動作）",
+    "terminal_view": "接点ブロック刻印。a接点3/4、b接点1/2、ランプX1/X2。",
+    "terminal_type": "M3.5ねじ",
+    "notes": [
+      "複数接点は同じタグを用い、配置後に機械連動を関連付ける。",
+      "照光回路はスイッチ接点と独立。DC点灯時の極性を守る。"
+    ],
+    "verification_note": "公式国内カタログで形式・端子を照合。実機未確認。",
+    "operation": "momentary",
+    "color": "赤",
+    "contact_configuration": "1b",
+    "display_ratings": "モメンタリ 1b 赤",
+    "symbol_bindings": [
+      {
+        "name": "pushbutton",
+        "symbol": "pushbutton_nc",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      }
+    ],
+    "official_html": "https://www.fujielectric.co.jp/products/command_switch/selection_table/ar22f0r/"
+  }
+}

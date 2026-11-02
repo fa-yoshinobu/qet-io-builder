@@ -1,0 +1,62 @@
+{
+  "category": "standard_device",
+  "model": "G2R-1-S DC24",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "G2R-S",
+    "device_type": "relay",
+    "standard_family": "relay",
+    "source": "G2R-□-S データシート4_19 p.2–3・7・10（BOTTOM VIEW）",
+    "official_html": "https://www.fa.omron.co.jp/product/item/G2R-1-S_DC24/",
+    "terminal_numbering": "relay_body",
+    "terminal_view": "リレー本体BOTTOM VIEW、無励磁状態。ソケットIEC番号と区別。",
+    "coil": {
+      "terminals": [
+        "1",
+        "5"
+      ],
+      "rated_voltage": "DC24V",
+      "voltages": {
+        "dc_v": [
+          "24"
+        ]
+      },
+      "voltage_selection_required": false,
+      "polarity": "none",
+      "surge": "none"
+    },
+    "contacts": [
+      {
+        "type": "changeover",
+        "common": [
+          "4"
+        ],
+        "no": [
+          "3"
+        ],
+        "nc": [
+          "2"
+        ]
+      }
+    ],
+    "indicator": "none",
+    "manual_test_lever": false,
+    "socket_candidates": [
+      "P2RF-05-PU",
+      "P2RFZ-05",
+      "P2RFZ-05-E"
+    ],
+    "ratings": {
+      "coil_vdc": 24,
+      "resistive_current_a": 10,
+      "resistive_voltage_vac": 250,
+      "resistive_voltage_vdc": 30
+    },
+    "display_ratings": "DC24V 1c",
+    "notes": [
+      "DC24V完成注文形名。AC仕様や他電圧のリレーへ流用しない。",
+      "リレー単体の定格とソケットの定格は別。装着ソケットの定格・使用条件も確認する。"
+    ],
+    "verification_note": "公式形名表・本体配線図を照合。実機未確認。"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "category": "fx5_ext",
+  "model": "FX5-C16EX/D",
+  "definition": {
+    "variants": [
+      ""
+    ],
+    "inputs": 16,
+    "outputs": [],
+    "in_common": "COM",
+    "sink_only": true,
+    "confirmed": true,
+    "source": "SH-082451Q 6.1 印刷111 / PDF113",
+    "physical_io": {
+      "input_commons": [
+        {
+          "name": "COM",
+          "start": "0",
+          "points": 16,
+          "contacts": 2,
+          "internal_group": "input:COM"
+        }
+      ],
+      "output_commons": [],
+      "input_signal_contacts": 1,
+      "output_signal_contacts": 1,
+      "source": {
+        "document": "SH-082451Q",
+        "section": "6.1",
+        "printed_pages": "111",
+        "pdf_pages": "113"
+      }
+    }
+  }
+}

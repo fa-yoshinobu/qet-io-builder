@@ -1,0 +1,80 @@
+{
+  "category": "standard_device",
+  "model": "NF32-SVF 3P 10A",
+  "definition": {
+    "manufacturer": "Mitsubishi Electric",
+    "series": "NF32-SVF",
+    "device_type": "breaker",
+    "standard_family": "protection",
+    "ratings": {
+      "poles": 3,
+      "elements": 3,
+      "rated_current_a": 10,
+      "frame_a": 30,
+      "current_type": "AC/DC",
+      "trip_characteristic": "熱動-電磁式",
+      "rated_insulation_voltage_v": 440,
+      "breaking_capacity_icu_ics_ka": {
+        "ac440v": [
+          2.5,
+          2.5
+        ],
+        "ac200v": [
+          7.5,
+          7.5
+        ],
+        "dc125v": [
+          10,
+          10
+        ]
+      }
+    },
+    "symbol_bindings": [
+      {
+        "name": "main",
+        "symbol": "breaker_3p",
+        "terminals": {
+          "line1": [
+            "LINE 左"
+          ],
+          "load1": [
+            "LOAD 左"
+          ],
+          "line2": [
+            "LINE 中"
+          ],
+          "load2": [
+            "LOAD 中"
+          ],
+          "line3": [
+            "LINE 右"
+          ],
+          "load3": [
+            "LOAD 右"
+          ]
+        }
+      }
+    ],
+    "terminal_numbering": "functional_position",
+    "terminal_view": "QET標準記号の上側を電源(LINE)、下側を負荷(LOAD)、各極を正面の左右で識別。数字刻印は未確認のため番号を付けない。",
+    "terminal_type": "表面形・圧着端子用ねじ",
+    "auxiliary_switch": false,
+    "alarm_switch": false,
+    "shunt_trip": false,
+    "source": "Y-0701U 2203 印刷p27（2/3極・電流）, p232–233（定格・主端子外形）; 三菱公式NF32-SVF仕様",
+    "official_html": "https://www.mitsubishielectric.co.jp/fa/products/faspec/detail.page?formNm=NF-S_F_NF32-SVF_5235&kisyu=/lvcb",
+    "verification_note": "公式の発注方式/仕様で構成を確認。主端子の数字刻印は未確認。QET標準記号の番号をメーカー番号へ流用しない。実機未確認。",
+    "display_ratings": "3P 10A 熱動・電磁 AC/DC",
+    "standard_text_overrides": {
+      "breaker_3p": {
+        "Calibre __A": "10A"
+      }
+    },
+    "notes": [
+      "主回路だけの定義。AL/AX/SHT/UVT、スプリングクランプ端子、裏面形などはこの型式に含めない。",
+      "定格電流・定格電圧だけで遮断器を選定せず、使用電圧ごとの遮断容量と負荷条件を確認する。",
+      "直流では2つの極を使用する。3極品を単極の直流ブレーカとして使わない。自動で極間短絡や直列結線を追加しない。",
+      "NF32-SVFは電線の直接接続不可。適用圧着端子を用いる。32A定格の別仕様は本一覧に含めない。"
+    ]
+  }
+}

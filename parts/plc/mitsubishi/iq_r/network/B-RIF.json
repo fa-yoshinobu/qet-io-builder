@@ -1,0 +1,32 @@
+{
+  "category": "iqr_comm",
+  "model": "B-RIF",
+  "definition": {
+    "network": "B/NET",
+    "ports": [
+      "B/NET"
+    ],
+    "source": "新製品ニュース No.A131 (2020/10) p1–2; IB63F46-A（本文未取得）",
+    "slots": 1,
+    "occupied_io_points": 32,
+    "panel_interfaces": true,
+    "interfaces": [
+      {
+        "name": "B/NET",
+        "kind": "terminal",
+        "ports": [
+          "D",
+          "N",
+          "S"
+        ]
+      }
+    ],
+    "diagram_notes": [
+      "端子名は公式製品写真で確認",
+      "配線条件は未確認"
+    ],
+    "confirmation": "未確認",
+    "verification_note": "iQ-R装着、占有32点、D/N/Sの端子表記はNo.A131確認。IB63F46-A/IB63F47-A本文は会員ログインが必要で未取得。極性・接地・短絡の扱いは未確認。",
+    "manual_required": true
+  }
+}

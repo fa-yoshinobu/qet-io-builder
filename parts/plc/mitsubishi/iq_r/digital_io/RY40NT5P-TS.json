@@ -1,0 +1,31 @@
+{
+  "category": "iqr_q",
+  "model": "RY40NT5P-TS",
+  "definition": {
+    "io": "out",
+    "out": "sink",
+    "points": 16,
+    "pins": [
+      "TB1",
+      "TB2",
+      "TB3",
+      "TB4",
+      "TB5",
+      "TB6",
+      "TB7",
+      "TB8",
+      "TB10",
+      "TB11",
+      "TB12",
+      "TB13",
+      "TB14",
+      "TB15",
+      "TB16",
+      "TB17"
+    ],
+    "vplus": "TB9",
+    "com": "TB18",
+    "confirmed": true,
+    "source": "SH-081247ENG-M 3.1"
+  }
+}

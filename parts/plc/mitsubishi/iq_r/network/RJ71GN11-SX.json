@@ -1,0 +1,32 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71GN11-SX",
+  "definition": {
+    "network": "CC-Link IE TSN",
+    "ports": [
+      "P1",
+      "P2"
+    ],
+    "connector_type": "optical",
+    "connector_label": "光ファイバ (Duplex LC)",
+    "interfaces": [
+      {
+        "name": "P1 CC-Link IE TSN",
+        "kind": "optical",
+        "connector_label": "Duplex LC",
+        "ports": []
+      },
+      {
+        "name": "P2 CC-Link IE TSN",
+        "kind": "optical",
+        "connector_label": "Duplex LC",
+        "ports": []
+      }
+    ],
+    "occupied_io_points": 32,
+    "slots": 1,
+    "source": "SH-082127ENG-P 1.2, 2.3, 7.4",
+    "verification_note": "各部名称・占有点数・Duplex LCを資料照合。実機未確認",
+    "panel_interfaces": true
+  }
+}

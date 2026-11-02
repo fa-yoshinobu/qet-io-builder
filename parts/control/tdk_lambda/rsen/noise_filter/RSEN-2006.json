@@ -1,0 +1,100 @@
+{
+  "category": "standard_device",
+  "model": "RSEN-2006",
+  "definition": {
+    "manufacturer": "TDK-Lambda",
+    "series": "RSEN",
+    "device_type": "noise_filter",
+    "source": "RP575/CON17/018X 2–4/8（PDF p.5–7）、TDK公式RSENテクニカルデータ",
+    "official_html": "https://product.tdk.com/ja/search/emc/emc/power-line/tec_data/nf_rsen",
+    "rated_supply": "AC250V 単相",
+    "ratings": {
+      "rated_voltage_vac": 250,
+      "rated_current_a": 6,
+      "frequency_hz": [
+        50,
+        60
+      ]
+    },
+    "terminal_type": "M4ねじ",
+    "electrical_nodes": 5,
+    "physical_wiring_terminals": 6,
+    "terminal_groups": {
+      "line1": [
+        "1"
+      ],
+      "line2": [
+        "2"
+      ],
+      "load1": [
+        "4"
+      ],
+      "load2": [
+        "3"
+      ],
+      "earth": [
+        "FG",
+        "FG"
+      ]
+    },
+    "internal_connections": [
+      [
+        "FG (電源側)",
+        "FG (負荷側)"
+      ]
+    ],
+    "line_paths": [
+      [
+        "1",
+        "4"
+      ],
+      [
+        "2",
+        "3"
+      ]
+    ],
+    "mounting": "シャーシねじ取付",
+    "temperature": {
+      "operating_min_c": -25,
+      "operating_max_c": 85,
+      "derating_start_c": 55
+    },
+    "display_ratings": "単相 AC250V 6A",
+    "notes": [
+      "端子1–4、2–3がそれぞれの電源ライン。上下のFGは内部同電位。",
+      "電源側/負荷側は図面上の区分。FG/FGは同じ刻印の接地端子2個を表す。",
+      "標準記号はフィルタ機能を表し、実機内部の素子構成・寸法を表さない。",
+      "定格電流は55℃から低減する。取付・周囲温度条件は公式仕様による。",
+      "今回の定義は末尾なしのねじ取付形。D（DINレール形）・L（低漏洩形）は含まない。"
+    ],
+    "verification_note": "公式仕様の端子・定格を照合。実機未確認。公式PDFローカル取得は403のため未完了。",
+    "symbol_bindings": [
+      {
+        "name": "filter",
+        "symbol": "noise_filter_1p",
+        "terminals": {
+          "line1": [
+            "1"
+          ],
+          "line2": [
+            "2"
+          ],
+          "load1": [
+            "4"
+          ],
+          "load2": [
+            "3"
+          ],
+          "earth": [
+            "FG",
+            "FG"
+          ]
+        }
+      }
+    ],
+    "earth_terminal_positions": [
+      "電源側",
+      "負荷側"
+    ]
+  }
+}

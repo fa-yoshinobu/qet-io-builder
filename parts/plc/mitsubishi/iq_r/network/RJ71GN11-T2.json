@@ -1,0 +1,30 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71GN11-T2",
+  "definition": {
+    "network": "CC-Link IE TSN",
+    "ports": [
+      "P1",
+      "P2"
+    ],
+    "connector_type": "rj45",
+    "connector_label": "RJ-45",
+    "interfaces": [
+      {
+        "name": "P1 CC-Link IE TSN",
+        "kind": "rj45",
+        "ports": []
+      },
+      {
+        "name": "P2 CC-Link IE TSN",
+        "kind": "rj45",
+        "ports": []
+      }
+    ],
+    "occupied_io_points": 32,
+    "slots": 1,
+    "source": "SH-082127ENG-P 1.1, 2.3, 7.1",
+    "verification_note": "各部名称・占有点数・コネクタを資料照合。実機未確認",
+    "panel_interfaces": true
+  }
+}

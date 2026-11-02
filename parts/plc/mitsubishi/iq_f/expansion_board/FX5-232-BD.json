@@ -1,0 +1,30 @@
+{
+  "category": "fx5_board",
+  "model": "FX5-232-BD",
+  "definition": {
+    "connection": "D-sub 9pin オス",
+    "ports": [
+      "D-sub 9pin"
+    ],
+    "source": "SH-082451Q 10.2 印刷139 / PDF141",
+    "connector": {
+      "type": "D-sub",
+      "pins": 9,
+      "gender": "male",
+      "fixing_screw": "#4-40UNC",
+      "signals": {
+        "1": "CD",
+        "2": "RD",
+        "3": "SD",
+        "4": "ER",
+        "5": "SG",
+        "6": "DR"
+      },
+      "unused_pins": [
+        "7",
+        "8",
+        "9"
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="85" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{380d6fbd-96bc-5528-ac59-196a3efef383}" />
+  <names>
+    <name lang="ja">角形 42極 メス</name>
+    <name lang="en">conn_handheld42_female</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <rect x="5" y="-22" width="70" height="44" rx="4" ry="4" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="10" y="-17" width="60" height="34" rx="2" ry="2" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="15.75" y="-14.25" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="23.25" y="-14.25" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="30.75" y="-14.25" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="38.25" y="-14.25" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="45.75" y="-14.25" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="53.25" y="-14.25" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="60.75" y="-14.25" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="15.75" y="-9.05" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="23.25" y="-9.05" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="30.75" y="-9.05" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="38.25" y="-9.05" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="45.75" y="-9.05" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="53.25" y="-9.05" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="60.75" y="-9.05" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="15.75" y="-3.8499999999999996" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="23.25" y="-3.8499999999999996" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="30.75" y="-3.8499999999999996" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="38.25" y="-3.8499999999999996" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="45.75" y="-3.8499999999999996" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="53.25" y="-3.8499999999999996" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="60.75" y="-3.8499999999999996" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="15.75" y="1.3500000000000014" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="23.25" y="1.3500000000000014" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="30.75" y="1.3500000000000014" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="38.25" y="1.3500000000000014" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="45.75" y="1.3500000000000014" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="53.25" y="1.3500000000000014" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="60.75" y="1.3500000000000014" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="15.75" y="6.550000000000001" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="23.25" y="6.550000000000001" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="30.75" y="6.550000000000001" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="38.25" y="6.550000000000001" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="45.75" y="6.550000000000001" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="53.25" y="6.550000000000001" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="60.75" y="6.550000000000001" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="15.75" y="11.75" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="23.25" y="11.75" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="30.75" y="11.75" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="38.25" y="11.75" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="45.75" y="11.75" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="53.25" y="11.75" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="60.75" y="11.75" diameter="2.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <terminal uuid="{c7c17595-5eea-5623-b35d-40e5d5bb1391}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

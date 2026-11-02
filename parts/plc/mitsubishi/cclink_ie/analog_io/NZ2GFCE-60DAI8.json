@@ -1,0 +1,551 @@
+{
+  "category": "remote_analog",
+  "model": "NZ2GFCE-60DAI8",
+  "definition": {
+    "channels": [
+      "出力",
+      "出力",
+      "出力",
+      "出力",
+      "出力",
+      "出力",
+      "出力",
+      "出力"
+    ],
+    "terminals": [
+      "I+",
+      "I-"
+    ],
+    "power": [],
+    "auto_wiring": false,
+    "module_role": "remote_station",
+    "network": "CC-Link IE Field",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female"
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female"
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "CON A",
+        "connector_type": "power_5",
+        "pins": [
+          [
+            "1",
+            "FG"
+          ],
+          [
+            "2",
+            "+24V"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "NC"
+          ],
+          [
+            "5",
+            "NC"
+          ]
+        ],
+        "non_connectable_pins": [
+          "4",
+          "5"
+        ],
+        "position": "正面上から5,4,3,2,1",
+        "mating_connector": "A6CON-PW5P / A6CON-PW5P-SOD"
+      },
+      {
+        "name": "CON B",
+        "connector_type": "power_5",
+        "pins": [
+          [
+            "1",
+            "FG"
+          ],
+          [
+            "2",
+            "+24V"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "NC"
+          ],
+          [
+            "5",
+            "NC"
+          ]
+        ],
+        "non_connectable_pins": [
+          "4",
+          "5"
+        ],
+        "position": "正面上から5,4,3,2,1",
+        "mating_connector": "A6CON-PW5P / A6CON-PW5P-SOD"
+      }
+    ],
+    "supply_voltage": "24V DC",
+    "supply_voltage_range": "20.4-28.8V DC",
+    "terminal_type": "e-CON 4極x8;電源5極CON A/B",
+    "channel_isolation": false,
+    "lifecycle": "current_catalog",
+    "verification_status": "一部確認",
+    "verification_remaining": [
+      "COM/−端子間の内部直結範囲は断定していない",
+      "専用電源コネクタの性別は図の外観から断定せず未確認。"
+    ],
+    "network_condition": "Field専用。SimpleのIP設定・配線として扱わない",
+    "source": "SH-081711E; 仕様PDF17;端子PDF42;電源外観PDF35;通信PDF13;配線PDF43; 印刷頁=PDF頁-2",
+    "manual_references": [
+      {
+        "document_number": "SH-081711E",
+        "pages": "仕様PDF17;端子PDF42;電源外観PDF35;通信PDF13;配線PDF43"
+      }
+    ],
+    "wiring_notes": [
+      "CON A/Bの1(FG)/2(+24V)/3(24G)は同名間が内部接続。渡り配線の合計許容電流1.5A。NC4/5は配線禁止。",
+      "電圧V+または電流I+とCOM/−を使用。電圧と電流を同一端子とみなさない。NC配線禁止;e-CON各CH pin1=信号+,2=信号−,3=NC,4=NC;電源CON A/B渡り配線合計1.5A以下",
+      "CH間非絶縁でもCOM/信号－端子の内部直結範囲は未確認。各実端子を省略・自動短絡しない。"
+    ],
+    "auxiliary_terminals": [],
+    "unused_pins": [
+      {
+        "connector": "CH1 e-CON",
+        "pin": "3",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH1 e-CON",
+        "pin": "4",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH2 e-CON",
+        "pin": "3",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH2 e-CON",
+        "pin": "4",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH3 e-CON",
+        "pin": "3",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH3 e-CON",
+        "pin": "4",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH4 e-CON",
+        "pin": "3",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH4 e-CON",
+        "pin": "4",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH5 e-CON",
+        "pin": "3",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH5 e-CON",
+        "pin": "4",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH6 e-CON",
+        "pin": "3",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH6 e-CON",
+        "pin": "4",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH7 e-CON",
+        "pin": "3",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH7 e-CON",
+        "pin": "4",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH8 e-CON",
+        "pin": "3",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CH8 e-CON",
+        "pin": "4",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "ユニット電源・FG CON A",
+        "pin": "4",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "ユニット電源・FG CON A",
+        "pin": "5",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "ユニット電源・FG CON B",
+        "pin": "4",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "ユニット電源・FG CON B",
+        "pin": "5",
+        "signal": "NC",
+        "connectable": false
+      }
+    ],
+    "internal_connections": [
+      [
+        {
+          "connector": "CON A",
+          "pin": "1"
+        },
+        {
+          "connector": "CON B",
+          "pin": "1"
+        }
+      ],
+      [
+        {
+          "connector": "CON A",
+          "pin": "2"
+        },
+        {
+          "connector": "CON B",
+          "pin": "2"
+        }
+      ],
+      [
+        {
+          "connector": "CON A",
+          "pin": "3"
+        },
+        {
+          "connector": "CON B",
+          "pin": "3"
+        }
+      ]
+    ],
+    "through_current_max_amps": 1.5,
+    "pins_by_channel": [
+      [
+        "1",
+        "2"
+      ],
+      [
+        "1",
+        "2"
+      ],
+      [
+        "1",
+        "2"
+      ],
+      [
+        "1",
+        "2"
+      ],
+      [
+        "1",
+        "2"
+      ],
+      [
+        "1",
+        "2"
+      ],
+      [
+        "1",
+        "2"
+      ],
+      [
+        "1",
+        "2"
+      ]
+    ],
+    "channel_connectors": [
+      {
+        "name": "CH1",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "I+"
+          ],
+          [
+            "2",
+            "I-"
+          ],
+          [
+            "3",
+            "NC"
+          ],
+          [
+            "4",
+            "NC"
+          ]
+        ],
+        "non_connectable_pins": [
+          "3",
+          "4"
+        ],
+        "position": "本体正面は左から4,3,2,1"
+      },
+      {
+        "name": "CH2",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "I+"
+          ],
+          [
+            "2",
+            "I-"
+          ],
+          [
+            "3",
+            "NC"
+          ],
+          [
+            "4",
+            "NC"
+          ]
+        ],
+        "non_connectable_pins": [
+          "3",
+          "4"
+        ],
+        "position": "本体正面は左から4,3,2,1"
+      },
+      {
+        "name": "CH3",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "I+"
+          ],
+          [
+            "2",
+            "I-"
+          ],
+          [
+            "3",
+            "NC"
+          ],
+          [
+            "4",
+            "NC"
+          ]
+        ],
+        "non_connectable_pins": [
+          "3",
+          "4"
+        ],
+        "position": "本体正面は左から4,3,2,1"
+      },
+      {
+        "name": "CH4",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "I+"
+          ],
+          [
+            "2",
+            "I-"
+          ],
+          [
+            "3",
+            "NC"
+          ],
+          [
+            "4",
+            "NC"
+          ]
+        ],
+        "non_connectable_pins": [
+          "3",
+          "4"
+        ],
+        "position": "本体正面は左から4,3,2,1"
+      },
+      {
+        "name": "CH5",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "I+"
+          ],
+          [
+            "2",
+            "I-"
+          ],
+          [
+            "3",
+            "NC"
+          ],
+          [
+            "4",
+            "NC"
+          ]
+        ],
+        "non_connectable_pins": [
+          "3",
+          "4"
+        ],
+        "position": "本体正面は左から4,3,2,1"
+      },
+      {
+        "name": "CH6",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "I+"
+          ],
+          [
+            "2",
+            "I-"
+          ],
+          [
+            "3",
+            "NC"
+          ],
+          [
+            "4",
+            "NC"
+          ]
+        ],
+        "non_connectable_pins": [
+          "3",
+          "4"
+        ],
+        "position": "本体正面は左から4,3,2,1"
+      },
+      {
+        "name": "CH7",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "I+"
+          ],
+          [
+            "2",
+            "I-"
+          ],
+          [
+            "3",
+            "NC"
+          ],
+          [
+            "4",
+            "NC"
+          ]
+        ],
+        "non_connectable_pins": [
+          "3",
+          "4"
+        ],
+        "position": "本体正面は左から4,3,2,1"
+      },
+      {
+        "name": "CH8",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "I+"
+          ],
+          [
+            "2",
+            "I-"
+          ],
+          [
+            "3",
+            "NC"
+          ],
+          [
+            "4",
+            "NC"
+          ]
+        ],
+        "non_connectable_pins": [
+          "3",
+          "4"
+        ],
+        "position": "本体正面は左から4,3,2,1"
+      }
+    ],
+    "channel_labels": [
+      "CH1 e-CON",
+      "CH2 e-CON",
+      "CH3 e-CON",
+      "CH4 e-CON",
+      "CH5 e-CON",
+      "CH6 e-CON",
+      "CH7 e-CON",
+      "CH8 e-CON"
+    ],
+    "signal_labels_by_direction": {
+      "出力": {
+        "I+": "電流出力＋",
+        "I-": "出力－",
+        "AG": "アナロググランド"
+      }
+    },
+    "diagram_note": "信号方式・外部配線はメーカー資料に従い設定"
+  }
+}

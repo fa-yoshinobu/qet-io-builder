@@ -1,0 +1,103 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71C24-R2",
+  "definition": {
+    "network": "シリアル",
+    "ports": [
+      "RS-232 CH1",
+      "RS-232 CH2"
+    ],
+    "source": "SH-081250ENG 2.2, 2.3",
+    "interfaces": [
+      {
+        "name": "CH1 RS-232",
+        "kind": "dsub9_male",
+        "pinout": [
+          {
+            "pin": 1,
+            "signal": "CD (DCD)"
+          },
+          {
+            "pin": 2,
+            "signal": "RD (RXD)"
+          },
+          {
+            "pin": 3,
+            "signal": "SD (TXD)"
+          },
+          {
+            "pin": 4,
+            "signal": "ER (DTR)"
+          },
+          {
+            "pin": 5,
+            "signal": "SG"
+          },
+          {
+            "pin": 6,
+            "signal": "DR (DSR)"
+          },
+          {
+            "pin": 7,
+            "signal": "RS (RTS)"
+          },
+          {
+            "pin": 8,
+            "signal": "CS (CTS)"
+          },
+          {
+            "pin": 9,
+            "signal": "CI (RI)"
+          }
+        ],
+        "pinout_source": "SH-081250ENG-F 1.3",
+        "connector_label": "D-sub 9pin オス"
+      },
+      {
+        "name": "CH2 RS-232",
+        "kind": "dsub9_male",
+        "pinout": [
+          {
+            "pin": 1,
+            "signal": "CD (DCD)"
+          },
+          {
+            "pin": 2,
+            "signal": "RD (RXD)"
+          },
+          {
+            "pin": 3,
+            "signal": "SD (TXD)"
+          },
+          {
+            "pin": 4,
+            "signal": "ER (DTR)"
+          },
+          {
+            "pin": 5,
+            "signal": "SG"
+          },
+          {
+            "pin": 6,
+            "signal": "DR (DSR)"
+          },
+          {
+            "pin": 7,
+            "signal": "RS (RTS)"
+          },
+          {
+            "pin": 8,
+            "signal": "CS (CTS)"
+          },
+          {
+            "pin": 9,
+            "signal": "CI (RI)"
+          }
+        ],
+        "pinout_source": "SH-081250ENG-F 1.3",
+        "connector_label": "D-sub 9pin オス"
+      }
+    ],
+    "panel_interfaces": true
+  }
+}

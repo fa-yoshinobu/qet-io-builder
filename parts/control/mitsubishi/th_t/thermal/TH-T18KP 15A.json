@@ -1,0 +1,94 @@
+{
+  "category": "standard_device",
+  "model": "TH-T18KP 15A",
+  "definition": {
+    "manufacturer": "Mitsubishi Electric",
+    "series": "TH-T",
+    "device_type": "thermal_relay",
+    "standard_family": "thermal_relay",
+    "base_model": "TH-T18KP",
+    "heater_designation_a": 15,
+    "ratings": {
+      "heater_elements": 3,
+      "current_setting_range_a": [
+        12,
+        18
+      ],
+      "selected_current_a": null,
+      "trip_class": "10A",
+      "protection": "過負荷・欠相保護",
+      "reset": "手動/自動切替。実機設定未指定"
+    },
+    "setting_required": true,
+    "mounting": "接触器直付け形（単体使用はUT-HZ18を別途使用）",
+    "terminal_view": "入力側L1/L2/L3は接触器への直付け接続位置を示す機能名で、独立したねじ端子番号ではない。出力は2/T1、4/T2、6/T3。",
+    "contact_form": {
+      "main": 3,
+      "trip_nc": 1,
+      "trip_no": 1
+    },
+    "symbol_bindings": [
+      {
+        "name": "main",
+        "symbol": "thermal_relay_3p",
+        "terminals": {
+          "line1": [
+            "L1"
+          ],
+          "load1": [
+            "2/T1"
+          ],
+          "line2": [
+            "L2"
+          ],
+          "load2": [
+            "4/T2"
+          ],
+          "line3": [
+            "L3"
+          ],
+          "load3": [
+            "6/T3"
+          ]
+        }
+      },
+      {
+        "name": "trip_nc",
+        "symbol": "thermal_contact_nc",
+        "terminals": {
+          "first": [
+            "95"
+          ],
+          "second": [
+            "96"
+          ]
+        }
+      },
+      {
+        "name": "trip_no",
+        "symbol": "thermal_contact_no",
+        "terminals": {
+          "first": [
+            "97"
+          ],
+          "second": [
+            "98"
+          ]
+        }
+      }
+    ],
+    "compatible_contactor_families": [
+      "S-T20"
+    ],
+    "source": "L(NA)02031-L (20A) 本文149 (PDF151) ヒータ呼びと整定範囲、本文152 (PDF154) TH-T18KP接続図; BH949B200H01 (201225) p1",
+    "official_html": "https://www.mitsubishielectric.co.jp/fa/products/lvd/lvsw/pmerit/thr/lineup.html",
+    "verification_note": "3極3素子(2E)のKP形。形式・ヒータ呼び・整定範囲・95-96/97-98と出力端子を資料照合。入力L1/L2/L3は機能名で、メーカー刻印番号とは扱わない。実機未確認。",
+    "notes": [
+      "ヒータ呼びは選定値。実際の整定値はモータ全負荷電流・使用条件に合わせて指定する。範囲下限やヒータ呼びへ自動固定しない。",
+      "95-96は正常時閉/トリップ時開、97-98は正常時開/トリップ時閉。両回路は独立し共通端子を持たない。",
+      "3極2素子のTH-T18と区別する。KPなし、BC/SQ、飽和リアクトル付SR、連動FS等の別形式は含まない。",
+      "手動/自動リセットは製品で切替できるため使用者が実機設定を確認する。"
+    ],
+    "display_ratings": "3素子(2E) 整定範囲 12～18A / 整定値未指定"
+  }
+}

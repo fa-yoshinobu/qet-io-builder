@@ -1,0 +1,167 @@
+{
+  "category": "standard_device",
+  "model": "P2CF-08",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "P2CF ソケット",
+    "device_type": "socket",
+    "standard_family": "socket",
+    "socket_family": "H3CR 8pin",
+    "terminal_numbering": "socket_pin_number",
+    "terminal_view": "ソケットTOP VIEW",
+    "electrical_terminals": 8,
+    "terminal_map": [
+      {
+        "socket_marking": "1",
+        "relay_pin": "1",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "2",
+        "relay_pin": "2",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "3",
+        "relay_pin": "3",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "4",
+        "relay_pin": "4",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "5",
+        "relay_pin": "5",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "6",
+        "relay_pin": "6",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "7",
+        "relay_pin": "7",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "8",
+        "relay_pin": "8",
+        "function": "pass_through"
+      }
+    ],
+    "compatible_timers": [
+      "H3CR-A8 AC24-48/DC12-48",
+      "H3CR-A8E AC/DC24-48"
+    ],
+    "symbol_bindings": [
+      {
+        "name": "pin_1",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "1"
+          ]
+        }
+      },
+      {
+        "name": "pin_2",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "2"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      },
+      {
+        "name": "pin_3",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "3"
+          ],
+          "second": [
+            "3"
+          ]
+        }
+      },
+      {
+        "name": "pin_4",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "4"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "pin_5",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "5"
+          ],
+          "second": [
+            "5"
+          ]
+        }
+      },
+      {
+        "name": "pin_6",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "6"
+          ],
+          "second": [
+            "6"
+          ]
+        }
+      },
+      {
+        "name": "pin_7",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "7"
+          ],
+          "second": [
+            "7"
+          ]
+        }
+      },
+      {
+        "name": "pin_8",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "8"
+          ],
+          "second": [
+            "8"
+          ]
+        }
+      }
+    ],
+    "internal_connections": [],
+    "connection_semantics": "各ねじ端子から同番号の差込ピンへの通過接続。異なるピン間の内部導通なし。",
+    "source": "CSM_H3CR_L084-E1_3_6 p.4・55（適合・TOP VIEW内部接続）",
+    "official_html": "https://www.fa.omron.co.jp/products/family/195/",
+    "notes": [
+      "DINレール・表面取付用、8個のM3.5ねじ端子。接点や電源の機能は装着タイマ側に属する。",
+      "同一番号を両端に表示する標準端子記号で、ねじ端子と差込ピンの通過接続を表す。"
+    ],
+    "verification_note": "メーカーTOP VIEW図の1～8と差込ピンの対応を照合。実機未確認。"
+  }
+}

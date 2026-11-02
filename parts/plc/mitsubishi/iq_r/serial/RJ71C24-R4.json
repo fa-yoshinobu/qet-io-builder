@@ -1,0 +1,42 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71C24-R4",
+  "definition": {
+    "network": "シリアル",
+    "ports": [
+      "RS-422/485 CH1",
+      "RS-422/485 CH2"
+    ],
+    "source": "SH-081250ENG 2.2, 2.3",
+    "interfaces": [
+      {
+        "name": "CH1 RS-422/485",
+        "kind": "terminal",
+        "ports": [
+          "SDA",
+          "SDB",
+          "RDA",
+          "RDB",
+          "SG",
+          "SLD",
+          "FG"
+        ],
+        "shield_ground_connected": true
+      },
+      {
+        "name": "CH2 RS-422/485",
+        "kind": "terminal",
+        "ports": [
+          "SDA",
+          "SDB",
+          "RDA",
+          "RDB",
+          "SG",
+          "SLD",
+          "FG"
+        ],
+        "shield_ground_connected": true
+      }
+    ]
+  }
+}

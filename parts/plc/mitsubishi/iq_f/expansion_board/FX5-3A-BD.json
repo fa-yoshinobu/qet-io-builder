@@ -1,0 +1,29 @@
+{
+  "category": "fx5_board",
+  "model": "FX5-3A-BD",
+  "definition": {
+    "connection": "端子台",
+    "ports": [
+      "V1+",
+      "I1+",
+      "V1-",
+      "V2+",
+      "I2+",
+      "V2-",
+      "V3+",
+      "V3-"
+    ],
+    "signal_labels": {
+      "V1+": "CH1 電圧入力",
+      "I1+": "CH1 電流入力",
+      "V1-": "CH1 コモン",
+      "V2+": "CH2 電圧入力",
+      "I2+": "CH2 電流入力",
+      "V2-": "CH2 コモン",
+      "V3+": "CH3 電圧/電流出力",
+      "V3-": "CH3 コモン"
+    },
+    "source": "SH-082451Q 10.1,15.7 印刷138,214 / PDF140,216",
+    "current_input_jumper": false
+  }
+}

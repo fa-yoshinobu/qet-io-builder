@@ -1,0 +1,51 @@
+{
+  "category": "q_cpu",
+  "model": "Q26UDVCPU",
+  "definition": {
+    "usb_port": true,
+    "ethernet": true,
+    "battery_supported": true,
+    "source": "SH-080483ENG-BC 6.1.3(4) PDF143-145/141-143; Appendix 4.2(4) PDF644-652/642-650; SH-080483ENG-BC 2.2(4) PDF40/38; 6.2.5 PDF188-192/186-190",
+    "usb_type": "Mini-B",
+    "sd_card_slot": true,
+    "battery_models": [
+      "Q6BAT",
+      "Q7BATN",
+      "Q7BAT",
+      "Q8BAT"
+    ],
+    "battery_note": "電池の適用条件・寿命・選択は同資料のCPU適用表に従う。",
+    "sd_card_supported": true,
+    "program_capacity_ksteps": 260,
+    "io_points": 4096,
+    "io_device_points": 8192,
+    "max_extension_stages": 7,
+    "max_module_slots": 64,
+    "memory_card_supported": false,
+    "memory_cassette_supported": true,
+    "rs232_port": false,
+    "memory_cassette_models": [
+      "Q4MCA-1MBS",
+      "Q4MCA-2MBS",
+      "Q4MCA-4MBS",
+      "Q4MCA-8MBS"
+    ],
+    "memory_card_models": [],
+    "sd_card_max_gb": 32,
+    "sd_card_models": [
+      "NZ1MEM-2GBSD",
+      "NZ1MEM-4GBSD",
+      "NZ1MEM-8GBSD",
+      "NZ1MEM-16GBSD",
+      "L1MEM-2GBSD",
+      "L1MEM-4GBSD"
+    ],
+    "memory_source": "SH-080483ENG-BC 2.1.2(4) PDF40/冊子38; 6.2.5(6) PDF188/186（SD/SDHC最大32GB）; 9.1 PDF253/251; 10.1-10.2 PDF261-262/259-260; 11.1-11.2 PDF264-265/262-263; Appendix 7 PDF674/672; 生産終了機種 PDF27/25（L1MEM-2GBSD・L1MEM-4GBSDは2015年7月生産終了）; FA-D-0183-A p1（生産中止2015-07-31）",
+    "memory_option_notes": {
+      "L1MEM-2GBSD": "生産終了（2015年7月31日）",
+      "L1MEM-4GBSD": "生産終了（2015年7月31日）"
+    },
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=CPU"
+  }
+}

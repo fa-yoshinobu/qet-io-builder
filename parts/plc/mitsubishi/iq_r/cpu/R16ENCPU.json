@@ -1,0 +1,48 @@
+{
+  "category": "iqr_cpu",
+  "model": "R16ENCPU",
+  "definition": {
+    "usb_port": true,
+    "ethernet": true,
+    "battery_supported": true,
+    "battery_type": "Q6BAT/Q7BATN",
+    "cc_link_ie": true,
+    "source": "SH-082488ENG-E 1章・3.2;SH-081262ENG-AS 4.6;SH-081256ENG-AA 1.2",
+    "sd_card_supported": true,
+    "usb_type": "Mini-B",
+    "network_note": "CPUのEthernet P1に加え、ネットワーク部P1/P2を装備。CC-Link IE Control/FieldまたはEthernetの組合せは設定・仕様に従う。",
+    "network_part": {
+      "equivalent": "RJ71EN71",
+      "slots": 1,
+      "points": 32,
+      "ports": [
+        "P1",
+        "P2"
+      ],
+      "source": "SH-082488ENG-E 1章(RnENCPU は CPU 部と右側のネットワーク部の2スロット)・5章 性能仕様(占有入出力点数 ネットワーク部: 32)"
+    },
+    "sd_card_models": [
+      "NZ1MEM-2GBSD",
+      "NZ1MEM-4GBSD",
+      "NZ1MEM-8GBSD",
+      "NZ1MEM-16GBSD"
+    ],
+    "memory_cassette_supported": true,
+    "memory_cassette_models": [
+      "NZ2MC-1MBS",
+      "NZ2MC-2MBS",
+      "NZ2MC-4MBS",
+      "NZ2MC-8MBS",
+      "NZ2MC-16MBS"
+    ],
+    "memory_card_supported": false,
+    "memory_card_models": [],
+    "memory_source": "SH-081262ENG-AS 1.2 印刷77/PDF79（CPU別SD・カセット適合）; 4.4 印刷145/PDF147（SD容量）; SH-082488ENG-E 5.2 印刷67/PDF69（SRAM容量・R00/R01/R02非対応）; 付12 印刷707/PDF709（NZ2MC-16MBSはCPUファームウェア12以降・GX Works3 1.015R以降）",
+    "memory_option_notes": {
+      "NZ2MC-16MBS": "CPUファームウェア12以降／GX Works3 1.015R以降。"
+    },
+    "batteryless_supported": true,
+    "batteryless_model": "NZ1BLC",
+    "batteryless_source": "SH-082488ENG-E 1.3/1.4・2章・5.3; SH-081262ENG-AS 1.2（CPU別適合）"
+  }
+}

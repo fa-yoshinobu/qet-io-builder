@@ -1,0 +1,104 @@
+{
+  "category": "standard_device",
+  "model": "E-IESH-MB1005-T-R",
+  "definition": {
+    "manufacturer": "MISUMI",
+    "series": "産業用スイッチングハブ",
+    "device_type": "ethernet_switch",
+    "component_style": "ethernet_switch",
+    "source": "User manual Misumi JP（2024-07-22）p1–2、公式商品仕様表・前面写真",
+    "official_html": "https://jp.misumi-ec.com/vona2/detail/110411091699/",
+    "misumi_html": "https://jp.misumi-ec.com/vona2/detail/110411091699/",
+    "selection_basis": "ミスミのスイッチングハブカテゴリ売れ筋欄の上位掲載を根拠に優先。2026-10-28確認。実売数量・集計方法・厳密な順位は未確認。",
+    "selection_category_html": "https://jp.misumi-ec.com/vona2/ie_control/E1300000000/E1311000000/E1311010000/",
+    "selection_observed_on": "2026-10-28",
+    "display_ratings": "5ポート 10/100Mbps AC/DC入力",
+    "power": {
+      "voltage": "DC12/24/48V または AC24V（動作範囲9.6–60VDC / 18–30VAC）",
+      "terminals": [
+        {
+          "label": "L/+",
+          "function": "AC入力L / DC入力＋"
+        },
+        {
+          "label": "N/-",
+          "function": "AC入力N / DC入力−"
+        }
+      ]
+    },
+    "ports": [
+      {
+        "label": "1",
+        "type": "rj45",
+        "speed": "10/100Mbps"
+      },
+      {
+        "label": "2",
+        "type": "rj45",
+        "speed": "10/100Mbps"
+      },
+      {
+        "label": "3",
+        "type": "rj45",
+        "speed": "10/100Mbps"
+      },
+      {
+        "label": "4",
+        "type": "rj45",
+        "speed": "10/100Mbps"
+      },
+      {
+        "label": "5",
+        "type": "rj45",
+        "speed": "10/100Mbps"
+      }
+    ],
+    "managed": false,
+    "ratings": {
+      "port_count": 5,
+      "speed_mbps": [
+        10,
+        100
+      ],
+      "supply_vdc_range": [
+        9.6,
+        60
+      ],
+      "supply_vac_range": [
+        18,
+        30
+      ],
+      "temperature_c": [
+        -40,
+        75
+      ],
+      "ip_rating": "IP40",
+      "mounting": "DINレール",
+      "power_consumption_w": null
+    },
+    "notes": [
+      "RJ45はケーブル単位の接続点。1～8の番号はポート番号で、RJ45内部8ピンの信号番号ではない。",
+      "アンマネージド製品で管理IPアドレス・局番は設定しない。実機設定・配線は未確認。",
+      "電源は2極着脱端子台、筐体接地ねじは別接続。電源冗長入力や警報接点はない。",
+      "DIPスイッチでQoSとBSPのON/OFFを選択。図面の設定値は未指定。",
+      "AC入力は24VAC系であり、AC100/200Vを直接接続しない。"
+    ],
+    "verification_note": "公式PDFの電源接続図と公式前面図で電源ラベル・ポート数/番号を照合。実機未確認。",
+    "ground": {
+      "label": "⏚",
+      "function": "筐体接地ねじ"
+    },
+    "dip_switches": [
+      {
+        "label": "QoS",
+        "function": "Quality of Service",
+        "selected": null
+      },
+      {
+        "label": "BSP",
+        "function": "Broadcast Storm Protection",
+        "selected": null
+      }
+    ]
+  }
+}

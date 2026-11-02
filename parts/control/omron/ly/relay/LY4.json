@@ -1,0 +1,98 @@
+{
+  "category": "standard_device",
+  "model": "LY4",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "LY",
+    "device_type": "relay",
+    "standard_family": "relay",
+    "coil": {
+      "terminals": [
+        "13",
+        "14"
+      ],
+      "voltages": {
+        "ac_v": [
+          "12",
+          "24",
+          "100/110",
+          "200/220"
+        ],
+        "dc_v": [
+          "12",
+          "24",
+          "48",
+          "100/110"
+        ]
+      },
+      "polarity": "none",
+      "surge": "none"
+    },
+    "contacts": [
+      {
+        "type": "changeover",
+        "common": [
+          "9"
+        ],
+        "no": [
+          "5"
+        ],
+        "nc": [
+          "1"
+        ]
+      },
+      {
+        "type": "changeover",
+        "common": [
+          "10"
+        ],
+        "no": [
+          "6"
+        ],
+        "nc": [
+          "2"
+        ]
+      },
+      {
+        "type": "changeover",
+        "common": [
+          "11"
+        ],
+        "no": [
+          "7"
+        ],
+        "nc": [
+          "3"
+        ]
+      },
+      {
+        "type": "changeover",
+        "common": [
+          "12"
+        ],
+        "no": [
+          "8"
+        ],
+        "nc": [
+          "4"
+        ]
+      }
+    ],
+    "contact_mechanism": "シングル",
+    "indicator": "なし",
+    "socket_candidates": [
+      "PTF14A",
+      "PTFZ-14-E",
+      "PTF-14-PU-L"
+    ],
+    "terminal_numbering": "relay_body",
+    "terminal_view": "リレーBOTTOM VIEW、無励磁状態",
+    "source": "CSM_LY_DS_J_6_1 PDF p.2;3;4;13",
+    "official_html": "https://www.fa.omron.co.jp/products/family/949/lineup/",
+    "verification_note": "本体端子図を資料照合。ソケット刻印番号とは別。コイル電圧は注文時に選択、装着済み・定格電圧を推定しない。実機未確認。",
+    "notes": [
+      "基本形式。電圧SKUへ無条件展開しない。接点番号は極ごとCOM/NO/NCの各列が対応。",
+      "電圧リストは当該PDF形式表記載分。公式セレクタの全SKU・旧在庫の極性変更時期は未確認"
+    ]
+  }
+}

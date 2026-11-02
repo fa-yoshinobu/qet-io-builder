@@ -1,0 +1,74 @@
+{
+  "category": "standard_device",
+  "model": "RJ2S-CL-D24",
+  "definition": {
+    "manufacturer": "IDEC",
+    "series": "RJ",
+    "device_type": "relay",
+    "standard_family": "relay",
+    "source": "P1804-RJ-SJ p6（内部配線BOTTOM VIEW）; RelaySelectionGuide200910-apem p5",
+    "official_html": "https://www.idec.com/ja-jp/industrial-components/relays-timers/relays/rj-slim-general-purpose-relay/rj2s-cl-d24",
+    "terminal_view": "リレー本体BOTTOM VIEW、無励磁状態。数字は本体ピン番号、IEC機能名とは区別する。",
+    "terminal_numbering": "relay_body",
+    "coil": {
+      "terminals": [
+        "1",
+        "8"
+      ],
+      "rated_voltage": "DC24V",
+      "voltages": {
+        "dc_v": [
+          "24"
+        ]
+      },
+      "polarity": "none",
+      "surge": "none",
+      "voltage_selection_required": false
+    },
+    "contacts": [
+      {
+        "type": "changeover",
+        "common": [
+          "3"
+        ],
+        "no": [
+          "4"
+        ],
+        "nc": [
+          "2"
+        ]
+      },
+      {
+        "type": "changeover",
+        "common": [
+          "6"
+        ],
+        "no": [
+          "5"
+        ],
+        "nc": [
+          "7"
+        ]
+      }
+    ],
+    "indicator": "LED",
+    "manual_test_lever": false,
+    "socket_candidates": [
+      "SJ2S-05BS",
+      "SJ2S-07L",
+      "SJ2S-21L"
+    ],
+    "display_ratings": "DC24V LED 2c 8A（抵抗負荷の代表値）",
+    "ratings": {
+      "coil_vdc": 24,
+      "resistive_current_a": 8
+    },
+    "notes": [
+      "標準形。順/逆極性ダイオード付・CR付の別形番へこの定義を流用しない。",
+      "コイルの電源と接点回路は別配線。LED内部回路は情報として保持し、標準コイル記号へ内蔵回路を描き足さない。",
+      "本体の番号を使用する。ソケットのIEC表記への読み替えはソケット定義を参照。",
+      "完全版PDFは公式配信APIエラーで未保存。端子は公式カタログの公開検索本文、型式/仕様は公式商品ページでも照合。"
+    ],
+    "verification_note": "公式資料の形式・回路・端子表記を照合。実機配線・実機動作は未確認。"
+  }
+}

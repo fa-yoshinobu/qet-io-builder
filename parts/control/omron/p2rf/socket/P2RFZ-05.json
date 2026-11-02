@@ -1,0 +1,117 @@
+{
+  "category": "standard_device",
+  "model": "P2RFZ-05",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "P2RF",
+    "device_type": "socket",
+    "source": "G2R-□-S データシート4_19 p.3・13–14（ソケットTOP VIEW）",
+    "official_html": "https://www.fa.omron.co.jp/products/family/1731/lineup/",
+    "terminal_numbering": "socket_body_pin",
+    "terminal_view": "ソケットTOP VIEW。PUはIEC(本体ピン)、Z-Eは本体ピン(IEC)、Zは本体ピン番号を使用。",
+    "terminal_type": "ねじ端子 M3.5",
+    "mounting": "DINレール・ねじ取付共用",
+    "compatible_relays": [
+      "G2R-1-S DC24",
+      "G2R-1-SN DC24",
+      "G2R-1-SND DC24"
+    ],
+    "socket_compatibility_scope": "本プロジェクト登録G2R-Sプラグイン型の範囲。",
+    "electrical_terminals": 5,
+    "terminal_map": [
+      {
+        "socket_marking": "1",
+        "relay_pin": "1",
+        "function": "coil"
+      },
+      {
+        "socket_marking": "2",
+        "relay_pin": "2",
+        "function": "nc"
+      },
+      {
+        "socket_marking": "3",
+        "relay_pin": "3",
+        "function": "no"
+      },
+      {
+        "socket_marking": "4",
+        "relay_pin": "4",
+        "function": "common"
+      },
+      {
+        "socket_marking": "5",
+        "relay_pin": "5",
+        "function": "coil"
+      }
+    ],
+    "display_ratings": "G2R用 5端子 / リレー別部品",
+    "symbol_bindings": [
+      {
+        "name": "pin_1",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "1"
+          ]
+        }
+      },
+      {
+        "name": "pin_2",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "2"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      },
+      {
+        "name": "pin_3",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "3"
+          ],
+          "second": [
+            "3"
+          ]
+        }
+      },
+      {
+        "name": "pin_4",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "4"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "pin_5",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "5"
+          ],
+          "second": [
+            "5"
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "ソケット刻印→リレー本体ピンを受動端子として表す。コイル・接点は含まない。",
+      "短絡バーは別部品、未装着。コイル極性は装着するリレーに従う。"
+    ],
+    "verification_note": "公式ソケット配線図とG2R本体図を照合。実機未確認。"
+  }
+}

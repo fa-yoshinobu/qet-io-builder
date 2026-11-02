@@ -1,0 +1,169 @@
+{
+  "category": "standard_device",
+  "model": "G7SA-4A2B DC24",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "G7SA",
+    "device_type": "relay",
+    "standard_family": "relay",
+    "source": "J120-E1-13 / CSM_12_14 p.2・8（本体BOTTOM VIEW）",
+    "official_html": "https://www.fa.omron.co.jp/product/item/G7SA-4A2B_DC24/",
+    "terminal_numbering": "relay_body",
+    "terminal_view": "本体BOTTOM VIEW、無励磁状態",
+    "contact_configuration": "4a2b",
+    "forcibly_guided_contacts": true,
+    "safety_function_verified": false,
+    "coil": {
+      "terminals": [
+        "0",
+        "1"
+      ],
+      "rated_voltage": "DC24V",
+      "voltages": {
+        "dc_v": [
+          "24"
+        ]
+      },
+      "voltage_selection_required": false,
+      "polarity_by_terminal": {
+        "0": "+",
+        "1": "-"
+      }
+    },
+    "contacts": [
+      {
+        "type": "no",
+        "terminals": [
+          "33",
+          "34"
+        ]
+      },
+      {
+        "type": "no",
+        "terminals": [
+          "43",
+          "44"
+        ]
+      },
+      {
+        "type": "no",
+        "terminals": [
+          "53",
+          "54"
+        ]
+      },
+      {
+        "type": "no",
+        "terminals": [
+          "63",
+          "64"
+        ]
+      },
+      {
+        "type": "nc",
+        "terminals": [
+          "11",
+          "12"
+        ]
+      },
+      {
+        "type": "nc",
+        "terminals": [
+          "21",
+          "22"
+        ]
+      }
+    ],
+    "symbol_bindings": [
+      {
+        "name": "coil",
+        "symbol": "coil",
+        "terminals": {
+          "a1": [
+            "0"
+          ],
+          "a2": [
+            "1"
+          ]
+        }
+      },
+      {
+        "name": "no_1",
+        "symbol": "contact_no",
+        "terminals": {
+          "first": [
+            "33"
+          ],
+          "second": [
+            "34"
+          ]
+        }
+      },
+      {
+        "name": "no_2",
+        "symbol": "contact_no",
+        "terminals": {
+          "first": [
+            "43"
+          ],
+          "second": [
+            "44"
+          ]
+        }
+      },
+      {
+        "name": "no_3",
+        "symbol": "contact_no",
+        "terminals": {
+          "first": [
+            "53"
+          ],
+          "second": [
+            "54"
+          ]
+        }
+      },
+      {
+        "name": "no_4",
+        "symbol": "contact_no",
+        "terminals": {
+          "first": [
+            "63"
+          ],
+          "second": [
+            "64"
+          ]
+        }
+      },
+      {
+        "name": "nc_1",
+        "symbol": "contact_nc",
+        "terminals": {
+          "first": [
+            "11"
+          ],
+          "second": [
+            "12"
+          ]
+        }
+      },
+      {
+        "name": "nc_2",
+        "symbol": "contact_nc",
+        "terminals": {
+          "first": [
+            "21"
+          ],
+          "second": [
+            "22"
+          ]
+        }
+      }
+    ],
+    "display_ratings": "DC24V 4a2b 強制ガイド接点",
+    "notes": [
+      "a・b接点は同一リレーのコイルにリンクして使用。標準記号は強制ガイド機構の専用図記号ではない。"
+    ],
+    "verification_note": "公式資料の形名・端子・極性を照合。実機および安全回路としての機能は未確認。"
+  }
+}

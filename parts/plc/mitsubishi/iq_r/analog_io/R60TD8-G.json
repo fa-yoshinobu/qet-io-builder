@@ -1,0 +1,79 @@
+{
+  "category": "iqr_analog",
+  "model": "R60TD8-G",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "+",
+      "-"
+    ],
+    "pins_by_channel": [
+      [
+        "A1",
+        "B1"
+      ],
+      [
+        "A3",
+        "B3"
+      ],
+      [
+        "A5",
+        "B5"
+      ],
+      [
+        "A7",
+        "B7"
+      ],
+      [
+        "A9",
+        "B9"
+      ],
+      [
+        "A11",
+        "B11"
+      ],
+      [
+        "A13",
+        "B13"
+      ],
+      [
+        "A15",
+        "B15"
+      ]
+    ],
+    "power": [],
+    "power_pins": [],
+    "source": "SH-081493ENG-F 6.2",
+    "note": "SH-081493ENG-F 6.2印刷27/PDF29、印刷29–30/PDF31–32。補償抵抗と熱電対基準接点を同じ場所へ配置。",
+    "auxiliary_terminals": [
+      {
+        "pin": "B19",
+        "signal": "RTD+",
+        "description": "冷接点補償抵抗＋",
+        "group": "冷接点補償"
+      },
+      {
+        "pin": "B20",
+        "signal": "RTD-",
+        "description": "冷接点補償抵抗－",
+        "group": "冷接点補償"
+      },
+      {
+        "pin": "A20",
+        "signal": "RTDG",
+        "description": "冷接点補償抵抗リターン",
+        "group": "冷接点補償"
+      }
+    ],
+    "diagram_note": "RTD+/RTD-/RTDGは冷接点補償抵抗用（電源ではない）。補償時はRTD-とRTDGを接続。"
+  }
+}

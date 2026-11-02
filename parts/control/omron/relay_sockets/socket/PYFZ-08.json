@@ -1,0 +1,190 @@
+{
+  "category": "standard_device",
+  "model": "PYFZ-08",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "PYF / PTF ソケット",
+    "device_type": "socket",
+    "standard_family": "socket",
+    "socket_family": "MY",
+    "terminal_numbering": "legacy_pin_number",
+    "terminal_view": "ソケットTOP VIEW",
+    "electrical_terminals": 8,
+    "terminal_map": [
+      {
+        "socket_marking": "9",
+        "relay_pin": "9",
+        "function": "common",
+        "pole": 1,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "5",
+        "relay_pin": "5",
+        "function": "no",
+        "pole": 1,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "1",
+        "relay_pin": "1",
+        "function": "nc",
+        "pole": 1,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "12",
+        "relay_pin": "12",
+        "function": "common",
+        "pole": 2,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "8",
+        "relay_pin": "8",
+        "function": "no",
+        "pole": 2,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "4",
+        "relay_pin": "4",
+        "function": "nc",
+        "pole": 2,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "13",
+        "relay_pin": "13",
+        "function": "coil",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "14",
+        "relay_pin": "14",
+        "function": "coil",
+        "wire_entries": 1
+      }
+    ],
+    "compatible_relays": [
+      "MY2",
+      "MY2IN(S)",
+      "MY2N",
+      "MY2Z",
+      "MY2ZN"
+    ],
+    "socket_compatibility_scope": "本プロジェクト登録のMY/LY基本形式。特殊派生や電圧別注文SKU全件の適合保証ではない",
+    "symbol_bindings": [
+      {
+        "name": "pin_9",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "9"
+          ],
+          "second": [
+            "9"
+          ]
+        }
+      },
+      {
+        "name": "pin_5",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "5"
+          ],
+          "second": [
+            "5"
+          ]
+        }
+      },
+      {
+        "name": "pin_1",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "1"
+          ]
+        }
+      },
+      {
+        "name": "pin_12",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "12"
+          ],
+          "second": [
+            "12"
+          ]
+        }
+      },
+      {
+        "name": "pin_8",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "8"
+          ],
+          "second": [
+            "8"
+          ]
+        }
+      },
+      {
+        "name": "pin_4",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "4"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "pin_13",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "13"
+          ],
+          "second": [
+            "13"
+          ]
+        }
+      },
+      {
+        "name": "pin_14",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "14"
+          ],
+          "second": [
+            "14"
+          ]
+        }
+      }
+    ],
+    "internal_connections": [],
+    "connection_semantics": "各部品はソケット外部配線端子から同番号のリレー差込ピンへの通過接続。リレーのコイルや接点をソケット内に仮定しない。",
+    "ratings": {
+      "continuous_current_a": 10,
+      "current_note": "搭載リレーの定格と配線/周囲温度条件の小さい方を適用する"
+    },
+    "source": "CSM_common_sockets_DS_J_6_11 PDF p2-3,7,14,18-19",
+    "official_html": "https://www.fa.omron.co.jp/products/family/811/lineup/",
+    "verification_note": "ソケット刻印・本体ピン対応をTOP VIEW図で照合。標準端子記号で各極の通過接続を表す。実機配線は未確認。",
+    "notes": [
+      "第1接続点の文字はソケット外部端子、第2接続点はリレー差込ピン。装着リレーの機能接点は別部品。",
+      "ねじソケットは従来ピン番号を使い、IEC番号へ勝手に読み替えない。",
+      "ソケット単体には異なるピン間の導通・接点を生成しない。リレー/短絡バー/外部配線は別に扱う。"
+    ]
+  }
+}

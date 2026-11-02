@@ -1,0 +1,62 @@
+{
+  "category": "standard_device",
+  "model": "M42-200EL",
+  "definition": {
+    "manufacturer": "スワロー電機",
+    "series": "M_EL",
+    "device_type": "transformer",
+    "component_style": "swallow_transformer",
+    "source": "製品カタログ、掲載p.19（M-EL、結線図）",
+    "rated_supply": "AC380/400/420/440/460/480V",
+    "ratings": {
+      "capacity_va": 200,
+      "primary_vac": [
+        380,
+        400,
+        420,
+        440,
+        460,
+        480
+      ],
+      "secondary_vac": [
+        200,
+        220,
+        240
+      ]
+    },
+    "winding_type": "単相複巻",
+    "galvanic_isolation": true,
+    "electrostatic_shield": true,
+    "external_terminals": {
+      "primary": [
+        "460V",
+        "400V",
+        "-20V",
+        "0",
+        "+20V"
+      ],
+      "secondary": [
+        "240V",
+        "220V",
+        "200V",
+        "0",
+        "E"
+      ]
+    },
+    "physical_wiring_terminals": 10,
+    "display_ratings": "200VA 380/400/420/440/460/480V → 200/220/240V",
+    "diagram_features": [
+      "入力補正タップ ±20V",
+      "青色LED通電表示 / 静電シールド"
+    ],
+    "notes": [
+      "外部端子図。内部保護器・LED・コンセントの詳細結線は省略。",
+      "一次と二次は別巻線。各タップを独立出力として扱わない。",
+      "今回の対象は750VA以下。"
+    ],
+    "verification_note": "提供カタログの容量・外部端子・付属機能を目視照合。実機未確認。",
+    "indicator": "blue_led",
+    "input_selection_required": true,
+    "input_selection_note": "列挙した入力電圧は補正タップとの組合せで対応。190V等の専用端子がある意味ではない。"
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "category": "standard_device",
+  "model": "PYF11A",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "PYF / PTF ソケット",
+    "device_type": "socket",
+    "standard_family": "socket",
+    "socket_family": "MY",
+    "terminal_numbering": "legacy_pin_number",
+    "terminal_view": "ソケットTOP VIEW",
+    "electrical_terminals": 11,
+    "terminal_map": [
+      {
+        "socket_marking": "7",
+        "relay_pin": "7",
+        "function": "common",
+        "pole": 1,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "4",
+        "relay_pin": "4",
+        "function": "no",
+        "pole": 1,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "1",
+        "relay_pin": "1",
+        "function": "nc",
+        "pole": 1,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "8",
+        "relay_pin": "8",
+        "function": "common",
+        "pole": 2,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "5",
+        "relay_pin": "5",
+        "function": "no",
+        "pole": 2,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "2",
+        "relay_pin": "2",
+        "function": "nc",
+        "pole": 2,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "9",
+        "relay_pin": "9",
+        "function": "common",
+        "pole": 3,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "6",
+        "relay_pin": "6",
+        "function": "no",
+        "pole": 3,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "3",
+        "relay_pin": "3",
+        "function": "nc",
+        "pole": 3,
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "10",
+        "relay_pin": "10",
+        "function": "coil",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "11",
+        "relay_pin": "11",
+        "function": "coil",
+        "wire_entries": 1
+      }
+    ],
+    "compatible_relays": [
+      "MY3",
+      "MY3N"
+    ],
+    "socket_compatibility_scope": "本プロジェクト登録のMY/LY基本形式。特殊派生や電圧別注文SKU全件の適合保証ではない",
+    "symbol_bindings": [
+      {
+        "name": "pin_7",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "7"
+          ],
+          "second": [
+            "7"
+          ]
+        }
+      },
+      {
+        "name": "pin_4",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "4"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "pin_1",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "1"
+          ]
+        }
+      },
+      {
+        "name": "pin_8",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "8"
+          ],
+          "second": [
+            "8"
+          ]
+        }
+      },
+      {
+        "name": "pin_5",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "5"
+          ],
+          "second": [
+            "5"
+          ]
+        }
+      },
+      {
+        "name": "pin_2",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "2"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      },
+      {
+        "name": "pin_9",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "9"
+          ],
+          "second": [
+            "9"
+          ]
+        }
+      },
+      {
+        "name": "pin_6",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "6"
+          ],
+          "second": [
+            "6"
+          ]
+        }
+      },
+      {
+        "name": "pin_3",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "3"
+          ],
+          "second": [
+            "3"
+          ]
+        }
+      },
+      {
+        "name": "pin_10",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "10"
+          ],
+          "second": [
+            "10"
+          ]
+        }
+      },
+      {
+        "name": "pin_11",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "11"
+          ],
+          "second": [
+            "11"
+          ]
+        }
+      }
+    ],
+    "internal_connections": [],
+    "connection_semantics": "各部品はソケット外部配線端子から同番号のリレー差込ピンへの通過接続。リレーのコイルや接点をソケット内に仮定しない。",
+    "ratings": {
+      "continuous_current_a": 5,
+      "current_note": "搭載リレーの定格と配線/周囲温度条件の小さい方を適用する"
+    },
+    "source": "CSM_common_sockets_DS_J_6_11 PDF p2-3,7,14,18-19",
+    "official_html": "https://www.fa.omron.co.jp/products/family/811/lineup/",
+    "verification_note": "ソケット刻印・本体ピン対応をTOP VIEW図で照合。標準端子記号で各極の通過接続を表す。実機配線は未確認。",
+    "notes": [
+      "第1接続点の文字はソケット外部端子、第2接続点はリレー差込ピン。装着リレーの機能接点は別部品。",
+      "ねじソケットは従来ピン番号を使い、IEC番号へ勝手に読み替えない。",
+      "ソケット単体には異なるピン間の導通・接点を生成しない。リレー/短絡バー/外部配線は別に扱う。"
+    ]
+  }
+}

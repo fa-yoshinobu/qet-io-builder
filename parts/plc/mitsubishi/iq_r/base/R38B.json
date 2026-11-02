@@ -1,0 +1,8 @@
+{
+  "category": "iqr_base",
+  "model": "R38B",
+  "definition": {
+    "slots": 8,
+    "source": "MELSEC iQ-R Basic system configuration"
+  }
+}

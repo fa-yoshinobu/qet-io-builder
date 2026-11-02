@@ -1,0 +1,117 @@
+{
+  "category": "standard_device",
+  "model": "IESH-MB208-C2E-R",
+  "definition": {
+    "manufacturer": "MISUMI",
+    "series": "IESH",
+    "device_type": "ethernet_switch",
+    "component_style": "ethernet_switch",
+    "source": "IESH-MB205*/208*-C2E-R クイック・インストール・ガイド Version 1.0 October 2019 P/N 1802002053010 p4,5,11,13,15; 公式商品仕様",
+    "official_html": "https://jp.misumi-ec.com/vona2/detail/110410283769/",
+    "misumi_html": "https://jp.misumi-ec.com/vona2/detail/110410283769/",
+    "selection_basis": {
+      "source_html": "https://jp.misumi-ec.com/vona2/ie_control/E1300000000/E1311000000/E1311010000/",
+      "observed_on": "2026-10-28",
+      "display_position": 2,
+      "note": "ミスミのスイッチングハブカテゴリ売れ筋欄の表示順。実販売数量・型番別順位は非公開。"
+    },
+    "display_ratings": "8ポート 10/100Mbps / DC12/24/48V / 樹脂",
+    "power": {
+      "voltage": "DC12/24/48V",
+      "dc_voltage_nominal_v": [
+        12,
+        24,
+        48
+      ],
+      "terminals": [
+        {
+          "label": "V-",
+          "function": "DC電源 −"
+        },
+        {
+          "label": "V+",
+          "function": "DC電源 ＋"
+        }
+      ],
+      "connection_type": "着脱式3極端子台（接地端子を含む）"
+    },
+    "ground": {
+      "label": "⏚",
+      "function": "シャーシ接地",
+      "connection_type": "電源端子台の接地端子"
+    },
+    "ports": [
+      {
+        "label": "1",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "2",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "3",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "4",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "5",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "6",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "7",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "8",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      }
+    ],
+    "managed": false,
+    "poe": false,
+    "dip_switches": [
+      {
+        "label": "QoS",
+        "function": "ONで優先制御有効、OFFで無効",
+        "selected": null
+      },
+      {
+        "label": "BSP",
+        "function": "ONでブロードキャストストーム保護有効、OFFで無効",
+        "selected": null
+      }
+    ],
+    "alarm_terminals": [],
+    "housing": "プラスチック",
+    "ratings": {
+      "operating_temperature_c": [
+        -10,
+        60
+      ],
+      "ip_rating": "IP40"
+    },
+    "notes": [
+      "Ethernetはケーブル単位の接続点。RJ45内部ピンの個別配線を描かない。",
+      "アンマネージド。管理用IPアドレス・局番の設定はない。",
+      "DIPスイッチの実設定は未指定。QoS/BSPの設定値を図面に記入する。",
+      "商品ページに2027年5月から順次RJ45/DINクリップ金属化・マルチキャストフィルタ追加の予告あり。本定義は観測日の仕様で、将来版へ自動適用しない。",
+      "ガイドp2にDC9.6–60Vの記述があるが、本定義の表示は現行商品仕様表とガイドp15の公称12/24/48VDCを採用。"
+    ],
+    "verification_note": "公式仕様・取扱説明書の電源端子/接地位置/ポート/DIP機能を照合。実機配線・実機動作は未確認。"
+  }
+}

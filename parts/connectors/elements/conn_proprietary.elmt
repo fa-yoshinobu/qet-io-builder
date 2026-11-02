@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="59" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{5b894316-a3d3-538a-bdfa-6878d97ddac3}" />
+  <names>
+    <name lang="ja">専用コネクタ</name>
+    <name lang="en">conn_proprietary</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <rect x="5" y="-16" width="44" height="32" rx="3" ry="3" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="11" y="-10" width="32" height="20" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="13" y1="8" x2="19" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="21" y1="8" x2="27" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="29" y1="8" x2="35" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="37" y1="8" x2="43" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <terminal uuid="{722c7370-c5a1-5f62-ac13-28f845b350cf}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

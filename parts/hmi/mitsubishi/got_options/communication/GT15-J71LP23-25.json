@@ -1,0 +1,36 @@
+{
+  "category": "got_option",
+  "model": "GT15-J71LP23-25",
+  "definition": {
+    "series": "GOTオプション",
+    "option_type": "MELSECNET/H optical",
+    "interfaces": [
+      {
+        "name": "IN",
+        "kind": "optical",
+        "ports": [],
+        "connector_label": "2心光"
+      },
+      {
+        "name": "OUT",
+        "kind": "optical",
+        "ports": [],
+        "connector_label": "2心光"
+      }
+    ],
+    "compatible_series": [
+      "GOT2000",
+      "GOT3000"
+    ],
+    "applicability_notes": "GOT2000:GT27/GT25。GT25除外は本文注A。GOT3000:GT37+GT37-IF2000",
+    "adapter_required": {
+      "GOT3000": "GT37-IF2000"
+    },
+    "source": "IB-0800350E-N 印刷2-4/7/10/14;2/3/5/6",
+    "power_notes": "GOT内部5V 0.56A",
+    "settings_notes": "局番/ネットワーク番号/速度等はGOT通信設定。独立した24V入力端子なし",
+    "verification_note": "光ピンのTX/RX向き・コネクタ正式型番は未確認",
+    "diagram_notes": [],
+    "auto_wiring": false
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "category": "standard_device",
+  "model": "PLC-RPT-24DC/21-21",
+  "definition": {
+    "manufacturer": "PHOENIX CONTACT",
+    "series": "PLC-INTERFACE",
+    "device_type": "relay",
+    "standard_family": "relay",
+    "terminal_numbering": "relay_module_external_terminals",
+    "terminal_view": "ベースを含むモジュールの外部端子。接点は無励磁状態。リレー単体の差込ピン番号とは区別する。",
+    "coil": {
+      "terminals": [
+        "A1",
+        "A2"
+      ],
+      "rated_voltage": "DC24V",
+      "voltages": {
+        "dc_v": [
+          "24"
+        ]
+      },
+      "polarity": "polarized",
+      "polarity_by_terminal": {
+        "A1": "+",
+        "A2": "-"
+      },
+      "surge": "diode",
+      "voltage_selection_required": false
+    },
+    "contacts": [
+      {
+        "type": "changeover",
+        "common": [
+          "11"
+        ],
+        "no": [
+          "14"
+        ],
+        "nc": [
+          "12"
+        ]
+      },
+      {
+        "type": "changeover",
+        "common": [
+          "21"
+        ],
+        "no": [
+          "24"
+        ],
+        "nc": [
+          "22"
+        ]
+      }
+    ],
+    "indicator": "LED",
+    "terminal_type": "push_in",
+    "source": "公式商品データ 2900330; 回路図 media 135644; 製品写真のA1+/A2-刻印",
+    "official_html": "https://www.phoenixcontact.com/ja-jp/products/relay-module-plc-rpt-24dc-21-21-2900330",
+    "display_ratings": "DC24V LED 2c / 連続通電6A",
+    "ratings": {
+      "coil_vdc": 24,
+      "continuous_current_a": 6
+    },
+    "verification_note": "公式回路図・商品情報で外部端子、極性、接点構成を照合。QET実画面と実機配線は未確認。",
+    "notes": [
+      "コイルと接点を分離した標準記号で表す。QETで同じ機器番号を付け、コイルと接点を関連付ける。",
+      "LED・ダイオード付きモジュール。A1は＋、A2は－。内部表示・保護回路は機種情報に保持する。",
+      "接点の許容電流は負荷・電圧・温度により異なる。連続通電電流を全負荷の開閉容量として扱わない。",
+      "隣接モジュールへの渡り・コモニングは別途指定し、自動短絡しない。"
+    ],
+    "order_number": "2900330"
+  }
+}

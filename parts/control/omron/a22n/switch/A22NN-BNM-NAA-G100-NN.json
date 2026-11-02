@@ -1,0 +1,38 @@
+{
+  "category": "standard_device",
+  "model": "A22NN-BNM-NAA-G100-NN",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "A22N",
+    "device_type": "switch",
+    "source": "CSM_A22N_M22N_A30N_A254-E1_4_13 p12,16（定格・端子配列）; 国内公式個別商品",
+    "official_html": "https://www.fa.omron.co.jp/product/item/A22NN-BNM-NAA-G100-NN/",
+    "terminal_view": "BOTTOM VIEW",
+    "ratings": {
+      "rated_through_current_a": 10,
+      "ac_15_at_240v_a": 3,
+      "dc_13_at_24v_a": 4
+    },
+    "verification_note": "端子表示と接点を資料照合。操作部と接点ユニットの実配置・実機動作は未確認。",
+    "operation": "momentary",
+    "color": "青",
+    "illuminated": false,
+    "terminal_type": "ねじ端子",
+    "contact_configuration": "1a",
+    "display_ratings": "モーメンタリ 青 1a",
+    "symbol_bindings": [
+      {
+        "name": "pushbutton",
+        "symbol": "pushbutton_no",
+        "terminals": {
+          "first": [
+            "3"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      }
+    ]
+  }
+}

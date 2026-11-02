@@ -1,0 +1,106 @@
+{
+  "category": "standard_device",
+  "model": "SC-N4/G",
+  "definition": {
+    "manufacturer": "Fuji Electric",
+    "series": "新SC/NEO SC",
+    "device_type": "contactor",
+    "standard_family": "contactor",
+    "coil": {
+      "terminals": [
+        "A1",
+        "A2"
+      ],
+      "type": "DC",
+      "polarity": "コイル無極性（メーカーFAQ5475）",
+      "voltage_selection_required": true,
+      "nominal_ac_voltages_v": [],
+      "nominal_dc_voltages_v": [
+        "12",
+        "24",
+        "48",
+        "60",
+        "100",
+        "110",
+        "120",
+        "200",
+        "210",
+        "220"
+      ],
+      "voltage_note": "呼び電圧の選択候補。周波数別実定格や注文電圧コードは資料で確認する。"
+    },
+    "contacts": [
+      {
+        "type": "no",
+        "terminals": [
+          "1/L1",
+          "2/T1"
+        ],
+        "role": "main"
+      },
+      {
+        "type": "no",
+        "terminals": [
+          "3/L2",
+          "4/T2"
+        ],
+        "role": "main"
+      },
+      {
+        "type": "no",
+        "terminals": [
+          "5/L3",
+          "6/T3"
+        ],
+        "role": "main"
+      }
+    ],
+    "auxiliary_options": [
+      {
+        "id": "standard",
+        "name": "standard",
+        "contacts": [
+          {
+            "type": "no",
+            "terminals": [
+              "13",
+              "14"
+            ],
+            "role": "auxiliary"
+          },
+          {
+            "type": "no",
+            "terminals": [
+              "43",
+              "44"
+            ],
+            "role": "auxiliary"
+          },
+          {
+            "type": "nc",
+            "terminals": [
+              "21",
+              "22"
+            ],
+            "role": "auxiliary"
+          },
+          {
+            "type": "nc",
+            "terminals": [
+              "31",
+              "32"
+            ],
+            "role": "auxiliary"
+          }
+        ]
+      }
+    ],
+    "auxiliary_selection_required": false,
+    "source": "62C2-J-0020e_03 + FAQ5475 PDF 23（主接点・補助・コイル端子）; 62C2-J-0020e（形式・コイル表）",
+    "official_html": "https://faq-fa.fujielectric.co.jp/faq/show/5475?site_domain=default",
+    "verification_note": "無励磁状態の接点構成。端子を資料照合、実機未確認。基本形式であり、電圧・補助構成を含む注文SKUを確定したものではない。",
+    "auxiliary_scope_note": "標準本体の構成のみ。追加補助ユニット・注文品2a2b/3a3b/4a4b等はこの定義に自動追加しない。",
+    "lifecycle": "公式カタログ掲載／D23082aの終了対象範囲外",
+    "default_auxiliary_option": "standard"
+  }
+}

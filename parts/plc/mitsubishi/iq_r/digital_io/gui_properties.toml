@@ -1,0 +1,10 @@
+# このフォルダの部品に対応するページ種類とGUIの表示項目
+[input]
+fields = ["model", "title", "csv", "start", "input_voltage"]
+
+[output]
+fields = ["model", "title", "csv", "start"]
+
+[iqrmixed]
+fields = ["model", "title", "input_csv", "output_csv", "start"]
+

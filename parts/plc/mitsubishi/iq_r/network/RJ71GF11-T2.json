@@ -1,0 +1,13 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71GF11-T2",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "ports": [
+      "P1",
+      "P2"
+    ],
+    "source": "L08298ENG-O",
+    "connector_type": "rj45"
+  }
+}

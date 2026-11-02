@@ -1,0 +1,149 @@
+{
+  "category": "remote_analog",
+  "model": "NZ2GN2S-60AD4",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "V+",
+      "SH",
+      "I+",
+      "VI-"
+    ],
+    "power": [],
+    "auto_wiring": false,
+    "module_role": "remote_station",
+    "network": "CC-Link IE Field",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female"
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female"
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT",
+        "connector_type": "terminal_3",
+        "pins": [
+          [
+            "⏚",
+            "FG"
+          ],
+          [
+            "24G",
+            "24G"
+          ],
+          [
+            "+24V",
+            "+24V"
+          ]
+        ],
+        "position": "正面左から",
+        "terminal_type": "spring_clamp"
+      }
+    ],
+    "supply_voltage": "24V DC",
+    "supply_voltage_range": "20.4-28.8V DC",
+    "terminal_type": "18点スプリングクランプ",
+    "channel_isolation": false,
+    "lifecycle": "current_catalog",
+    "verification_status": "一部確認",
+    "verification_remaining": [
+      "COM/−端子間の内部直結範囲は断定していない"
+    ],
+    "network_condition": "FW02以降;機能設定SW1=ONでFieldモード;TSNと同時使用ではない",
+    "source": "SH-082235F; 仕様PDF16;端子PDF40;電源外観PDF13;通信PDF14;配線PDF41; 印刷頁=PDF頁-2",
+    "manual_references": [
+      {
+        "document_number": "SH-082235F",
+        "pages": "仕様PDF16;端子PDF40;電源外観PDF13;通信PDF14;配線PDF41"
+      }
+    ],
+    "wiring_notes": [
+      "Field動作にはFW02以降・機能設定スイッチ1=ONが必要。TSN/Fieldの同時使用ではない。",
+      "電流時V+–SHを外部短絡。VI−が信号−。SHをSLD(シールド)と混同しない",
+      "CH間非絶縁でもCOM/信号－端子の内部直結範囲は未確認。各実端子を省略・自動短絡しない。"
+    ],
+    "auxiliary_terminals": [
+      {
+        "pin": "17",
+        "signal": "AG",
+        "description": "アナロググランド",
+        "group": "接地"
+      },
+      {
+        "pin": "18",
+        "signal": "FG",
+        "description": "機能接地",
+        "group": "接地"
+      }
+    ],
+    "unused_pins": [],
+    "supported_networks": [
+      "CC-Link IE TSN",
+      "CC-Link IE Field"
+    ],
+    "required_firmware_for_field": "02",
+    "field_mode_switch": {
+      "name": "機能設定スイッチ1",
+      "value": "ON"
+    },
+    "pins_by_channel": [
+      [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      [
+        "13",
+        "14",
+        "15",
+        "16"
+      ]
+    ],
+    "required_jumpers": [
+      {
+        "when": "電流入力",
+        "terminals": [
+          "V+",
+          "SH"
+        ],
+        "scope": "same_channel",
+        "automatic": false
+      }
+    ],
+    "signal_labels_by_direction": {
+      "入力": {
+        "V+": "電圧入力＋／電流時短絡側",
+        "SH": "電流入力短絡用",
+        "I+": "電流入力＋",
+        "VI-": "入力－"
+      }
+    },
+    "diagram_note": "FW02以降・機能設定SW1=ONでField動作",
+    "network_requirement_source": "SH-082235F はじめに PDF7/印刷5"
+  }
+}

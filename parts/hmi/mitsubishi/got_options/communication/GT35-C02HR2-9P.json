@@ -1,0 +1,36 @@
+{
+  "category": "got_option",
+  "model": "GT35-C02HR2-9P",
+  "definition": {
+    "series": "GOTオプション",
+    "option_type": "serial_conversion_cable",
+    "interfaces": [
+      {
+        "name": "GOT3000本体側",
+        "kind": "dsub9_neutral",
+        "ports": [],
+        "connector_label": "D-sub 9pin"
+      },
+      {
+        "name": "既設ケーブル側",
+        "kind": "dsub9_neutral",
+        "ports": [],
+        "connector_label": "D-sub 9pin"
+      }
+    ],
+    "compatible_series": [
+      "GOT3000"
+    ],
+    "applicability_notes": "GOT3000:GT37内蔵RS232とGOT2000既設RS232ケーブル間",
+    "adapter_required": {},
+    "source": "GOT-D-0274-B;SH-082581C 2.4/ハードウェア置換注意; 三菱電機システムサービス GT35製品ページ",
+    "power_notes": "GOT3000本体RS232は5V給電非対応",
+    "settings_notes": "本体終端設定は未使用/OPEN",
+    "verification_note": "両端の正式性別・ケーブル内部全結線は未確認。両端コネクタの性別は未確認。",
+    "diagram_notes": [
+      "GOT3000専用RS-232配列変換",
+      "RS-422/232の信号変換器ではない"
+    ],
+    "auto_wiring": false
+  }
+}

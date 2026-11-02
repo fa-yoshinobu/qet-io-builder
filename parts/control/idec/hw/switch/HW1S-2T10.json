@@ -1,0 +1,52 @@
+{
+  "category": "standard_device",
+  "model": "HW1S-2T10",
+  "definition": {
+    "manufacturer": "IDEC",
+    "series": "HW",
+    "source": "P5061A-G-HW-old（HWカタログ）印刷p290,293,299,311,317; SJPJA01A-B177B228-HW 接点ブロック端子表",
+    "official_html": "https://www.idec.com/ja-jp/switches-indicator-lights",
+    "terminal_view": "操作部とコンタクトブロックの端子表示。複数接点はブロックごとの番号。",
+    "terminal_type": "M3.5ねじ",
+    "notes": [
+      "機器番号・複数接点の機械連動と照光回路は配置後に関連付ける。ランプと接点は別回路。",
+      "2025年6月版以降の新カタログモデルとは構成・寸法が異なる場合がある。ここではP5061A掲載ねじ端子機種の電気端子を扱う。"
+    ],
+    "device_type": "switch",
+    "operation": "maintained_2position_90deg",
+    "contact_configuration": "1a",
+    "display_ratings": "2位置 各位置停止 90° 1a",
+    "symbol_bindings": [
+      {
+        "name": "selector",
+        "symbol": "selector_2position",
+        "terminals": {
+          "first": [
+            "3"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      }
+    ],
+    "mechanically_linked": [
+      "selector"
+    ],
+    "standard_text_overrides": {
+      "selector_2position": {
+        "0": "1",
+        "1": "2"
+      }
+    },
+    "position_contact_table": {
+      "1": {
+        "no": "open"
+      },
+      "2": {
+        "no": "closed"
+      }
+    },
+    "verification_note": "公式資料の形式・回路・端子表記を照合。実機配線・実機動作は未確認。"
+  }
+}

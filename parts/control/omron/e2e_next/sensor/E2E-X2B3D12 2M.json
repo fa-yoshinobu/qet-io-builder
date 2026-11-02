@@ -1,0 +1,90 @@
+{
+  "category": "standard_device",
+  "model": "E2E-X2B3D12 2M",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "E2E NEXT",
+    "device_type": "proximity_sensor",
+    "source": "CSM_E2E_D121-E1_3_5 p29（形式）, p38（定格）, p47/49（配線）",
+    "official_html": "https://www.fa.omron.co.jp/product/item/E2E-X2B3D12_2M/",
+    "output_type": "PNP open collector",
+    "operation": "NO+NC",
+    "wire_count": 4,
+    "connection_type": "コード引き出し 2m",
+    "wire_colors": {
+      "plus": "茶",
+      "minus": "青",
+      "no": "黒",
+      "nc": "白"
+    },
+    "pins": [
+      {
+        "wire_color": "茶",
+        "signal": "+V",
+        "role": "plus"
+      },
+      {
+        "wire_color": "青",
+        "signal": "0V",
+        "role": "minus"
+      },
+      {
+        "wire_color": "黒",
+        "signal": "NO",
+        "role": "no"
+      },
+      {
+        "wire_color": "白",
+        "signal": "NC",
+        "role": "nc"
+      }
+    ],
+    "sensing_method": "誘導形・シールド",
+    "sensing_distance_mm": 2,
+    "body_size": "M12",
+    "ratings": {
+      "supply_vdc_min": 10,
+      "supply_vdc_max": 30,
+      "load_current_ma_max": 100,
+      "current_consumption_ma_max": 20
+    },
+    "display_ratings": "PNP NO+NC(SIO) 10–30VDC 100mA / M12 2mm",
+    "verification_note": "公式資料で形式・線色・信号・出力を照合。裸線式のためピン番号なし。選択は使用する構成の指定であり、実機設定を読み取るものではない。実機未確認。",
+    "communication": "IO-Link COM2対応（この図面はSIOの工場出荷NO+NC設定専用）",
+    "operation_scope": "SIO factory setting NO+NC",
+    "configuration_required": true,
+    "configuration_options": [
+      {
+        "id": "sio_no_nc",
+        "label": "SIOモード・NO+NC設定で使用",
+        "symbol_bindings": [
+          {
+            "name": "sensor",
+            "symbol": "inductive_sensor_2output",
+            "terminals": {
+              "plus": [
+                "茶 +V"
+              ],
+              "minus": [
+                "青 0V"
+              ],
+              "no": [
+                "黒 NO"
+              ],
+              "nc": [
+                "白 NC"
+              ]
+            }
+          }
+        ],
+        "display_ratings": "PNP NO+NC(SIO) 10–30VDC 100mA / M12 2mm"
+      }
+    ],
+    "physical_wiring_terminals": 4,
+    "notes": [
+      "公式分類はDC3線式だが、同時2出力形は茶・青・黒・白の4本。裸線式のためコネクタのピン番号は付けない。",
+      "黒NOと白NCは独立出力。出力を短絡せず、それぞれの負荷へ接続する。",
+      "100mAは2出力形の開閉容量。1出力形の200mAを適用しない。"
+    ]
+  }
+}

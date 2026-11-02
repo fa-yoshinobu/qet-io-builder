@@ -1,0 +1,79 @@
+{
+  "category": "standard_device",
+  "model": "SC21-50",
+  "definition": {
+    "manufacturer": "スワロー電機",
+    "series": "SC21",
+    "device_type": "transformer",
+    "source": "公式SC21カタログ p.22、SC21-50個別製品図面・公式Web結線図",
+    "official_html": "https://www.swallow.co.jp/products/index/8",
+    "rated_supply": "AC200/220V",
+    "ratings": {
+      "capacity_va": 50,
+      "frequency_hz": [
+        50,
+        60
+      ],
+      "primary_vac": [
+        200,
+        220
+      ],
+      "secondary_vac": [
+        100,
+        110
+      ]
+    },
+    "winding_type": "単相複巻",
+    "galvanic_isolation": true,
+    "electrostatic_shield": false,
+    "physical_wiring_terminals": 6,
+    "windings": {
+      "primary": [
+        "primary_zero",
+        "primary_tap",
+        "primary_end"
+      ],
+      "secondary": [
+        "secondary_zero",
+        "secondary_tap",
+        "secondary_end"
+      ]
+    },
+    "terminal_type": "M4ねじアップ式",
+    "display_ratings": "50VA 200/220V → 100/110V",
+    "notes": [
+      "一次・二次の0は別巻線の端子。相互に短絡・接続しない。",
+      "一次200V/220V、二次100V/110Vはそれぞれ同一巻線のタップ。独立した複数出力ではない。",
+      "未使用タップを含む6端子を表示する。",
+      "SC21-Eの静電シールドE端子付きとは別機種。",
+      "今回の対象は50/100/200VAのみ。標準記号は実物の寸法や端子の並びを表さない。"
+    ],
+    "verification_note": "公式カタログ・個別図面の定格、端子刻印、結線図を照合。実機未確認。",
+    "symbol_bindings": [
+      {
+        "name": "transformer",
+        "symbol": "transformer_1p_tapped",
+        "terminals": {
+          "primary_zero": [
+            "0"
+          ],
+          "primary_tap": [
+            "200V"
+          ],
+          "primary_end": [
+            "220V"
+          ],
+          "secondary_zero": [
+            "0"
+          ],
+          "secondary_tap": [
+            "100V"
+          ],
+          "secondary_end": [
+            "110V"
+          ]
+        }
+      }
+    ]
+  }
+}

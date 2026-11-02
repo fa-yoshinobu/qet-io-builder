@@ -1,0 +1,268 @@
+{
+  "category": "standard_device",
+  "model": "TP814X1",
+  "definition": {
+    "manufacturer": "FUJI ELECTRIC",
+    "series": "TP",
+    "device_type": "socket",
+    "standard_family": "socket",
+    "socket_family": "ST7P",
+    "electrical_terminals": 14,
+    "terminal_numbering": "socket_pin_number",
+    "terminal_view": "ソケット本体のねじ端子刻印",
+    "terminal_type": "M3ねじ",
+    "compatible_timers": [
+      "ST7P-4 DC24V 10S"
+    ],
+    "terminal_map": [
+      {
+        "socket_marking": "1",
+        "relay_pin": "1",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "2",
+        "relay_pin": "2",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "3",
+        "relay_pin": "3",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "4",
+        "relay_pin": "4",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "5",
+        "relay_pin": "5",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "6",
+        "relay_pin": "6",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "7",
+        "relay_pin": "7",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "8",
+        "relay_pin": "8",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "9",
+        "relay_pin": "9",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "10",
+        "relay_pin": "10",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "11",
+        "relay_pin": "11",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "12",
+        "relay_pin": "12",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "13",
+        "relay_pin": "13",
+        "function": "pass_through"
+      },
+      {
+        "socket_marking": "14",
+        "relay_pin": "14",
+        "function": "pass_through"
+      }
+    ],
+    "symbol_bindings": [
+      {
+        "name": "pin_1",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "1"
+          ]
+        }
+      },
+      {
+        "name": "pin_2",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "2"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      },
+      {
+        "name": "pin_3",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "3"
+          ],
+          "second": [
+            "3"
+          ]
+        }
+      },
+      {
+        "name": "pin_4",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "4"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "pin_5",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "5"
+          ],
+          "second": [
+            "5"
+          ]
+        }
+      },
+      {
+        "name": "pin_6",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "6"
+          ],
+          "second": [
+            "6"
+          ]
+        }
+      },
+      {
+        "name": "pin_7",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "7"
+          ],
+          "second": [
+            "7"
+          ]
+        }
+      },
+      {
+        "name": "pin_8",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "8"
+          ],
+          "second": [
+            "8"
+          ]
+        }
+      },
+      {
+        "name": "pin_9",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "9"
+          ],
+          "second": [
+            "9"
+          ]
+        }
+      },
+      {
+        "name": "pin_10",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "10"
+          ],
+          "second": [
+            "10"
+          ]
+        }
+      },
+      {
+        "name": "pin_11",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "11"
+          ],
+          "second": [
+            "11"
+          ]
+        }
+      },
+      {
+        "name": "pin_12",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "12"
+          ],
+          "second": [
+            "12"
+          ]
+        }
+      },
+      {
+        "name": "pin_13",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "13"
+          ],
+          "second": [
+            "13"
+          ]
+        }
+      },
+      {
+        "name": "pin_14",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "14"
+          ],
+          "second": [
+            "14"
+          ]
+        }
+      }
+    ],
+    "internal_connections": [],
+    "connection_semantics": "外部ねじ端子から同番号の本体差込ピンへの通過接続。異なるピン間の内部導通なし。",
+    "source": "62E1-J-0042c_タイマ 2-5～8・15～17・24～27（形式・接続図・動作・ソケット）",
+    "official_html": "https://www.fujielectric.co.jp/products/timer/ms4s_st7p/",
+    "notes": [
+      "レール・ねじ取付用ソケット。タイマ内部の電源回路・機能接点はソケット単体には描かない。"
+    ],
+    "verification_note": "カタログの適合表と外形の端子番号を照合。実機未確認。"
+  }
+}

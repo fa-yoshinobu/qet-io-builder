@@ -1,0 +1,113 @@
+{
+  "category": "standard_device",
+  "model": "NAC-04-472",
+  "definition": {
+    "manufacturer": "COSEL",
+    "series": "NAC",
+    "device_type": "noise_filter",
+    "source": "SFJ_NAC(4-30A) NA-1/2 2026-01-31（定格・回路・外形端子）; CMJ_NAC 取扱説明-1（接続条件）",
+    "official_html": "https://www.cosel.com/product/noisefilter/NAC/NAC-04",
+    "rated_supply": "単相AC250V / DC250V",
+    "ratings": {
+      "rated_voltage_vac": 250,
+      "rated_voltage_vdc": 250,
+      "rated_current_a": 4,
+      "frequency_hz": [
+        50,
+        60
+      ],
+      "leakage_current_ma_max": {
+        "at_125vac_60hz": 0.5,
+        "at_250vac_60hz": 1.0
+      },
+      "ground_capacitance_code": "472",
+      "ground_capacitance_pf_nominal": 4700
+    },
+    "terminal_type": "M4ねじ（プッシュダウン方式）",
+    "electrical_nodes": 5,
+    "physical_wiring_terminals": 6,
+    "terminal_groups": {
+      "line1": [
+        "1"
+      ],
+      "line2": [
+        "2"
+      ],
+      "load1": [
+        "3"
+      ],
+      "load2": [
+        "4"
+      ],
+      "earth": [
+        "PE",
+        "PE"
+      ]
+    },
+    "internal_connections": [
+      [
+        "PE (入力側)",
+        "PE (出力側)"
+      ]
+    ],
+    "line_paths": [
+      [
+        "1",
+        "3"
+      ],
+      [
+        "2",
+        "4"
+      ]
+    ],
+    "mounting": "シャーシねじ取付",
+    "temperature": {
+      "operating_min_c": -40,
+      "operating_max_c": 85,
+      "safety_certified_min_c": -25,
+      "derating_start_c": 55
+    },
+    "display_ratings": "単相 AC250V/DC250V 4A",
+    "notes": [
+      "入力1・2、出力3・4。電源ラインは1–3と2–4。",
+      "保護接地PEは2箇所あり取付板で同電位。標準記号ではPE/PEとして1電気ノードに併記する。",
+      "55℃を超えると定格電流を低減。商用50/60Hzの正弦波電源で使用し、インバータ・サーボのモータ出力側へ接続しない。",
+      "標準のねじ取付形。DINレール形-Dは別形名であり含めない。接地は本体PEへ接続する。",
+      "標準記号は機能表現であり、実機内部素子の配置・寸法を表さない。"
+    ],
+    "verification_note": "公式PDFで定格・実端子・接地・電流低減を照合。実機未確認。",
+    "symbol_bindings": [
+      {
+        "name": "filter",
+        "symbol": "noise_filter_1p",
+        "terminals": {
+          "line1": [
+            "1"
+          ],
+          "line2": [
+            "2"
+          ],
+          "load1": [
+            "3"
+          ],
+          "load2": [
+            "4"
+          ],
+          "earth": [
+            "PE",
+            "PE"
+          ]
+        }
+      }
+    ],
+    "earth_terminal_positions": [
+      "入力側",
+      "出力側"
+    ],
+    "dimensions_mm": {
+      "width": 53,
+      "height": 41,
+      "depth": 92
+    }
+  }
+}

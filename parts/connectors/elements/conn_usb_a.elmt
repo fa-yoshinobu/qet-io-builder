@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="55" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{6b061131-9138-51f1-9539-ef62089e2316}" />
+  <names>
+    <name lang="ja">USB Type-A</name>
+    <name lang="en">conn_usb_a</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <rect x="5" y="-10" width="40" height="20" rx="2" ry="2" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="9" y="-6" width="32" height="12" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="12" y="-6" width="26" height="5" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <line x1="16" y1="1" x2="16" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="22" y1="1" x2="22" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="28" y1="1" x2="28" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="34" y1="1" x2="34" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <terminal uuid="{21ae7e21-b31e-50fd-9639-c0066430ad37}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

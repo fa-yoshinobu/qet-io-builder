@@ -1,0 +1,323 @@
+{
+  "category": "mx_cpu",
+  "model": "MXF100-8-N32-EC",
+  "definition": {
+    "ports": [
+      {
+        "name": "P1 EtherCAT"
+      },
+      {
+        "name": "P2 Ethernet"
+      }
+    ],
+    "power_ports": [
+      "+24V",
+      "24G",
+      "⏚"
+    ],
+    "usb_port": true,
+    "usb_type": "Type-C",
+    "battery_supported": true,
+    "battery_type": "FX3U-32BL",
+    "battery_models": [
+      "FX3U-32BL"
+    ],
+    "sd_card_supported": true,
+    "sd_card_models": [
+      "NZ1MEM-2GBSD",
+      "NZ1MEM-4GBSD",
+      "NZ1MEM-8GBSD",
+      "NZ1MEM-16GBSD"
+    ],
+    "memory_card_supported": false,
+    "memory_cassette_supported": false,
+    "batteryless_supported": false,
+    "signal_terminals": [
+      {
+        "pin": "",
+        "signal": "X00",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 0
+      },
+      {
+        "pin": "",
+        "signal": "X01",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 1
+      },
+      {
+        "pin": "",
+        "signal": "X02",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 2
+      },
+      {
+        "pin": "",
+        "signal": "X03",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 3
+      },
+      {
+        "pin": "",
+        "signal": "X04",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 4
+      },
+      {
+        "pin": "",
+        "signal": "X05",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 5
+      },
+      {
+        "pin": "",
+        "signal": "X06",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 6
+      },
+      {
+        "pin": "",
+        "signal": "X07",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 7
+      },
+      {
+        "pin": "",
+        "signal": "S/S",
+        "description": "コモン"
+      },
+      {
+        "pin": "",
+        "signal": "X08",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 8
+      },
+      {
+        "pin": "",
+        "signal": "X09",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 9
+      },
+      {
+        "pin": "",
+        "signal": "X0A",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 10
+      },
+      {
+        "pin": "",
+        "signal": "X0B",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 11
+      },
+      {
+        "pin": "",
+        "signal": "X0C",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 12
+      },
+      {
+        "pin": "",
+        "signal": "X0D",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 13
+      },
+      {
+        "pin": "",
+        "signal": "X0E",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 14
+      },
+      {
+        "pin": "",
+        "signal": "X0F",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 15
+      },
+      {
+        "pin": "",
+        "signal": "S/S",
+        "description": "コモン"
+      },
+      {
+        "pin": "",
+        "signal": "Y00",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 0
+      },
+      {
+        "pin": "",
+        "signal": "Y01",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 1
+      },
+      {
+        "pin": "",
+        "signal": "Y02",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 2
+      },
+      {
+        "pin": "",
+        "signal": "Y03",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 3
+      },
+      {
+        "pin": "",
+        "signal": "Y04",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 4
+      },
+      {
+        "pin": "",
+        "signal": "Y05",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 5
+      },
+      {
+        "pin": "",
+        "signal": "Y06",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 6
+      },
+      {
+        "pin": "",
+        "signal": "Y07",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 7
+      },
+      {
+        "pin": "",
+        "signal": "COM0",
+        "description": "コモン"
+      },
+      {
+        "pin": "",
+        "signal": "Y08",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 8
+      },
+      {
+        "pin": "",
+        "signal": "Y09",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 9
+      },
+      {
+        "pin": "",
+        "signal": "Y0A",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 10
+      },
+      {
+        "pin": "",
+        "signal": "Y0B",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 11
+      },
+      {
+        "pin": "",
+        "signal": "Y0C",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 12
+      },
+      {
+        "pin": "",
+        "signal": "Y0D",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 13
+      },
+      {
+        "pin": "",
+        "signal": "Y0E",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 14
+      },
+      {
+        "pin": "",
+        "signal": "Y0F",
+        "description": "予備",
+        "address_prefix": "Y",
+        "address": 15
+      },
+      {
+        "pin": "",
+        "signal": "COM0",
+        "description": "コモン"
+      }
+    ],
+    "source": "SH-082633-E 1.1/PDF54-57;13.1/PDF274; SH-082745-A 1.1/PDF20-23",
+    "max_axes": 8,
+    "program_memory_mb": 30,
+    "diagram_note": "内蔵I/O: X00～X0F / Y00～Y0F。ネットワーク: 0400H / モーション: 0420H。",
+    "inputs": 16,
+    "outputs": 16,
+    "output_type": "シンク",
+    "input_voltage": "DC24V",
+    "input_type": "シンク/ソース",
+    "terminal_type": "スプリングクランプ端子台",
+    "output_voltage": "DC5～30V",
+    "output_current": "Y00～Y03:0.3A / 他:0.1A",
+    "physical_terminal_labels": true,
+    "manual_references": [
+      {
+        "document_number": "SH-082633-E",
+        "pages": "53-56,192-199,208-211,272-275",
+        "page_numbering": "冊子"
+      },
+      {
+        "document_number": "SH-082745-A",
+        "pages": "11,19-21,50",
+        "page_numbering": "冊子"
+      }
+    ],
+    "fixed_io_start": true,
+    "compatible_modules": [
+      "FX5-232ADP",
+      "FX5-485ADP",
+      "FX5-4A-ADP",
+      "FX5-4AD-ADP",
+      "FX5-4AD-PT-ADP",
+      "FX5-4AD-TC-ADP",
+      "FX5-4DA-ADP",
+      "MXF100-H32N",
+      "MXF100-H32P",
+      "MXF100-X32",
+      "MXF100-Y16R",
+      "MXF100-Y32N",
+      "MXF100-Y32P"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "category": "standard_device",
+  "model": "0217002.MXP",
+  "definition": {
+    "manufacturer": "Littelfuse",
+    "series": "217",
+    "device_type": "fuse",
+    "standard_family": "fuse",
+    "terminal_numbering": "physical_position",
+    "fuse_included": true,
+    "fuse_selection_required": false,
+    "body_material": "glass",
+    "response_time": "fast_acting",
+    "ratings": {
+      "rated_current_a": 2,
+      "rated_voltage_vac": 250,
+      "interrupting_current_a_at_250vac": 35,
+      "nominal_size_mm": [
+        5,
+        20
+      ],
+      "max_power_dissipation_w_at_1_5_in": 1.6
+    },
+    "symbol_bindings": [
+      {
+        "name": "fuse",
+        "symbol": "fuse_1p",
+        "terminals": {
+          "first": [
+            "端部1"
+          ],
+          "second": [
+            "端部2"
+          ]
+        }
+      }
+    ],
+    "source": "217 Series Axial Lead & Cartridge Fuses Datasheet 改訂2025-07-17 p.1–2・4",
+    "official_html": "https://www.littelfuse.com/products/fuses-overcurrent-protection/fuses/cartridge-fuses",
+    "verification_note": "メーカー公式PDFを保存し、電流・AC電圧・遮断容量・形名構成を照合。速断/タイムラグの代表QET確認済み。全容量の個別画面・実機は未確認。",
+    "notes": [
+      "管形ヒューズ本体。ホルダは別部品。端部名は無極性の両端を区別する説明用で刻印番号ではない。",
+      "AC250Vでの遮断容量を記録し、DC電圧の定格へ読み替えない。",
+      "寸法だけでホルダとの適合を確定しない。定格電流・電圧・許容損失・温度条件を別途照合する。"
+    ],
+    "display_ratings": "2A / AC250V / 速断 / 5×20mm"
+  }
+}

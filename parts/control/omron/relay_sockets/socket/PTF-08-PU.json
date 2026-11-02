@@ -1,0 +1,203 @@
+{
+  "category": "standard_device",
+  "model": "PTF-08-PU",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "PYF / PTF ソケット",
+    "device_type": "socket",
+    "standard_family": "socket",
+    "socket_family": "LY",
+    "terminal_numbering": "socket_iec_marking",
+    "terminal_view": "ソケットTOP VIEW",
+    "electrical_terminals": 8,
+    "terminal_map": [
+      {
+        "socket_marking": "11",
+        "relay_pin": "5",
+        "function": "common",
+        "pole": 1,
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "14",
+        "relay_pin": "3",
+        "function": "no",
+        "pole": 1,
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "12",
+        "relay_pin": "1",
+        "function": "nc",
+        "pole": 1,
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "21",
+        "relay_pin": "6",
+        "function": "common",
+        "pole": 2,
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "24",
+        "relay_pin": "4",
+        "function": "no",
+        "pole": 2,
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "22",
+        "relay_pin": "2",
+        "function": "nc",
+        "pole": 2,
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "A1",
+        "relay_pin": "7",
+        "function": "coil",
+        "wire_entries": 2
+      },
+      {
+        "socket_marking": "A2",
+        "relay_pin": "8",
+        "function": "coil",
+        "wire_entries": 2
+      }
+    ],
+    "compatible_relays": [
+      "LY1",
+      "LY1N",
+      "LY2",
+      "LY2N",
+      "LY2Z",
+      "LY2ZN"
+    ],
+    "socket_compatibility_scope": "本プロジェクト登録のMY/LY基本形式。特殊派生や電圧別注文SKU全件の適合保証ではない",
+    "symbol_bindings": [
+      {
+        "name": "pin_5",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "11"
+          ],
+          "second": [
+            "5"
+          ]
+        }
+      },
+      {
+        "name": "pin_3",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "14"
+          ],
+          "second": [
+            "3"
+          ]
+        }
+      },
+      {
+        "name": "pin_1",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "12"
+          ],
+          "second": [
+            "1"
+          ]
+        }
+      },
+      {
+        "name": "pin_6",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "21"
+          ],
+          "second": [
+            "6"
+          ]
+        }
+      },
+      {
+        "name": "pin_4",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "24"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "pin_2",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "22"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      },
+      {
+        "name": "pin_7",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "A1"
+          ],
+          "second": [
+            "7"
+          ]
+        }
+      },
+      {
+        "name": "pin_8",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "A2"
+          ],
+          "second": [
+            "8"
+          ]
+        }
+      }
+    ],
+    "internal_connections": [],
+    "connection_semantics": "各部品はソケット外部配線端子から同番号のリレー差込ピンへの通過接続。リレーのコイルや接点をソケット内に仮定しない。",
+    "ratings": {
+      "continuous_current_a": 10,
+      "current_note": "搭載リレーの定格と配線/周囲温度条件の小さい方を適用する",
+      "current_temperature_limits": [
+        {
+          "ambient_max_c": 55,
+          "current_a": 10
+        },
+        {
+          "ambient_max_c": 70,
+          "current_a": 7
+        }
+      ]
+    },
+    "source": "SGFR-218S / CSM_PYF-PU_P2RF-PU_SGFR-218_6_24 PDF p2,4,7",
+    "official_html": "https://www.fa.omron.co.jp/products/family/811/lineup/",
+    "verification_note": "ソケット刻印・本体ピン対応をTOP VIEW図で照合。標準端子記号で各極の通過接続を表す。実機配線は未確認。",
+    "notes": [
+      "第1接続点の文字はソケット外部端子、第2接続点はリレー差込ピン。装着リレーの機能接点は別部品。",
+      "PUは各電気端子に配線口2つ。配線口を別のリレー接点として数えない。",
+      "ソケット単体には異なるピン間の導通・接点を生成しない。リレー/短絡バー/外部配線は別に扱う。",
+      "LY1と組合せた10A以上のソケット短絡指示は資料間に番号差があり未確認。自動短絡はしない。"
+    ],
+    "release_lever": true
+  }
+}

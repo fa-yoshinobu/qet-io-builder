@@ -1,0 +1,153 @@
+{
+  "category": "remote_mixed",
+  "model": "AJ65SBTB32-16DR",
+  "definition": {
+    "network": "CC-Link",
+    "network_terminals": [
+      [
+        "TB1",
+        "DA"
+      ],
+      [
+        "TB2",
+        "DB"
+      ],
+      [
+        "TB3",
+        "DG"
+      ],
+      [
+        "TB4",
+        "SLD"
+      ],
+      [
+        "TB5",
+        "+24V"
+      ],
+      [
+        "TB6",
+        "FG"
+      ],
+      [
+        "TB7",
+        "24G"
+      ]
+    ],
+    "source": "SH-4007AK 6.1.11",
+    "note": "コモン・入力電源はIOページに表示し、手動配線。リレー出力は4点ごとに絶縁された2グループ。",
+    "input": {
+      "io": "in",
+      "points": 8,
+      "pins": [
+        "TB8",
+        "TB10",
+        "TB12",
+        "TB14",
+        "TB16",
+        "TB18",
+        "TB20",
+        "TB22"
+      ],
+      "common": [],
+      "input_common": "positive",
+      "manual_input_power": true,
+      "start_offset": 0,
+      "manual_input_note": "入力コモンは同じIOページで接続",
+      "extra_terminals": [
+        [
+          "TB9",
+          "COM1A"
+        ],
+        [
+          "TB11",
+          "COM1B"
+        ],
+        [
+          "TB13",
+          "COM1A"
+        ],
+        [
+          "TB15",
+          "COM1B"
+        ],
+        [
+          "TB17",
+          "COM1A"
+        ],
+        [
+          "TB19",
+          "COM1B"
+        ],
+        [
+          "TB21",
+          "COM1A"
+        ],
+        [
+          "TB23",
+          "COM1B"
+        ],
+        [
+          "TB24",
+          "DC24A"
+        ],
+        [
+          "TB25",
+          "DC24B"
+        ]
+      ]
+    },
+    "output": {
+      "io": "out",
+      "out": "relay",
+      "points": 8,
+      "pins": [
+        "TB26",
+        "TB28",
+        "TB30",
+        "TB32",
+        "TB34",
+        "TB36",
+        "TB38",
+        "TB40"
+      ],
+      "vplus": "",
+      "com": "",
+      "start_offset": 8,
+      "manual_output_note": "COM2A・COM3Aは別グループ、手動配線",
+      "extra_terminals": [
+        [
+          "TB27",
+          "COM2B"
+        ],
+        [
+          "TB29",
+          "COM2B"
+        ],
+        [
+          "TB31",
+          "COM2B"
+        ],
+        [
+          "TB33",
+          "COM2A"
+        ],
+        [
+          "TB35",
+          "COM3B"
+        ],
+        [
+          "TB37",
+          "COM3B"
+        ],
+        [
+          "TB39",
+          "COM3B"
+        ],
+        [
+          "TB41",
+          "COM3A"
+        ]
+      ]
+    }
+  }
+}

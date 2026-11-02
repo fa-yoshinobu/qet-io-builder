@@ -1,0 +1,62 @@
+{
+  "category": "remote_io",
+  "model": "NZ2EX2B1N-16T",
+  "definition": {
+    "network": "",
+    "module_role": "extension",
+    "network_connectors": [],
+    "power_connectors": [],
+    "power_ports": [],
+    "confirmed": true,
+    "source": "SH-081114ENG-T 4.3 印刷132,133 / PDF134,135",
+    "source_reference": {
+      "document": "SH-081114ENG-T",
+      "section": "4.3",
+      "printed_pages": [
+        132,
+        133
+      ],
+      "pdf_pages": [
+        134,
+        135
+      ]
+    },
+    "lifecycle": "公式ラインアップ掲載（発売中の断定ではない）",
+    "extension_support": "複数段接続対応。最大3台はNZ2GF2B1N1-16D/T/TEとの組合せ、他は最大1台。",
+    "note": "増設側の局内X/Y端子を表示。ネットワーク割付は主ユニット・接続位置で確認。",
+    "network_ports": [],
+    "unit_power_source": "main_module",
+    "power_notes": [
+      "内部回路電源は主ユニットから供給",
+      "I/O電源は別途供給"
+    ],
+    "io": "out",
+    "points": 16,
+    "pins": [
+      "TB1",
+      "TB2",
+      "TB3",
+      "TB4",
+      "TB5",
+      "TB6",
+      "TB7",
+      "TB8",
+      "TB9",
+      "TB10",
+      "TB11",
+      "TB12",
+      "TB13",
+      "TB14",
+      "TB15",
+      "TB16"
+    ],
+    "terminal_block": "ねじ端子台",
+    "out": "sink",
+    "vplus": "TB17",
+    "com": "TB18",
+    "terminal_names": {
+      "TB17": "CTL+",
+      "TB18": "COM-"
+    }
+  }
+}

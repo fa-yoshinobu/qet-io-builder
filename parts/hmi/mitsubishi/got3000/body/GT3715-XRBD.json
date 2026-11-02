@@ -1,0 +1,324 @@
+{
+  "category": "got_body",
+  "model": "GT3715-XRBD",
+  "definition": {
+    "series": "GOT3000",
+    "family": "GT37-X",
+    "display": {
+      "screen": "15型",
+      "resolution": "1024x768",
+      "touch": "アナログ抵抗膜式"
+    },
+    "power": {
+      "supply": "DC",
+      "voltage": "DC24V",
+      "ports": [
+        "−",
+        "＋",
+        "⏚",
+        "⏚"
+      ],
+      "port_labels_basis": "マニュアル端子台図の左からの順（メーカー番号ではない）",
+      "ground_position_confirmed": true,
+      "ground_note": "接地2端子は左からLG・FG(SH-082581C 25.2.1 印刷108)。短絡して接地"
+    },
+    "interfaces": [
+      {
+        "name": "内蔵シリアル RS-232/422/485 共用",
+        "kind": "dsub9",
+        "connector_label": "D-sub 9pin メス",
+        "ports": [],
+        "serial_modes": [
+          "RS-232",
+          "RS-422/485"
+        ],
+        "mounting_screw": "M2.6",
+        "pinout": [
+          {
+            "pin": 1,
+            "signal": "SDA"
+          },
+          {
+            "pin": 2,
+            "signal": "RDA"
+          },
+          {
+            "pin": 3,
+            "signal": "RSA"
+          },
+          {
+            "pin": 4,
+            "signal": "CSA"
+          },
+          {
+            "pin": 5,
+            "signal": "SG"
+          },
+          {
+            "pin": 6,
+            "signal": "SDB"
+          },
+          {
+            "pin": 7,
+            "signal": "RDB"
+          },
+          {
+            "pin": 8,
+            "signal": "RSB"
+          },
+          {
+            "pin": 9,
+            "signal": "CSB"
+          }
+        ],
+        "modes": {
+          "RS-232": {
+            "pinout": [
+              {
+                "pin": 1,
+                "signal": "RI (NC)"
+              },
+              {
+                "pin": 2,
+                "signal": "DR (DSR)"
+              },
+              {
+                "pin": 3,
+                "signal": "SD (TXD)"
+              },
+              {
+                "pin": 4,
+                "signal": "RD (RXD)"
+              },
+              {
+                "pin": 5,
+                "signal": "SG"
+              },
+              {
+                "pin": 6,
+                "signal": "ER (DTR)"
+              },
+              {
+                "pin": 7,
+                "signal": "CD"
+              },
+              {
+                "pin": 8,
+                "signal": "RS (RTS)"
+              },
+              {
+                "pin": 9,
+                "signal": "CS (CTS)"
+              }
+            ]
+          },
+          "RS-422/485": {
+            "pinout": [
+              {
+                "pin": 1,
+                "signal": "SDA"
+              },
+              {
+                "pin": 2,
+                "signal": "RDA"
+              },
+              {
+                "pin": 3,
+                "signal": "RSA"
+              },
+              {
+                "pin": 4,
+                "signal": "CSA"
+              },
+              {
+                "pin": 5,
+                "signal": "SG"
+              },
+              {
+                "pin": 6,
+                "signal": "SDB"
+              },
+              {
+                "pin": 7,
+                "signal": "RDB"
+              },
+              {
+                "pin": 8,
+                "signal": "RSB"
+              },
+              {
+                "pin": 9,
+                "signal": "CSB"
+              }
+            ]
+          }
+        },
+        "pinout_source": "SH-082583D 5.1.3 印刷518",
+        "default_mode": "RS-422/485"
+      },
+      {
+        "name": "Ethernet CH1",
+        "kind": "rj45",
+        "connector_label": "RJ-45 1000BASE-T",
+        "ports": []
+      },
+      {
+        "name": "Ethernet CH2",
+        "kind": "rj45",
+        "connector_label": "RJ-45 1000BASE-T",
+        "ports": []
+      },
+      {
+        "name": "USB 前面",
+        "kind": "usb_c",
+        "connector_label": "Type-C デバイス/ホスト",
+        "ports": [],
+        "standard": "USB3.2 Gen1"
+      },
+      {
+        "name": "USB 背面",
+        "kind": "usb_a",
+        "connector_label": "Type-A ホスト",
+        "ports": [],
+        "standard": "USB3.2 Gen1"
+      },
+      {
+        "name": "HDMI 出力",
+        "kind": "hdmi",
+        "connector_label": "Type-A",
+        "ports": []
+      },
+      {
+        "name": "SD CARD",
+        "kind": "sd",
+        "connector_label": "SD/SDHC 最大32GB",
+        "ports": []
+      }
+    ],
+    "serial_modes": {
+      "RS-232": [
+        {
+          "pin": "1",
+          "signal": "RI(NC)",
+          "connectable": false
+        },
+        {
+          "pin": "2",
+          "signal": "DSR(DR)",
+          "connectable": true
+        },
+        {
+          "pin": "3",
+          "signal": "TXD(SD)",
+          "connectable": true
+        },
+        {
+          "pin": "4",
+          "signal": "RXD(DR)",
+          "connectable": true
+        },
+        {
+          "pin": "5",
+          "signal": "SG",
+          "connectable": true
+        },
+        {
+          "pin": "6",
+          "signal": "DTR(ER)",
+          "connectable": true
+        },
+        {
+          "pin": "7",
+          "signal": "DCD(CD)",
+          "connectable": true
+        },
+        {
+          "pin": "8",
+          "signal": "RTS(RS)",
+          "connectable": true
+        },
+        {
+          "pin": "9",
+          "signal": "CTS(CS)",
+          "connectable": true
+        }
+      ],
+      "RS-422/485": [
+        {
+          "pin": "1",
+          "signal": "TXD+(SDA)",
+          "connectable": true
+        },
+        {
+          "pin": "2",
+          "signal": "RXD+(RDA)",
+          "connectable": true
+        },
+        {
+          "pin": "3",
+          "signal": "RTS+(RSA)",
+          "connectable": true
+        },
+        {
+          "pin": "4",
+          "signal": "CTS+(CSA)",
+          "connectable": true
+        },
+        {
+          "pin": "5",
+          "signal": "SG",
+          "connectable": true
+        },
+        {
+          "pin": "6",
+          "signal": "TXD−(SDB)",
+          "connectable": true
+        },
+        {
+          "pin": "7",
+          "signal": "RXD−(RDB)",
+          "connectable": true
+        },
+        {
+          "pin": "8",
+          "signal": "RTS−(RSB)",
+          "connectable": true
+        },
+        {
+          "pin": "9",
+          "signal": "CTS−(CSB)",
+          "connectable": true
+        }
+      ]
+    },
+    "serial_mode_default": "未設定",
+    "serial_note": "共用1コネクタ。5V給電非対応。RS-232ピン1 RI(NC)の機能は未確認。RXD(DR)は資料原文表記。短絡・終端抵抗は接続条件に従い手動設定",
+    "battery_supported": true,
+    "battery_type": "GT11-50BAT",
+    "battery_included": false,
+    "sd_card_supported": true,
+    "sd_card_capacity_gb": 32,
+    "usb_port": true,
+    "usb_ports": [
+      {
+        "type": "Type-C",
+        "position": "前面",
+        "role": "デバイス/ホスト"
+      },
+      {
+        "type": "Type-A",
+        "position": "背面",
+        "role": "ホスト"
+      }
+    ],
+    "expansion_adapter": "GT37-IF2000",
+    "expansion_note": "対応表にある拡張ユニットを1段装着可能。標準内蔵ポートとは別",
+    "source": "SH-082581C;SH-082583D;BCN-P5999-1774-A; SH-082581C 6.1/6.2,24,25.1; SH-082583D 55.1.3,付1.1",
+    "diagram_notes": [
+      "シリアルは共用1ポート",
+      "LG・FGは短絡して接地"
+    ],
+    "confirmation": "未確認",
+    "verification_note": "電源印字・ポート形状と数を資料照合。実機・全ケーブル結線は未確認"
+  }
+}

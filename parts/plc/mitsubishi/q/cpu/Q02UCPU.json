@@ -1,0 +1,56 @@
+{
+  "category": "q_cpu",
+  "model": "Q02UCPU",
+  "definition": {
+    "usb_port": true,
+    "usb_type": "Mini-B",
+    "ethernet": false,
+    "rs232_port": true,
+    "battery_supported": true,
+    "sd_card_supported": false,
+    "sd_card_slot": false,
+    "memory_cassette_supported": false,
+    "source": "SH-080483ENG-BC 6.1.3(3) PDF140-142/138-140; SH-080483ENG-BC 2.2(4) PDF40/38; 6.2.5 PDF164-168/162-166",
+    "program_capacity_ksteps": 20,
+    "io_points": 2048,
+    "io_device_points": 8192,
+    "max_extension_stages": 4,
+    "max_module_slots": 36,
+    "memory_card_supported": true,
+    "battery_models": [
+      "Q6BAT",
+      "Q7BATN",
+      "Q7BAT",
+      "Q8BAT"
+    ],
+    "memory_cassette_models": [],
+    "memory_card_models": [
+      "Q2MEM-1MBSN",
+      "Q2MEM-1MBS",
+      "Q2MEM-2MBSN",
+      "Q2MEM-2MBS",
+      "Q3MEM-4MBS",
+      "Q3MEM-4MBS-SET",
+      "Q3MEM-8MBS",
+      "Q3MEM-8MBS-SET",
+      "Q2MEM-2MBF",
+      "Q2MEM-4MBF",
+      "Q2MEM-8MBA",
+      "Q2MEM-16MBA",
+      "Q2MEM-32MBA"
+    ],
+    "sd_card_models": [],
+    "memory_source": "SH-080483ENG-BC 2.1.2(4) PDF40/冊子38; 9.1.1 PDF254/252; 9.2.1 PDF255-256/253-254; 10.1 PDF261/259; 11.1 PDF264/262; 三菱電機FA Q02UCPU 関連製品（Q3MEM-4MBS-SET・Q3MEM-8MBS-SETは保護カバー付きセット）; FA-A-0163 1.1,2.1-2.2 p1,4; FA-D-0267-A p1（旧SRAM生産中止2019-05-31）; FA-D-0184 p1（8MB ATA生産中止2016-12-15）; FA-A-0213 p1（16MB ATA生産中止2017-07-31）; FA-A-0261-A p1（32MB ATA生産中止2019-05-31）",
+    "memory_option_notes": {
+      "Q3MEM-4MBS-SET": "メモリカード＋保護カバーのセット",
+      "Q3MEM-8MBS-SET": "メモリカード＋保護カバーのセット",
+      "Q2MEM-1MBS": "生産終了（2019年5月31日）、代替: Q2MEM-1MBSN",
+      "Q2MEM-2MBS": "生産終了（2019年5月31日）、代替: Q2MEM-2MBSN",
+      "Q2MEM-8MBA": "生産終了（2016年12月15日）",
+      "Q2MEM-16MBA": "生産終了（2017年7月31日）",
+      "Q2MEM-32MBA": "生産終了（2019年5月31日）"
+    },
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=CPU"
+  }
+}

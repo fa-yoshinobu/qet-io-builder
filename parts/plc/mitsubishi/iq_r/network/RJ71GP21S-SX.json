@@ -1,0 +1,22 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71GP21S-SX",
+  "definition": {
+    "network": "CC-Link IE Controller",
+    "ports": [
+      "IN",
+      "OUT"
+    ],
+    "source": "L08298ENG-O; SH-081252-Z 2.4 ハードウェア仕様",
+    "connector_type": "optical",
+    "connector_label": "光ファイバ (LC)",
+    "power_ports": [
+      "+24V",
+      "24G",
+      "FG"
+    ],
+    "slots": 2,
+    "occupied_io_points": 48,
+    "slot_io_points": [16, 32]
+  }
+}

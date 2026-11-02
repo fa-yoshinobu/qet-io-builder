@@ -1,0 +1,35 @@
+{
+  "category": "iqr_q",
+  "model": "RX40PC6H",
+  "definition": {
+    "io": "in",
+    "points": 16,
+    "pins": [
+      "TB1",
+      "TB2",
+      "TB3",
+      "TB4",
+      "TB5",
+      "TB6",
+      "TB7",
+      "TB8",
+      "TB10",
+      "TB11",
+      "TB12",
+      "TB13",
+      "TB14",
+      "TB15",
+      "TB16",
+      "TB17"
+    ],
+    "common": [
+      "TB9",
+      "TB18"
+    ],
+    "input_common": "positive",
+    "confirmed": true,
+    "source": "SH-081247ENG-M p.44–45",
+    "note": "プラスコモン配線を自動生成。コモンは8点ごとに独立",
+    "common_group_points": 8
+  }
+}

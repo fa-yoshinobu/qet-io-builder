@@ -1,0 +1,101 @@
+{
+  "category": "remote_io",
+  "model": "NZ2GF2S1-16TE",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "module_role": "main",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female"
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female"
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT",
+        "connector_type": "terminal_3",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "24G"
+          ],
+          [
+            "3",
+            "FG"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "1",
+        "+24V"
+      ],
+      [
+        "2",
+        "24G"
+      ],
+      [
+        "3",
+        "FG"
+      ]
+    ],
+    "confirmed": true,
+    "source": "SH-081114ENG-T 4.2 印刷97,98 / PDF99,100",
+    "source_reference": {
+      "document": "SH-081114ENG-T",
+      "section": "4.2",
+      "printed_pages": [
+        97,
+        98
+      ],
+      "pdf_pages": [
+        99,
+        100
+      ]
+    },
+    "lifecycle": "公式ラインアップ掲載（発売中の断定ではない）",
+    "extension_support": "最大1台",
+    "note": "局内X/Y番号を表示。CPU側の割付はネットワーク設定で確認。",
+    "power_notes": [],
+    "io": "out",
+    "points": 16,
+    "pins": [
+      "TB1",
+      "TB2",
+      "TB3",
+      "TB4",
+      "TB5",
+      "TB6",
+      "TB7",
+      "TB8",
+      "TB9",
+      "TB10",
+      "TB11",
+      "TB12",
+      "TB13",
+      "TB14",
+      "TB15",
+      "TB16"
+    ],
+    "terminal_block": "スプリングクランプ端子台",
+    "out": "source",
+    "vplus": "TB17",
+    "com": "TB18",
+    "terminal_names": {
+      "TB17": "COM+",
+      "TB18": "CTL-"
+    }
+  }
+}

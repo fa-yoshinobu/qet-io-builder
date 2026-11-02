@@ -1,0 +1,99 @@
+{
+  "category": "standard_device",
+  "model": "SC26XA",
+  "definition": {
+    "manufacturer": "Fuji Electric",
+    "series": "SC-NEXT",
+    "device_type": "contactor",
+    "standard_family": "contactor",
+    "coil": {
+      "terminals": [
+        "A1",
+        "A2"
+      ],
+      "type": "AC",
+      "polarity": "ACにつき極性なし",
+      "voltage_selection_required": true,
+      "nominal_ac_voltages_v": [
+        "24",
+        "48",
+        "100",
+        "110",
+        "115",
+        "120",
+        "200",
+        "220",
+        "230",
+        "240",
+        "380",
+        "400",
+        "415",
+        "440"
+      ],
+      "nominal_dc_voltages_v": [],
+      "voltage_note": "呼び電圧の選択候補。周波数別実定格や注文電圧コードは資料で確認する。"
+    },
+    "contacts": [
+      {
+        "type": "no",
+        "terminals": [
+          "1/L1",
+          "2/T1"
+        ],
+        "role": "main"
+      },
+      {
+        "type": "no",
+        "terminals": [
+          "3/L2",
+          "4/T2"
+        ],
+        "role": "main"
+      },
+      {
+        "type": "no",
+        "terminals": [
+          "5/L3",
+          "6/T3"
+        ],
+        "role": "main"
+      }
+    ],
+    "auxiliary_options": [
+      {
+        "id": "1a",
+        "name": "1a",
+        "contacts": [
+          {
+            "type": "no",
+            "terminals": [
+              "13",
+              "14"
+            ],
+            "role": "auxiliary"
+          }
+        ]
+      },
+      {
+        "id": "1b",
+        "name": "1b",
+        "contacts": [
+          {
+            "type": "nc",
+            "terminals": [
+              "21",
+              "22"
+            ],
+            "role": "auxiliary"
+          }
+        ]
+      }
+    ],
+    "auxiliary_selection_required": true,
+    "source": "62C1-J-0307h PDF 51-57,138-141（主接点・補助・コイル端子）; 62C1-J-0307h（形式・コイル表）",
+    "official_html": "https://www.fujielectric.co.jp/products/magnetic_contactor/sc-next/",
+    "verification_note": "無励磁状態の接点構成。端子を資料照合、実機未確認。基本形式であり、電圧・補助構成を含む注文SKUを確定したものではない。",
+    "auxiliary_scope_note": "標準本体の構成のみ。追加補助ユニット・注文品2a2b/3a3b/4a4b等はこの定義に自動追加しない。",
+    "lifecycle": "公式サイト・カタログ掲載（個別受注状況は未確認）"
+  }
+}

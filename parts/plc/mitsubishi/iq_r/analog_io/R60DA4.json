@@ -1,0 +1,79 @@
+{
+  "category": "iqr_analog",
+  "model": "R60DA4",
+  "definition": {
+    "channels": [
+      "出力",
+      "出力",
+      "出力",
+      "出力"
+    ],
+    "terminals": [
+      "V+",
+      "I+",
+      "COM"
+    ],
+    "power": [
+      "+24V",
+      "24G",
+      "FG"
+    ],
+    "source": "SH-081235ENG-D 6.1 PDF27/印刷25",
+    "pins_by_channel": [
+      [
+        "1",
+        "3",
+        "2"
+      ],
+      [
+        "5",
+        "7",
+        "6"
+      ],
+      [
+        "9",
+        "11",
+        "10"
+      ],
+      [
+        "13",
+        "15",
+        "14"
+      ]
+    ],
+    "power_pins": [
+      "16",
+      "17",
+      "18"
+    ],
+    "unconnected_pins": [
+      "4",
+      "8",
+      "12"
+    ],
+    "diagram_note": "外部24VDC電源が必要。端子4/8/12はNCのため配線しない。",
+    "unconnected_ports": [
+      {
+        "pin": "4",
+        "signal": "NC",
+        "description": "配線不可",
+        "channel": 1,
+        "position": 3
+      },
+      {
+        "pin": "8",
+        "signal": "NC",
+        "description": "配線不可",
+        "channel": 2,
+        "position": 7
+      },
+      {
+        "pin": "12",
+        "signal": "NC",
+        "description": "配線不可",
+        "channel": 3,
+        "position": 11
+      }
+    ]
+  }
+}

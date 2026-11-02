@@ -1,0 +1,47 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ72GF15-T2",
+  "definition": {
+    "network": "CC-Link IE Field リモートヘッド",
+    "ports": [
+      "P1",
+      "P2"
+    ],
+    "connector_type": "rj45",
+    "interfaces": [
+      {
+        "name": "P1 CC-Link IE Field",
+        "kind": "rj45",
+        "ports": []
+      },
+      {
+        "name": "P2 CC-Link IE Field",
+        "kind": "rj45",
+        "ports": []
+      },
+      {
+        "name": "USB",
+        "kind": "usb",
+        "connector_label": "Mini-B",
+        "ports": []
+      }
+    ],
+    "module_role": "remote_head",
+    "mount_position": "cpu_slot",
+    "slots": 1,
+    "usb": "Mini-B",
+    "source": "SH-081614ENG-I 1, 5, 6",
+    "verification_note": "CPUスロット装着。USB Mini-B、RJ45 P1/P2を資料照合。通常のIOスロットへ配置しない。実機未確認",
+    "ethernet": true,
+    "usb_port": true,
+    "usb_type": "Mini-B",
+    "sd_card_supported": false,
+    "battery_supported": false,
+    "memory_cassette_supported": false,
+    "panel_interfaces": true,
+    "diagram_notes": [
+      "CPUスロットに装着",
+      "P1/P2: CC-Link IE Field"
+    ]
+  }
+}

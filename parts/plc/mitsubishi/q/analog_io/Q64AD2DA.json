@@ -1,0 +1,91 @@
+{
+  "category": "q_analog",
+  "model": "Q64AD2DA",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "出力",
+      "出力"
+    ],
+    "terminals": [],
+    "terminals_by_direction": {
+      "入力": [
+        "V+",
+        "V-/I-",
+        "I+"
+      ],
+      "出力": [
+        "V+",
+        "COM",
+        "I+"
+      ]
+    },
+    "power": [
+      "+24V",
+      "24G",
+      "⏚"
+    ],
+    "source": "SH-080793ENG-H 7.3 table7.3 PDF121/7-4; 7.4.2 PDF125/7-8; 7.4.3 table7.5 PDF126/7-9",
+    "pins_by_channel": [
+      [
+        "1",
+        "2",
+        "3"
+      ],
+      [
+        "4",
+        "5",
+        "6"
+      ],
+      [
+        "7",
+        "8",
+        "9"
+      ],
+      [
+        "10",
+        "11",
+        "12"
+      ],
+      [
+        "13",
+        "14",
+        "15"
+      ],
+      [
+        "16",
+        "17",
+        "18"
+      ]
+    ],
+    "power_pins": [
+      "+24V",
+      "24G",
+      "⏚"
+    ],
+    "power_connection": "separate_connector",
+    "power_title": "外部電源コネクタ",
+    "signal_labels_by_direction": {
+      "入力": {
+        "V+": "電圧/電流入力＋",
+        "V-/I-": "入力－",
+        "I+": "電流入力短絡用"
+      },
+      "出力": {
+        "V+": "電圧出力＋",
+        "COM": "出力コモン",
+        "I+": "電流出力＋"
+      }
+    },
+    "wiring_notes": [
+      "入力CH1～4、出力CH5～6。出力チャンネルをCH1/2へ振り直さない。",
+      "電流入力時は同一CHのV+とI+を接続する。出力で短絡しない。",
+      "同一出力CHの電圧/電流は同時使用しない。外部電源は別コネクタ24V DC ±15%。"
+    ],
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E3%82%A2%E3%83%8A%E3%83%AD%E3%82%B0"
+  }
+}

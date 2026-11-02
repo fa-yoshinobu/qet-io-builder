@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="59" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{4334057d-bcd5-56ce-a000-c636306c3e67}" />
+  <names>
+    <name lang="ja">M12 Xコード 8極 オス</name>
+    <name lang="en">conn_m12_x_8_male</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <circle x="5" y="-22" diameter="44" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="9" y="-18" diameter="36" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="15" y1="-12" x2="39" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="15" y1="12" x2="39" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <circle x="35.162674857624154" y="2.2095177560159875" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="29.209517756015988" y="8.162674857624154" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="20.790482243984012" y="8.162674857624154" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="14.837325142375846" y="2.2095177560159884" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="14.837325142375846" y="-6.209517756015987" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="20.790482243984005" y="-12.162674857624152" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="29.20951775601599" y="-12.162674857624152" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="35.162674857624154" y="-6.209517756015995" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <terminal uuid="{9ee6ed23-73c7-551b-bb7c-5d84f041f292}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

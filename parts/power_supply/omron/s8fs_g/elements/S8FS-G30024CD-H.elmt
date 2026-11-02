@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="280" height="208" hotspot_x="20" hotspot_y="38" link_type="simple">
+  <uuid uuid="{ef6aba8a-a3a8-5974-948b-2440d01e8596}" />
+  <names>
+    <name lang="ja">OMRON S8FS-G30024CD-H DC24V電源</name>
+    <name lang="en">S8FS-G30024CD-H</name>
+  </names>
+  <elementInformations />
+  <informations>OMRON DC24V電源 自作回路図部品。資料: T207-E1-14 p.2（DINレール取付形・定格）、p.15（端子配置）／国内公式形式一覧</informations>
+  <description>
+    <rect x="0" y="0" width="240" height="150" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="0" y="-18" width="240" height="18" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="79" y1="-18" x2="79" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="137" y1="-18" x2="137" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <text x="6" y="-4.333333333333334" text="ユニットNo." rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <text x="148.5" y="-3.666666666666667" text="S8FS-G30024CD-H" rotation="0" color="#000000" font="MS Gothic,8,-1,5,75,0,0,0,0,0" />
+    <text x="16" y="22" text="DC24V  14A" rotation="0" color="#000000" font="MS Gothic,9,-1,5,50,0,0,0,0,0" />
+    <text x="16" y="37" text="単相AC100～240V" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <line x1="10" y1="43" x2="230" y2="43" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <text x="16" y="58" text="入力" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <text x="171" y="58" text="出力" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="72" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="80" text="L" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="86" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="94" text="N" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="100" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="26" y1="95" x2="26" y2="103" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="19" y1="103" x2="33" y2="103" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="22" y1="106" x2="30" y2="106" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="24" y1="109" x2="28" y2="109" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="232" y="72" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="232" y="86" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="232" y="100" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="232" y="114" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <dynamic_text uuid="{a0412c3f-4a24-58f2-a076-a02fa221275d}" x="57.33333333333333" y="-17.7" z="5" text_from="ElementInfo" Halignment="AlignHCenter" Valignment="AlignTop" rotation="0" text_width="21.66666666666667" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text />
+      <info_name>auxiliary1</info_name>
+    </dynamic_text>
+    <dynamic_text uuid="{775b85d5-2c8c-5429-a1a9-fcac1e77eecd}" x="79" y="-17.7" z="5" text_from="ElementInfo" Halignment="AlignHCenter" Valignment="AlignTop" rotation="0" text_width="58" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,75,0,0,0,0,0">
+      <text />
+      <info_name>label</info_name>
+    </dynamic_text>
+    <terminal uuid="{c4b2ee6d-5000-56be-b94d-a70b08d34b5d}" orientation="w" x="0" y="76" name="L" type="Generic" />
+    <terminal uuid="{2aebde03-8d7b-5647-9bb8-2f5eff62a0ab}" orientation="w" x="0" y="90" name="N" type="Generic" />
+    <terminal uuid="{4eff5c6c-cf53-5d78-a67e-15b0aee98910}" orientation="w" x="0" y="104" name="⏚" type="Generic" />
+    <terminal uuid="{444dad68-362f-5b06-b655-2689d4ba3bd0}" orientation="e" x="240" y="76" name="+V" type="Generic" />
+    <terminal uuid="{fc936698-5b30-5746-a09f-401384e57eaf}" orientation="e" x="240" y="90" name="+V" type="Generic" />
+    <terminal uuid="{49f1665a-ea56-5d59-8601-f7ed11009209}" orientation="e" x="240" y="104" name="−V" type="Generic" />
+    <terminal uuid="{57bf8cfb-bebc-5cc9-bd46-96ee8fae1a18}" orientation="e" x="240" y="118" name="−V" type="Generic" />
+    <dynamic_text uuid="{1d96f182-b66f-5626-a343-79cc5ae01e84}" x="146" y="67" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,8,-1,5,50,0,0,0,0,0">
+      <text>+V</text>
+    </dynamic_text>
+    <dynamic_text uuid="{06c80b8a-f47e-543e-8666-80af7c40620a}" x="146" y="81" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,8,-1,5,50,0,0,0,0,0">
+      <text>+V</text>
+    </dynamic_text>
+    <dynamic_text uuid="{57d4a92b-eba8-5789-b267-978a5a681de4}" x="146" y="95" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,8,-1,5,50,0,0,0,0,0">
+      <text>−V</text>
+    </dynamic_text>
+    <dynamic_text uuid="{784d55c9-fee8-56ce-bcf5-426ffa169122}" x="146" y="109" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,8,-1,5,50,0,0,0,0,0">
+      <text>−V</text>
+    </dynamic_text>
+  </description>
+</definition>

@@ -1,0 +1,42 @@
+{
+  "category": "fx5_cpu",
+  "model": "FX5U-32MT/ES",
+  "definition": {
+    "series": "FX5U",
+    "base": "FX5U-32M",
+    "variants": [
+      "T/ES"
+    ],
+    "inputs": 16,
+    "outputs": [
+      [
+        0,
+        "0",
+        4
+      ],
+      [
+        1,
+        "4",
+        4
+      ],
+      [
+        2,
+        "10",
+        4
+      ],
+      [
+        3,
+        "14",
+        4
+      ]
+    ],
+    "in_common": "S/S",
+    "confirmed": true,
+    "source": "SH-082451 5.9 端子配列",
+    "battery_supported": true,
+    "usb_port": false,
+    "analog": true,
+    "rs485": true,
+    "service": true
+  }
+}

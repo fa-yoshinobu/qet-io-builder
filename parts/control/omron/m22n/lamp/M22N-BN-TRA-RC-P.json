@@ -1,0 +1,42 @@
+{
+  "category": "standard_device",
+  "model": "M22N-BN-TRA-RC-P",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "M22N",
+    "device_type": "lamp",
+    "source": "CSM_A22N_M22N_A30N_A254-E1_4_13 p45–48（形式・定格・X1/X2）; 国内公式形式仕様一覧",
+    "official_html": "https://www.fa.omron.co.jp/product/item/M22N-BN-TRA-RC-P/",
+    "terminal_type": "プッシュインPlus端子",
+    "ratings": {
+      "voltage": "AC/DC24V",
+      "allowable_voltage_v": [
+        21.6,
+        26.4
+      ],
+      "rated_current_ma": 12,
+      "typical_current_ma": 12
+    },
+    "color": "赤",
+    "light_source": "LED",
+    "display_ratings": "AC/DC24V 赤",
+    "symbol_bindings": [
+      {
+        "name": "lamp",
+        "symbol": "lamp",
+        "terminals": {
+          "first": [
+            "X1"
+          ],
+          "second": [
+            "X2"
+          ]
+        }
+      }
+    ],
+    "verification_note": "24V完成形式と色、X1/X2端子を資料照合。実機発光・極性は未確認。",
+    "notes": [
+      "AC/DC共用のランプ電源。接点部品ではない。"
+    ]
+  }
+}

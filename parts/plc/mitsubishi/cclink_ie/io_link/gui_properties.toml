@@ -1,0 +1,5 @@
+[remoteiolink]
+fields = ["model", "title", "station", "ip", "dip"]
+
+[remotebody]
+fields = ["model", "title", "station", "ip", "dip"]

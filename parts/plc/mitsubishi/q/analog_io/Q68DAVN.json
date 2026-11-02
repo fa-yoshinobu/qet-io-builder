@@ -1,0 +1,80 @@
+{
+  "category": "q_analog",
+  "model": "Q68DAVN",
+  "definition": {
+    "channels": [
+      "出力",
+      "出力",
+      "出力",
+      "出力",
+      "出力",
+      "出力",
+      "出力",
+      "出力"
+    ],
+    "terminals": [
+      "V+",
+      "COM"
+    ],
+    "power": [
+      "24V",
+      "24G",
+      "FG"
+    ],
+    "source": "SH-080054-V 4.1 PDF61/4-1; 4.3 PDF64-65/4-4-4-5",
+    "pins_by_channel": [
+      [
+        "1",
+        "2"
+      ],
+      [
+        "3",
+        "4"
+      ],
+      [
+        "5",
+        "6"
+      ],
+      [
+        "7",
+        "8"
+      ],
+      [
+        "9",
+        "10"
+      ],
+      [
+        "11",
+        "12"
+      ],
+      [
+        "13",
+        "14"
+      ],
+      [
+        "15",
+        "16"
+      ]
+    ],
+    "power_pins": [
+      "17",
+      "18",
+      "FGねじ"
+    ],
+    "power_connection": "terminal_block_and_separate_fg",
+    "channel_isolation": false,
+    "external_power_isolation": true,
+    "signal_labels_by_direction": {
+      "出力": {
+        "V+": "電圧出力＋",
+        "COM": "出力コモン"
+      }
+    },
+    "wiring_notes": [
+      "17=24V、18=24G。FGは端子台外のFGねじであり、端子18ではない。",
+      "信号COMと外部電源24Gは同一視しない。"
+    ],
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E3%82%A2%E3%83%8A%E3%83%AD%E3%82%B0"
+  }
+}

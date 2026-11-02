@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="59" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{90f4d547-538b-5057-958b-c608f0896886}" />
+  <names>
+    <name lang="ja">e-CON 4極 オス</name>
+    <name lang="en">conn_econ_4_male</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <rect x="5" y="-14" width="44" height="30" rx="3" ry="3" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="17" y="-20" width="20" height="6" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="11" y="-4" width="6" height="10" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <rect x="20" y="-4" width="6" height="10" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <rect x="29" y="-4" width="6" height="10" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <rect x="38" y="-4" width="6" height="10" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <terminal uuid="{effc2309-b5ce-5266-affd-b42074efe559}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

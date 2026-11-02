@@ -1,0 +1,55 @@
+{
+  "category": "standard_device",
+  "model": "XW5G-P4.0-1.1-1",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "XW5T-P / XW5G-P",
+    "device_type": "terminal",
+    "standard_family": "terminal",
+    "terminal_type": "push_in",
+    "terminal_label_basis": "connection_position_not_manufacturer_pin_number",
+    "user_terminal_number_required": true,
+    "tiers": 1,
+    "wiring_ratio": "1:1",
+    "physical_wire_ports": 2,
+    "protective_earth": true,
+    "conductive_din_rail_required": true,
+    "symbol_bindings": [
+      {
+        "name": "terminal",
+        "symbol": "pe_terminal",
+        "terminals": {
+          "first": [
+            "左配線口"
+          ],
+          "second": [
+            "右配線口"
+          ]
+        }
+      }
+    ],
+    "internal_connections": [
+      [
+        "左配線口",
+        "右配線口"
+      ]
+    ],
+    "ratings": {
+      "iec_voltage_v": 800,
+      "stranded_wire_mm2": [
+        0.2,
+        4.0
+      ]
+    },
+    "end_cover": "XW5E-P4.0-1.1-1",
+    "jumper_accessory_note": "端子間の渡りは別売短絡バーを選択。工場出荷で別端子台と接続済みとしない",
+    "source": "SDCA-003_1_25; オムロンXW5T-P公式 定格/性能（標準端子台・アース用標準端子台）",
+    "official_html": "https://www.fa.omron.co.jp/products/family/3480/specification/",
+    "verification_note": "形式・接続線数・IEC定格を公式HTMLで確認。位置表記は端子番号ではなく説明用。実機・実印字は未確認。",
+    "notes": [
+      "端子番号/記銘板は利用者が割り当てる。左右は論理的な配線口区分で、実装方向を規定しない。",
+      "アース用は導電性DINレールを使用し、PEをDC0Vへ置き換えない。"
+    ],
+    "display_ratings": "IEC 800V"
+  }
+}

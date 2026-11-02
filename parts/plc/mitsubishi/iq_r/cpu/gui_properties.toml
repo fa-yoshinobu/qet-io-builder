@@ -1,0 +1,4 @@
+# このフォルダの部品に対応するページ種類とGUIの表示項目
+[iqrbody]
+fields = ["model", "power_model", "base_model", "title", "battery", "batteryless", "sd_card", "sd_card_model", "memory_cassette", "memory_cassette_model", "memory_card", "memory_card_model"]
+

@@ -1,0 +1,41 @@
+{
+  "category": "fx5_ext",
+  "model": "FX5-C32EX/DS-TS",
+  "definition": {
+    "variants": [
+      ""
+    ],
+    "inputs": 32,
+    "outputs": [],
+    "in_common": "S/S",
+    "confirmed": true,
+    "source": "SH-082451Q 6.1 印刷111 / PDF113",
+    "physical_io": {
+      "input_commons": [
+        {
+          "name": "S/S",
+          "start": "0",
+          "points": 16,
+          "contacts": 2,
+          "internal_group": "input:S/S"
+        },
+        {
+          "name": "S/S",
+          "start": "20",
+          "points": 16,
+          "contacts": 2,
+          "internal_group": "input:S/S"
+        }
+      ],
+      "output_commons": [],
+      "input_signal_contacts": 1,
+      "output_signal_contacts": 1,
+      "source": {
+        "document": "SH-082451Q",
+        "section": "6.1",
+        "printed_pages": "111",
+        "pdf_pages": "113"
+      }
+    }
+  }
+}

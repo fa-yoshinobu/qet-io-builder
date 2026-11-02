@@ -1,0 +1,115 @@
+{
+  "category": "standard_device",
+  "model": "CW-5L",
+  "definition": {
+    "manufacturer": "三菱電機",
+    "series": "CW",
+    "device_type": "current_transformer",
+    "source": "Y-0550Y 2603 p.14–16・p.5安全事項、山-857A、CW-5L公式仕様",
+    "official_html": "https://www.mitsubishielectric.co.jp/fa/products/faspec/detail.page?formNm=CW-L_CW-5L_93&kisyu=%2Fpmd",
+    "application": "measurement",
+    "construction": "window",
+    "frequency_hz": [
+      50,
+      60
+    ],
+    "rated_burden_va": 5,
+    "accuracy_class": 1.0,
+    "max_circuit_voltage_v": 1100,
+    "highest_voltage_kv": 1.15,
+    "physical_wiring_terminals": 2,
+    "schematic_connection_points": 4,
+    "secondary_terminals": [
+      "k",
+      "l"
+    ],
+    "primary_conductor_direction": [
+      "K",
+      "L"
+    ],
+    "primary_terminals_are_wiring_posts": false,
+    "secondary_open_circuit_prohibited": true,
+    "secondary_shorting_switch_included": false,
+    "configuration_selection_required": true,
+    "configuration_options": [
+      {
+        "id": "ratio_100_5",
+        "label": "100/5A（1ターン）",
+        "display_ratings": "100/5A / 5VA / 1.0級",
+        "primary_current_a": 100,
+        "secondary_current_a": 5,
+        "primary_turns": 1,
+        "symbol_bindings": [
+          {
+            "name": "ct",
+            "symbol": "current_transformer",
+            "terminals": {
+              "primary_k": [
+                "K"
+              ],
+              "primary_l": [
+                "L"
+              ],
+              "secondary_k": [
+                "k"
+              ],
+              "secondary_l": [
+                "l"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ratio_200_5",
+        "label": "200/5A（1ターン）",
+        "display_ratings": "200/5A / 5VA / 1.0級",
+        "primary_current_a": 200,
+        "secondary_current_a": 5,
+        "primary_turns": 1,
+        "symbol_bindings": [
+          {
+            "name": "ct",
+            "symbol": "current_transformer",
+            "terminals": {
+              "primary_k": [
+                "K"
+              ],
+              "primary_l": [
+                "L"
+              ],
+              "secondary_k": [
+                "k"
+              ],
+              "secondary_l": [
+                "l"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "compatible_meter_configurations": [
+      {
+        "model": "YS-8NAA",
+        "configuration": "ct_100_5",
+        "ct_configuration": "ratio_100_5"
+      },
+      {
+        "model": "YS-8NAA",
+        "configuration": "ct_200_5",
+        "ct_configuration": "ratio_200_5"
+      }
+    ],
+    "display_ratings": "CT比を選択 / 5VA / 1.0級",
+    "notes": [
+      "一次K→Lは貫通導体の方向。K/Lはねじ端子ではなく、図面の一次導体接続点として表す。二次ねじ端子はk/l。",
+      "100/5A・200/5Aはそれぞれ一次導体1ターンの定格。巻き増しによる別比率は今回選択肢に含めない。",
+      "二次通電中は開放禁止。計器を切り離す場合は先に二次を適切に短絡する。短絡スイッチは内蔵しない。",
+      "計測用CTであり、ZCTや保護用CTとして選定しない。",
+      "YS-8NAAのCT併用5A入力と同じCT比の目盛を組み合わせる。計器1VAのほか配線負担・使用条件の照合が必要。",
+      "二次側の接地要否は使用回路電圧と公式施工条件による。全用途で一律に接地線を追加しない。"
+    ],
+    "verification_note": "現行公式カタログ・仕様と端子記号通知を照合。実機未確認。"
+  }
+}

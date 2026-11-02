@@ -1,0 +1,69 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ51AW12AL",
+  "definition": {
+    "network": "AnyWireASLINK",
+    "ports": [
+      "電源入力 IN",
+      "電源出力 OUT",
+      "AnyWireASLINK"
+    ],
+    "source": "SH-081584ENG-I 1/PDF18,2.1/PDF20,6.1/PDF31",
+    "slots": 1,
+    "occupied_io_points": 32,
+    "panel_interfaces": true,
+    "interfaces": [
+      {
+        "name": "電源入力 IN",
+        "kind": "terminal",
+        "ports": [
+          "24V",
+          "0V"
+        ],
+        "signal_labels": {
+          "24V": "DC24V入力",
+          "0V": "0V"
+        }
+      },
+      {
+        "name": "電源出力 OUT",
+        "kind": "terminal",
+        "ports": [
+          "24V",
+          "0V"
+        ],
+        "signal_labels": {
+          "24V": "4線式リモート用",
+          "0V": "0V"
+        }
+      },
+      {
+        "name": "AnyWireASLINK",
+        "kind": "terminal",
+        "ports": [
+          "DP",
+          "DN",
+          "LG"
+        ],
+        "signal_labels": {
+          "DP": "伝送 (+)",
+          "DN": "伝送 (-)",
+          "LG": "ノイズフィルタ中性点"
+        }
+      }
+    ],
+    "diagram_notes": [
+      "LGはPLCのFGと一点接地",
+      "伝送用終端ユニットが必要"
+    ],
+    "terminal_order": [
+      "IN 24V",
+      "IN 0V",
+      "OUT 24V",
+      "OUT 0V",
+      "DP",
+      "DN",
+      "LG"
+    ]
+  }
+}

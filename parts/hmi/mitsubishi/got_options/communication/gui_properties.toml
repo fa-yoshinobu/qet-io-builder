@@ -1,0 +1,3 @@
+# GOT通信オプションは単体の左右配置で作図する
+[gotoption]
+fields = ["title", "left_model", "left_station", "left_ip", "left_dip", "right_model", "right_station", "right_ip", "right_dip", "left_module", "right_module"]

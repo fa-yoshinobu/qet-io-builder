@@ -1,0 +1,274 @@
+{
+  "category": "inverter",
+  "model": "FR-E840-5.5K-1",
+  "definition": {
+    "series": "FREQROL-E800",
+    "function": "インバータ 標準 FM",
+    "supply": "三相380～480V",
+    "capacity_kw": 5.5,
+    "rated_current_code": "0120",
+    "variant": "1",
+    "terminal_groups": {
+      "left": [
+        {
+          "name": "電源入力",
+          "terminals": [
+            [
+              "R/L1",
+              "電源入力"
+            ],
+            [
+              "S/L2",
+              "電源入力"
+            ],
+            [
+              "T/L3",
+              "電源入力"
+            ],
+            [
+              "PE",
+              "接地"
+            ]
+          ]
+        },
+        {
+          "name": "制御入力",
+          "terminals": [
+            [
+              "STF",
+              "正転始動"
+            ],
+            [
+              "STR",
+              "逆転始動"
+            ],
+            [
+              "RH",
+              "高速"
+            ],
+            [
+              "RM",
+              "中速"
+            ],
+            [
+              "RL",
+              "低速"
+            ],
+            [
+              "MRS",
+              "出力停止"
+            ],
+            [
+              "RES",
+              "リセット"
+            ],
+            [
+              "SD",
+              "コモン"
+            ],
+            [
+              "SD",
+              "コモン"
+            ]
+          ]
+        },
+        {
+          "name": "アナログ入力",
+          "terminals": [
+            [
+              "10",
+              "周波数設定電源 ＋5V"
+            ],
+            [
+              "2",
+              "周波数設定入力"
+            ],
+            [
+              "5",
+              "コモン"
+            ],
+            [
+              "4",
+              "周波数設定入力"
+            ]
+          ]
+        },
+        {
+          "name": "セーフティストップ入力",
+          "terminals": [
+            [
+              "S1",
+              "入力1"
+            ],
+            [
+              "S2",
+              "入力2"
+            ],
+            [
+              "PC",
+              "DC24V出力"
+            ]
+          ]
+        }
+      ],
+      "right": [
+        {
+          "name": "モータ出力",
+          "terminals": [
+            [
+              "U",
+              "モータ U"
+            ],
+            [
+              "V",
+              "モータ V"
+            ],
+            [
+              "W",
+              "モータ W"
+            ],
+            [
+              "PE",
+              "接地"
+            ]
+          ]
+        },
+        {
+          "name": "直流・制動",
+          "terminals": [
+            [
+              "P/+",
+              "直流母線＋"
+            ],
+            [
+              "PR",
+              "ブレーキ抵抗"
+            ],
+            [
+              "P1",
+              "DCリアクトル"
+            ],
+            [
+              "N/-",
+              "直流母線－"
+            ]
+          ]
+        },
+        {
+          "name": "リレー出力",
+          "terminals": [
+            [
+              "A",
+              "a接点"
+            ],
+            [
+              "B",
+              "b接点"
+            ],
+            [
+              "C",
+              "コモン"
+            ]
+          ]
+        },
+        {
+          "name": "オープンコレクタ出力",
+          "terminals": [
+            [
+              "RUN",
+              "運転中"
+            ],
+            [
+              "FU",
+              "周波数検出"
+            ],
+            [
+              "SE",
+              "コモン"
+            ]
+          ]
+        },
+        {
+          "name": "モニタ出力",
+          "terminals": [
+            [
+              "FM",
+              "パルス出力"
+            ],
+            [
+              "SD",
+              "コモン"
+            ]
+          ]
+        },
+        {
+          "name": "セーフティモニタ出力",
+          "terminals": [
+            [
+              "SO",
+              "モニタ出力"
+            ],
+            [
+              "SOC",
+              "コモン"
+            ]
+          ]
+        }
+      ]
+    },
+    "ports": [
+      {
+        "kind": "rj45",
+        "name": "PU  RS-485 / RJ-45"
+      },
+      {
+        "kind": "usb",
+        "name": "USB Mini-B"
+      }
+    ],
+    "diagram_notes": [
+      "端子機能は初期設定。信号の割付・制御ロジックは設定に従う。短絡片は出荷時の接続。DCリアクトル・セーフティストップ機能を使用する場合は短絡片を取り外す。"
+    ],
+    "brake_resistor_supported": true,
+    "dc_reactor_supported": true,
+    "verification_status": "資料照合",
+    "verification_remaining": [
+      "実機未確認"
+    ],
+    "manual_references": [
+      {
+        "document_number": "IB-0600864-S",
+        "pages": "14-15,52-59,64-66,88-89,163-166"
+      }
+    ],
+    "monitor_type": "FM",
+    "factory_jumpers": [
+      {
+        "side": "left",
+        "group": "セーフティストップ入力",
+        "terminals": [
+          "S1",
+          "PC"
+        ]
+      },
+      {
+        "side": "left",
+        "group": "セーフティストップ入力",
+        "terminals": [
+          "S2",
+          "PC"
+        ],
+        "to_occurrence": 0
+      },
+      {
+        "side": "right",
+        "group": "直流・制動",
+        "terminals": [
+          "P/+",
+          "P1"
+        ]
+      }
+    ],
+    "factory_jumpers_source": "IB-0600864-S 2.4・2.5・2.6（主回路短絡片・S1-PC/S2-PC初期短絡）"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "category": "fx5_ext",
+  "model": "FX5-32ER/ES",
+  "definition": {
+    "variants": [
+      ""
+    ],
+    "inputs": 16,
+    "outputs": [
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "confirmed": true,
+    "source": "SH-082451 6.4 電源内蔵入出力ユニット 端子配列"
+  }
+}

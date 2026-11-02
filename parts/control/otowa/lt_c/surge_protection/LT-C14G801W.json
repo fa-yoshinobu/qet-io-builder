@@ -1,0 +1,60 @@
+{
+  "category": "standard_device",
+  "model": "LT-C14G801W",
+  "definition": {
+    "manufacturer": "音羽電機工業",
+    "series": "LT-C",
+    "device_type": "surge_protection",
+    "source": "音羽電機工業 総合カタログ2025–2026 vol.16 p.57–58、公式LT-C製品ページ",
+    "official_html": "https://www.otowadenki.co.jp/item/装置用spd/",
+    "rated_supply": "単相2線 AC400V用",
+    "spd_class": "JISクラスII",
+    "ratings": {
+      "max_continuous_voltage_vac": {
+        "L-E": 280,
+        "L-L": 480
+      },
+      "nominal_discharge_current_a": 2500,
+      "maximum_discharge_current_a": 5000,
+      "voltage_protection_level_kv": 1.8,
+      "short_circuit_current_rating_a": 5000
+    },
+    "connection": "parallel",
+    "terminal_type": "リード線",
+    "physical_wiring_terminals": 3,
+    "remote_indication": {
+      "present": false
+    },
+    "visual_indication": true,
+    "internal_disconnector": true,
+    "external_backup_protection": {
+      "status": "未確認"
+    },
+    "display_ratings": "単相2線 AC400V用 / In 2.5kA",
+    "symbol_bindings": [
+      {
+        "name": "spd",
+        "symbol": "surge_protection_1p",
+        "terminals": {
+          "line_a": [
+            "L3"
+          ],
+          "line_b": [
+            "L1"
+          ],
+          "earth": [
+            "E"
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "L3・L1・Eは公式外形図のリード線表示。L3をL2へ置き換えない。",
+      "電源に並列接続するSPD。負荷へ直列に接続するフィルタではない。",
+      "標準記号は機器全体の機能を表し、内部素子構成・物理寸法を表さない。",
+      "内部切り離し装置と、外部の短絡保護器は別。外部保護器の要否・定格は未確認。",
+      "クラスIIはJIS区分。ULのType表記と同一視しない。"
+    ],
+    "verification_note": "公開公式カタログ画像で端子・定格を照合。会員向け個別仕様書は未取得。実機未確認。"
+  }
+}

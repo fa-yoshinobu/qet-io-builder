@@ -1,0 +1,73 @@
+{
+  "category": "got_body",
+  "model": "GT2103-PMBDS",
+  "definition": {
+    "series": "GOT2000",
+    "subseries": "GT21",
+    "display": "3.8型",
+    "screen_size_inch": 3.8,
+    "power": {
+      "supply": "DC24V",
+      "ports": [
+        "＋",
+        "−",
+        "⏚"
+      ],
+      "port_pins": [],
+      "ground_terminals": [
+        "FG"
+      ],
+      "connection": "電源コネクタ端子台",
+      "physical_order": "電源端子配線図の左から／縦形は上から",
+      "source": "SH-081194ENG-AW 8.2–8.3/PDF328–330"
+    },
+    "interfaces": [
+      {
+        "name": "RS-232 背面",
+        "kind": "minidin6",
+        "connector_label": "MINI-DIN 6pin メス",
+        "ports": [],
+        "pinout_status": "未確認"
+      },
+      {
+        "name": "RS-422/485",
+        "kind": "terminal",
+        "ports": [
+          "CSB",
+          "CSA",
+          "RSA",
+          "RSB",
+          "SG",
+          "RDB",
+          "RDA",
+          "SDB",
+          "SDA"
+        ],
+        "port_pins": [],
+        "pin_label_basis": "signal_marking",
+        "physical_order": "背面視・左から"
+      },
+      {
+        "name": "USB DEVICE 背面",
+        "kind": "usb_mini_b",
+        "connector_label": "USB Mini-B",
+        "ports": [],
+        "position": "背面"
+      }
+    ],
+    "battery_supported": false,
+    "battery_type": "",
+    "usb_host_ports": 0,
+    "usb_device_ports": 1,
+    "sd_card_supported": false,
+    "sd_card_optional": true,
+    "sd_card_option": "GT21-03SDCD",
+    "source": "SH-081194ENG-AW 3.2 印刷108/PDF110;8.2–8.3 印刷326–328/PDF328–330; SH-081200ENG-AS 1.4/PDF51–52,2.3/PDF83–88",
+    "diagram_notes": [
+      "SDは別売GT21-03SDCD装着時のみ"
+    ],
+    "verification_note": "コネクタ形状・端子印字を資料照合。配線方式・実機は未確認",
+    "resolution": "320x128",
+    "resolution_source": "SH-081194ENG-AW 3.2 印刷108/PDF110"
+  }
+}

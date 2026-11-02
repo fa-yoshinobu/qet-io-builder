@@ -1,0 +1,14 @@
+{
+  "category": "iqr_q",
+  "model": "RY10R2",
+  "definition": {
+    "io": "out",
+    "out": "relay",
+    "points": 16,
+    "pins": "TB16",
+    "com": "TB17",
+    "confirmed": true,
+    "note": "自型式の端子表で確認済み。TB17=COM。",
+    "source": "SH-081247ENG-M 3.1 PDF55–56/印刷53–54"
+  }
+}

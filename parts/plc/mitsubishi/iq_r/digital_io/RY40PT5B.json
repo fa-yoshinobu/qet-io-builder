@@ -1,0 +1,15 @@
+{
+  "category": "iqr_q",
+  "model": "RY40PT5B",
+  "definition": {
+    "io": "out",
+    "out": "source",
+    "points": 16,
+    "pins": "TB16",
+    "vplus": "TB17",
+    "com": "TB18",
+    "source": "SH-081619ENG-C pp.19–20",
+    "note": "通常モード用。断線検出の最小負荷電流と機器応答速度を確認。SIL2モードの二重化は別途設計。",
+    "confirmed": true
+  }
+}

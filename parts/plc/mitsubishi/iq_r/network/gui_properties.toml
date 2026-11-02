@@ -1,0 +1,8 @@
+# このフォルダの部品に対応するページ種類とGUIの表示項目
+[iqrcomm]
+fields = ["title", "left_model", "left_station", "left_ip", "left_dip", "right_model", "right_station", "right_ip", "right_dip"]
+
+
+# CPUスロットのリモートヘッド構成
+[iqrbody]
+fields = ["model", "power_model", "base_model", "title"]

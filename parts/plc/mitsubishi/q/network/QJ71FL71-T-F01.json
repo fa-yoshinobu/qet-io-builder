@@ -1,0 +1,26 @@
+{
+  "category": "q_comm",
+  "model": "QJ71FL71-T-F01",
+  "definition": {
+    "network": "FL-net (OPCN-2)",
+    "ports": [
+      "FL-net"
+    ],
+    "connector_type": "rj45",
+    "occupied_io_points": 32,
+    "slots": 1,
+    "manufacturer": "三菱電機",
+    "source": "SH-080350E-L 3.4/PDF38-39; 4章 各部名称",
+    "interfaces": [
+      {
+        "name": "FL-net 10BASE-T/100BASE-TX",
+        "kind": "rj45",
+        "ports": []
+      }
+    ],
+    "panel_interfaces": true,
+    "diagram_notes": [],
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E6%83%85%E5%A0%B1%EF%BC%8F%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF"
+  }
+}

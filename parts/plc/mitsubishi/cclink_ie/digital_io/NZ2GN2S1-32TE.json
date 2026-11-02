@@ -1,0 +1,262 @@
+{
+  "category": "remote_io",
+  "model": "NZ2GN2S1-32TE",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "confirmed": true,
+    "source": "SH-082239-L 印刷71-73;適用112-113/切替123 / PDF73-75;114-115/125",
+    "note": "局内X/Y番号を表示。CPU側の割付はネットワーク設定で確認。",
+    "network_modes": [
+      "CC-Link IE TSN",
+      "CC-Link IE Field"
+    ],
+    "field_mode": {
+      "switch": "NETWORK(SW1)",
+      "value": "ON",
+      "minimum_firmware": "02",
+      "legacy_compatibility_firmware": "10"
+    },
+    "power_notes": [
+      "CC-Link IE FieldはNETWORK(SW1)=ON（電源OFF時に変更）、FW02以降",
+      "旧GF互換機能は別設定・FW10以降"
+    ],
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female",
+        "pins": []
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female",
+        "pins": []
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT POWER",
+        "connector_type": "terminal_3",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "FG"
+          ],
+          [
+            "2",
+            "24G"
+          ],
+          [
+            "3",
+            "+24V"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "UNIT POWER 1",
+        "FG"
+      ],
+      [
+        "UNIT POWER 2",
+        "24G"
+      ],
+      [
+        "UNIT POWER 3",
+        "+24V"
+      ]
+    ],
+    "terminal_block": "I/O端子台",
+    "io": "out",
+    "points": 32,
+    "pins": [
+      "TB1",
+      "TB2",
+      "TB3",
+      "TB4",
+      "TB5",
+      "TB6",
+      "TB7",
+      "TB8",
+      "TB9",
+      "TB10",
+      "TB11",
+      "TB12",
+      "TB13",
+      "TB14",
+      "TB15",
+      "TB16",
+      "TB17",
+      "TB18",
+      "TB19",
+      "TB20",
+      "TB21",
+      "TB22",
+      "TB23",
+      "TB24",
+      "TB25",
+      "TB26",
+      "TB27",
+      "TB28",
+      "TB29",
+      "TB30",
+      "TB31",
+      "TB32"
+    ],
+    "out": "source",
+    "vplus": "TB33",
+    "com": "TB34",
+    "terminal_names": {
+      "TB33": "COM+",
+      "TB34": "CTL-"
+    },
+    "io_connectors": [
+      {
+        "name": "I/O",
+        "connector_type": "terminal_34",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "Y0"
+          ],
+          [
+            "2",
+            "Y1"
+          ],
+          [
+            "3",
+            "Y2"
+          ],
+          [
+            "4",
+            "Y3"
+          ],
+          [
+            "5",
+            "Y4"
+          ],
+          [
+            "6",
+            "Y5"
+          ],
+          [
+            "7",
+            "Y6"
+          ],
+          [
+            "8",
+            "Y7"
+          ],
+          [
+            "9",
+            "Y8"
+          ],
+          [
+            "10",
+            "Y9"
+          ],
+          [
+            "11",
+            "YA"
+          ],
+          [
+            "12",
+            "YB"
+          ],
+          [
+            "13",
+            "YC"
+          ],
+          [
+            "14",
+            "YD"
+          ],
+          [
+            "15",
+            "YE"
+          ],
+          [
+            "16",
+            "YF"
+          ],
+          [
+            "17",
+            "Y10"
+          ],
+          [
+            "18",
+            "Y11"
+          ],
+          [
+            "19",
+            "Y12"
+          ],
+          [
+            "20",
+            "Y13"
+          ],
+          [
+            "21",
+            "Y14"
+          ],
+          [
+            "22",
+            "Y15"
+          ],
+          [
+            "23",
+            "Y16"
+          ],
+          [
+            "24",
+            "Y17"
+          ],
+          [
+            "25",
+            "Y18"
+          ],
+          [
+            "26",
+            "Y19"
+          ],
+          [
+            "27",
+            "Y1A"
+          ],
+          [
+            "28",
+            "Y1B"
+          ],
+          [
+            "29",
+            "Y1C"
+          ],
+          [
+            "30",
+            "Y1D"
+          ],
+          [
+            "31",
+            "Y1E"
+          ],
+          [
+            "32",
+            "Y1F"
+          ],
+          [
+            "33",
+            "COM+"
+          ],
+          [
+            "34",
+            "CTL-"
+          ]
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "category": "iqr_q",
+  "model": "QX41-S1",
+  "definition": {
+    "io": "in",
+    "points": 32,
+    "pins": "PINS32",
+    "common": [
+      "B1",
+      "B2"
+    ],
+    "confirmed": true,
+    "note": "A6TBXY36の端子は 0〜1F・24V・0V(SH-081247ENG 付録1)",
+    "source": "L08219ENG section QX41-S1",
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E5%85%A5%E5%87%BA%E5%8A%9B"
+  }
+}

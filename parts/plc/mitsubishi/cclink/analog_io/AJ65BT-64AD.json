@@ -1,0 +1,151 @@
+{
+  "category": "remote_analog",
+  "model": "AJ65BT-64AD",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "V+",
+      "I+",
+      "COM"
+    ],
+    "power": [],
+    "network_terminals": [
+      [
+        "1",
+        "DA"
+      ],
+      [
+        "2",
+        "DB"
+      ],
+      [
+        "3",
+        "DG"
+      ],
+      [
+        "4",
+        "SLD"
+      ],
+      [
+        "5",
+        "+24V"
+      ],
+      [
+        "6",
+        "FG"
+      ],
+      [
+        "7",
+        "24G"
+      ]
+    ],
+    "source": "SH-3614-F 4.2 PDF30;4.6 外部配線",
+    "manual_references": [
+      {
+        "document_number": "SH-3614-F",
+        "pages": "30;4.6 外部配線"
+      }
+    ],
+    "diagram_note": "電流入力は同じCHのV+とI+を外部短絡。TESTは通常時開放。",
+    "auxiliary_terminals": [
+      {
+        "pin": "8",
+        "signal": "TEST",
+        "description": "テスト"
+      },
+      {
+        "pin": "10",
+        "signal": "TEST",
+        "description": "テスト"
+      },
+      {
+        "pin": "14",
+        "signal": "SLD",
+        "description": "シールド"
+      },
+      {
+        "pin": "21",
+        "signal": "SLD",
+        "description": "シールド"
+      },
+      {
+        "pin": "25",
+        "signal": "SLD",
+        "description": "シールド"
+      },
+      {
+        "pin": "26",
+        "signal": "AG",
+        "description": "アナロググランド"
+      },
+      {
+        "pin": "27",
+        "signal": "FG1",
+        "description": "接地"
+      }
+    ],
+    "pins_by_channel": [
+      [
+        "11",
+        "12",
+        "13"
+      ],
+      [
+        "15",
+        "16",
+        "17"
+      ],
+      [
+        "18",
+        "19",
+        "20"
+      ],
+      [
+        "22",
+        "23",
+        "24"
+      ]
+    ],
+    "function": "アナログ入力",
+    "signal_labels_by_direction": {
+      "入力": {
+        "V+": "電圧入力",
+        "I+": "電流入力",
+        "COM": "コモン"
+      }
+    },
+    "unused_pins": [
+      {
+        "pin": "9",
+        "signal": "NC",
+        "connectable": false
+      }
+    ],
+    "required_jumpers": [
+      {
+        "when": "電流入力",
+        "terminals": [
+          "V+",
+          "I+"
+        ],
+        "scope": "same_channel",
+        "automatic": false
+      }
+    ],
+    "module_role": "remote_station",
+    "network": "CC-Link",
+    "auto_wiring": false,
+    "verification_status": "資料照合",
+    "verification_remaining": [
+      "実機未確認"
+    ],
+    "blank_terminal_marking": "端子表が空欄の実端子は、図面上の未接続指示としてNCを付記。",
+    "production_end_date": "2021-09-30",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcnet&category=discon&bunrui1=CC-Link"
+  }
+}

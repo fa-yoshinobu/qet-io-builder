@@ -1,0 +1,7 @@
+# このフォルダの部品に対応するページ種類とGUIの表示項目
+[fx5u]
+fields = ["model", "title", "input_csv", "output_csv", "x_start", "y_start"]
+
+[fx5body]
+fields = ["model", "title", "battery", "sd_card", "sd_card_model", "board_model"]
+

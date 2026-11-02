@@ -1,0 +1,29 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71GN11-EIP",
+  "definition": {
+    "network": "CC-Link IE TSN Plus / EtherNet/IP",
+    "ports": [
+      "P1 CC-Link IE TSN",
+      "P2 EtherNet/IP"
+    ],
+    "connector_type": "rj45",
+    "interfaces": [
+      {
+        "name": "P1 CC-Link IE TSN",
+        "kind": "rj45",
+        "ports": []
+      },
+      {
+        "name": "P2 EtherNet/IP",
+        "kind": "rj45",
+        "ports": []
+      }
+    ],
+    "occupied_io_points": 32,
+    "slots": 1,
+    "source": "SH-082472ENG-J 4.4, 5, 7",
+    "verification_note": "P1=TSN、P2=EtherNet/IP。各部名称・占有点数を資料照合。実機未確認",
+    "panel_interfaces": true
+  }
+}

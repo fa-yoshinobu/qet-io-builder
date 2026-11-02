@@ -1,0 +1,108 @@
+{
+  "category": "standard_device",
+  "model": "YS-8NAA",
+  "definition": {
+    "manufacturer": "三菱電機",
+    "series": "Y-N",
+    "device_type": "ammeter",
+    "source": "Y-0692K 2103 p.45・57–58、YS-8NAA公式仕様",
+    "official_html": "https://www.mitsubishielectric.co.jp/fa/products/faspec/detail.page?formNm=S-NAA_YS-8NAA_4&kisyu=%2Fpmd",
+    "measured_quantity": "ac_current",
+    "indication": "analog_moving_iron",
+    "frequency_hz": [
+      50,
+      60
+    ],
+    "accuracy_class": 2.5,
+    "auxiliary_supply_required": false,
+    "meter_burden_va": 1.0,
+    "physical_wiring_terminals": 2,
+    "terminal_labels_are_explanatory": true,
+    "terminal_label_meanings": {
+      "背面左": "カタログ接続図の計器背面から見た左の入力端子",
+      "背面右": "同右の入力端子"
+    },
+    "configuration_selection_required": true,
+    "configuration_options": [
+      {
+        "id": "direct_10a",
+        "label": "直結10A",
+        "display_ratings": "AC 0–10A 直結",
+        "input_current_a": 10,
+        "scale_max_a": 10,
+        "ct_primary_a": null,
+        "ct_secondary_a": null,
+        "symbol_bindings": [
+          {
+            "name": "meter",
+            "symbol": "ammeter",
+            "terminals": {
+              "left": [
+                "背面左"
+              ],
+              "right": [
+                "背面右"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ct_100_5",
+        "label": "CT100/5A・0–100A",
+        "display_ratings": "AC 0–100A / CT 100/5A",
+        "input_current_a": 5,
+        "scale_max_a": 100,
+        "ct_primary_a": 100,
+        "ct_secondary_a": 5,
+        "symbol_bindings": [
+          {
+            "name": "meter",
+            "symbol": "ammeter",
+            "terminals": {
+              "left": [
+                "背面左"
+              ],
+              "right": [
+                "背面右"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ct_200_5",
+        "label": "CT200/5A・0–200A",
+        "display_ratings": "AC 0–200A / CT 200/5A",
+        "input_current_a": 5,
+        "scale_max_a": 200,
+        "ct_primary_a": 200,
+        "ct_secondary_a": 5,
+        "symbol_bindings": [
+          {
+            "name": "meter",
+            "symbol": "ammeter",
+            "terminals": {
+              "left": [
+                "背面左"
+              ],
+              "right": [
+                "背面右"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "mounting": "パネル取付、正面82×82mm、端子M4",
+    "display_ratings": "普通目盛 / 直結・CT比を選択",
+    "notes": [
+      "直結10AとCT併用5A入力は異なる計器仕様。CT併用100/5A・200/5Aの目盛はそれぞれ0–100A・0–200A。",
+      "普通目盛のみ採用。延長目盛・特殊目盛・カバー色は今回の構成指定に含まない。",
+      "カタログの接続図に入力端子番号はないため、背面左/背面右は図面上の位置説明。メーカー刻印ではない。",
+      "補助電源は不要。交流専用で、直流電流計として使用しない。",
+      "計器負担1VAに二次配線・接続機器の負担を加え、CT仕様の適用範囲を確認する。"
+    ],
+    "verification_note": "公式仕様・カタログの仕様表、外形、接続図で照合。実機未確認。"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "category": "fx5_comm",
+  "model": "FX5-485-BD",
+  "definition": {
+    "network": "RS-485",
+    "ports": [
+      "RDA",
+      "RDB",
+      "SDA",
+      "SDB",
+      "SG"
+    ],
+    "terminal_labels": true,
+    "signal_labels": {
+      "RDA": "RXD+",
+      "RDB": "RXD-",
+      "SDA": "TXD+",
+      "SDB": "TXD-",
+      "SG": "GND"
+    },
+    "connection": "端子台",
+    "form": "board",
+    "source": "SH-082451Q 10.2 印刷139 / PDF141"
+  }
+}

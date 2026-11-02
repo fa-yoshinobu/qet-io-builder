@@ -1,0 +1,104 @@
+{
+  "category": "power_supply",
+  "model": "S8FS-G60024CD-H",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "S8FS-G",
+    "input": {
+      "voltage": "単相AC100～240V",
+      "ac_voltage_range_v": [
+        85,
+        264
+      ],
+      "dc_voltage_range_v": [
+        120,
+        350
+      ],
+      "frequency_hz": [
+        50,
+        60
+      ],
+      "dc_connection": {
+        "L": "+",
+        "N": "-"
+      }
+    },
+    "output": {
+      "voltage_v": 24,
+      "current_a": 27,
+      "power_w": 600,
+      "power_basis": "power_wはカタログの容量区分。出力電圧×定格電流とは一致しない機種がある。"
+    },
+    "terminal_groups": [
+      {
+        "name": "入力・保護接地",
+        "role": "input",
+        "terminals": [
+          {
+            "id": "input_l",
+            "label": "L",
+            "signal": "L"
+          },
+          {
+            "id": "input_n",
+            "label": "N",
+            "signal": "N"
+          },
+          {
+            "id": "input_pe",
+            "label": "⏚",
+            "signal": "PE"
+          }
+        ]
+      },
+      {
+        "name": "DC24V出力",
+        "role": "output",
+        "terminals": [
+          {
+            "id": "output_1",
+            "label": "+V",
+            "signal": "+V"
+          },
+          {
+            "id": "output_2",
+            "label": "+V",
+            "signal": "+V"
+          },
+          {
+            "id": "output_3",
+            "label": "−V",
+            "signal": "-V"
+          },
+          {
+            "id": "output_4",
+            "label": "−V",
+            "signal": "-V"
+          }
+        ]
+      }
+    ],
+    "mounting": "DINレール",
+    "connection_type": "ねじ端子",
+    "built_in_fan": true,
+    "extended_hold_time": true,
+    "terminal_number_basis": "図中の各部名称番号は端子番号ではない。L/N/接地および出力極性を使用。",
+    "source": "T207-E1-14 p.2（DINレール取付形・定格）、p.15（端子配置）／国内公式形式一覧",
+    "official_html": "https://www.fa.omron.co.jp/products/family/3656/lineup/",
+    "verification_note": "DC24V・DINレール取付形を公式形式一覧と照合。端子数・極性を外観図で確認。実機未確認。",
+    "wiring_notes": [
+      "出力の同極端子は内部共通。別々の出力として扱わない。",
+      "直取付形C/CE/C-R/C-WRおよびオープンフレーム品は対象外。"
+    ],
+    "internal_connections": [
+      [
+        "output_1",
+        "output_2"
+      ],
+      [
+        "output_3",
+        "output_4"
+      ]
+    ]
+  }
+}

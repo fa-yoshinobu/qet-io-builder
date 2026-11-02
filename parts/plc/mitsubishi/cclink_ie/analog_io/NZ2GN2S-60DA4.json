@@ -1,0 +1,156 @@
+{
+  "category": "remote_analog",
+  "model": "NZ2GN2S-60DA4",
+  "definition": {
+    "channels": [
+      "出力",
+      "出力",
+      "出力",
+      "出力"
+    ],
+    "terminals": [
+      "V+",
+      "COM",
+      "I+"
+    ],
+    "power": [],
+    "auto_wiring": false,
+    "module_role": "remote_station",
+    "network": "CC-Link IE Field",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female"
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female"
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT",
+        "connector_type": "terminal_3",
+        "pins": [
+          [
+            "⏚",
+            "FG"
+          ],
+          [
+            "24G",
+            "24G"
+          ],
+          [
+            "+24V",
+            "+24V"
+          ]
+        ],
+        "position": "正面左から",
+        "terminal_type": "spring_clamp"
+      }
+    ],
+    "supply_voltage": "24V DC",
+    "supply_voltage_range": "20.4-28.8V DC",
+    "terminal_type": "18点スプリングクランプ",
+    "channel_isolation": false,
+    "lifecycle": "current_catalog",
+    "verification_status": "一部確認",
+    "verification_remaining": [
+      "COM/−端子間の内部直結範囲は断定していない"
+    ],
+    "network_condition": "FW02以降;機能設定SW1=ONでFieldモード;TSNと同時使用ではない",
+    "source": "SH-082237F; 仕様PDF18;端子PDF42;電源外観PDF15;通信PDF16;配線PDF43; 印刷頁=PDF頁-2",
+    "manual_references": [
+      {
+        "document_number": "SH-082237F",
+        "pages": "仕様PDF18;端子PDF42;電源外観PDF15;通信PDF16;配線PDF43"
+      }
+    ],
+    "wiring_notes": [
+      "Field動作にはFW02以降・機能設定スイッチ1=ONが必要。TSN/Fieldの同時使用ではない。",
+      "電圧V+または電流I+とCOM/−を使用。電圧と電流を同一端子とみなさない。NC配線禁止",
+      "CH間非絶縁でもCOM/信号－端子の内部直結範囲は未確認。各実端子を省略・自動短絡しない。"
+    ],
+    "auxiliary_terminals": [],
+    "unused_pins": [
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "4",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "8",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "12",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "16",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "17",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "18",
+        "signal": "NC",
+        "connectable": false
+      }
+    ],
+    "supported_networks": [
+      "CC-Link IE TSN",
+      "CC-Link IE Field"
+    ],
+    "required_firmware_for_field": "02",
+    "field_mode_switch": {
+      "name": "機能設定スイッチ1",
+      "value": "ON"
+    },
+    "pins_by_channel": [
+      [
+        "1",
+        "2",
+        "3"
+      ],
+      [
+        "5",
+        "6",
+        "7"
+      ],
+      [
+        "9",
+        "10",
+        "11"
+      ],
+      [
+        "13",
+        "14",
+        "15"
+      ]
+    ],
+    "signal_labels_by_direction": {
+      "出力": {
+        "V+": "電圧出力＋",
+        "COM": "出力コモン",
+        "I+": "電流出力＋"
+      }
+    },
+    "diagram_note": "FW02以降・機能設定SW1=ONでField動作",
+    "network_requirement_source": "SH-082237F はじめに PDF8/印刷6"
+  }
+}

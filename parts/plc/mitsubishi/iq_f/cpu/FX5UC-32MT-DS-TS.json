@@ -1,0 +1,72 @@
+{
+  "category": "fx5_cpu",
+  "model": "FX5UC-32MT/DS-TS",
+  "definition": {
+    "series": "FX5UC",
+    "base": "FX5UC-32M",
+    "variants": [
+      "T/DS-TS"
+    ],
+    "inputs": 16,
+    "outputs": [
+      [
+        0,
+        "0",
+        16
+      ]
+    ],
+    "in_common": "S/S",
+    "confirmed": true,
+    "source": "SH-082451Q 5.9 印刷101 / PDF103",
+    "note": "スプリングクランプ端子台",
+    "battery_supported": true,
+    "usb_port": false,
+    "analog": false,
+    "rs485": true,
+    "service": false,
+    "physical_io": {
+      "input_commons": [
+        {
+          "name": "S/S",
+          "start": "0",
+          "points": 16,
+          "contacts": 2,
+          "internal_group": "input:S/S"
+        }
+      ],
+      "output_commons": [
+        {
+          "group": 0,
+          "name": "COM0",
+          "contacts": 2,
+          "internal_group": "output:0"
+        }
+      ],
+      "input_signal_contacts": 1,
+      "output_signal_contacts": 1,
+      "source": {
+        "document": "SH-082451Q",
+        "section": "5.9",
+        "printed_pages": "101",
+        "pdf_pages": "103"
+      }
+    },
+    "power_terminal_details": [
+      {
+        "name": "+",
+        "pin": "1",
+        "wire_color": "赤"
+      },
+      {
+        "name": "-",
+        "pin": "2",
+        "wire_color": "黒"
+      },
+      {
+        "name": "⏚",
+        "pin": "3",
+        "wire_color": "緑"
+      }
+    ]
+  }
+}

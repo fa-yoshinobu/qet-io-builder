@@ -1,0 +1,43 @@
+{
+  "category": "standard_device",
+  "model": "FH-30",
+  "definition": {
+    "manufacturer": "東朋テクノロジー YOSHIDA",
+    "series": "FH",
+    "device_type": "fuse_holder",
+    "standard_family": "fuse",
+    "ratings": {
+      "holder_rated_voltage_v": 600,
+      "holder_rated_current_a": 30,
+      "selected_fuse_current_a": null,
+      "applicable_fuse": "JIS CF2 30A φ15×50"
+    },
+    "fuse_selection_required": true,
+    "fuse_included": false,
+    "indicator": false,
+    "symbol_bindings": [
+      {
+        "name": "fuse",
+        "symbol": "fuse_1p",
+        "terminals": {
+          "first": [
+            "左側"
+          ],
+          "second": [
+            "右側"
+          ]
+        }
+      }
+    ],
+    "terminal_numbering": "physical_position",
+    "source": "東朋YOSHIDA FH/FU SERIES ヒューズホルダー カタログ（文書番号記載なし）PDF5; 公式ヒューズホルダー仕様一覧",
+    "official_html": "https://www.toho.yoshida-elec.com/products/fuseholder/",
+    "verification_note": "型式・ホルダ定格・適合ヒューズ・両端接点を公式資料照合。端子番号刻印は確認できないため、数字を付けず左右位置で表示。実機未確認。",
+    "notes": [
+      "標準ヒューズ記号はヒューズを装着した回路機能を表す。ホルダ単体を短絡端子として扱わない。",
+      "ホルダの許容電流は装着ヒューズの定格ではない。ヒューズ容量・遮断能力は別途選定し、定義では未選択を保持。",
+      "ヒューズ、ネオンランプ、渡り線を内蔵済みと推測しない。"
+    ],
+    "display_ratings": "ホルダ 30A / 600V・ヒューズ未選択"
+  }
+}

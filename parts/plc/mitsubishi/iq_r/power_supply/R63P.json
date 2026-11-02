@@ -1,0 +1,11 @@
+{
+  "category": "iqr_power",
+  "model": "R63P",
+  "definition": {
+    "supply": "DC",
+    "input_label": "DC24V",
+    "service_24v": false,
+    "source": "SH-081262ENG-AS 4.2/5.7;BCN-P5999-0188-F PDF1",
+    "note": "主端子台は上からERR2端子、FG、LG、+24V/24G入力。"
+  }
+}

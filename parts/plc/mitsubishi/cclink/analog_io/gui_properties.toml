@@ -1,0 +1,5 @@
+[remoteanalog]
+fields = ["model", "title", "csv"]
+
+[remotebody]
+fields = ["model", "title"]

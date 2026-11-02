@@ -1,0 +1,145 @@
+{
+  "category": "got_option",
+  "model": "GT01-RS4-M",
+  "definition": {
+    "series": "GOTオプション",
+    "option_type": "serial_multidrop",
+    "interfaces": [
+      {
+        "name": "外部電源 DC24V",
+        "kind": "terminal",
+        "ports": [
+          "+",
+          "-",
+          "接地"
+        ],
+        "signal_labels": {
+          "+": "赤",
+          "-": "黒",
+          "接地": "緑"
+        }
+      },
+      {
+        "name": "PLC側 RS-232（選択）",
+        "kind": "dsub9_male",
+        "ports": [],
+        "connector_label": "D-sub 9pin オス",
+        "pinout": [
+          {
+            "pin": 1,
+            "signal": "CD (DCD)"
+          },
+          {
+            "pin": 2,
+            "signal": "RD (RXD)"
+          },
+          {
+            "pin": 3,
+            "signal": "SD (TXD)"
+          },
+          {
+            "pin": 4,
+            "signal": "ER (DTR)"
+          },
+          {
+            "pin": 5,
+            "signal": "SG"
+          },
+          {
+            "pin": 6,
+            "signal": "DR (DSR)"
+          },
+          {
+            "pin": 7,
+            "signal": "RS (RTS)"
+          },
+          {
+            "pin": 8,
+            "signal": "CS (CTS)"
+          },
+          {
+            "pin": 9,
+            "signal": "NC"
+          }
+        ],
+        "pinout_source": "SH-081200ENG-AS 1.4・2.3"
+      },
+      {
+        "name": "PLC側 RS-422（選択）",
+        "kind": "dsub9",
+        "ports": [],
+        "connector_label": "D-sub 9pin メス",
+        "pinout": [
+          {
+            "pin": 1,
+            "signal": "SDA"
+          },
+          {
+            "pin": 2,
+            "signal": "RDA"
+          },
+          {
+            "pin": 3,
+            "signal": "RSA"
+          },
+          {
+            "pin": 4,
+            "signal": "CSA"
+          },
+          {
+            "pin": 5,
+            "signal": "SG"
+          },
+          {
+            "pin": 6,
+            "signal": "SDB"
+          },
+          {
+            "pin": 7,
+            "signal": "RDB"
+          },
+          {
+            "pin": 8,
+            "signal": "RSB"
+          },
+          {
+            "pin": 9,
+            "signal": "CSB"
+          }
+        ],
+        "pinout_source": "SH-081200ENG-AS 1.4・2.3"
+      },
+      {
+        "name": "GOTマルチドロップ",
+        "kind": "terminal",
+        "ports": [
+          "SDA",
+          "SDB",
+          "RDA",
+          "RDB",
+          "SG"
+        ]
+      },
+      {
+        "name": "USB",
+        "kind": "usb_mini_b",
+        "ports": [],
+        "connector_label": "Mini-B"
+      }
+    ],
+    "compatible_series": [
+      "GOT2000"
+    ],
+    "applicability_notes": "GOT2000:GT27/GT25(GT2505HS除く)/GT21(注C)。GOT3000使用不可",
+    "adapter_required": {},
+    "source": "JY997D35801J;SH-081194ENG-AW;SH-081200ENG-AS 3.2/3.3/4/6;本体印刷39-40;接続編印刷49-50/85",
+    "power_notes": "外部24V(+10%/-15%)140mA以下;付属電源線 赤+黒-緑FG",
+    "settings_notes": "終端110ohm/OPEN/330ohm(初期OPEN)。RS422/232択一。GOT最大16台",
+    "verification_note": "5極の数字刻印/電源コネクタpin番号・内部FG接続は未確認",
+    "diagram_notes": [
+      "PLC側RS-232/422は選択式",
+      "GOT側端子の物理順は未確認"
+    ],
+    "auto_wiring": false
+  }
+}

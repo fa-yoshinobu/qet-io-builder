@@ -1,0 +1,60 @@
+{
+  "category": "standard_device",
+  "model": "PT 2,5-QUATTRO",
+  "definition": {
+    "manufacturer": "PHOENIX CONTACT",
+    "series": "PT",
+    "device_type": "terminal",
+    "standard_family": "terminal",
+    "terminal_type": "push_in",
+    "terminal_label_basis": "connection_position_not_manufacturer_pin_number",
+    "user_terminal_number_required": true,
+    "tiers": 1,
+    "physical_wire_ports": 4,
+    "protective_earth": false,
+    "conductive_din_rail_required": false,
+    "symbol_bindings": [
+      {
+        "name": "terminal",
+        "symbol": "terminal_4way",
+        "terminals": {
+          "first": [
+            "配線口1"
+          ],
+          "second": [
+            "配線口2"
+          ],
+          "third": [
+            "配線口3"
+          ],
+          "fourth": [
+            "配線口4"
+          ]
+        }
+      }
+    ],
+    "internal_connections": [
+      [
+        "配線口1",
+        "配線口2",
+        "配線口3",
+        "配線口4"
+      ]
+    ],
+    "ratings": {
+      "iec_voltage_v": 800,
+      "iec_current_a": 24
+    },
+    "nominal_cross_section_mm2": 2.5,
+    "source": "1874889 Push-in式端子台（2025年版） p.7",
+    "official_html": "https://www.phoenixcontact.com/ja-jp/products/3209578",
+    "verification_note": "公式カタログの形名・配線口数・導通構成を照合。QET生成配置・配線表示を確認。手動挿入・手動配線・実機・実印字は未確認。",
+    "notes": [
+      "配線口名は説明用でメーカー刻印番号ではない。記銘板番号は利用者が指定する。",
+      "隣接端子台への渡りは別途指定し、自動短絡しない。",
+      "同電位の分岐端子。接続電流の合計は定格・使用条件に従う。"
+    ],
+    "display_ratings": "IEC 24A / 800V",
+    "order_number": "3209578"
+  }
+}

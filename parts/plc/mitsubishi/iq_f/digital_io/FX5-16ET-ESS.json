@@ -1,0 +1,18 @@
+{
+  "category": "fx5_ext",
+  "model": "FX5-16ET/ESS",
+  "definition": {
+    "variants": [
+      ""
+    ],
+    "inputs": 8,
+    "outputs": [
+      [
+        "",
+        8
+      ]
+    ],
+    "confirmed": true,
+    "source": "SH-082451 6.3・6.5 端子配列"
+  }
+}

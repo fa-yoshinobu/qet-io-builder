@@ -1,0 +1,83 @@
+{
+  "category": "standard_device",
+  "model": "A22NS-2BM-NBA-G102-NN",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "A22N",
+    "device_type": "switch",
+    "source": "CSM_A22N_M22N_A30N_A254-E1_4_13 p21,31（接点動作・端子）; 国内公式個別商品（形式・定格）",
+    "official_html": "https://www.fa.omron.co.jp/product/item/A22NS-2BM-NBA-G102-NN/",
+    "terminal_view": "BOTTOM VIEW",
+    "ratings": {
+      "rated_through_current_a": 10,
+      "ac_15_at_240v_a": 3,
+      "dc_13_at_24v_a": 4
+    },
+    "verification_note": "公式の接点構成表と端子図を照合。実機動作・手動関連付けは未確認。",
+    "operation": "maintained",
+    "positions": [
+      "1",
+      "2"
+    ],
+    "operation_angle_deg": 90,
+    "color": "黒",
+    "illuminated": false,
+    "terminal_type": "ねじ端子",
+    "contact_configuration": "1a1b",
+    "display_ratings": "2位置保持 90° 1a1b",
+    "symbol_bindings": [
+      {
+        "name": "selector",
+        "symbol": "selector_2position",
+        "terminals": {
+          "first": [
+            "3"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "nc",
+        "symbol": "contact_nc",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      }
+    ],
+    "standard_text_overrides": {
+      "selector_2position": {
+        "0": "1",
+        "1": "2"
+      }
+    },
+    "notes": [
+      "ブロック位置1のNOは操作位置2で閉。ブロック位置3のNCは操作位置1で閉。",
+      "selectorとncは同じ機器タグで配置し、QETで機械連動を関連付ける。"
+    ],
+    "mechanically_linked": [
+      "selector",
+      "nc"
+    ],
+    "position_contact_table": {
+      "1": {
+        "no": "open",
+        "nc": "closed"
+      },
+      "2": {
+        "no": "closed",
+        "nc": "open"
+      }
+    },
+    "contact_block_positions": {
+      "selector": "1",
+      "nc": "3"
+    }
+  }
+}

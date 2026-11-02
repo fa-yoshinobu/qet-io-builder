@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="300" height="768" hotspot_x="20" hotspot_y="48" link_type="simple">
+  <uuid uuid="{4d7466c7-4a23-5818-9b2b-183b1b89a264}" />
+  <names>
+    <name lang="ja">OMRON S8AS2-24024-06SN DC24V分岐電源</name>
+    <name lang="en">S8AS2-24024-06SN</name>
+  </names>
+  <elementInformations>
+    <elementInformation name="manufacturer" show="1">OMRON</elementInformation>
+    <elementInformation name="manufacturer_reference" show="1">S8AS2-24024-06SN</elementInformation>
+  </elementInformations>
+  <informations>S8AS2 外部端子図。各分岐の＋/−は各2穴を個別に表示。資料: T243-E1-03 p.13–18（形式・定格）、p.20（端子・内部回路）／5833886-3C1（取扱説明書）
+各CHの＋端子2穴は同一分岐。各分岐の−およびコモン−は内部共通。
+異なるCHの＋出力を並列接続しない。
+信号COMはMOSFETリレー出力のコモンであり、電源−に自動接続しない。
+TRG+/-は外部信号遮断入力。極性に注意。</informations>
+  <description>
+    <rect x="0" y="0" width="260" height="700" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="0" y="-18" width="260" height="18" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="86" y1="-18" x2="86" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="148" y1="-18" x2="148" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <text x="6" y="-4.333333333333334" text="ユニットNo." rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <text x="161.33333333333334" y="-3.666666666666667" text="S8AS2-24024-06SN" rotation="0" color="#000000" font="MS Gothic,8,-1,5,75,0,0,0,0,0" />
+    <text x="14" y="26" text="DC24V  6分岐 / 合計10A" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <line x1="10" y1="38" x2="250" y2="38" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <text x="14" y="60" text="入力" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <text x="174" y="60" text="分岐出力" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="76" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="84" text="L" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="100" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="108" text="L" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="124" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="132" text="N" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="148" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="156" text="N" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="172" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="25" y1="167" x2="25" y2="175" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="18" y1="175" x2="32" y2="175" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="21" y1="178" x2="29" y2="178" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="23" y1="181" x2="27" y2="181" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="216" text="入出力信号" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="236" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="244" text="TRP" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="260" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="268" text="LOW" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="284" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="292" text="LFE" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="308" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="316" text="TMP" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="332" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="340" text="COM" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="356" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="364" text="TRG+" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="380" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="388" text="TRG-" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <text x="14" y="426" text="コモン出力" rotation="0" color="#000000" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="446" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="454" text="−" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <circle x="0" y="470" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="478" text="−" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <circle x="252" y="76" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="94" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="112" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="130" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="150" y1="143" x2="250" y2="143" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <circle x="252" y="148" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="166" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="184" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="202" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="150" y1="215" x2="250" y2="215" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <circle x="252" y="220" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="238" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="256" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="274" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="150" y1="287" x2="250" y2="287" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <circle x="252" y="292" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="310" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="328" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="346" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="150" y1="359" x2="250" y2="359" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <circle x="252" y="364" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="382" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="400" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="418" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="150" y1="431" x2="250" y2="431" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <circle x="252" y="436" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="454" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="472" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="252" y="490" diameter="8" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <text x="14" y="682" text="単相AC100～240V" rotation="0" color="#000000" font="MS Gothic,7,-1,5,50,0,0,0,0,0" />
+    <dynamic_text uuid="{135df7f7-27be-5f46-a077-8e2ce104d901}" x="57.33333333333333" y="-17.7" z="5" text_from="ElementInfo" Halignment="AlignHCenter" Valignment="AlignTop" rotation="0" text_width="28.66666666666667" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text />
+      <info_name>auxiliary1</info_name>
+    </dynamic_text>
+    <dynamic_text uuid="{afdd735f-c9f5-5772-af41-abc09f15b275}" x="86" y="-17.7" z="5" text_from="ElementInfo" Halignment="AlignHCenter" Valignment="AlignTop" rotation="0" text_width="62" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,75,0,0,0,0,0">
+      <text />
+      <info_name>label</info_name>
+    </dynamic_text>
+    <terminal uuid="{0bcb7f2a-c973-5a22-a188-7e043ac7f855}" orientation="w" x="0" y="80" name="L" type="Generic" />
+    <terminal uuid="{23bc57c9-ea34-5070-becd-d728a338a1ef}" orientation="w" x="0" y="104" name="L" type="Generic" />
+    <terminal uuid="{c559b1ac-aa25-5acc-b3e0-340bdd3701d1}" orientation="w" x="0" y="128" name="N" type="Generic" />
+    <terminal uuid="{40d28133-db5a-514a-b481-1a11f6a02ee2}" orientation="w" x="0" y="152" name="N" type="Generic" />
+    <terminal uuid="{fe1912d3-33f7-5862-a221-b88c1bda5ec2}" orientation="w" x="0" y="176" name="⏚" type="Generic" />
+    <terminal uuid="{1d9d12ef-5718-5ca0-85c2-e4ae179d7098}" orientation="w" x="0" y="240" name="TRP" type="Generic" />
+    <terminal uuid="{be9aba18-34d3-54e8-bcc5-c1905d9bf49a}" orientation="w" x="0" y="264" name="LOW" type="Generic" />
+    <terminal uuid="{48c2006a-ffec-56aa-aa1d-56e8fcded29e}" orientation="w" x="0" y="288" name="LFE" type="Generic" />
+    <terminal uuid="{bf5c1785-0fc0-5625-9bf6-66fcea8a1237}" orientation="w" x="0" y="312" name="TMP" type="Generic" />
+    <terminal uuid="{dc822827-c562-5b0a-89d9-dca82c1f211b}" orientation="w" x="0" y="336" name="COM" type="Generic" />
+    <terminal uuid="{d7bb58a7-db91-5a90-bef8-84b339c5384a}" orientation="w" x="0" y="360" name="TRG+" type="Generic" />
+    <terminal uuid="{2f9dca29-6f6c-56d4-a925-f1d8a54ad9cc}" orientation="w" x="0" y="384" name="TRG-" type="Generic" />
+    <terminal uuid="{4b2c01f6-cd34-5eab-9281-9a2de1e5e6cd}" orientation="w" x="0" y="450" name="−" type="Generic" />
+    <terminal uuid="{e28a5400-248b-51ee-baa0-f45e41047008}" orientation="w" x="0" y="474" name="−" type="Generic" />
+    <terminal uuid="{c601555e-b6a3-55d2-afdb-f1b25daa0efe}" orientation="e" x="260" y="80" name="CH1 +" type="Generic" />
+    <terminal uuid="{395f6382-3dcb-5fd2-8595-14e63768808c}" orientation="e" x="260" y="98" name="CH1 +" type="Generic" />
+    <terminal uuid="{90416c90-43da-57a6-99f4-c080034d146d}" orientation="e" x="260" y="116" name="CH1 −" type="Generic" />
+    <terminal uuid="{34afb4e7-a429-5421-b783-c9974b85aa50}" orientation="e" x="260" y="134" name="CH1 −" type="Generic" />
+    <terminal uuid="{bedc7968-7dd0-5c37-9dca-568e9d7dff0d}" orientation="e" x="260" y="152" name="CH2 +" type="Generic" />
+    <terminal uuid="{13b76084-9c22-5634-af5e-d83b1a64039a}" orientation="e" x="260" y="170" name="CH2 +" type="Generic" />
+    <terminal uuid="{403dd2c4-5ea2-53cb-851e-ca6bbebd92a1}" orientation="e" x="260" y="188" name="CH2 −" type="Generic" />
+    <terminal uuid="{4ec0050f-e19a-5ff0-9976-4884a2ecc8bb}" orientation="e" x="260" y="206" name="CH2 −" type="Generic" />
+    <terminal uuid="{42d95e15-636a-5b1d-97f2-f13c159d3104}" orientation="e" x="260" y="224" name="CH3 +" type="Generic" />
+    <terminal uuid="{8f11028c-cb19-5879-a3aa-e343accef043}" orientation="e" x="260" y="242" name="CH3 +" type="Generic" />
+    <terminal uuid="{eda96275-bc4f-5dc9-a8ad-f7f889e0b10e}" orientation="e" x="260" y="260" name="CH3 −" type="Generic" />
+    <terminal uuid="{600d2415-20a3-58b3-af31-cafeeae902be}" orientation="e" x="260" y="278" name="CH3 −" type="Generic" />
+    <terminal uuid="{c1514de4-a5dc-5e2e-8d19-bb1fb7f37ca8}" orientation="e" x="260" y="296" name="CH4 +" type="Generic" />
+    <terminal uuid="{c59ebcfd-f2dd-5f87-9794-a4bb551d94ff}" orientation="e" x="260" y="314" name="CH4 +" type="Generic" />
+    <terminal uuid="{a0944a5a-8ee6-55a2-a62b-a28259c209f5}" orientation="e" x="260" y="332" name="CH4 −" type="Generic" />
+    <terminal uuid="{eb4d41ef-5e25-5e00-a03e-3b38a5c8eb91}" orientation="e" x="260" y="350" name="CH4 −" type="Generic" />
+    <terminal uuid="{790f683b-237f-58a1-96f6-55687bd668e5}" orientation="e" x="260" y="368" name="CH5 +" type="Generic" />
+    <terminal uuid="{92ea5497-6357-5a6b-8762-fcf9d683dae6}" orientation="e" x="260" y="386" name="CH5 +" type="Generic" />
+    <terminal uuid="{d9244e9e-6390-5d8d-afc9-cd8bca7a4ae5}" orientation="e" x="260" y="404" name="CH5 −" type="Generic" />
+    <terminal uuid="{8278c29c-a79d-5d24-a3ee-780987abd68f}" orientation="e" x="260" y="422" name="CH5 −" type="Generic" />
+    <terminal uuid="{7c89e9f1-7162-541e-99bb-def54c16160a}" orientation="e" x="260" y="440" name="CH6 +" type="Generic" />
+    <terminal uuid="{ed532cc9-db5a-507d-9e92-5d47dd95241b}" orientation="e" x="260" y="458" name="CH6 +" type="Generic" />
+    <terminal uuid="{b6825666-ca7a-59f3-8bbd-5e624bf2a714}" orientation="e" x="260" y="476" name="CH6 −" type="Generic" />
+    <terminal uuid="{bef9327b-410a-563c-af52-1314738997d8}" orientation="e" x="260" y="494" name="CH6 −" type="Generic" />
+    <dynamic_text uuid="{8bb8d95b-bfd2-5a95-b9f1-ceb16d512bc8}" x="166" y="72" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH1 +</text>
+    </dynamic_text>
+    <dynamic_text uuid="{2375c987-c7d3-508a-84fe-066dfedf9ca0}" x="166" y="90" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH1 +</text>
+    </dynamic_text>
+    <dynamic_text uuid="{88aecc66-eae0-537d-8f35-024691bebbf8}" x="166" y="108" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH1 −</text>
+    </dynamic_text>
+    <dynamic_text uuid="{afc97f8c-1314-5ddd-9eff-5be520699784}" x="166" y="126" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH1 −</text>
+    </dynamic_text>
+    <dynamic_text uuid="{e6c1b178-ba03-53b1-8534-c0a916d00a6e}" x="166" y="144" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH2 +</text>
+    </dynamic_text>
+    <dynamic_text uuid="{23c19850-4aae-5151-b3bc-162abd8670bc}" x="166" y="162" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH2 +</text>
+    </dynamic_text>
+    <dynamic_text uuid="{f7ef91a6-01ea-5eb6-b6be-821350ce676c}" x="166" y="180" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH2 −</text>
+    </dynamic_text>
+    <dynamic_text uuid="{4d06781c-15ab-5342-b67a-02e8f3efe762}" x="166" y="198" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH2 −</text>
+    </dynamic_text>
+    <dynamic_text uuid="{61621f7e-f535-5257-8b9b-4cb128593865}" x="166" y="216" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH3 +</text>
+    </dynamic_text>
+    <dynamic_text uuid="{8ff10b67-6f36-5950-b628-ced3c10f4ead}" x="166" y="234" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH3 +</text>
+    </dynamic_text>
+    <dynamic_text uuid="{7f5ee7dc-ee25-5184-a238-026df61710b1}" x="166" y="252" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH3 −</text>
+    </dynamic_text>
+    <dynamic_text uuid="{ec89b12b-ef6e-577a-a8d4-0e143a8e6072}" x="166" y="270" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH3 −</text>
+    </dynamic_text>
+    <dynamic_text uuid="{f07cbe33-b1ff-537a-9314-3781f87eebc8}" x="166" y="288" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH4 +</text>
+    </dynamic_text>
+    <dynamic_text uuid="{d20b4a5c-dc77-5079-8a7a-515c45254c1d}" x="166" y="306" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH4 +</text>
+    </dynamic_text>
+    <dynamic_text uuid="{cd912b26-d027-521a-987e-7b7657a06af9}" x="166" y="324" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH4 −</text>
+    </dynamic_text>
+    <dynamic_text uuid="{3e89136d-95d1-5ad7-98bc-760e20997669}" x="166" y="342" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH4 −</text>
+    </dynamic_text>
+    <dynamic_text uuid="{1e91ca1a-a2fc-5395-a70a-d7dfcedabd99}" x="166" y="360" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH5 +</text>
+    </dynamic_text>
+    <dynamic_text uuid="{21a0510f-033e-5401-9fea-408cf3ab101a}" x="166" y="378" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH5 +</text>
+    </dynamic_text>
+    <dynamic_text uuid="{5cf5a585-2f1f-58d1-a2e1-0f915486638f}" x="166" y="396" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH5 −</text>
+    </dynamic_text>
+    <dynamic_text uuid="{94ae5f70-33d0-591c-bb2f-011eca8f1312}" x="166" y="414" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH5 −</text>
+    </dynamic_text>
+    <dynamic_text uuid="{67f928c4-4abf-50c9-8db0-d6d94b462107}" x="166" y="432" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH6 +</text>
+    </dynamic_text>
+    <dynamic_text uuid="{9aef05ef-f8aa-54c8-8ce1-9e250d8346f0}" x="166" y="450" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH6 +</text>
+    </dynamic_text>
+    <dynamic_text uuid="{561a7bac-0013-5c78-96ad-7662966fe0ed}" x="166" y="468" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH6 −</text>
+    </dynamic_text>
+    <dynamic_text uuid="{ce0ff37b-b165-5337-9a48-3403cb932f42}" x="166" y="486" z="5" text_from="UserText" Halignment="AlignRight" Valignment="AlignTop" rotation="0" text_width="80" keep_visual_rotation="false" frame="false" font="MS Gothic,7,-1,5,50,0,0,0,0,0">
+      <text>CH6 −</text>
+    </dynamic_text>
+  </description>
+</definition>

@@ -1,0 +1,41 @@
+{
+  "category": "iqr_cpu",
+  "model": "R04CPU",
+  "definition": {
+    "usb_port": true,
+    "ethernet": true,
+    "battery_supported": true,
+    "battery_type": "Q6BAT/Q7BATN",
+    "cc_link_ie": false,
+    "source": "SH-082488ENG-E 1章・3.2;SH-081262ENG-AS 4.6;SH-081256ENG-AA 1.2",
+    "sd_card_supported": true,
+    "usb_type": "Mini-B",
+    "sd_card_models": [
+      "NZ1MEM-2GBSD",
+      "NZ1MEM-4GBSD",
+      "NZ1MEM-8GBSD",
+      "NZ1MEM-16GBSD",
+      "L1MEM-2GBSD",
+      "L1MEM-4GBSD"
+    ],
+    "memory_cassette_supported": true,
+    "memory_cassette_models": [
+      "NZ2MC-1MBS",
+      "NZ2MC-2MBS",
+      "NZ2MC-4MBS",
+      "NZ2MC-8MBS",
+      "NZ2MC-16MBS"
+    ],
+    "memory_card_supported": false,
+    "memory_card_models": [],
+    "memory_source": "SH-081262ENG-AS 1.2 印刷77/PDF79（CPU別SD・カセット適合）; 4.4 印刷145/PDF147（SD容量）; SH-082488ENG-E 5.2 印刷67/PDF69（SRAM容量・R00/R01/R02非対応）; 付12 印刷707/PDF709（NZ2MC-16MBSはCPUファームウェア12以降・GX Works3 1.015R以降）; FA-D-0183-A 1・2章/PDF1（L1MEM生産中止日）",
+    "memory_option_notes": {
+      "NZ2MC-16MBS": "CPUファームウェア12以降／GX Works3 1.015R以降。",
+      "L1MEM-2GBSD": "2015年7月31日生産中止。R04/R08/R16/R32/R120CPU（非EN）のみ適合。",
+      "L1MEM-4GBSD": "2015年7月31日生産中止。R04/R08/R16/R32/R120CPU（非EN）のみ適合。"
+    },
+    "batteryless_supported": true,
+    "batteryless_model": "NZ1BLC",
+    "batteryless_source": "SH-082488ENG-E 1.3/1.4・2章・5.3; SH-081262ENG-AS 1.2（CPU別適合）"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "category": "standard_device",
+  "model": "SF-PR(200V-4P-1.5kW)",
+  "definition": {
+    "manufacturer": "MITSUBISHI",
+    "series": "SF-PR",
+    "device_type": "motor",
+    "source": "L01049-I p14–15（定格）、p52（接地端子）、p61（U/V/W・3本リード）; 公式形式仕様",
+    "official_html": "https://www.mitsubishielectric.co.jp/fa/products/faspec/detail.page?formNm=SF-PR_200V-4P_SF-PR%28200V-4P-1.5kW%29_6040&kisyu=%2Fi_motor",
+    "terminal_type": "端子台",
+    "ratings": {
+      "power_kw": 1.5,
+      "poles": 4,
+      "phases": 3,
+      "voltage_frequency": [
+        {
+          "voltage_v": 200,
+          "frequency_hz": 50
+        },
+        {
+          "voltage_v": 200,
+          "frequency_hz": 60
+        },
+        {
+          "voltage_v": 220,
+          "frequency_hz": 60
+        },
+        {
+          "voltage_v": 230,
+          "frequency_hz": 60
+        }
+      ],
+      "frame": "90L"
+    },
+    "display_ratings": "三相 1.5kW 4P 200V級",
+    "symbol_bindings": [
+      {
+        "name": "motor",
+        "symbol": "motor_3phase_pe",
+        "terminals": {
+          "u": [
+            "U"
+          ],
+          "v": [
+            "V"
+          ],
+          "w": [
+            "W"
+          ],
+          "pe": [
+            "PE"
+          ]
+        }
+      }
+    ],
+    "verification_note": "3本リードU/V/Wと接地端子を資料照合。PEは接地機能の表示であり、メーカーの端子刻印番号ではない。実機は未確認。",
+    "notes": [
+      "国内標準形の端子結線。海外規格形・6本/12本リード形には流用しない。"
+    ]
+  }
+}

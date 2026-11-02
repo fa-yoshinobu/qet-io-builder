@@ -1,0 +1,305 @@
+{
+  "category": "remote_analog",
+  "model": "AJ65VBTCU-68ADIN",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "I+",
+      "I-",
+      "SLD"
+    ],
+    "power": [],
+    "source": "SH-080401E-J 4.3 PDF45;4.9 外部配線",
+    "manual_references": [
+      {
+        "document_number": "SH-080401E-J",
+        "pages": "45;4.9 外部配線"
+      }
+    ],
+    "diagram_note": "CONA/BはCC-Link通信、CONC/Dは電源。NCには接続しない。",
+    "auxiliary_terminals": [],
+    "pins_by_channel": [
+      [
+        "1",
+        "2",
+        "4"
+      ],
+      [
+        "1",
+        "2",
+        "4"
+      ],
+      [
+        "1",
+        "2",
+        "4"
+      ],
+      [
+        "1",
+        "2",
+        "4"
+      ],
+      [
+        "1",
+        "2",
+        "4"
+      ],
+      [
+        "1",
+        "2",
+        "4"
+      ],
+      [
+        "1",
+        "2",
+        "4"
+      ],
+      [
+        "1",
+        "2",
+        "4"
+      ]
+    ],
+    "channel_connectors": [
+      {
+        "name": "CON1",
+        "connector_type": "econ_4",
+        "gender": "female"
+      },
+      {
+        "name": "CON2",
+        "connector_type": "econ_4",
+        "gender": "female"
+      },
+      {
+        "name": "CON3",
+        "connector_type": "econ_4",
+        "gender": "female"
+      },
+      {
+        "name": "CON4",
+        "connector_type": "econ_4",
+        "gender": "female"
+      },
+      {
+        "name": "CON5",
+        "connector_type": "econ_4",
+        "gender": "female"
+      },
+      {
+        "name": "CON6",
+        "connector_type": "econ_4",
+        "gender": "female"
+      },
+      {
+        "name": "CON7",
+        "connector_type": "econ_4",
+        "gender": "female"
+      },
+      {
+        "name": "CON8",
+        "connector_type": "econ_4",
+        "gender": "female"
+      }
+    ],
+    "network_connectors": [
+      {
+        "name": "CONA",
+        "connector_type": "one_touch_5",
+        "pins": [
+          [
+            "1",
+            "DA"
+          ],
+          [
+            "2",
+            "DB"
+          ],
+          [
+            "3",
+            "DG"
+          ],
+          [
+            "4",
+            "NC"
+          ],
+          [
+            "5",
+            "SLD"
+          ]
+        ],
+        "no_connect_pins": [
+          "4"
+        ]
+      },
+      {
+        "name": "CONB",
+        "connector_type": "one_touch_5",
+        "pins": [
+          [
+            "1",
+            "DA"
+          ],
+          [
+            "2",
+            "DB"
+          ],
+          [
+            "3",
+            "DG"
+          ],
+          [
+            "4",
+            "NC"
+          ],
+          [
+            "5",
+            "SLD"
+          ]
+        ],
+        "no_connect_pins": [
+          "4"
+        ]
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "CONC",
+        "connector_type": "one_touch_5",
+        "pins": [
+          [
+            "1",
+            "FG"
+          ],
+          [
+            "2",
+            "+24V"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "AG"
+          ],
+          [
+            "5",
+            "FG1"
+          ]
+        ],
+        "no_connect_pins": []
+      },
+      {
+        "name": "COND",
+        "connector_type": "one_touch_5",
+        "pins": [
+          [
+            "1",
+            "FG"
+          ],
+          [
+            "2",
+            "+24V"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "AG"
+          ],
+          [
+            "5",
+            "FG1"
+          ]
+        ],
+        "no_connect_pins": []
+      }
+    ],
+    "function": "8CH アナログ入力",
+    "unused_pins": [
+      {
+        "connector": "CON1",
+        "pin": "3",
+        "channel": 1,
+        "channel_position": 2,
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CON2",
+        "pin": "3",
+        "channel": 2,
+        "channel_position": 2,
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CON3",
+        "pin": "3",
+        "channel": 3,
+        "channel_position": 2,
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CON4",
+        "pin": "3",
+        "channel": 4,
+        "channel_position": 2,
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CON5",
+        "pin": "3",
+        "channel": 5,
+        "channel_position": 2,
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CON6",
+        "pin": "3",
+        "channel": 6,
+        "channel_position": 2,
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CON7",
+        "pin": "3",
+        "channel": 7,
+        "channel_position": 2,
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "CON8",
+        "pin": "3",
+        "channel": 8,
+        "channel_position": 2,
+        "signal": "NC",
+        "connectable": false
+      }
+    ],
+    "module_role": "remote_station",
+    "network": "CC-Link",
+    "auto_wiring": false,
+    "verification_status": "資料照合",
+    "verification_remaining": [
+      "実機未確認"
+    ]
+  }
+}

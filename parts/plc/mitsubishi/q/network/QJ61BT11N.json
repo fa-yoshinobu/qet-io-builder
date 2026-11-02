@@ -1,0 +1,28 @@
+{
+  "category": "q_comm",
+  "model": "QJ61BT11N",
+  "definition": {
+    "network": "CC-Link",
+    "ports": [
+      "DA",
+      "DB",
+      "DG",
+      "SLD",
+      "FG"
+    ],
+    "source": "SH-080394E-S PDF23-25/21-23; PDF79-80/77-78",
+    "connector_type": "terminal",
+    "shield_ground_connected": true,
+    "internal_connections": [
+      [
+        "SLD",
+        "FG"
+      ]
+    ],
+    "wiring_notes": [
+      "SLDとFGは内部接続。終端抵抗はDA-DB間でネットワーク仕様に合わせる。"
+    ],
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcnet&category=discon&bunrui1=CC-Link"
+  }
+}

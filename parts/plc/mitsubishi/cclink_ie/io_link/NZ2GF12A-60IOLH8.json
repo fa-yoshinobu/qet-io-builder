@@ -1,0 +1,391 @@
+{
+  "category": "remote_iolink",
+  "model": "NZ2GF12A-60IOLH8",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "confirmed": true,
+    "source": "SH-081760-E 印刷14-24 / PDF16-26",
+    "note": "IO-Linkマスタ。CQの機能はポートモード設定による。通常の固定DI/DOユニットとして扱わない。",
+    "power_notes": [
+      "US:UNIT/センサ電源、UA:アクチュエータ電源を区別",
+      "電源渡り配線を含む合計9.3A以内。温度ディレーティングを確認"
+    ],
+    "lifecycle": "discontinued",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "m12_x_8",
+        "gender": "female",
+        "pins": []
+      },
+      {
+        "name": "P2",
+        "connector_type": "m12_x_8",
+        "gender": "female",
+        "pins": []
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "POWER IN",
+        "connector_type": "7_8_5",
+        "gender": "male",
+        "pins": [
+          [
+            "1",
+            "24G(UA)"
+          ],
+          [
+            "2",
+            "24G(US)"
+          ],
+          [
+            "3",
+            "FG"
+          ],
+          [
+            "4",
+            "+24V(US)"
+          ],
+          [
+            "5",
+            "+24V(UA)"
+          ]
+        ]
+      },
+      {
+        "name": "POWER OUT",
+        "connector_type": "7_8_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "24G(UA)"
+          ],
+          [
+            "2",
+            "24G(US)"
+          ],
+          [
+            "3",
+            "FG"
+          ],
+          [
+            "4",
+            "+24V(US)"
+          ],
+          [
+            "5",
+            "+24V(UA)"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "POWER IN 1",
+        "24G(UA)"
+      ],
+      [
+        "POWER IN 2",
+        "24G(US)"
+      ],
+      [
+        "POWER IN 3",
+        "FG"
+      ],
+      [
+        "POWER IN 4",
+        "+24V(US)"
+      ],
+      [
+        "POWER IN 5",
+        "+24V(UA)"
+      ],
+      [
+        "POWER OUT 1",
+        "24G(UA)"
+      ],
+      [
+        "POWER OUT 2",
+        "24G(US)"
+      ],
+      [
+        "POWER OUT 3",
+        "FG"
+      ],
+      [
+        "POWER OUT 4",
+        "+24V(US)"
+      ],
+      [
+        "POWER OUT 5",
+        "+24V(UA)"
+      ]
+    ],
+    "terminal_block": "M12 Aコード5極",
+    "channels": [
+      "CH1",
+      "CH2",
+      "CH3",
+      "CH4",
+      "CH5",
+      "CH6",
+      "CH7",
+      "CH8"
+    ],
+    "io_link_modes": [
+      "IO-Link",
+      "SIO入力",
+      "SIOソース出力"
+    ],
+    "io_connectors": [
+      {
+        "name": "CH1",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "L+"
+          ],
+          [
+            "2",
+            "Q"
+          ],
+          [
+            "3",
+            "L-"
+          ],
+          [
+            "4",
+            "CQ"
+          ],
+          [
+            "5",
+            "FG"
+          ]
+        ],
+        "notes": [
+          "CQ:IO-Link/SIO;Q:SIO入出力（モード設定）"
+        ]
+      },
+      {
+        "name": "CH2",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "L+"
+          ],
+          [
+            "2",
+            "Q"
+          ],
+          [
+            "3",
+            "L-"
+          ],
+          [
+            "4",
+            "CQ"
+          ],
+          [
+            "5",
+            "FG"
+          ]
+        ],
+        "notes": [
+          "CQ:IO-Link/SIO;Q:SIO入出力（モード設定）"
+        ]
+      },
+      {
+        "name": "CH3",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "L+"
+          ],
+          [
+            "2",
+            "Q"
+          ],
+          [
+            "3",
+            "L-"
+          ],
+          [
+            "4",
+            "CQ"
+          ],
+          [
+            "5",
+            "FG"
+          ]
+        ],
+        "notes": [
+          "CQ:IO-Link/SIO;Q:SIO入出力（モード設定）"
+        ]
+      },
+      {
+        "name": "CH4",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "L+"
+          ],
+          [
+            "2",
+            "Q"
+          ],
+          [
+            "3",
+            "L-"
+          ],
+          [
+            "4",
+            "CQ"
+          ],
+          [
+            "5",
+            "FG"
+          ]
+        ],
+        "notes": [
+          "CQ:IO-Link/SIO;Q:SIO入出力（モード設定）"
+        ]
+      },
+      {
+        "name": "CH5",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "L+"
+          ],
+          [
+            "2",
+            "Q"
+          ],
+          [
+            "3",
+            "L-"
+          ],
+          [
+            "4",
+            "CQ"
+          ],
+          [
+            "5",
+            "FG"
+          ]
+        ],
+        "notes": [
+          "CQ:IO-Link/SIO;Q:SIO入出力（モード設定）",
+          "CH5–8はCH1–4とコネクタ正面の向きが異なる。ピン番号で識別。"
+        ]
+      },
+      {
+        "name": "CH6",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "L+"
+          ],
+          [
+            "2",
+            "Q"
+          ],
+          [
+            "3",
+            "L-"
+          ],
+          [
+            "4",
+            "CQ"
+          ],
+          [
+            "5",
+            "FG"
+          ]
+        ],
+        "notes": [
+          "CQ:IO-Link/SIO;Q:SIO入出力（モード設定）",
+          "CH5–8はCH1–4とコネクタ正面の向きが異なる。ピン番号で識別。"
+        ]
+      },
+      {
+        "name": "CH7",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "L+"
+          ],
+          [
+            "2",
+            "Q"
+          ],
+          [
+            "3",
+            "L-"
+          ],
+          [
+            "4",
+            "CQ"
+          ],
+          [
+            "5",
+            "FG"
+          ]
+        ],
+        "notes": [
+          "CQ:IO-Link/SIO;Q:SIO入出力（モード設定）",
+          "CH5–8はCH1–4とコネクタ正面の向きが異なる。ピン番号で識別。"
+        ]
+      },
+      {
+        "name": "CH8",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "L+"
+          ],
+          [
+            "2",
+            "Q"
+          ],
+          [
+            "3",
+            "L-"
+          ],
+          [
+            "4",
+            "CQ"
+          ],
+          [
+            "5",
+            "FG"
+          ]
+        ],
+        "notes": [
+          "CQ:IO-Link/SIO;Q:SIO入出力（モード設定）",
+          "CH5–8はCH1–4とコネクタ正面の向きが異なる。ピン番号で識別。"
+        ]
+      }
+    ],
+    "production_end_date": "2023-01-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcnet&category=discon&bunrui1=CC-Link+IE+Field"
+  }
+}

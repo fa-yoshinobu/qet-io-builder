@@ -1,0 +1,123 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71GB91",
+  "definition": {
+    "network": "GP-IB",
+    "ports": [
+      "GP-IB"
+    ],
+    "source": "SH-082378ENG-B 2.1/PDF20,6.3/PDF29",
+    "slots": 1,
+    "occupied_io_points": 16,
+    "panel_interfaces": true,
+    "interfaces": [
+      {
+        "name": "GP-IB",
+        "kind": "gpib",
+        "connector_label": "IEEE 488 24pin",
+        "pinout": [
+          {
+            "pin": 1,
+            "signal": "DIO1"
+          },
+          {
+            "pin": 2,
+            "signal": "DIO2"
+          },
+          {
+            "pin": 3,
+            "signal": "DIO3"
+          },
+          {
+            "pin": 4,
+            "signal": "DIO4"
+          },
+          {
+            "pin": 5,
+            "signal": "EOI"
+          },
+          {
+            "pin": 6,
+            "signal": "DAV"
+          },
+          {
+            "pin": 7,
+            "signal": "NRFD"
+          },
+          {
+            "pin": 8,
+            "signal": "NDAC"
+          },
+          {
+            "pin": 9,
+            "signal": "IFC"
+          },
+          {
+            "pin": 10,
+            "signal": "SRQ"
+          },
+          {
+            "pin": 11,
+            "signal": "ATN"
+          },
+          {
+            "pin": 12,
+            "signal": "FG"
+          },
+          {
+            "pin": 13,
+            "signal": "DIO5"
+          },
+          {
+            "pin": 14,
+            "signal": "DIO6"
+          },
+          {
+            "pin": 15,
+            "signal": "DIO7"
+          },
+          {
+            "pin": 16,
+            "signal": "DIO8"
+          },
+          {
+            "pin": 17,
+            "signal": "REN"
+          },
+          {
+            "pin": 18,
+            "signal": "GND"
+          },
+          {
+            "pin": 19,
+            "signal": "GND"
+          },
+          {
+            "pin": 20,
+            "signal": "GND"
+          },
+          {
+            "pin": 21,
+            "signal": "GND"
+          },
+          {
+            "pin": 22,
+            "signal": "GND"
+          },
+          {
+            "pin": 23,
+            "signal": "GND"
+          },
+          {
+            "pin": 24,
+            "signal": "Logic GND"
+          }
+        ]
+      }
+    ],
+    "diagram_notes": [
+      "接続先アドレスは0～30",
+      "コネクタ積重ねは最大2個"
+    ]
+  }
+}

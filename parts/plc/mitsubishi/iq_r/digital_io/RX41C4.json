@@ -1,0 +1,15 @@
+{
+  "category": "iqr_q",
+  "model": "RX41C4",
+  "definition": {
+    "io": "in",
+    "points": 32,
+    "pins": "PINS32",
+    "common": [
+      "B1",
+      "B2"
+    ],
+    "confirmed": true,
+    "note": "A6TBXY36の端子は 0〜1F・24V・0V(SH-081247ENG 付録1)"
+  }
+}

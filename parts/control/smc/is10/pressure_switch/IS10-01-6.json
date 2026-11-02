@@ -1,0 +1,53 @@
+{
+  "category": "standard_device",
+  "model": "IS10-01-6",
+  "definition": {
+    "manufacturer": "SMC",
+    "series": "IS10",
+    "device_type": "pressure_switch",
+    "source": "CAT.S60-19B p1（形式表示・定格・電気回路）, p4（設定圧力）",
+    "official_html": "https://www.smcworld.com/webcatalog/ja-jp/switches-sensors-controllers/mechanical-pressure-switches/IS10",
+    "terminal_type": "グロメット・2芯リード線",
+    "terminal_view": "2本のリード線は無極性。片側/他側は識別用の編集上の呼称で、メーカーの端子番号ではない。",
+    "contact_configuration": "1NO（1aリード接点）",
+    "operation": "無圧時開。圧力上昇でON、下降でOFF。目盛は下降時の設定圧力。上昇ON圧力は目盛値+応差。",
+    "normal_state": "無圧",
+    "ratings": {
+      "fluid": "空気・不活性ガス",
+      "maximum_operating_pressure_mpa": 0.7,
+      "setting_range_mpa": [
+        0.1,
+        0.6
+      ],
+      "maximum_contact_ac_va": 2,
+      "maximum_contact_dc_w": 2,
+      "maximum_current_at_24v_ma": 50,
+      "maximum_current_at_48v_ma": 40,
+      "maximum_current_at_100v_ma": 20,
+      "lead_length_m": 0.5,
+      "pressure_port": "R1/8",
+      "ip_rating": "IP40相当"
+    },
+    "display_ratings": "1a 設定 0.1～0.6MPa",
+    "symbol_bindings": [
+      {
+        "name": "pressure_contact",
+        "symbol": "pressure_reed_no",
+        "terminals": {
+          "first": [
+            "リード線（片側）"
+          ],
+          "second": [
+            "リード線（他側）"
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "公開電気回路に端子番号・芯線色の表示なし。未確認の線色や電源極性を付けない。",
+      "接点保護ボックスCD-P12の茶+/青−を圧力スイッチ本体の電源端子に流用しない。",
+      "最大接点容量と最大電流の両条件を満たす負荷を使用する。"
+    ],
+    "verification_note": "資料照合済み。実機未確認。"
+  }
+}

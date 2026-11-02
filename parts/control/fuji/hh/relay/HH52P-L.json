@@ -1,0 +1,76 @@
+{
+  "category": "standard_device",
+  "model": "HH52P-L",
+  "definition": {
+    "manufacturer": "富士電機",
+    "series": "HH",
+    "device_type": "relay",
+    "standard_family": "relay",
+    "source": "富士電機公式 D&C Catalog Industrial Control Relays 03/26・03/28・03/30–33・03/36（PDF p12・14・16–19・22）",
+    "official_html": "https://www.fujielectric.co.jp/products/industrial_control_relay/hh56/hh52p_/",
+    "terminal_numbering": "relay_body",
+    "terminal_view": "リレー本体の端子番号、無励磁状態。ソケットは別部品。",
+    "coil": {
+      "terminals": [
+        "13",
+        "14"
+      ],
+      "rated_voltage": "DC24V",
+      "voltages": {
+        "dc_v": [
+          "24"
+        ]
+      },
+      "voltage_selection_required": false,
+      "polarity": "14_positive_13_negative",
+      "surge": "none",
+      "polarity_by_terminal": {
+        "13": "-",
+        "14": "+"
+      }
+    },
+    "contacts": [
+      {
+        "type": "changeover",
+        "common": [
+          "9"
+        ],
+        "no": [
+          "5"
+        ],
+        "nc": [
+          "1"
+        ]
+      },
+      {
+        "type": "changeover",
+        "common": [
+          "12"
+        ],
+        "no": [
+          "8"
+        ],
+        "nc": [
+          "4"
+        ]
+      }
+    ],
+    "indicator": "LED",
+    "socket_candidates": [
+      "TP58X1",
+      "TP58X2"
+    ],
+    "display_ratings": "DC24V 2c LED / AC240V抵抗負荷 5A",
+    "ratings": {
+      "coil_vdc": 24,
+      "resistive_current_a": 5,
+      "resistive_voltage_vac": 240
+    },
+    "notes": [
+      "基本形名のうちDC24Vコイル仕様を登録。ACコイル・他のDC電圧仕様はこの定義の対象外。",
+      "ダイオード付き-F/-FL、CR付き-CR/-CRL、磁気保持形-Rへ流用しない。",
+      "LED付きDC形は14が正極、13が負極。"
+    ],
+    "verification_note": "公式資料の形名・回路・端子番号を照合。実機配線・動作は未確認。"
+  }
+}

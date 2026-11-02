@@ -1,0 +1,57 @@
+{
+  "category": "remote_io",
+  "model": "NZ2GFCF1-32D",
+  "definition": {
+    "io": "in",
+    "points": 32,
+    "pins": [
+      "B20",
+      "B19",
+      "B18",
+      "B17",
+      "B16",
+      "B15",
+      "B14",
+      "B13",
+      "B12",
+      "B11",
+      "B10",
+      "B9",
+      "B8",
+      "B7",
+      "B6",
+      "B5",
+      "A20",
+      "A19",
+      "A18",
+      "A17",
+      "A16",
+      "A15",
+      "A14",
+      "A13",
+      "A12",
+      "A11",
+      "A10",
+      "A9",
+      "A8",
+      "A7",
+      "A6",
+      "A5"
+    ],
+    "network": "CC-Link IE Field",
+    "terminal_block": "FCN 40ピン",
+    "confirmed": true,
+    "source": "SH-081114ENG-T pp.71–72",
+    "note": "局内X/Y番号を表示。CPU側の割付はネットワーク設定で確認。ユニット電源と通信は構成ページで接続。 FCNコネクタ。プラスコモンで描画。",
+    "common": [
+      "B1",
+      "B2"
+    ],
+    "input_common": "positive",
+    "show_all_commons": false,
+    "terminal_names": {
+      "B1": "COM",
+      "B2": "COM"
+    }
+  }
+}

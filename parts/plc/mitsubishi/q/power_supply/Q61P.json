@@ -1,0 +1,26 @@
+{
+  "category": "q_power",
+  "model": "Q61P",
+  "definition": {
+    "supply": "AC",
+    "service_24v": false,
+    "source": "SH-080483ENG-BC 7.1 PDF206-208/204-206; 7.2.1 PDF214-215/212-213",
+    "terminal_labels_top_to_bottom": [
+      "ERR.",
+      "ERR.",
+      "FG",
+      "LG",
+      "N",
+      "L"
+    ],
+    "input_voltage": "100-240V AC",
+    "input_voltage_range": "85-264V AC",
+    "internal_output_5v_amps": 6,
+    "wiring_notes": [
+      "端子は上からERR.2点、FG、LG、N、L。外部24Vサービス出力はない。",
+      "ERR.は正常時閉、電源断・CPU停止エラー時開。増設ベースでは常時開。"
+    ],
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E9%9B%BB%E6%BA%90"
+  }
+}

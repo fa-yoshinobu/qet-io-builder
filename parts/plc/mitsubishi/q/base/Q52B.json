@@ -1,0 +1,12 @@
+{
+  "category": "q_base",
+  "model": "Q52B",
+  "definition": {
+    "slots": 2,
+    "extension": true,
+    "power_required": false,
+    "source": "SH-080483ENG-BC 8.3(5)(6) PDF251/249",
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E3%83%99%E3%83%BC%E3%82%B9"
+  }
+}

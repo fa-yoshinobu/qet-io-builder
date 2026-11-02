@@ -1,0 +1,52 @@
+{
+  "category": "fx5_cpu",
+  "model": "FX5S-60MR/ES",
+  "definition": {
+    "series": "FX5S",
+    "base": "FX5S-60M",
+    "variants": [
+      "R/ES"
+    ],
+    "inputs": 36,
+    "outputs": [
+      [
+        0,
+        "0",
+        4
+      ],
+      [
+        1,
+        "4",
+        4
+      ],
+      [
+        2,
+        "10",
+        4
+      ],
+      [
+        3,
+        "14",
+        4
+      ],
+      [
+        4,
+        "20",
+        4
+      ],
+      [
+        5,
+        "24",
+        4
+      ]
+    ],
+    "in_common": "S/S",
+    "confirmed": true,
+    "source": "SH-082451 5.9 端子配列",
+    "battery_supported": false,
+    "usb_port": true,
+    "analog": false,
+    "rs485": false,
+    "service": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "category": "got_option",
+  "model": "GT37-IF2000",
+  "definition": {
+    "series": "GOTオプション",
+    "option_type": "extension_converter",
+    "interfaces": [],
+    "compatible_series": [
+      "GOT3000"
+    ],
+    "applicability_notes": "GOT3000:GT37",
+    "adapter_required": {},
+    "source": "IB-0800714ENG-B;SH-082581C 印刷9-15;1.1/2/3;GOT3000本体印刷30-31",
+    "power_notes": "GOT内部5V 0.09A",
+    "settings_notes": "変換器1台・接続ユニット1台(1段)",
+    "verification_note": "内部拡張コネクタのpin割付は未確認",
+    "diagram_notes": [
+      "GOT3000用拡張変換器",
+      "通信ユニット1台・1段まで"
+    ],
+    "auto_wiring": false
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "category": "got_option",
+  "model": "GT14-RS2T4-9P",
+  "definition": {
+    "series": "GOTオプション",
+    "option_type": "serial_adapter",
+    "interfaces": [
+      {
+        "name": "GOT側 RS-232",
+        "kind": "dsub9",
+        "ports": [],
+        "connector_label": "D-sub 9pin メス",
+        "pinout": [
+          {
+            "pin": 1,
+            "signal": "CD (DCD)"
+          },
+          {
+            "pin": 2,
+            "signal": "RD (RXD)"
+          },
+          {
+            "pin": 3,
+            "signal": "SD (TXD)"
+          },
+          {
+            "pin": 4,
+            "signal": "ER (DTR)"
+          },
+          {
+            "pin": 5,
+            "signal": "SG"
+          },
+          {
+            "pin": 6,
+            "signal": "DR (DSR)"
+          },
+          {
+            "pin": 7,
+            "signal": "RS (RTS)"
+          },
+          {
+            "pin": 8,
+            "signal": "CS (CTS)"
+          },
+          {
+            "pin": 9,
+            "signal": "+5V"
+          }
+        ],
+        "pinout_source": "SH-081200ENG-AS 1.4（5V給電）・2.3"
+      },
+      {
+        "name": "外部 RS-485",
+        "kind": "terminal",
+        "ports": [
+          "SG",
+          "SDB",
+          "SDA",
+          "RDB",
+          "RDA"
+        ],
+        "port_pins": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "compatible_series": [
+      "GOT2000"
+    ],
+    "applicability_notes": "GOT2000:GT2505-VTBDのみ。GOT3000適用なし",
+    "adapter_required": {},
+    "source": "JY997D44401F;SH-081194ENG-AW 1/2/3/4/5;本体印刷39-40",
+    "power_notes": "GOTから5V 100mA以下(0.5W);24V外部入力なし",
+    "settings_notes": "1pair/2pair/終端110ohm・OPEN・330ohm。初期2pair330ohm",
+    "verification_note": "GOT側9pinの変換内部配線は未確認",
+    "diagram_notes": [
+      "GOT2000ではGT2505-VTBD専用",
+      "GOT側5V給電"
+    ],
+    "auto_wiring": false
+  }
+}

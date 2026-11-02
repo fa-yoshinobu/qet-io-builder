@@ -1,0 +1,148 @@
+{
+  "category": "remote_analog",
+  "model": "NZ2GF2B-60DA4",
+  "definition": {
+    "channels": [
+      "出力",
+      "出力",
+      "出力",
+      "出力"
+    ],
+    "terminals": [
+      "V+",
+      "COM",
+      "I+"
+    ],
+    "power": [],
+    "auto_wiring": false,
+    "module_role": "remote_station",
+    "network": "CC-Link IE Field",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female"
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female"
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT",
+        "connector_type": "terminal_3",
+        "pins": [
+          [
+            "+24V",
+            "+24V"
+          ],
+          [
+            "24G",
+            "24G"
+          ],
+          [
+            "⏚",
+            "FG"
+          ]
+        ],
+        "position": "正面上から",
+        "terminal_type": "screw"
+      }
+    ],
+    "supply_voltage": "24V DC",
+    "supply_voltage_range": "20.4-28.8V DC",
+    "terminal_type": "18点ネジ端子台",
+    "channel_isolation": false,
+    "lifecycle": "discontinued",
+    "verification_status": "一部確認",
+    "verification_remaining": [
+      "COM/−端子間の内部直結範囲は断定していない"
+    ],
+    "network_condition": "Field専用。SimpleのIP設定・配線として扱わない",
+    "source": "SH-081111D; 仕様PDF26-27;端子PDF61;電源外観PDF21;通信PDF23;配線PDF63; 印刷頁=PDF頁-2",
+    "manual_references": [
+      {
+        "document_number": "SH-081111D",
+        "pages": "仕様PDF26-27;端子PDF61;電源外観PDF21;通信PDF23;配線PDF63"
+      }
+    ],
+    "wiring_notes": [
+      "電圧V+または電流I+とCOM/−を使用。電圧と電流を同一端子とみなさない。NC配線禁止",
+      "CH間非絶縁でもCOM/信号－端子の内部直結範囲は未確認。各実端子を省略・自動短絡しない。"
+    ],
+    "auxiliary_terminals": [],
+    "unused_pins": [
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "1",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "2",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "6",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "10",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "14",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "18",
+        "signal": "NC",
+        "connectable": false
+      }
+    ],
+    "pins_by_channel": [
+      [
+        "3",
+        "4",
+        "5"
+      ],
+      [
+        "7",
+        "8",
+        "9"
+      ],
+      [
+        "11",
+        "12",
+        "13"
+      ],
+      [
+        "15",
+        "16",
+        "17"
+      ]
+    ],
+    "signal_labels_by_direction": {
+      "出力": {
+        "V+": "電圧出力＋",
+        "COM": "出力コモン",
+        "I+": "電流出力＋"
+      }
+    },
+    "diagram_note": "信号方式・外部配線はメーカー資料に従い設定",
+    "lifecycle_source": "FA-A-0179 1,2章 PDF1;4章 PDF2（2015-11-30生産終了、後継BN）",
+    "production_end_date": "2015-11-30",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcnet&category=discon&bunrui1=CC-Link+IE+Field"
+  }
+}

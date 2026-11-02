@@ -1,0 +1,11 @@
+[input]
+fields = ["model", "title", "csv", "start"]
+
+[output]
+fields = ["model", "title", "csv", "start"]
+
+[remotebody]
+fields = ["model", "title", "station", "dip"]
+
+[remotemixed]
+fields = ["model", "title", "input_csv", "output_csv", "start"]

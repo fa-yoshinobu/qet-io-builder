@@ -1,0 +1,106 @@
+{
+  "category": "power_supply",
+  "model": "S8VK-S03024",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "S8VK-S",
+    "nominal_power_w": 30,
+    "input": {
+      "voltage": "AC100～240V",
+      "phase": "単相",
+      "frequency_hz": "50/60",
+      "allowable_ac_voltage_v": [
+        85,
+        264
+      ],
+      "allowable_dc_voltage_v": [
+        90,
+        350
+      ],
+      "dc_connection_note": "DC入力時はL端子に正極。負荷低減条件を資料で確認"
+    },
+    "output": {
+      "voltage_v": 24,
+      "current_a": 1.3,
+      "power_w": 31.2,
+      "maximum_boost_current_a": 1.56,
+      "adjustable_voltage_v": [
+        21.6,
+        28
+      ]
+    },
+    "terminal_type": "プッシュイン端子",
+    "terminal_groups": [
+      {
+        "name": "入力・保護接地",
+        "role": "input",
+        "terminals": [
+          {
+            "label": "L1",
+            "position": "本体正面・下側端子台 左から1",
+            "signal": "AC_L"
+          },
+          {
+            "label": "L2",
+            "position": "本体正面・下側端子台 左から2",
+            "signal": "AC_L"
+          },
+          {
+            "label": "N1",
+            "position": "本体正面・下側端子台 左から3",
+            "signal": "AC_N"
+          },
+          {
+            "label": "N2",
+            "position": "本体正面・下側端子台 左から4",
+            "signal": "AC_N"
+          },
+          {
+            "label": "PE",
+            "position": "本体正面・下側端子台 左から5",
+            "signal": "PE"
+          }
+        ]
+      },
+      {
+        "name": "DC24V出力",
+        "role": "output",
+        "terminals": [
+          {
+            "label": "+V1",
+            "position": "本体正面・上側端子台 左から1",
+            "signal": "DC+24V"
+          },
+          {
+            "label": "+V2",
+            "position": "本体正面・上側端子台 左から2",
+            "signal": "DC+24V"
+          },
+          {
+            "label": "-V1",
+            "position": "本体正面・上側端子台 左から3",
+            "signal": "DC0V"
+          },
+          {
+            "label": "-V2",
+            "position": "本体正面・上側端子台 左から4",
+            "signal": "DC0V"
+          },
+          {
+            "label": "-V3",
+            "position": "本体正面・上側端子台 左から5",
+            "signal": "DC0V"
+          }
+        ]
+      }
+    ],
+    "terminal_label_basis": "T205-E1_2_1 p7のTerminal name欄。図中No.1～14は部位参照番号であり、物理端子番号としては使用しない",
+    "source": "T205-E1_2_1 p1～3,5～7（形式・定格・内部回路・各部名称）; T205-E1_2_2 p1～3,7（公式Web照合）",
+    "official_html": "https://www.fa.omron.co.jp/products/family/3485/lineup/",
+    "verification_note": "出力定格、端子名称、口数、正面図配置を公式資料で照合。実機未確認。ブースト電流は連続定格として使用しない。",
+    "diagram_notes": [
+      "DC24V 1.3A",
+      "入力端子L/Nは各2、出力+Vは2、-Vは3"
+    ]
+  }
+}

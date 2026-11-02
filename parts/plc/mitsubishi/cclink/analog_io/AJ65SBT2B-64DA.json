@@ -1,0 +1,128 @@
+{
+  "category": "remote_analog",
+  "model": "AJ65SBT2B-64DA",
+  "definition": {
+    "channels": [
+      "出力",
+      "出力",
+      "出力",
+      "出力"
+    ],
+    "terminals": [
+      "V+",
+      "I+",
+      "COM"
+    ],
+    "power": [],
+    "network_terminals": [
+      [
+        "DA",
+        "DA"
+      ],
+      [
+        "DB",
+        "DB"
+      ],
+      [
+        "DG",
+        "DG"
+      ],
+      [
+        "SLD",
+        "SLD"
+      ],
+      [
+        "+24V",
+        "+24V"
+      ],
+      [
+        "FG",
+        "FG"
+      ],
+      [
+        "24G",
+        "24G"
+      ]
+    ],
+    "source": "SH-080768ENG-E 4.3 PDF42;4.7/4.9 外部配線",
+    "manual_references": [
+      {
+        "document_number": "SH-080768ENG-E",
+        "pages": "42;4.7/4.9 外部配線"
+      }
+    ],
+    "diagram_note": "TESTは通常時開放。NCには接続しない。",
+    "auxiliary_terminals": [
+      {
+        "pin": "上1",
+        "signal": "TEST",
+        "description": "テスト"
+      },
+      {
+        "pin": "下1",
+        "signal": "TEST",
+        "description": "テスト"
+      }
+    ],
+    "pins_by_channel": [
+      [
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        ""
+      ]
+    ],
+    "function": "アナログ出力",
+    "terminal_positions": "番号印字なし。CHとV+/I+/COMの印字で識別。",
+    "signal_labels_by_direction": {
+      "出力": {
+        "V+": "電圧出力",
+        "I+": "電流出力",
+        "COM": "コモン"
+      }
+    },
+    "unused_pins": [
+      {
+        "pin": "下3",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "pin": "下5",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "pin": "下7",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "pin": "下9",
+        "signal": "NC",
+        "connectable": false
+      }
+    ],
+    "module_role": "remote_station",
+    "network": "CC-Link",
+    "auto_wiring": false,
+    "verification_status": "資料照合",
+    "verification_remaining": [
+      "実機未確認"
+    ]
+  }
+}

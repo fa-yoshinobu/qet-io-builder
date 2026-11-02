@@ -1,0 +1,67 @@
+{
+  "category": "remote_io",
+  "model": "AJ65SBTB1-16D",
+  "definition": {
+    "io": "in",
+    "points": 16,
+    "pins": [
+      "TB8",
+      "TB9",
+      "TB10",
+      "TB11",
+      "TB12",
+      "TB13",
+      "TB14",
+      "TB15",
+      "TB16",
+      "TB17",
+      "TB18",
+      "TB19",
+      "TB20",
+      "TB21",
+      "TB22",
+      "TB23"
+    ],
+    "network": "CC-Link",
+    "network_terminals": [
+      [
+        "TB1",
+        "DA"
+      ],
+      [
+        "TB2",
+        "DB"
+      ],
+      [
+        "TB3",
+        "DG"
+      ],
+      [
+        "TB4",
+        "SLD"
+      ],
+      [
+        "TB5",
+        "+24V"
+      ],
+      [
+        "TB6",
+        "FG"
+      ],
+      [
+        "TB7",
+        "24G"
+      ]
+    ],
+    "terminal_block": "端子台",
+    "confirmed": true,
+    "source": "SH-4007AK 4.1.5",
+    "note": "局内X/Y番号。CPU側割付と局番・伝送速度・終端抵抗はネットワーク設定を確認。",
+    "common": [
+      "TB24",
+      "TB25"
+    ],
+    "input_common": "positive",
+    "show_all_commons": true
+  }
+}

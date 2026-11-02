@@ -1,0 +1,68 @@
+{
+  "category": "standard_device",
+  "model": "AR22PR-211B",
+  "definition": {
+    "manufacturer": "FUJI ELECTRIC",
+    "series": "AR22",
+    "device_type": "switch",
+    "source": "62E2-J-0040d_04 4-13・22・26・31・37・64（ねじ端子・形式・動作）",
+    "terminal_view": "接点ブロック刻印。a接点3/4、b接点1/2、ランプX1/X2。",
+    "terminal_type": "M3.5ねじ",
+    "notes": [
+      "複数接点は同じタグを用い、配置後に機械連動を関連付ける。",
+      "照光回路はスイッチ接点と独立。DC点灯時の極性を守る。"
+    ],
+    "verification_note": "公式国内カタログで形式・端子を照合。実機未確認。",
+    "operation": "maintained_2position_90deg",
+    "color": "黒",
+    "contact_configuration": "1a1b",
+    "display_ratings": "2位置 各位置停止 90° 1a1b",
+    "symbol_bindings": [
+      {
+        "name": "selector",
+        "symbol": "selector_2position",
+        "terminals": {
+          "first": [
+            "3"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "nc",
+        "symbol": "contact_nc",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      }
+    ],
+    "mechanically_linked": [
+      "selector",
+      "nc"
+    ],
+    "standard_text_overrides": {
+      "selector_2position": {
+        "0": "1",
+        "1": "2"
+      }
+    },
+    "position_contact_table": {
+      "1": {
+        "no": "open",
+        "nc": "closed"
+      },
+      "2": {
+        "no": "closed",
+        "nc": "open"
+      }
+    },
+    "official_html": "https://felib.fujielectric.co.jp/ja/M10006/M20016/document_detail/cb171e44-7903-4a17-a80f-e76a1d0aad53"
+  }
+}

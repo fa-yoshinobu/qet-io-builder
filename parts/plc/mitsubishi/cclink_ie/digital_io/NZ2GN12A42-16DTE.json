@@ -1,0 +1,423 @@
+{
+  "category": "remote_mixed",
+  "model": "NZ2GN12A42-16DTE",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "confirmed": true,
+    "source": "SH-082239-L 印刷107-110;適用112-113/切替123 / PDF109-112;114-115/125",
+    "note": "局内X/Y番号を表示。CPU側の割付はネットワーク設定で確認。",
+    "network_modes": [
+      "CC-Link IE TSN",
+      "CC-Link IE Field"
+    ],
+    "field_mode": {
+      "switch": "NETWORK(SW1)",
+      "value": "ON",
+      "minimum_firmware": "05",
+      "legacy_compatibility_firmware": "10"
+    },
+    "power_notes": [
+      "CC-Link IE FieldはNETWORK(SW1)=ON（電源OFF時に変更）、FW05以降",
+      "旧GF互換機能は別設定・FW10以降",
+      "I/OはM12 Aコード、通信はM12 Xコード。コードを混同しない",
+      "新GNのI/O pin5はアキ。旧GFのI/O pin5はFG。"
+    ],
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "m12_x_8",
+        "gender": "female",
+        "pins": []
+      },
+      {
+        "name": "P2",
+        "connector_type": "m12_x_8",
+        "gender": "female",
+        "pins": []
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "POWER IN",
+        "connector_type": "m12_l_5",
+        "gender": "male",
+        "pins": [
+          [
+            "1",
+            "+24V(LOAD)"
+          ],
+          [
+            "2",
+            "24G(LOAD)"
+          ],
+          [
+            "3",
+            "24G(UNIT)"
+          ],
+          [
+            "4",
+            "+24V(UNIT)"
+          ],
+          [
+            "FE",
+            "FG"
+          ]
+        ]
+      },
+      {
+        "name": "POWER OUT",
+        "connector_type": "m12_l_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "+24V(LOAD)"
+          ],
+          [
+            "2",
+            "24G(LOAD)"
+          ],
+          [
+            "3",
+            "24G(UNIT)"
+          ],
+          [
+            "4",
+            "+24V(UNIT)"
+          ],
+          [
+            "FE",
+            "FG"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "POWER IN 1",
+        "+24V(LOAD)"
+      ],
+      [
+        "POWER IN 2",
+        "24G(LOAD)"
+      ],
+      [
+        "POWER IN 3",
+        "24G(UNIT)"
+      ],
+      [
+        "POWER IN 4",
+        "+24V(UNIT)"
+      ],
+      [
+        "POWER IN FE",
+        "FG"
+      ],
+      [
+        "POWER OUT 1",
+        "+24V(LOAD)"
+      ],
+      [
+        "POWER OUT 2",
+        "24G(LOAD)"
+      ],
+      [
+        "POWER OUT 3",
+        "24G(UNIT)"
+      ],
+      [
+        "POWER OUT 4",
+        "+24V(UNIT)"
+      ],
+      [
+        "POWER OUT FE",
+        "FG"
+      ]
+    ],
+    "terminal_block": "M12 Aコード5極",
+    "io_connectors": [
+      {
+        "name": "X0/X1",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "+24V(UNIT)"
+          ],
+          [
+            "2",
+            "X1"
+          ],
+          [
+            "3",
+            "24G(UNIT)"
+          ],
+          [
+            "4",
+            "X0"
+          ],
+          [
+            "5",
+            "アキ"
+          ]
+        ],
+        "no_connect_pins": [
+          "5"
+        ]
+      },
+      {
+        "name": "X2/X3",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "+24V(UNIT)"
+          ],
+          [
+            "2",
+            "X3"
+          ],
+          [
+            "3",
+            "24G(UNIT)"
+          ],
+          [
+            "4",
+            "X2"
+          ],
+          [
+            "5",
+            "アキ"
+          ]
+        ],
+        "no_connect_pins": [
+          "5"
+        ]
+      },
+      {
+        "name": "X4/X5",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "+24V(UNIT)"
+          ],
+          [
+            "2",
+            "X5"
+          ],
+          [
+            "3",
+            "24G(UNIT)"
+          ],
+          [
+            "4",
+            "X4"
+          ],
+          [
+            "5",
+            "アキ"
+          ]
+        ],
+        "no_connect_pins": [
+          "5"
+        ]
+      },
+      {
+        "name": "X6/X7",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "+24V(UNIT)"
+          ],
+          [
+            "2",
+            "X7"
+          ],
+          [
+            "3",
+            "24G(UNIT)"
+          ],
+          [
+            "4",
+            "X6"
+          ],
+          [
+            "5",
+            "アキ"
+          ]
+        ],
+        "no_connect_pins": [
+          "5"
+        ]
+      },
+      {
+        "name": "Y8/Y9",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "アキ"
+          ],
+          [
+            "2",
+            "Y9"
+          ],
+          [
+            "3",
+            "24G(LOAD)"
+          ],
+          [
+            "4",
+            "Y8"
+          ],
+          [
+            "5",
+            "アキ"
+          ]
+        ],
+        "no_connect_pins": [
+          "1",
+          "5"
+        ]
+      },
+      {
+        "name": "YA/YB",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "アキ"
+          ],
+          [
+            "2",
+            "YB"
+          ],
+          [
+            "3",
+            "24G(LOAD)"
+          ],
+          [
+            "4",
+            "YA"
+          ],
+          [
+            "5",
+            "アキ"
+          ]
+        ],
+        "no_connect_pins": [
+          "1",
+          "5"
+        ]
+      },
+      {
+        "name": "YC/YD",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "アキ"
+          ],
+          [
+            "2",
+            "YD"
+          ],
+          [
+            "3",
+            "24G(LOAD)"
+          ],
+          [
+            "4",
+            "YC"
+          ],
+          [
+            "5",
+            "アキ"
+          ]
+        ],
+        "no_connect_pins": [
+          "1",
+          "5"
+        ]
+      },
+      {
+        "name": "YE/YF",
+        "connector_type": "m12_a_5",
+        "gender": "female",
+        "pins": [
+          [
+            "1",
+            "アキ"
+          ],
+          [
+            "2",
+            "YF"
+          ],
+          [
+            "3",
+            "24G(LOAD)"
+          ],
+          [
+            "4",
+            "YE"
+          ],
+          [
+            "5",
+            "アキ"
+          ]
+        ],
+        "no_connect_pins": [
+          "1",
+          "5"
+        ]
+      }
+    ],
+    "input": {
+      "io": "in",
+      "points": 8,
+      "pins": [
+        "X0/X1-4",
+        "X0/X1-2",
+        "X2/X3-4",
+        "X2/X3-2",
+        "X4/X5-4",
+        "X4/X5-2",
+        "X6/X7-4",
+        "X6/X7-2"
+      ],
+      "common": [],
+      "input_common": "negative",
+      "manual_input_power": true,
+      "manual_input_note": "入力電源はM12コネクタ1/3、詳細ページを参照。",
+      "start_offset": 0
+    },
+    "output": {
+      "io": "out",
+      "out": "source",
+      "points": 8,
+      "pins": [
+        "Y8/Y9-4",
+        "Y8/Y9-2",
+        "YA/YB-4",
+        "YA/YB-2",
+        "YC/YD-4",
+        "YC/YD-2",
+        "YE/YF-4",
+        "YE/YF-2"
+      ],
+      "vplus": "",
+      "com": "",
+      "start_offset": 8,
+      "manual_output_note": "出力のLOAD電源は電源・コネクタ詳細ページを参照。"
+    }
+  }
+}

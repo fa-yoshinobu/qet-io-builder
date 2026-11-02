@@ -1,0 +1,178 @@
+{
+  "category": "got_body",
+  "model": "GT2508-VTWD",
+  "definition": {
+    "series": "GOT2000",
+    "subseries": "GT25",
+    "display": "8.4型",
+    "screen_size_inch": 8.4,
+    "power": {
+      "supply": "DC24V",
+      "ports": [
+        "−",
+        "＋",
+        "⏚",
+        "⏚"
+      ],
+      "port_pins": [],
+      "ground_terminals": [
+        "FG",
+        "LG"
+      ],
+      "connection": "独立電源端子",
+      "physical_order": "電源端子配線図の左から／縦形は上から",
+      "source": "SH-081194ENG-AW 8.2–8.3/PDF328–330",
+      "ground_position_mapping": "LG・FGの順(SH-081194ENG-AW 5.2 印刷158)"
+    },
+    "interfaces": [
+      {
+        "name": "RS-232",
+        "kind": "dsub9_male",
+        "connector_label": "D-sub 9pin オス",
+        "ports": [],
+        "pinout": [
+          {
+            "pin": "1",
+            "signal": "CD",
+            "connectable": true
+          },
+          {
+            "pin": "2",
+            "signal": "RD(RXD)",
+            "connectable": true
+          },
+          {
+            "pin": "3",
+            "signal": "SD(TXD)",
+            "connectable": true
+          },
+          {
+            "pin": "4",
+            "signal": "ER(DTR)",
+            "connectable": true
+          },
+          {
+            "pin": "5",
+            "signal": "SG",
+            "connectable": true
+          },
+          {
+            "pin": "6",
+            "signal": "DR(DSR)",
+            "connectable": true
+          },
+          {
+            "pin": "7",
+            "signal": "RS(RTS)",
+            "connectable": true
+          },
+          {
+            "pin": "8",
+            "signal": "CS(CTS)",
+            "connectable": true
+          },
+          {
+            "pin": "9",
+            "signal": "NC",
+            "connectable": false
+          }
+        ],
+        "screw": "#4-40UNC"
+      },
+      {
+        "name": "RS-422/485",
+        "kind": "dsub9",
+        "connector_label": "D-sub 9pin メス",
+        "ports": [],
+        "pinout": [
+          {
+            "pin": "1",
+            "signal": "TXD+(SDA)",
+            "connectable": true
+          },
+          {
+            "pin": "2",
+            "signal": "RXD+(RDA)",
+            "connectable": true
+          },
+          {
+            "pin": "3",
+            "signal": "RTS+(RSA)",
+            "connectable": true
+          },
+          {
+            "pin": "4",
+            "signal": "CTS+(CSA)",
+            "connectable": true
+          },
+          {
+            "pin": "5",
+            "signal": "SG",
+            "connectable": true
+          },
+          {
+            "pin": "6",
+            "signal": "TXD-(SDB)",
+            "connectable": true
+          },
+          {
+            "pin": "7",
+            "signal": "RXD-(RDB)",
+            "connectable": true
+          },
+          {
+            "pin": "8",
+            "signal": "RTS-(RSB)",
+            "connectable": true
+          },
+          {
+            "pin": "9",
+            "signal": "CTS-(CSB)",
+            "connectable": true
+          }
+        ],
+        "screw": "M2.6"
+      },
+      {
+        "name": "Ethernet",
+        "kind": "rj45",
+        "connector_label": "RJ-45",
+        "ports": []
+      },
+      {
+        "name": "USB HOST 背面",
+        "kind": "usb_a",
+        "connector_label": "USB Type-A",
+        "ports": [],
+        "position": "背面"
+      },
+      {
+        "name": "USB DEVICE 背面",
+        "kind": "usb_mini_b",
+        "connector_label": "USB Mini-B",
+        "ports": [],
+        "position": "背面"
+      },
+      {
+        "name": "SD CARD",
+        "kind": "sd",
+        "connector_label": "SD/SDHC",
+        "ports": []
+      }
+    ],
+    "battery_supported": true,
+    "battery_type": "GT11-50BAT",
+    "usb_host_ports": 1,
+    "usb_device_ports": 1,
+    "sd_card_supported": true,
+    "sd_card_optional": false,
+    "sd_card_option": "",
+    "source": "SH-081194ENG-AW 3.2 印刷88/PDF90;8.2–8.3 印刷326–328/PDF328–330; SH-081200ENG-AS 1.4/PDF51–52,2.3/PDF83–88",
+    "diagram_notes": [
+      "LG・FGは短絡して接地"
+    ],
+    "verification_note": "コネクタ形状・端子印字を資料照合。配線方式・実機は未確認",
+    "resolution": "640x480",
+    "resolution_source": "SH-081194ENG-AW 3.2 印刷88/PDF90"
+  }
+}

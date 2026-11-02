@@ -1,0 +1,32 @@
+{
+  "category": "fx5_analog",
+  "model": "FX5-4AD-ADP",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "V{n}+",
+      "I{n}+",
+      "COM{n}"
+    ],
+    "power": [
+      "接地"
+    ],
+    "power_pins": [
+      "⏚"
+    ],
+    "signal_labels_by_direction": {
+      "入力": {
+        "V{n}+": "電圧/電流入力",
+        "I{n}+": "電流入力短絡用",
+        "COM{n}": "コモン"
+      }
+    },
+    "source": "SH-082451Q 9.1,15.7 印刷134–135,211–212 / PDF136–137,213–214",
+    "current_input_jumper": true
+  }
+}

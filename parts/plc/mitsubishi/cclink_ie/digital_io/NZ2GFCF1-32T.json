@@ -1,0 +1,293 @@
+{
+  "category": "remote_io",
+  "model": "NZ2GFCF1-32T",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "module_role": "main",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female"
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female"
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT",
+        "connector_type": "terminal_3",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "24G"
+          ],
+          [
+            "3",
+            "FG"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "1",
+        "+24V"
+      ],
+      [
+        "2",
+        "24G"
+      ],
+      [
+        "3",
+        "FG"
+      ]
+    ],
+    "confirmed": true,
+    "source": "SH-081114ENG-T 4.2 印刷112,113 / PDF114,115",
+    "source_reference": {
+      "document": "SH-081114ENG-T",
+      "section": "4.2",
+      "printed_pages": [
+        112,
+        113
+      ],
+      "pdf_pages": [
+        114,
+        115
+      ]
+    },
+    "lifecycle": "公式ラインアップ掲載（発売中の断定ではない）",
+    "extension_support": "最大1台",
+    "note": "局内X/Y番号を表示。CPU側の割付はネットワーク設定で確認。",
+    "power_notes": [],
+    "io": "out",
+    "points": 32,
+    "pins": [
+      "B20",
+      "B19",
+      "B18",
+      "B17",
+      "B16",
+      "B15",
+      "B14",
+      "B13",
+      "B12",
+      "B11",
+      "B10",
+      "B9",
+      "B8",
+      "B7",
+      "B6",
+      "B5",
+      "A20",
+      "A19",
+      "A18",
+      "A17",
+      "A16",
+      "A15",
+      "A14",
+      "A13",
+      "A12",
+      "A11",
+      "A10",
+      "A9",
+      "A8",
+      "A7",
+      "A6",
+      "A5"
+    ],
+    "terminal_block": "FCN 40ピン",
+    "out": "sink",
+    "vplus": "B1/B2",
+    "com": "A1/A2",
+    "terminal_names": {
+      "B1": "CTL+",
+      "B2": "CTL+",
+      "A1": "COM-",
+      "A2": "COM-"
+    },
+    "io_connectors": [
+      {
+        "name": "CON1",
+        "connector_type": "fcn_40",
+        "pins": [
+          [
+            "A1",
+            "COM-"
+          ],
+          [
+            "A2",
+            "COM-"
+          ],
+          [
+            "A3",
+            "アキ"
+          ],
+          [
+            "A4",
+            "アキ"
+          ],
+          [
+            "A5",
+            "Y1F"
+          ],
+          [
+            "A6",
+            "Y1E"
+          ],
+          [
+            "A7",
+            "Y1D"
+          ],
+          [
+            "A8",
+            "Y1C"
+          ],
+          [
+            "A9",
+            "Y1B"
+          ],
+          [
+            "A10",
+            "Y1A"
+          ],
+          [
+            "A11",
+            "Y19"
+          ],
+          [
+            "A12",
+            "Y18"
+          ],
+          [
+            "A13",
+            "Y17"
+          ],
+          [
+            "A14",
+            "Y16"
+          ],
+          [
+            "A15",
+            "Y15"
+          ],
+          [
+            "A16",
+            "Y14"
+          ],
+          [
+            "A17",
+            "Y13"
+          ],
+          [
+            "A18",
+            "Y12"
+          ],
+          [
+            "A19",
+            "Y11"
+          ],
+          [
+            "A20",
+            "Y10"
+          ],
+          [
+            "B1",
+            "CTL+"
+          ],
+          [
+            "B2",
+            "CTL+"
+          ],
+          [
+            "B3",
+            "アキ"
+          ],
+          [
+            "B4",
+            "アキ"
+          ],
+          [
+            "B5",
+            "YF"
+          ],
+          [
+            "B6",
+            "YE"
+          ],
+          [
+            "B7",
+            "YD"
+          ],
+          [
+            "B8",
+            "YC"
+          ],
+          [
+            "B9",
+            "YB"
+          ],
+          [
+            "B10",
+            "YA"
+          ],
+          [
+            "B11",
+            "Y9"
+          ],
+          [
+            "B12",
+            "Y8"
+          ],
+          [
+            "B13",
+            "Y7"
+          ],
+          [
+            "B14",
+            "Y6"
+          ],
+          [
+            "B15",
+            "Y5"
+          ],
+          [
+            "B16",
+            "Y4"
+          ],
+          [
+            "B17",
+            "Y3"
+          ],
+          [
+            "B18",
+            "Y2"
+          ],
+          [
+            "B19",
+            "Y1"
+          ],
+          [
+            "B20",
+            "Y0"
+          ]
+        ],
+        "no_connect_pins": [
+          "A3",
+          "A4",
+          "B3",
+          "B4"
+        ]
+      }
+    ]
+  }
+}

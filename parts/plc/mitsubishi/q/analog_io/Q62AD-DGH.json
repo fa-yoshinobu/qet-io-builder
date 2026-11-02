@@ -1,0 +1,51 @@
+{
+  "category": "q_analog",
+  "model": "Q62AD-DGH",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "P",
+      "I/CHK+",
+      "CHK-"
+    ],
+    "power": [
+      "24V",
+      "24G",
+      "FG"
+    ],
+    "pins_by_channel": [
+      [
+        "1",
+        "2",
+        "3"
+      ],
+      [
+        "9",
+        "10",
+        "11"
+      ]
+    ],
+    "power_pins": [
+      "16",
+      "17",
+      "18"
+    ],
+    "signal_labels_by_direction": {
+      "入力": {
+        "P": "2線式伝送器電源",
+        "I/CHK+": "電流入力/確認＋",
+        "CHK-": "確認－"
+      }
+    },
+    "source": "SH-080277-O 4.3 PDF101/4-4; 4.4.2 PDF104/4-7",
+    "wiring_notes": [
+      "2線式伝送器はPとI/CHK+に接続する。",
+      "電流入力はI/CHK+とCHK-を使用しPを開放。一般のV+–I+短絡方式を適用しない。"
+    ],
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E3%82%A2%E3%83%8A%E3%83%AD%E3%82%B0"
+  }
+}

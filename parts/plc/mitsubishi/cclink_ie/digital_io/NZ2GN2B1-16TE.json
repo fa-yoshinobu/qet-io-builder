@@ -1,0 +1,182 @@
+{
+  "category": "remote_io",
+  "model": "NZ2GN2B1-16TE",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "confirmed": true,
+    "source": "SH-082239-L 印刷74-76;適用112-113/切替123 / PDF76-78;114-115/125",
+    "note": "局内X/Y番号を表示。CPU側の割付はネットワーク設定で確認。",
+    "network_modes": [
+      "CC-Link IE TSN",
+      "CC-Link IE Field"
+    ],
+    "field_mode": {
+      "switch": "NETWORK(SW1)",
+      "value": "ON",
+      "minimum_firmware": "05",
+      "legacy_compatibility_firmware": "10"
+    },
+    "power_notes": [
+      "CC-Link IE FieldはNETWORK(SW1)=ON（電源OFF時に変更）、FW05以降",
+      "旧GF互換機能は別設定・FW10以降"
+    ],
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female",
+        "pins": []
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female",
+        "pins": []
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT POWER",
+        "connector_type": "terminal_3",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "FG"
+          ],
+          [
+            "2",
+            "24G"
+          ],
+          [
+            "3",
+            "+24V"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "UNIT POWER 1",
+        "FG"
+      ],
+      [
+        "UNIT POWER 2",
+        "24G"
+      ],
+      [
+        "UNIT POWER 3",
+        "+24V"
+      ]
+    ],
+    "terminal_block": "I/O端子台",
+    "io": "out",
+    "points": 16,
+    "pins": [
+      "TB1",
+      "TB2",
+      "TB3",
+      "TB4",
+      "TB5",
+      "TB6",
+      "TB7",
+      "TB8",
+      "TB9",
+      "TB10",
+      "TB11",
+      "TB12",
+      "TB13",
+      "TB14",
+      "TB15",
+      "TB16"
+    ],
+    "out": "source",
+    "vplus": "TB17",
+    "com": "TB18",
+    "terminal_names": {
+      "TB17": "COM+",
+      "TB18": "CTL-"
+    },
+    "io_connectors": [
+      {
+        "name": "I/O",
+        "connector_type": "terminal_18",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "Y0"
+          ],
+          [
+            "2",
+            "Y1"
+          ],
+          [
+            "3",
+            "Y2"
+          ],
+          [
+            "4",
+            "Y3"
+          ],
+          [
+            "5",
+            "Y4"
+          ],
+          [
+            "6",
+            "Y5"
+          ],
+          [
+            "7",
+            "Y6"
+          ],
+          [
+            "8",
+            "Y7"
+          ],
+          [
+            "9",
+            "Y8"
+          ],
+          [
+            "10",
+            "Y9"
+          ],
+          [
+            "11",
+            "YA"
+          ],
+          [
+            "12",
+            "YB"
+          ],
+          [
+            "13",
+            "YC"
+          ],
+          [
+            "14",
+            "YD"
+          ],
+          [
+            "15",
+            "YE"
+          ],
+          [
+            "16",
+            "YF"
+          ],
+          [
+            "17",
+            "COM+"
+          ],
+          [
+            "18",
+            "CTL-"
+          ]
+        ]
+      }
+    ]
+  }
+}

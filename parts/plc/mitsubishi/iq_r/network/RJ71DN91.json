@@ -1,0 +1,45 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71DN91",
+  "definition": {
+    "network": "DeviceNet",
+    "ports": [
+      "DeviceNet"
+    ],
+    "source": "SH-081765ENG-C 2.1/PDF20,6.1/PDF30",
+    "slots": 1,
+    "occupied_io_points": 32,
+    "panel_interfaces": true,
+    "interfaces": [
+      {
+        "name": "DeviceNet",
+        "kind": "terminal",
+        "ports": [
+          "V+",
+          "CAN_H",
+          "Shield",
+          "CAN_L",
+          "V-"
+        ],
+        "port_pins": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "signal_labels": {
+          "V+": "電源 (+) 赤",
+          "CAN_H": "通信 H 白",
+          "Shield": "ドレイン",
+          "CAN_L": "通信 L 青",
+          "V-": "電源 (-) 黒"
+        }
+      }
+    ],
+    "diagram_notes": [
+      "ネットワーク用DC24V電源が必要",
+      "終端抵抗はネットワーク両端へ"
+    ]
+  }
+}

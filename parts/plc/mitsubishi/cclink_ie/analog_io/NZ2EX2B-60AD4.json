@@ -1,0 +1,156 @@
+{
+  "category": "remote_analog",
+  "model": "NZ2EX2B-60AD4",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "V+",
+      "COM",
+      "I+"
+    ],
+    "power": [],
+    "auto_wiring": false,
+    "module_role": "extension",
+    "network": "基本アナログユニット増設",
+    "network_connectors": [],
+    "power_connectors": [
+      {
+        "name": "外部供給電源",
+        "connector_type": "terminal_3",
+        "pins": [
+          [
+            "+24V",
+            "+24V"
+          ],
+          [
+            "24G",
+            "24G"
+          ],
+          [
+            "⏚",
+            "FG"
+          ]
+        ],
+        "position": "正面上から",
+        "terminal_type": "screw"
+      }
+    ],
+    "supply_voltage": "24V DC",
+    "supply_voltage_range": "20.4-28.8V DC",
+    "terminal_type": "18点ネジ端子台",
+    "channel_isolation": false,
+    "lifecycle": "current_catalog",
+    "verification_status": "一部確認",
+    "verification_remaining": [
+      "COM/−端子間の内部直結範囲は断定していない"
+    ],
+    "network_condition": "単独のネットワーク局ではない。対応基本アナログユニットに1台装着",
+    "source": "SH-081450H; 仕様PDF30;端子PDF69;電源外観PDF26;通信PDF該当なし;配線PDF71; 印刷頁=PDF頁-2",
+    "manual_references": [
+      {
+        "document_number": "SH-081450H",
+        "pages": "仕様PDF30;端子PDF69;電源外観PDF26;通信PDF該当なし;配線PDF71"
+      }
+    ],
+    "wiring_notes": [
+      "ネットワークポートなし。基本ユニットからのユニット電源とは別に、外部DC24Vの供給が必要。",
+      "電流時V+–I+を外部短絡。SLD/FG1/AGを区別。NC配線禁止",
+      "CH間非絶縁でもCOM/信号－端子の内部直結範囲は未確認。各実端子を省略・自動短絡しない。"
+    ],
+    "auxiliary_terminals": [
+      {
+        "pin": "6",
+        "signal": "SLD",
+        "description": "シールド",
+        "group": "シールド"
+      },
+      {
+        "pin": "13",
+        "signal": "SLD",
+        "description": "シールド",
+        "group": "シールド"
+      },
+      {
+        "pin": "17",
+        "signal": "AG",
+        "description": "アナロググランド",
+        "group": "接地"
+      },
+      {
+        "pin": "18",
+        "signal": "FG1",
+        "description": "機能接地",
+        "group": "接地"
+      }
+    ],
+    "unused_pins": [
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "1",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "2",
+        "signal": "NC",
+        "connectable": false
+      }
+    ],
+    "requires_base_analog_unit": true,
+    "external_supply_required": true,
+    "unit_power_source": "基本アナログユニット",
+    "extension_connection": {
+      "name": "側面増設インタフェース",
+      "connector_type": "proprietary"
+    },
+    "pins_by_channel": [
+      [
+        "3",
+        "4",
+        "5"
+      ],
+      [
+        "7",
+        "8",
+        "9"
+      ],
+      [
+        "10",
+        "11",
+        "12"
+      ],
+      [
+        "14",
+        "15",
+        "16"
+      ]
+    ],
+    "required_jumpers": [
+      {
+        "when": "電流入力",
+        "terminals": [
+          "V+",
+          "I+"
+        ],
+        "scope": "same_channel",
+        "automatic": false
+      }
+    ],
+    "signal_labels_by_direction": {
+      "入力": {
+        "V+": "電圧入力＋／電流時短絡側",
+        "COM": "入力－",
+        "I+": "電流入力＋"
+      }
+    },
+    "diagram_note": "増設専用・外部24V必要",
+    "unit_power_current_milliamps": 90,
+    "external_supply_current_milliamps": 45
+  }
+}

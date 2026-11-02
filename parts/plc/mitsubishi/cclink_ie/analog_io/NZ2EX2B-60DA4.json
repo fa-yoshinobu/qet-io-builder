@@ -1,0 +1,144 @@
+{
+  "category": "remote_analog",
+  "model": "NZ2EX2B-60DA4",
+  "definition": {
+    "channels": [
+      "出力",
+      "出力",
+      "出力",
+      "出力"
+    ],
+    "terminals": [
+      "V+",
+      "COM",
+      "I+"
+    ],
+    "power": [],
+    "auto_wiring": false,
+    "module_role": "extension",
+    "network": "基本アナログユニット増設",
+    "network_connectors": [],
+    "power_connectors": [
+      {
+        "name": "外部供給電源",
+        "connector_type": "terminal_3",
+        "pins": [
+          [
+            "+24V",
+            "+24V"
+          ],
+          [
+            "24G",
+            "24G"
+          ],
+          [
+            "⏚",
+            "FG"
+          ]
+        ],
+        "position": "正面上から",
+        "terminal_type": "screw"
+      }
+    ],
+    "supply_voltage": "24V DC",
+    "supply_voltage_range": "20.4-28.8V DC",
+    "terminal_type": "18点ネジ端子台",
+    "channel_isolation": false,
+    "lifecycle": "current_catalog",
+    "verification_status": "一部確認",
+    "verification_remaining": [
+      "COM/−端子間の内部直結範囲は断定していない"
+    ],
+    "network_condition": "単独のネットワーク局ではない。対応基本アナログユニットに1台装着",
+    "source": "SH-081452H; 仕様PDF28;端子PDF66;電源外観PDF24;通信PDF該当なし;配線PDF68; 印刷頁=PDF頁-2",
+    "manual_references": [
+      {
+        "document_number": "SH-081452H",
+        "pages": "仕様PDF28;端子PDF66;電源外観PDF24;通信PDF該当なし;配線PDF68"
+      }
+    ],
+    "wiring_notes": [
+      "ネットワークポートなし。基本ユニットからのユニット電源とは別に、外部DC24Vの供給が必要。",
+      "電圧V+または電流I+とCOM/−を使用。電圧と電流を同一端子とみなさない。NC配線禁止",
+      "CH間非絶縁でもCOM/信号－端子の内部直結範囲は未確認。各実端子を省略・自動短絡しない。"
+    ],
+    "auxiliary_terminals": [],
+    "unused_pins": [
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "1",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "2",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "6",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "10",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "14",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "connector": "アナログI/O端子台",
+        "pin": "18",
+        "signal": "NC",
+        "connectable": false
+      }
+    ],
+    "requires_base_analog_unit": true,
+    "external_supply_required": true,
+    "unit_power_source": "基本アナログユニット",
+    "extension_connection": {
+      "name": "側面増設インタフェース",
+      "connector_type": "proprietary"
+    },
+    "pins_by_channel": [
+      [
+        "3",
+        "4",
+        "5"
+      ],
+      [
+        "7",
+        "8",
+        "9"
+      ],
+      [
+        "11",
+        "12",
+        "13"
+      ],
+      [
+        "15",
+        "16",
+        "17"
+      ]
+    ],
+    "signal_labels_by_direction": {
+      "出力": {
+        "V+": "電圧出力＋",
+        "COM": "出力コモン",
+        "I+": "電流出力＋"
+      }
+    },
+    "diagram_note": "増設専用・外部24V必要",
+    "unit_power_current_milliamps": 95,
+    "external_supply_current_milliamps": 135
+  }
+}

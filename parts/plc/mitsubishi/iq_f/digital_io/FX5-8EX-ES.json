@@ -1,0 +1,13 @@
+{
+  "category": "fx5_ext",
+  "model": "FX5-8EX/ES",
+  "definition": {
+    "variants": [
+      ""
+    ],
+    "inputs": 8,
+    "outputs": [],
+    "confirmed": true,
+    "source": "SH-082451Q 6.1 印刷109 / PDF111"
+  }
+}

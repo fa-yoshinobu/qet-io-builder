@@ -1,0 +1,4 @@
+# このフォルダの部品に対応するページ種類とGUIの表示項目
+[fx5analog]
+fields = ["model", "title", "csv"]
+

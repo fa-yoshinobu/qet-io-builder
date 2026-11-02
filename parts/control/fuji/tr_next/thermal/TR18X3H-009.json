@@ -1,0 +1,92 @@
+{
+  "category": "standard_device",
+  "model": "TR18X3H-009",
+  "definition": {
+    "manufacturer": "Fuji Electric",
+    "series": "SC-NEXT TR",
+    "device_type": "thermal_relay",
+    "standard_family": "thermal_relay",
+    "ratings": {
+      "heater_elements": 3,
+      "current_setting_range_a": [
+        9,
+        13
+      ],
+      "selected_current_a": null,
+      "trip_class": "10A",
+      "protection": "過負荷保護",
+      "reset": "手動（型式末尾Aなし）"
+    },
+    "setting_required": true,
+    "mounting": "単独設置用 H",
+    "contact_form": {
+      "main": 3,
+      "trip_nc": 1,
+      "trip_no": 1
+    },
+    "symbol_bindings": [
+      {
+        "name": "main",
+        "symbol": "thermal_relay_3p",
+        "terminals": {
+          "line1": [
+            "1/L1"
+          ],
+          "load1": [
+            "2/T1"
+          ],
+          "line2": [
+            "3/L2"
+          ],
+          "load2": [
+            "4/T2"
+          ],
+          "line3": [
+            "5/L3"
+          ],
+          "load3": [
+            "6/T3"
+          ]
+        }
+      },
+      {
+        "name": "trip_nc",
+        "symbol": "thermal_contact_nc",
+        "terminals": {
+          "first": [
+            "95"
+          ],
+          "second": [
+            "96"
+          ]
+        }
+      },
+      {
+        "name": "trip_no",
+        "symbol": "thermal_contact_no",
+        "terminals": {
+          "first": [
+            "97"
+          ],
+          "second": [
+            "98"
+          ]
+        }
+      }
+    ],
+    "compatible_contactor_families": [
+      "SC09X",
+      "SC12X",
+      "SC18X"
+    ],
+    "source": "62C1-J-0307h PDF84（形式）85（整定範囲/ヒータコード）86（動作・補助定格）89（単独設置用端子/接続）",
+    "official_html": "https://www.fujielectric.co.jp/products/magnetic_contactor/sc-next/",
+    "verification_note": "3素子・単独設置用H・手動リセットの形式表/ヒータコード/端子を資料照合。主回路入力の番号があるH形を選定し、接触器直付け形の差込接続へ架空入力端子を付けない。実機未確認。",
+    "notes": [
+      "整定範囲は選択したヒータ定格の範囲であり、整定値を範囲下限や中央値へ固定しない。",
+      "95-96は正常時閉/トリップで開、97-98は正常時開/トリップで閉。汎用リレー接点とは別の熱動保護記号を使用。",
+      "末尾Aの自動リセット、欠相検出K、2素子2、速動Q、遅動L、直付け形は今回の定義に含めない。"
+    ],
+    "display_ratings": "整定範囲 9～13A / 整定値未指定"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "category": "remote_mixed",
+  "model": "NZ2GF2B1-32DT",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "module_role": "main",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female"
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female"
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT",
+        "connector_type": "terminal_3",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "24G"
+          ],
+          [
+            "3",
+            "FG"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "1",
+        "+24V"
+      ],
+      [
+        "2",
+        "24G"
+      ],
+      [
+        "3",
+        "FG"
+      ]
+    ],
+    "confirmed": true,
+    "source": "SH-081114ENG-T 4.2 印刷114,115,116,117 / PDF116,117,118,119",
+    "source_reference": {
+      "document": "SH-081114ENG-T",
+      "section": "4.2",
+      "printed_pages": [
+        114,
+        115,
+        116,
+        117
+      ],
+      "pdf_pages": [
+        116,
+        117,
+        118,
+        119
+      ]
+    },
+    "lifecycle": "公式ラインアップ掲載（発売中の断定ではない）",
+    "extension_support": "増設不可",
+    "note": "局内X/Y番号を表示。CPU側の割付はネットワーク設定で確認。",
+    "power_notes": [],
+    "input": {
+      "io": "in",
+      "points": 16,
+      "pins": [
+        "TB1",
+        "TB2",
+        "TB3",
+        "TB4",
+        "TB5",
+        "TB6",
+        "TB7",
+        "TB8",
+        "TB9",
+        "TB10",
+        "TB11",
+        "TB12",
+        "TB13",
+        "TB14",
+        "TB15",
+        "TB16"
+      ],
+      "terminal_block": "I/O端子台",
+      "common": [],
+      "input_common": "positive",
+      "manual_input_power": true,
+      "start_offset": 0,
+      "manual_input_note": "入力共通は出力側TB33と共通"
+    },
+    "output": {
+      "io": "out",
+      "points": 16,
+      "pins": [
+        "TB17",
+        "TB18",
+        "TB19",
+        "TB20",
+        "TB21",
+        "TB22",
+        "TB23",
+        "TB24",
+        "TB25",
+        "TB26",
+        "TB27",
+        "TB28",
+        "TB29",
+        "TB30",
+        "TB31",
+        "TB32"
+      ],
+      "terminal_block": "I/O端子台",
+      "out": "sink",
+      "vplus": "TB33",
+      "com": "TB34",
+      "start_offset": 16,
+      "terminal_names": {
+        "TB33": "COM+",
+        "TB34": "COM-"
+      }
+    },
+    "terminal_block": "ねじ端子台"
+  }
+}

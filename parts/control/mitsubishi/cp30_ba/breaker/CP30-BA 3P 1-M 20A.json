@@ -1,0 +1,73 @@
+{
+  "category": "standard_device",
+  "model": "CP30-BA 3P 1-M 20A",
+  "definition": {
+    "manufacturer": "Mitsubishi Electric",
+    "series": "CP30-BA",
+    "device_type": "circuit_protector",
+    "standard_family": "protection",
+    "ratings": {
+      "poles": 3,
+      "elements": 3,
+      "rated_current_a": 20,
+      "frame_a": 30,
+      "current_type": "AC",
+      "trip_characteristic": "中速形 M・流体電磁式",
+      "rated_insulation_voltage_v": 250,
+      "ul1077_rated_voltage": {
+        "ac_v": 250,
+        "dc_v": null
+      },
+      "ul1077_breaking_capacity_ka": {
+        "ac250v": 2.5
+      }
+    },
+    "symbol_bindings": [
+      {
+        "name": "main",
+        "symbol": "breaker_3p",
+        "terminals": {
+          "line1": [
+            "LINE 左"
+          ],
+          "load1": [
+            "LOAD 左"
+          ],
+          "line2": [
+            "LINE 中"
+          ],
+          "load2": [
+            "LOAD 中"
+          ],
+          "line3": [
+            "LINE 右"
+          ],
+          "load3": [
+            "LOAD 右"
+          ]
+        }
+      }
+    ],
+    "terminal_numbering": "functional_position",
+    "terminal_view": "QET標準記号の上側を電源(LINE)、下側を負荷(LOAD)、各極を正面の左右で識別。数字刻印は未確認のため番号を付けない。",
+    "terminal_type": "表面形・線押え付ねじ",
+    "auxiliary_switch": false,
+    "alarm_switch": false,
+    "shunt_trip": false,
+    "source": "Y-0573K 1603 印刷p4（定格・極数）, p8（端子外形）, p17（発注形式・電流組合せ）; 三菱公式CP30-BA仕様",
+    "official_html": "https://www.mitsubishielectric.co.jp/fa/products/faspec/detail.page?formNm=CP_CP30-BA_1&kisyu=/lvcb",
+    "verification_note": "公式の発注方式/仕様で構成を確認。主端子の数字刻印は未確認。QET標準記号の番号をメーカー番号へ流用しない。実機未確認。",
+    "display_ratings": "3P 20A M AC",
+    "standard_text_overrides": {
+      "breaker_3p": {
+        "Calibre __A": "20A"
+      }
+    },
+    "notes": [
+      "主回路だけの定義。AL/AX/SHT/UVT、スプリングクランプ端子、裏面形などはこの型式に含めない。",
+      "定格電流・定格電圧だけで遮断器を選定せず、使用電圧ごとの遮断容量と負荷条件を確認する。",
+      "内部回路1（直列形）・中速形M・ねじ端子・付属なしに限定。瞬時I、高速F、低速S、遅延MD/SDは別構成。",
+      "3極品はAC専用。1/2極の直流定格を適用しない。"
+    ]
+  }
+}

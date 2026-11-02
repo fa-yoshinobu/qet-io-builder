@@ -1,0 +1,111 @@
+{
+  "category": "remote_io",
+  "model": "AJ65SBTB3-16D",
+  "definition": {
+    "io": "in",
+    "points": 16,
+    "pins": [
+      "TB8",
+      "TB10",
+      "TB12",
+      "TB14",
+      "TB16",
+      "TB18",
+      "TB20",
+      "TB22",
+      "TB24",
+      "TB26",
+      "TB28",
+      "TB30",
+      "TB32",
+      "TB34",
+      "TB36",
+      "TB38"
+    ],
+    "network": "CC-Link",
+    "network_terminals": [
+      [
+        "TB1",
+        "DA"
+      ],
+      [
+        "TB2",
+        "DB"
+      ],
+      [
+        "TB3",
+        "DG"
+      ],
+      [
+        "TB4",
+        "SLD"
+      ],
+      [
+        "TB5",
+        "+24V"
+      ],
+      [
+        "TB6",
+        "FG"
+      ],
+      [
+        "TB7",
+        "24G"
+      ]
+    ],
+    "terminal_block": "端子台",
+    "confirmed": true,
+    "source": "SH-4007AK 4.1.7",
+    "note": "I/Oと対応するコモンを同じページに表示。局番・伝送速度・終端抵抗を設定。",
+    "common": [],
+    "input_common": "positive",
+    "paired_com_pins": [
+      "TB9",
+      "TB11",
+      "TB13",
+      "TB15",
+      "TB17",
+      "TB19",
+      "TB21",
+      "TB23",
+      "TB25",
+      "TB27",
+      "TB29",
+      "TB31",
+      "TB33",
+      "TB35",
+      "TB37",
+      "TB39"
+    ],
+    "paired_com_labels": [
+      "COM A",
+      "COM B",
+      "COM A",
+      "COM B",
+      "COM A",
+      "COM B",
+      "COM A",
+      "COM B",
+      "COM A",
+      "COM B",
+      "COM A",
+      "COM B",
+      "COM A",
+      "COM B",
+      "COM A",
+      "COM B"
+    ],
+    "paired_power_terminals": [
+      [
+        "DC24A",
+        "TB40",
+        "P"
+      ],
+      [
+        "DC24B",
+        "TB41",
+        "N"
+      ]
+    ]
+  }
+}

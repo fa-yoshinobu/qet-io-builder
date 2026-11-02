@@ -1,0 +1,61 @@
+{
+  "category": "fx5_analog",
+  "model": "FX5-4AD-TC-ADP",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "L{n}+",
+      "L{n}-"
+    ],
+    "power": [],
+    "signal_labels_by_direction": {
+      "入力": {
+        "L{n}+": "熱電対＋入力",
+        "L{n}-": "熱電対－入力"
+      }
+    },
+    "source": "JY997D60501H 4.6 印刷188–190 / PDF190–192",
+    "sensor_types": [
+      "K",
+      "J",
+      "T",
+      "B",
+      "R",
+      "S"
+    ],
+    "isolated_sensor_required": true,
+    "unconnected_ports": [
+      {
+        "signal": "NC",
+        "channel": 1,
+        "channel_position": 0
+      },
+      {
+        "signal": "NC",
+        "channel": 2,
+        "channel_position": 0
+      },
+      {
+        "signal": "NC",
+        "channel": 3,
+        "channel_position": 0
+      },
+      {
+        "signal": "NC",
+        "channel": 4,
+        "channel_position": 0
+      },
+      {
+        "signal": "NC",
+        "channel": 4,
+        "channel_position": 3
+      }
+    ],
+    "unconnected_ports_source": "SH-082451Q 9.1 PDF138/印刷136（各CH前とCH4後の計5端子、端子番号の記載なし）"
+  }
+}

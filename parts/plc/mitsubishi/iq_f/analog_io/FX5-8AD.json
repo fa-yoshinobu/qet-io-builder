@@ -1,0 +1,51 @@
+{
+  "category": "fx5_analog",
+  "model": "FX5-8AD",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "A/TC+",
+      "B/TC-",
+      "b/VI+",
+      "COM"
+    ],
+    "power": [
+      "+24V",
+      "0V",
+      "接地"
+    ],
+    "source": "SH-081802ENG-K 3.6 印刷399–401 / PDF401–403",
+    "power_pins": [
+      "+",
+      "-",
+      "⏚"
+    ],
+    "power_terminal_details": [
+      {
+        "name": "+",
+        "pin": "1",
+        "wire_color": "赤"
+      },
+      {
+        "name": "-",
+        "pin": "2",
+        "wire_color": "黒"
+      },
+      {
+        "name": "⏚",
+        "pin": "3",
+        "wire_color": "緑"
+      }
+    ],
+    "current_input_jumper": false
+  }
+}

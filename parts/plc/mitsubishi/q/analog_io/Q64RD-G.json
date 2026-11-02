@@ -1,0 +1,66 @@
+{
+  "category": "q_analog",
+  "model": "Q64RD-G",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "a{n}",
+      "A{n}",
+      "B{n}",
+      "b{n}"
+    ],
+    "power": [
+      "FG"
+    ],
+    "source": "SH-080142-O 4.3 PDF71/4-3; 4.4.2 PDF73-74/4-5-4-6",
+    "pins_by_channel": [
+      [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      [
+        "13",
+        "14",
+        "15",
+        "16"
+      ]
+    ],
+    "power_pins": [
+      "18"
+    ],
+    "auxiliary_terminals": [
+      {
+        "pin": "17",
+        "signal": "SLD",
+        "description": "シールド",
+        "group": "シールド"
+      }
+    ],
+    "channel_isolation": true,
+    "wiring_notes": [
+      "4線式=a/A/B/b、3線式=a未接続・A/B/b。大文字小文字を区別する。",
+      "2線式で4線式設定はa-AとB-bを短絡。3線式設定はa未接続・B-b短絡。固定短絡を自動生成しない。"
+    ],
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E3%82%A2%E3%83%8A%E3%83%AD%E3%82%B0"
+  }
+}

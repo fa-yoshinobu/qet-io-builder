@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="59" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{ff8d86e5-6720-586e-b103-5918721c959d}" />
+  <names>
+    <name lang="ja">同軸 F形</name>
+    <name lang="en">conn_coax_f</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <polygon x1="48.0" y1="0.0" x2="37.5" y2="18.19" x3="16.5" y3="18.19" x4="6.0" y4="0.0" x5="16.5" y5="-18.19" x6="37.5" y6="-18.19" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="12" y="-15" diameter="30" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="17" y="-10" diameter="20" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="24" y="-3" diameter="6" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <terminal uuid="{6e15006d-953d-5e6d-b2ad-e274b8f47769}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

@@ -1,0 +1,14 @@
+{
+  "project_title": "自動テスト",
+  "company": "テスト",
+  "machine": "テスト装置",
+  "drawing_no": "TEST-001",
+  "revision": "A",
+  "date": "20261028",
+  "author": "テスト",
+  "checker": "",
+  "approver": "",
+  "power": {"P": "+24V", "N": "0V"},
+  "front_pages": false,
+  "pages": []
+}

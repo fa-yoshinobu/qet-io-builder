@@ -1,0 +1,189 @@
+{
+  "category": "remote_io",
+  "model": "NZ2GN2B1-16D",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "confirmed": true,
+    "source": "SH-082239-L 印刷32-34;適用112-113/切替123 / PDF34-36;114-115/125",
+    "note": "局内X/Y番号を表示。CPU側の割付はネットワーク設定で確認。 プラス/マイナスコモン共用。標準図はプラスコモン。",
+    "network_modes": [
+      "CC-Link IE TSN",
+      "CC-Link IE Field"
+    ],
+    "field_mode": {
+      "switch": "NETWORK(SW1)",
+      "value": "ON",
+      "minimum_firmware": "05",
+      "legacy_compatibility_firmware": "10"
+    },
+    "power_notes": [
+      "CC-Link IE FieldはNETWORK(SW1)=ON（電源OFF時に変更）、FW05以降",
+      "旧GF互換機能は別設定・FW10以降"
+    ],
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female",
+        "pins": []
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female",
+        "pins": []
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT POWER",
+        "connector_type": "terminal_3",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "FG"
+          ],
+          [
+            "2",
+            "24G"
+          ],
+          [
+            "3",
+            "+24V"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "UNIT POWER 1",
+        "FG"
+      ],
+      [
+        "UNIT POWER 2",
+        "24G"
+      ],
+      [
+        "UNIT POWER 3",
+        "+24V"
+      ]
+    ],
+    "terminal_block": "I/O端子台",
+    "io": "in",
+    "points": 16,
+    "pins": [
+      "TB1",
+      "TB2",
+      "TB3",
+      "TB4",
+      "TB5",
+      "TB6",
+      "TB7",
+      "TB8",
+      "TB9",
+      "TB10",
+      "TB11",
+      "TB12",
+      "TB13",
+      "TB14",
+      "TB15",
+      "TB16"
+    ],
+    "common": [
+      "TB17",
+      "TB18"
+    ],
+    "input_common": "positive",
+    "show_all_commons": true,
+    "terminal_names": {
+      "TB17": "COM",
+      "TB18": "COM"
+    },
+    "input_common_options": [
+      "positive",
+      "negative"
+    ],
+    "io_connectors": [
+      {
+        "name": "I/O",
+        "connector_type": "terminal_18",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "X0"
+          ],
+          [
+            "2",
+            "X1"
+          ],
+          [
+            "3",
+            "X2"
+          ],
+          [
+            "4",
+            "X3"
+          ],
+          [
+            "5",
+            "X4"
+          ],
+          [
+            "6",
+            "X5"
+          ],
+          [
+            "7",
+            "X6"
+          ],
+          [
+            "8",
+            "X7"
+          ],
+          [
+            "9",
+            "X8"
+          ],
+          [
+            "10",
+            "X9"
+          ],
+          [
+            "11",
+            "XA"
+          ],
+          [
+            "12",
+            "XB"
+          ],
+          [
+            "13",
+            "XC"
+          ],
+          [
+            "14",
+            "XD"
+          ],
+          [
+            "15",
+            "XE"
+          ],
+          [
+            "16",
+            "XF"
+          ],
+          [
+            "17",
+            "COM"
+          ],
+          [
+            "18",
+            "COM"
+          ]
+        ]
+      }
+    ]
+  }
+}

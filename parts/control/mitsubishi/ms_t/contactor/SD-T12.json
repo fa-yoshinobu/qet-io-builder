@@ -1,0 +1,102 @@
+{
+  "category": "standard_device",
+  "model": "SD-T12",
+  "definition": {
+    "manufacturer": "Mitsubishi Electric",
+    "series": "MS-T",
+    "device_type": "contactor",
+    "standard_family": "contactor",
+    "coil": {
+      "terminals": [
+        "A1",
+        "A2"
+      ],
+      "type": "DC",
+      "polarity": "A1(+)、A2(-)",
+      "voltage_selection_required": true,
+      "voltage_note": "基本形式。実際の操作電圧・周波数と注文型式は使用者が別途指定する。",
+      "polarity_by_terminal": {
+        "A1": "+",
+        "A2": "-"
+      }
+    },
+    "contacts": [
+      {
+        "type": "no",
+        "terminals": [
+          "1/L1",
+          "2/T1"
+        ],
+        "role": "main"
+      },
+      {
+        "type": "no",
+        "terminals": [
+          "3/L2",
+          "4/T2"
+        ],
+        "role": "main"
+      },
+      {
+        "type": "no",
+        "terminals": [
+          "5/L3",
+          "6/T3"
+        ],
+        "role": "main"
+      }
+    ],
+    "auxiliary_options": [
+      {
+        "id": "1a1b",
+        "name": "1a1b",
+        "contacts": [
+          {
+            "type": "no",
+            "terminals": [
+              "13",
+              "14"
+            ],
+            "role": "auxiliary"
+          },
+          {
+            "type": "nc",
+            "terminals": [
+              "21",
+              "22"
+            ],
+            "role": "auxiliary"
+          }
+        ]
+      },
+      {
+        "id": "2a",
+        "name": "2a",
+        "contacts": [
+          {
+            "type": "no",
+            "terminals": [
+              "13",
+              "14"
+            ],
+            "role": "auxiliary"
+          },
+          {
+            "type": "no",
+            "terminals": [
+              "23",
+              "24"
+            ],
+            "role": "auxiliary"
+          }
+        ]
+      }
+    ],
+    "auxiliary_selection_required": true,
+    "source": "BH949B200H01 (201225) p1 接点構成・操作コイル; L(NA)02031-L (20A)",
+    "official_html": "https://www.mitsubishielectric.co.jp/fa/products/lvd/lvsw/pmerit/lvmc/lineup.html",
+    "verification_note": "無励磁状態。主接点・補助接点・コイル端子を公式取扱要項の接点構成図で照合。実機未確認。基本形式であり、電圧・補助構成を含む完成注文SKUではない。",
+    "auxiliary_scope_note": "本体標準内蔵の選択肢のみ。追加補助接点ユニット、可逆/機械ラッチ/SQ/BCは含まない。",
+    "display_ratings": "DC操作・電圧未指定"
+  }
+}

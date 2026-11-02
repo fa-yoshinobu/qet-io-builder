@@ -1,0 +1,53 @@
+{
+  "category": "standard_device",
+  "model": "FQ-8",
+  "definition": {
+    "manufacturer": "NOHKEN",
+    "series": "FQ",
+    "device_type": "float_switch",
+    "source": "CAT.No.315G p1-5（形式・定格・動作）, TS03-0066 スタートアップマニュアル（FQ形/FT形）p4-6（結線・動作確認）",
+    "official_html": "https://www.nohken.com/products/235/",
+    "terminal_type": "フロート単体・2芯ケーブル",
+    "terminal_view": "2芯ケーブル。片側/他側は識別用の編集上の呼称で、メーカーの端子番号ではない。",
+    "contact_configuration": "1NO（1aリード接点）",
+    "operation": "標準の上限ON設定。液位上昇で反転し閉路、液位下降で下限にて反転し開路。上下限間は前状態を自己保持。",
+    "normal_state": "下限OFF状態",
+    "ratings": {
+      "maximum_contact_ac_va": 50,
+      "maximum_contact_dc_w": 50,
+      "maximum_ac_voltage_v": 300,
+      "maximum_dc_voltage_v": 300,
+      "maximum_current_a": 0.5,
+      "temperature_c": [
+        -10,
+        50
+      ],
+      "control_width_m": [
+        0.33,
+        4
+      ]
+    },
+    "display_ratings": "1a 上限ON/下限OFF 標準",
+    "symbol_bindings": [
+      {
+        "name": "level_contact",
+        "symbol": "float_no",
+        "terminals": {
+          "first": [
+            "ケーブル芯線（片側）"
+          ],
+          "second": [
+            "ケーブル芯線（他側）"
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "フロート単体の定義。FQ66/FQ88の多点式端子ボックスやRE7000リレーとは別部品。",
+      "液位の瞬時状態だけでは接点状態は決まらない。上下限間では履歴を保持する。",
+      "公開資料で芯線色・端子番号を確認できないため、色名・番号を創作しない。",
+      "最大電圧・最大電流・最大容量は同時に上限で使用できる値ではない。"
+    ],
+    "verification_note": "資料照合済み。実機未確認。"
+  }
+}

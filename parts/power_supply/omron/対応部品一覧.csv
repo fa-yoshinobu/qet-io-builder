@@ -1,0 +1,21 @@
+﻿シリーズ,型式,入力電圧,出力電圧V,定格出力電流A,容量区分W,電源・信号接点数,RJ45口数,部品ファイル,定義ファイル,資料,未確認
+S8VK-G,S8VK-G01524,単相AC100～240V,24,0.65,15,7,0,s8vk_g/elements/S8VK-G01524.elmt,s8vk_g/power_supply/S8VK-G01524.json,T056-E1-14 p2（形式・定格）/p3–5（性能）/p8–9（回路）/p10（端子外観）,未確認
+S8VK-G,S8VK-G03024,単相AC100～240V,24,1.3,30,8,0,s8vk_g/elements/S8VK-G03024.elmt,s8vk_g/power_supply/S8VK-G03024.json,T056-E1-14 p2（形式・定格）/p3–5（性能）/p8–9（回路）/p10（端子外観）,未確認
+S8VK-G,S8VK-G06024,単相AC100～240V,24,2.5,60,8,0,s8vk_g/elements/S8VK-G06024.elmt,s8vk_g/power_supply/S8VK-G06024.json,T056-E1-14 p2（形式・定格）/p3–5（性能）/p8–9（回路）/p10（端子外観）,未確認
+S8VK-G,S8VK-G12024,単相AC100～240V,24,5,120,8,0,s8vk_g/elements/S8VK-G12024.elmt,s8vk_g/power_supply/S8VK-G12024.json,T056-E1-14 p2（形式・定格）/p3–5（性能）/p8–9（回路）/p10（端子外観）,未確認
+S8VK-G,S8VK-G24024,単相AC100～240V,24,10,240,8,0,s8vk_g/elements/S8VK-G24024.elmt,s8vk_g/power_supply/S8VK-G24024.json,T056-E1-14 p2（形式・定格）/p3–5（性能）/p8–9（回路）/p10（端子外観）,未確認
+S8VK-G,S8VK-G48024,単相AC100～240V,24,20,480,8,0,s8vk_g/elements/S8VK-G48024.elmt,s8vk_g/power_supply/S8VK-G48024.json,T056-E1-14 p2（形式・定格）/p3–5（性能）/p8–9（回路）/p10（端子外観）,未確認
+S8VK-S,S8VK-S03024,AC100～240V,24,1.3,30,10,0,s8vk_s/elements/S8VK-S03024.elmt,s8vk_s/power_supply/S8VK-S03024.json,"T205-E1_2_1 p1～3,5～7（形式・定格・内部回路・各部名称）; T205-E1_2_2 p1～3,7（公式Web照合）",未確認
+S8VK-S,S8VK-S06024,AC100～240V,24,2.5,60,10,0,s8vk_s/elements/S8VK-S06024.elmt,s8vk_s/power_supply/S8VK-S06024.json,"T205-E1_2_1 p1～3,5～7（形式・定格・内部回路・各部名称）; T205-E1_2_2 p1～3,7（公式Web照合）",未確認
+S8VK-S,S8VK-S12024,AC100～240V,24,5,120,10,0,s8vk_s/elements/S8VK-S12024.elmt,s8vk_s/power_supply/S8VK-S12024.json,"T205-E1_2_1 p1～3,5～7（形式・定格・内部回路・各部名称）; T205-E1_2_2 p1～3,7（公式Web照合）",未確認
+S8VK-S,S8VK-S24024,AC100～240V,24,10,240,12,0,s8vk_s/elements/S8VK-S24024.elmt,s8vk_s/power_supply/S8VK-S24024.json,"T205-E1_2_1 p1～3,5～7（形式・定格・内部回路・各部名称）; T205-E1_2_2 p1～3,7（公式Web照合）",未確認
+S8VK-S,S8VK-S48024,AC100～240V,24,20,480,12,0,s8vk_s/elements/S8VK-S48024.elmt,s8vk_s/power_supply/S8VK-S48024.json,"T205-E1_2_1 p1～3,5～7（形式・定格・内部回路・各部名称）; T205-E1_2_2 p1～3,7（公式Web照合）",未確認
+S8VK-X,S8VK-X06024-EIP,AC100～240V,24,2.5,60,10,1,s8vk_x/elements/S8VK-X06024-EIP.elmt,s8vk_x/power_supply/S8VK-X06024-EIP.json,T210-E1-13 p2（型式・定格）p13–14（内部回路）p15–16（端子・各部）; オムロン公式形式/種類,未確認
+S8VK-X,S8VK-X09024-EIP,AC100～240V,24,3.75,90,10,1,s8vk_x/elements/S8VK-X09024-EIP.elmt,s8vk_x/power_supply/S8VK-X09024-EIP.json,T210-E1-13 p2（型式・定格）p13–14（内部回路）p15–16（端子・各部）; オムロン公式形式/種類,未確認
+S8VK-X,S8VK-X09024A-EIP,AC100～240V,24,3.75,90,10,1,s8vk_x/elements/S8VK-X09024A-EIP.elmt,s8vk_x/power_supply/S8VK-X09024A-EIP.json,T210-E1-13 p2（型式・定格）p13–14（内部回路）p15–16（端子・各部）; オムロン公式形式/種類,未確認
+S8VK-X,S8VK-X12024-EIP,AC100～240V,24,5,120,10,1,s8vk_x/elements/S8VK-X12024-EIP.elmt,s8vk_x/power_supply/S8VK-X12024-EIP.json,T210-E1-13 p2（型式・定格）p13–14（内部回路）p15–16（端子・各部）; オムロン公式形式/種類,未確認
+S8VK-X,S8VK-X12024A-EIP,AC100～240V,24,5,120,10,1,s8vk_x/elements/S8VK-X12024A-EIP.elmt,s8vk_x/power_supply/S8VK-X12024A-EIP.json,T210-E1-13 p2（型式・定格）p13–14（内部回路）p15–16（端子・各部）; オムロン公式形式/種類,未確認
+S8VK-X,S8VK-X24024-EIP,AC100～240V,24,10,240,10,1,s8vk_x/elements/S8VK-X24024-EIP.elmt,s8vk_x/power_supply/S8VK-X24024-EIP.json,T210-E1-13 p2（型式・定格）p13–14（内部回路）p15–16（端子・各部）; オムロン公式形式/種類,未確認
+S8VK-X,S8VK-X24024A-EIP,AC100～240V,24,10,240,10,1,s8vk_x/elements/S8VK-X24024A-EIP.elmt,s8vk_x/power_supply/S8VK-X24024A-EIP.json,T210-E1-13 p2（型式・定格）p13–14（内部回路）p15–16（端子・各部）; オムロン公式形式/種類,未確認
+S8VK-X,S8VK-X48024-EIP,AC100～240V,24,20,480,10,1,s8vk_x/elements/S8VK-X48024-EIP.elmt,s8vk_x/power_supply/S8VK-X48024-EIP.json,T210-E1-13 p2（型式・定格）p13–14（内部回路）p15–16（端子・各部）; オムロン公式形式/種類,未確認
+S8VK-X,S8VK-X48024A-EIP,AC100～240V,24,20,480,10,1,s8vk_x/elements/S8VK-X48024A-EIP.elmt,s8vk_x/power_supply/S8VK-X48024A-EIP.json,T210-E1-13 p2（型式・定格）p13–14（内部回路）p15–16（端子・各部）; オムロン公式形式/種類,未確認

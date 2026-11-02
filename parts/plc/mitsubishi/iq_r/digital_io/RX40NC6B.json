@@ -1,0 +1,17 @@
+{
+  "category": "iqr_q",
+  "model": "RX40NC6B",
+  "definition": {
+    "io": "in",
+    "points": 16,
+    "pins": "TB16",
+    "common": [
+      "TB18"
+    ],
+    "input_common": "negative",
+    "input_power_pin": "TB17",
+    "source": "SH-081619ENG-C pp.17–18",
+    "note": "通常モード用。断線検出には機器条件に応じた抵抗が必要。SIL2モードの二重化・テストパルスは別途設計。",
+    "confirmed": true
+  }
+}

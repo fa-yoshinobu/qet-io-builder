@@ -1,0 +1,37 @@
+{
+  "category": "fx5_cpu",
+  "model": "FX5UJ-24MT/ESS",
+  "definition": {
+    "series": "FX5UJ",
+    "base": "FX5UJ-24M",
+    "variants": [
+      "T/ESS"
+    ],
+    "inputs": 14,
+    "outputs": [
+      [
+        0,
+        "0",
+        3
+      ],
+      [
+        1,
+        "3",
+        3
+      ],
+      [
+        2,
+        "6",
+        4
+      ]
+    ],
+    "in_common": "S/S",
+    "confirmed": true,
+    "source": "SH-082451 5.9 端子配列",
+    "battery_supported": false,
+    "usb_port": true,
+    "analog": false,
+    "rs485": false,
+    "service": true
+  }
+}

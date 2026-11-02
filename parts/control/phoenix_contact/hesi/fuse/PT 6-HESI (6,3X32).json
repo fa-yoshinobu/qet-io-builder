@@ -1,0 +1,49 @@
+{
+  "category": "standard_device",
+  "model": "PT 6-HESI (6,3X32)",
+  "definition": {
+    "manufacturer": "PHOENIX CONTACT",
+    "series": "HESI",
+    "device_type": "fuse_holder",
+    "standard_family": "fuse",
+    "terminal_type": "push_in",
+    "terminal_numbering": "physical_position",
+    "fuse_selection_required": true,
+    "fuse_included": false,
+    "indicator": false,
+    "ratings": {
+      "holder_rated_voltage_v": 630,
+      "holder_rated_current_a": 10,
+      "selected_fuse_current_a": null,
+      "applicable_fuse_size_mm": [
+        6.3,
+        32
+      ]
+    },
+    "symbol_bindings": [
+      {
+        "name": "fuse",
+        "symbol": "fuse_1p",
+        "terminals": {
+          "first": [
+            "配線口1"
+          ],
+          "second": [
+            "配線口2"
+          ]
+        }
+      }
+    ],
+    "source": "1874889 Push-in式端子台（2025年版）p.22–23（ヒューズ端子台）",
+    "official_html": "https://www.phoenixcontact.com/ja-jp/products/3211870",
+    "order_number": "3211870",
+    "verification_note": "公式カタログの形名・回路図・ホルダ定格・適合寸法を照合。実機・実端子刻印・QET画面は未確認。",
+    "notes": [
+      "表示用LEDのない形式。標準ヒューズ記号で装着時の回路機能を表し、断路レバーの機械構造は描かない。",
+      "ホルダの許容電流と装着ヒューズの定格は別。ヒューズは別選定・未選択。",
+      "配線口の位置名は説明用で、メーカー刻印番号ではない。",
+      "ヒューズ端子台を中継端子として短絡しない。"
+    ],
+    "display_ratings": "ホルダ 10A / 630V・ヒューズ未選択"
+  }
+}

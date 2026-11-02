@@ -1,0 +1,24 @@
+{
+  "category": "iqr_comm",
+  "model": "ER-1FL2-T",
+  "definition": {
+    "network": "FL-net (OPCN-2)",
+    "ports": [
+      "FL-net"
+    ],
+    "connector_type": "rj45",
+    "occupied_io_points": 32,
+    "slots": 1,
+    "manufacturer": "三菱電機エンジニアリング",
+    "source": "50CM-D180276-D 6.2 印刷42/PDF44; 6.3 各部名称",
+    "interfaces": [
+      {
+        "name": "FL-net 10BASE-T/100BASE-TX",
+        "kind": "rj45",
+        "ports": []
+      }
+    ],
+    "panel_interfaces": true,
+    "diagram_notes": []
+  }
+}

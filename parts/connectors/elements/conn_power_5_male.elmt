@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="70" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{47865064-8740-5737-8abb-176ad733bd17}" />
+  <names>
+    <name lang="ja">電源コネクタ 5極 オス</name>
+    <name lang="en">conn_power_5_male</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <rect x="5" y="-14" width="55" height="28" rx="4" ry="4" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="27.5" y="-18" width="10" height="4" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="11.5" y="-2.5" diameter="5" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="20.5" y="-2.5" diameter="5" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="29.5" y="-2.5" diameter="5" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="38.5" y="-2.5" diameter="5" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="47.5" y="-2.5" diameter="5" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <terminal uuid="{75f76b7c-5552-5229-b8b9-67d272ba6025}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

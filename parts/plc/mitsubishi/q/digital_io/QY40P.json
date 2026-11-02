@@ -1,0 +1,15 @@
+{
+  "category": "iqr_q",
+  "model": "QY40P",
+  "definition": {
+    "io": "out",
+    "out": "sink",
+    "points": 16,
+    "pins": "TB16",
+    "vplus": "TB17",
+    "com": "TB18",
+    "confirmed": true,
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E5%85%A5%E5%87%BA%E5%8A%9B"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "category": "iqr_q",
+  "model": "RX41C6HS",
+  "definition": {
+    "io": "in",
+    "points": 32,
+    "pins": "PINS32",
+    "common": [
+      "B1",
+      "B2"
+    ],
+    "input_common": "positive",
+    "confirmed": true,
+    "source": "SH-081247ENG-M p.48–49",
+    "note": "プラスコモン配線を自動生成"
+  }
+}

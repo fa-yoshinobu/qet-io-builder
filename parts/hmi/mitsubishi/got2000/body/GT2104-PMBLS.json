@@ -1,0 +1,58 @@
+{
+  "category": "got_body",
+  "model": "GT2104-PMBLS",
+  "definition": {
+    "series": "GOT2000",
+    "subseries": "GT21",
+    "display": "4.5型",
+    "screen_size_inch": 4.5,
+    "power": {
+      "supply": "DC5V（PLCから給電）",
+      "ports": [],
+      "port_pins": [],
+      "ground_terminals": [],
+      "connection": "PLC接続ケーブルからDC5V供給"
+    },
+    "interfaces": [
+      {
+        "name": "RS-422",
+        "kind": "terminal",
+        "ports": [
+          "CSB",
+          "CSA",
+          "RSA",
+          "RSB",
+          "SG",
+          "RDB",
+          "RDA",
+          "SDB",
+          "SDA"
+        ],
+        "port_pins": [],
+        "pin_label_basis": "signal_marking",
+        "physical_order": "背面視・左から"
+      },
+      {
+        "name": "USB DEVICE 背面",
+        "kind": "usb_mini_b",
+        "connector_label": "USB Mini-B",
+        "ports": [],
+        "position": "背面"
+      }
+    ],
+    "battery_supported": true,
+    "battery_type": "GT11-50BAT",
+    "usb_host_ports": 0,
+    "usb_device_ports": 1,
+    "sd_card_supported": false,
+    "sd_card_optional": false,
+    "sd_card_option": "",
+    "source": "SH-081194ENG-AW 3.2 印刷106/PDF108;8.2–8.3 印刷326–328/PDF328–330; SH-081200ENG-AS 1.4/PDF51–52,2.3/PDF83–88",
+    "diagram_notes": [
+      "PLCからDC5V給電・専用FGなし"
+    ],
+    "verification_note": "コネクタ形状・端子印字を資料照合。配線方式・実機は未確認",
+    "resolution": "384x128",
+    "resolution_source": "SH-081194ENG-AW 3.2 印刷106/PDF108"
+  }
+}

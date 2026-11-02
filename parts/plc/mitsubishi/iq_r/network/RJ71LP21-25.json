@@ -1,0 +1,13 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71LP21-25",
+  "definition": {
+    "network": "MELSECNET/H 光",
+    "ports": [
+      "IN",
+      "OUT"
+    ],
+    "source": "SH-082202ENG 1.1",
+    "connector_type": "optical"
+  }
+}

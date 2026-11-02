@@ -1,0 +1,21 @@
+{
+  "category": "iqr_q",
+  "model": "RX71C4",
+  "definition": {
+    "io": "in",
+    "points": 32,
+    "pins": "PINS32",
+    "common": [
+      "B1",
+      "B2"
+    ],
+    "input_common": "positive",
+    "confirmed": true,
+    "source": "SH-081247ENG-M p.40–41",
+    "note": "プラスコモン配線を自動生成。入力電圧: 5 / 12 V",
+    "input_voltages": [
+      "5",
+      "12"
+    ]
+  }
+}

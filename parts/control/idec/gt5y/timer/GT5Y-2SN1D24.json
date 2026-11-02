@@ -1,0 +1,119 @@
+{
+  "category": "standard_device",
+  "model": "GT5Y-2SN1D24",
+  "definition": {
+    "manufacturer": "IDEC",
+    "series": "GT5Y",
+    "device_type": "timer",
+    "source": "P5402A-GT5Y p.1–2・4（形名・動作チャート・内部結線図）、P1720 p.4（ソケット適合）",
+    "official_html": "https://www.idec.com/ja-jp/industrial-components/relays-timers/timers/gt5y-miniature-timer/gt5y-2sn1d24",
+    "operation": "power_on_delay",
+    "reset": "self_reset",
+    "contact_configuration": "2c 限時",
+    "instantaneous_contacts": 0,
+    "coil": {
+      "terminals": [
+        "13",
+        "14"
+      ],
+      "rated_voltage": "DC24V",
+      "voltages": {
+        "dc_v": [
+          "24"
+        ]
+      },
+      "voltage_selection_required": false,
+      "polarity_by_terminal": {
+        "13": "-",
+        "14": "+"
+      }
+    },
+    "ratings": {
+      "supply_vdc": 24,
+      "resistive_contact_rating": {
+        "voltage_v_ac": 220,
+        "voltage_v_dc": 30,
+        "current_a": 5
+      }
+    },
+    "time": {
+      "setting_range_total": "0.1秒～10時間（P5402A記載の6レンジ品）",
+      "range_options": [
+        "1s",
+        "10s",
+        "1min",
+        "10min",
+        "1h",
+        "10h"
+      ],
+      "mode": "on_delay"
+    },
+    "selection_required": [
+      "time_range",
+      "set_time"
+    ],
+    "socket_candidates": [
+      "SU2S-21L"
+    ],
+    "terminal_numbering": "timer_body_physical_pin",
+    "display_ratings": "DC24V A:オンディレイ 2c / 設定時間別指定",
+    "default_configuration": "on_delay",
+    "configuration_options": [
+      {
+        "id": "on_delay",
+        "label": "A：オンディレイ",
+        "symbol_bindings": [
+          {
+            "name": "timer",
+            "symbol": "timer_on_delay",
+            "terminals": {
+              "a1": [
+                "13"
+              ],
+              "a2": [
+                "14"
+              ]
+            }
+          },
+          {
+            "name": "timed_contact_1",
+            "symbol": "timer_changeover_on_delay",
+            "terminals": {
+              "common": [
+                "9"
+              ],
+              "no": [
+                "5"
+              ],
+              "nc": [
+                "1"
+              ]
+            }
+          },
+          {
+            "name": "timed_contact_2",
+            "symbol": "timer_changeover_on_delay",
+            "terminals": {
+              "common": [
+                "12"
+              ],
+              "no": [
+                "8"
+              ],
+              "nc": [
+                "4"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "作図対応はAモード（オンディレイ）のみ。Bインターバルオン・Cフリッカ・Dフリッカオンの表現には流用しない。",
+      "DC電源は13が負極、14が正極。全出力が限時接点で瞬時接点はない。",
+      "実機のモードと時間レンジ・設定値を合わせる。旧仕様品の時間レンジを現行カタログから推定しない。",
+      "ソケットとの組合せ・集合取付時は公式ディレーティングに従う。"
+    ],
+    "verification_note": "公式カタログの実端子とAモード動作を照合。時間設定・実機動作は未確認。"
+  }
+}

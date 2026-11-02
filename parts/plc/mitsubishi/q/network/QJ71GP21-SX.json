@@ -1,0 +1,21 @@
+{
+  "category": "q_comm",
+  "model": "QJ71GP21-SX",
+  "definition": {
+    "network": "CC-Link IE Controller",
+    "ports": [
+      "IN",
+      "OUT"
+    ],
+    "source": "SH-080668ENG-L PDF46-47/44-45; PDF148-150/146-148",
+    "connector_type": "optical",
+    "connector_label": "光ファイバ (LC)",
+    "slots": 1,
+    "occupied_io_points": 32,
+    "slot_io_points": [
+      32
+    ],
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E6%83%85%E5%A0%B1%EF%BC%8F%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF"
+  }
+}

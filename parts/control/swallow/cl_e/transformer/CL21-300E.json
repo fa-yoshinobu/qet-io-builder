@@ -1,0 +1,64 @@
+{
+  "category": "standard_device",
+  "model": "CL21-300E",
+  "definition": {
+    "manufacturer": "スワロー電機",
+    "series": "CL_E",
+    "device_type": "transformer",
+    "component_style": "swallow_transformer",
+    "source": "製品カタログ、掲載p.17（CL-A / CL-E、結線図）",
+    "rated_supply": "AC200/220V",
+    "ratings": {
+      "capacity_va": 300,
+      "primary_vac": [
+        200,
+        220
+      ],
+      "secondary_vac": [
+        100,
+        110
+      ]
+    },
+    "winding_type": "単相複巻",
+    "galvanic_isolation": true,
+    "electrostatic_shield": true,
+    "external_terminals": {
+      "primary": [
+        "220V",
+        "200V",
+        "0"
+      ],
+      "secondary": [
+        "110V",
+        "100V",
+        "0",
+        "E",
+        "⏚"
+      ]
+    },
+    "physical_wiring_terminals": 8,
+    "display_ratings": "300VA 200/220V → 100/110V",
+    "diagram_features": [
+      "AC100Vコンセント 3A max / CP 3.15A",
+      "白色LED通電表示 / 静電シールド"
+    ],
+    "notes": [
+      "外部端子図。内部保護器・LED・コンセントの詳細結線は省略。",
+      "一次と二次は別巻線。各タップを独立出力として扱わない。",
+      "今回の対象は750VA以下。"
+    ],
+    "verification_note": "提供カタログの容量・外部端子・付属機能を目視照合。実機未確認。",
+    "protection": {
+      "kind": "circuit_protector",
+      "location": "outlet_branch",
+      "rated_current_a": 3.15
+    },
+    "outlet": {
+      "voltage_vac": 100,
+      "rated_current_a": 3,
+      "protected": true,
+      "earth_contact": true
+    },
+    "indicator": "white_led"
+  }
+}

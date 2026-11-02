@@ -1,0 +1,152 @@
+{
+  "category": "power_supply",
+  "model": "S8VK-X12024A-EIP",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "S8VK-X",
+    "part_type": "switch_mode_power_supply",
+    "mounting": "DINレール",
+    "input": {
+      "voltage": "AC100～240V",
+      "phase": "single",
+      "frequency_hz": [
+        50,
+        60
+      ],
+      "allowable_ac_voltage_v": [
+        85,
+        264
+      ],
+      "allowable_dc_voltage_v": [
+        90,
+        350
+      ],
+      "dc_input_polarity": "DC入力時は正極をL側、負極をN側へ接続"
+    },
+    "output": {
+      "voltage_v": 24,
+      "current_a": 5,
+      "power_w": 120,
+      "maximum_boost_current_a": 6
+    },
+    "terminal_type": "プッシュインPlus端子台",
+    "terminal_groups": [
+      {
+        "name": "入力・保護接地",
+        "physical_location": "正面図の下側端子台",
+        "terminals": [
+          {
+            "label": "L1",
+            "position": "下側端子台・左から1",
+            "signal": "AC_L",
+            "label_basis": "メーカー端子名称表（本体刻印番号ではない）"
+          },
+          {
+            "label": "L2",
+            "position": "下側端子台・左から2",
+            "signal": "AC_L",
+            "label_basis": "メーカー端子名称表（本体刻印番号ではない）"
+          },
+          {
+            "label": "N1",
+            "position": "下側端子台・左から3",
+            "signal": "AC_N",
+            "label_basis": "メーカー端子名称表（本体刻印番号ではない）"
+          },
+          {
+            "label": "N2",
+            "position": "下側端子台・左から4",
+            "signal": "AC_N",
+            "label_basis": "メーカー端子名称表（本体刻印番号ではない）"
+          },
+          {
+            "label": "PE",
+            "position": "下側端子台・左から5",
+            "signal": "protective_earth",
+            "label_basis": "メーカー端子名称表（本体刻印番号ではない）"
+          }
+        ],
+        "role": "input"
+      },
+      {
+        "name": "DC24V出力",
+        "physical_location": "正面図の上側端子台",
+        "terminals": [
+          {
+            "label": "+V1",
+            "position": "上側端子台・左から1",
+            "signal": "DC24V",
+            "label_basis": "メーカー端子名称表（本体刻印番号ではない）"
+          },
+          {
+            "label": "+V2",
+            "position": "上側端子台・左から2",
+            "signal": "DC24V",
+            "label_basis": "メーカー端子名称表（本体刻印番号ではない）"
+          },
+          {
+            "label": "-V1",
+            "position": "上側端子台・左から3",
+            "signal": "DC0V",
+            "label_basis": "メーカー端子名称表（本体刻印番号ではない）"
+          },
+          {
+            "label": "-V2",
+            "position": "上側端子台・左から4",
+            "signal": "DC0V",
+            "label_basis": "メーカー端子名称表（本体刻印番号ではない）"
+          },
+          {
+            "label": "-V3",
+            "position": "上側端子台・左から5",
+            "signal": "DC0V",
+            "label_basis": "メーカー端子名称表（本体刻印番号ではない）"
+          }
+        ],
+        "role": "output"
+      }
+    ],
+    "internal_connections": [
+      [
+        "L1",
+        "L2"
+      ],
+      [
+        "N1",
+        "N2"
+      ],
+      [
+        "+V1",
+        "+V2"
+      ],
+      [
+        "-V1",
+        "-V2",
+        "-V3"
+      ]
+    ],
+    "interfaces": [
+      {
+        "name": "Ethernet",
+        "kind": "rj45",
+        "ports": 1,
+        "protocols": [
+          "EtherNet/IP",
+          "Modbus TCP"
+        ],
+        "speed_mbps": 100,
+        "connector_label": "RJ-45"
+      }
+    ],
+    "indication_monitor": true,
+    "communication_supported": true,
+    "source": "T210-E1-13 p2（型式・定格）p13–14（内部回路）p15–16（端子・各部）; オムロン公式形式/種類",
+    "official_html": "https://www.fa.omron.co.jp/products/family/3687/lineup/",
+    "verification_note": "公式端子図で上下各5接点・左右位置と端子名称を確認。図中1～10は各部参照番号であり物理端子番号として登録しない。端子名称表に基づく表示名で、実機の印字・配線動作は未確認。",
+    "wiring_notes": [
+      "保護接地PEは接地する。信号SGや出力-Vへ置換しない。",
+      "同一信号の並列端子を個別の接続点として保持。",
+      "定格出力電流とピーク電流は別。90W機はピーク増強なし。"
+    ]
+  }
+}

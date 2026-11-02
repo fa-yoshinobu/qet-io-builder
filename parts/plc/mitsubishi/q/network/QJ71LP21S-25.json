@@ -1,0 +1,27 @@
+{
+  "category": "q_comm",
+  "model": "QJ71LP21S-25",
+  "definition": {
+    "network": "MELSECNET/H 光",
+    "ports": [
+      "IN",
+      "OUT"
+    ],
+    "source": "SH-080049-T PDF55-56/3-1-3-2; PDF108-113/4-2-4-7; SH-080124-W",
+    "connector_type": "optical",
+    "power_ports": [
+      "+24V",
+      "24G",
+      "FG"
+    ],
+    "slots": 2,
+    "occupied_io_points": 48,
+    "slot_io_points": [
+      16,
+      32
+    ],
+    "external_supply_voltage": "20.4-31.2V DC",
+    "production_end_date": "2028-03-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E6%83%85%E5%A0%B1%EF%BC%8F%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF"
+  }
+}

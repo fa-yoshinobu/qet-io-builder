@@ -1,0 +1,7 @@
+/maker_pdf/
+*.[pP][dD][fF]
+/pdf_*/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+/_review/

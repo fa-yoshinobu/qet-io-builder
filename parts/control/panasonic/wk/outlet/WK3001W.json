@@ -1,0 +1,68 @@
+{
+  "category": "standard_device",
+  "model": "WK3001W",
+  "definition": {
+    "manufacturer": "Panasonic",
+    "series": "WK",
+    "device_type": "outlet",
+    "source": "WK3001W 商品仕様書 p.1–3、カメダデンキS-21-3C公式適合表",
+    "official_html": "https://www2.panasonic.biz/jp/ai/products/search/detail?b_cd=301&bh_cd=3&c=search&item_cd=WK3001W_33889&item_no=WK3001W",
+    "rated_supply": "AC100V系",
+    "ratings": {
+      "rated_voltage_vac": 125,
+      "rated_current_a": 15
+    },
+    "receptacles": 1,
+    "poles": 2,
+    "protective_earth_terminal": true,
+    "electrical_nodes": 3,
+    "physical_wiring_terminals": 3,
+    "terminal_type": "巻締端子",
+    "terminal_label_basis": "電圧側は機能名、Wは接地側電源端子の刻印。1/2は同極の2端子を区別する説明用番号で、メーカー刻印番号ではない。接地端子をWと区別する。",
+    "terminal_groups": {
+      "line": [
+        "電圧側"
+      ],
+      "neutral": [
+        "W"
+      ],
+      "earth": [
+        "接地"
+      ]
+    },
+    "mounting": "直接ねじ取付、別売ベースでDIN35mmレール取付",
+    "mounting_adapters": [
+      {
+        "manufacturer": "カメダデンキ",
+        "model": "S-21-3C",
+        "included": false,
+        "electrical_connections": 0,
+        "official_html": "https://www.kameden.online/aec/user/shohin_detail?item_cd=13212"
+      }
+    ],
+    "symbol_bindings": [
+      {
+        "name": "outlet",
+        "symbol": "cabinet_outlet",
+        "terminals": {
+          "line": [
+            "電圧側"
+          ],
+          "neutral": [
+            "W"
+          ],
+          "earth": [
+            "接地"
+          ]
+        }
+      }
+    ],
+    "display_ratings": "接地付 1口 15A 125V",
+    "notes": [
+      "接地側Wは電源側の中性線用であり、保護接地端子ではない。",
+      "DINレール取付には別売のS-21-3Cが必要。ベースは機械部品のため電気接続点を設けない。",
+      "定格15Aは器具全体。使用電線・取付場所・結線条件は公式仕様書に従う。"
+    ],
+    "verification_note": "公式仕様書の定格・結線図とベースの公式適合を照合。実機未確認。"
+  }
+}

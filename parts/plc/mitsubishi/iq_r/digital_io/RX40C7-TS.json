@@ -1,0 +1,32 @@
+{
+  "category": "iqr_q",
+  "model": "RX40C7-TS",
+  "definition": {
+    "io": "in",
+    "points": 16,
+    "pins": [
+      "TB1",
+      "TB2",
+      "TB3",
+      "TB4",
+      "TB5",
+      "TB6",
+      "TB7",
+      "TB8",
+      "TB10",
+      "TB11",
+      "TB12",
+      "TB13",
+      "TB14",
+      "TB15",
+      "TB16",
+      "TB17"
+    ],
+    "common": [
+      "TB9"
+    ],
+    "note": "入力はプラスコモン配線のみ自動生成",
+    "confirmed": true,
+    "source": "SH-081247ENG-M 3.1"
+  }
+}

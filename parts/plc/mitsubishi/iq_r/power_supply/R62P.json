@@ -1,0 +1,11 @@
+{
+  "category": "iqr_power",
+  "model": "R62P",
+  "definition": {
+    "supply": "AC",
+    "input_label": "AC100-240V",
+    "service_24v": true,
+    "source": "SH-081262ENG-AS 4.2/5.7;BCN-P5999-0188-F PDF1",
+    "note": "主端子台は上からERR2端子、FG、LG、AC100–240V入力2端子。別端子台に+24V/24G出力（0.6A）がある。"
+  }
+}

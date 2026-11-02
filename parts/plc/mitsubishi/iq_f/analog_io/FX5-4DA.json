@@ -1,0 +1,50 @@
+{
+  "category": "fx5_analog",
+  "model": "FX5-4DA",
+  "definition": {
+    "channels": [
+      "出力",
+      "出力",
+      "出力",
+      "出力"
+    ],
+    "terminals": [
+      "V+",
+      "I+",
+      "COM"
+    ],
+    "power": [
+      "24V",
+      "24G",
+      "接地",
+      "接地"
+    ],
+    "source": "SH-081802ENG-K 2.6 印刷245–246 / PDF247–248",
+    "power_pins": [
+      "24V",
+      "24G",
+      "⏚",
+      "⏚"
+    ],
+    "power_terminal_details": [
+      {
+        "name": "24V",
+        "side": "left"
+      },
+      {
+        "name": "24G",
+        "side": "right"
+      },
+      {
+        "name": "⏚",
+        "side": "left",
+        "internal_group": "ground"
+      },
+      {
+        "name": "⏚",
+        "side": "right",
+        "internal_group": "ground"
+      }
+    ]
+  }
+}

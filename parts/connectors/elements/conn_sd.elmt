@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="71" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{5d23a317-2f3d-5cea-9dc3-bed7c4f0daae}" />
+  <names>
+    <name lang="ja">SD カード</name>
+    <name lang="en">conn_sd</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <rect x="5" y="-12" width="56" height="24" rx="2" ry="2" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="9" y="-2" width="48" height="4" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <polygon x1="15" y1="-9" x2="47" y2="-9" x3="51" y3="-5" x4="51" y4="-2" x5="15" y5="-2" closed="true" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+  </description>
+</definition>

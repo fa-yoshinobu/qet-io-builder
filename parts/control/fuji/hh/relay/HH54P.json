@@ -1,0 +1,95 @@
+{
+  "category": "standard_device",
+  "model": "HH54P",
+  "definition": {
+    "manufacturer": "富士電機",
+    "series": "HH",
+    "device_type": "relay",
+    "standard_family": "relay",
+    "source": "富士電機公式 D&C Catalog Industrial Control Relays 03/26・03/28・03/30–33・03/36（PDF p12・14・16–19・22）",
+    "official_html": "https://www.fujielectric.co.jp/products/industrial_control_relay/hh56/hh54p_/",
+    "terminal_numbering": "relay_body",
+    "terminal_view": "リレー本体の端子番号、無励磁状態。ソケットは別部品。",
+    "coil": {
+      "terminals": [
+        "13",
+        "14"
+      ],
+      "rated_voltage": "DC24V",
+      "voltages": {
+        "dc_v": [
+          "24"
+        ]
+      },
+      "voltage_selection_required": false,
+      "polarity": "none",
+      "surge": "none"
+    },
+    "contacts": [
+      {
+        "type": "changeover",
+        "common": [
+          "9"
+        ],
+        "no": [
+          "5"
+        ],
+        "nc": [
+          "1"
+        ]
+      },
+      {
+        "type": "changeover",
+        "common": [
+          "10"
+        ],
+        "no": [
+          "6"
+        ],
+        "nc": [
+          "2"
+        ]
+      },
+      {
+        "type": "changeover",
+        "common": [
+          "11"
+        ],
+        "no": [
+          "7"
+        ],
+        "nc": [
+          "3"
+        ]
+      },
+      {
+        "type": "changeover",
+        "common": [
+          "12"
+        ],
+        "no": [
+          "8"
+        ],
+        "nc": [
+          "4"
+        ]
+      }
+    ],
+    "indicator": "none",
+    "socket_candidates": [
+      "TP514X1",
+      "TP514X2"
+    ],
+    "display_ratings": "DC24V 4c / AC240V抵抗負荷 3A",
+    "ratings": {
+      "coil_vdc": 24,
+      "resistive_current_a": 3,
+      "resistive_voltage_vac": 240
+    },
+    "notes": [
+      "基本形名のうちDC24Vコイル仕様を登録。ACコイル・他のDC電圧仕様はこの定義の対象外。",
+      "ダイオード付き-F/-FL、CR付き-CR/-CRL、磁気保持形-Rへ流用しない。"
+    ],
+    "verification_note": "公式資料の形名・回路・端子番号を照合。実機配線・動作は未確認。"
+  }
+}

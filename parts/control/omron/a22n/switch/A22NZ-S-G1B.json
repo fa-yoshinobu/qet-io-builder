@@ -1,0 +1,47 @@
+{
+  "category": "standard_device",
+  "model": "A22NZ-S-G1B",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "A22N",
+    "device_type": "switch",
+    "source": "CSM_A22N_M22N_A30N_A254-E1_4_13 p12,16（定格・端子配列）; 国内公式個別商品",
+    "official_html": "https://www.fa.omron.co.jp/product/item/A22NZ-S-G1B/",
+    "terminal_view": "BOTTOM VIEW",
+    "ratings": {
+      "rated_through_current_a": 10,
+      "ac_15_at_240v_a": 3,
+      "dc_13_at_24v_a": 4
+    },
+    "verification_note": "端子表示と接点を資料照合。操作部と接点ユニットの実配置・実機動作は未確認。",
+    "terminal_type": "ねじ端子",
+    "assembly_role": "contact_block",
+    "operation": "操作部による",
+    "contact_configuration": "1NC",
+    "display_ratings": "1NC 接点ブロック",
+    "symbol_bindings": [
+      {
+        "name": "contact",
+        "symbol": "contact_nc",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      }
+    ],
+    "compatible_series": [
+      "A22NN",
+      "A22NL",
+      "A22NS",
+      "A22NW",
+      "A22NK"
+    ],
+    "notes": [
+      "操作部単品ではなく接点ブロック。押ボタン/セレクタの動作は組合せた操作部で定まる。"
+    ]
+  }
+}

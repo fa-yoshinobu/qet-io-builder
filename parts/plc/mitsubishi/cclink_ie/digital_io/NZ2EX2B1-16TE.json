@@ -1,0 +1,64 @@
+{
+  "category": "remote_io",
+  "model": "NZ2EX2B1-16TE",
+  "definition": {
+    "network": "",
+    "module_role": "extension",
+    "network_connectors": [],
+    "power_connectors": [],
+    "power_ports": [],
+    "confirmed": true,
+    "source": "SH-081114ENG-T 4.3 印刷136,137 / PDF138,139",
+    "source_reference": {
+      "document": "SH-081114ENG-T",
+      "section": "4.3",
+      "printed_pages": [
+        136,
+        137
+      ],
+      "pdf_pages": [
+        138,
+        139
+      ]
+    },
+    "lifecycle": "生産終了2017-10（SH-081114ENG-T p15/PDF17）",
+    "extension_support": "複数段接続非対応。最大1台。N型増設との多段混在不可。",
+    "note": "増設側の局内X/Y端子を表示。ネットワーク割付は主ユニット・接続位置で確認。",
+    "network_ports": [],
+    "unit_power_source": "main_module",
+    "power_notes": [
+      "内部回路電源は主ユニットから供給",
+      "I/O電源は別途供給"
+    ],
+    "io": "out",
+    "points": 16,
+    "pins": [
+      "TB1",
+      "TB2",
+      "TB3",
+      "TB4",
+      "TB5",
+      "TB6",
+      "TB7",
+      "TB8",
+      "TB9",
+      "TB10",
+      "TB11",
+      "TB12",
+      "TB13",
+      "TB14",
+      "TB15",
+      "TB16"
+    ],
+    "terminal_block": "ねじ端子台",
+    "out": "source",
+    "vplus": "TB17",
+    "com": "TB18",
+    "terminal_names": {
+      "TB17": "COM+",
+      "TB18": "CTL-"
+    },
+    "production_end_date": "2017-10-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcnet&category=discon&bunrui1=CC-Link+IE+Field"
+  }
+}

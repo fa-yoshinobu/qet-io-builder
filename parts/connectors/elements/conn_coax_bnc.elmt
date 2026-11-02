@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="59" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{f579b57e-7302-50f1-8d0c-ef211fdbfcf1}" />
+  <names>
+    <name lang="ja">同軸 BNC</name>
+    <name lang="en">conn_coax_bnc</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <circle x="7" y="-20" diameter="40" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="2" y="-3" width="6" height="6" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <rect x="44" y="-3" width="6" height="6" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="13" y="-14" diameter="28" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="18" y="-9" diameter="18" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <circle x="24" y="-3" diameter="6" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <terminal uuid="{7b9be615-d17c-5bec-9a6b-5c1dfab59299}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

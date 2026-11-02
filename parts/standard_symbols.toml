@@ -1,0 +1,565 @@
+# QElectroTech標準コレクションへの参照。図形を機種別に複製しない。
+catalog_version = 1
+source_url = "https://qelectrotech.org/"
+license_url = "http://qelectrotech.org/wiki/doc/elements_license"
+verified_root = "C:/Program Files/QElectroTech/elements"
+notes = "標準コレクションの相対パスと端子座標で役割を識別する。型式・定格・実端子番号は機種JSONから別途割り当てる。QETの版でパスや記号が変わった場合は再照合する。"
+
+[symbols.coil]
+terminal_texts = ["A1", "A2"]
+label = "コイル"
+category = "relay"
+path = "10_electric/10_allpole/310_relays_contactors_contacts/01_coils/bobine3.elmt"
+link_type = "master"
+width = 40
+height = 60
+notes = "A1/A2はUserTextの動的テキスト。型式のコイル端子名へインスタンス側で割り当てる。"
+terminal_roles = { a1 = [0, -20], a2 = [0, 20] }
+kind = { type = "coil" }
+text_roles = { a1 = [2, -24.67], a2 = [2, 11.33] }
+
+[symbols.contact_no]
+label = "a接点（NO）"
+category = "contact"
+path = "10_electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/01_auxiliary_contacts/con_simple.elmt"
+link_type = "slave"
+width = 20
+height = 60
+notes = "無励磁で開。"
+terminal_roles = { first = [0, -20], second = [0, 20] }
+kind = { type = "simple", state = "NO", number = "1" }
+
+[symbols.contact_nc]
+label = "b接点（NC）"
+category = "contact"
+path = "10_electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/01_auxiliary_contacts/con_simple_nf.elmt"
+link_type = "slave"
+width = 20
+height = 60
+notes = "無励磁で閉。"
+terminal_roles = { first = [0, -20], second = [0, 20] }
+kind = { type = "simple", state = "NC", number = "1" }
+
+[symbols.contact_changeover]
+label = "c接点（切替）"
+category = "contact"
+path = "10_electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/01_auxiliary_contacts/contnonc.elmt"
+link_type = "slave"
+width = 40
+height = 60
+notes = "無励磁状態。共通は下、NOは上右、NCは上左。"
+terminal_roles = { common = [0, 20], no = [0, -20], nc = [-20, -20] }
+kind = { type = "simple", state = "SW", number = "1" }
+
+[symbols.spd_alarm_changeover]
+label = "SPD警報c接点"
+category = "surge_protection"
+path = "10_electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/01_auxiliary_contacts/contnonc.elmt"
+link_type = "slave"
+export_link_type = "simple"
+width = 40
+height = 60
+terminal_roles = { common = [0, 20], no = [0, -20], nc = [-20, -20] }
+kind = { type = "simple", state = "SW", number = "1" }
+notes = "標準接点の図形を保つ。コイルに従属しないFM警報接点として書き出し、タグ・形名を単独表示する。図の閉開と健全時状態は区別する。"
+
+[symbols.main_contact_3p]
+terminal_texts = ["1\nL1", "2\nT1", "3\nL2", "4\nT2", "5\nL3", "6\nT3"]
+label = "主接点3極（NO）"
+category = "contactor"
+path = "10_electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/02_power_contacts/com_puiss4.elmt"
+link_type = "slave"
+width = 60
+height = 60
+notes = "ファイル名の4は極数ではない。kindInformation number=3、接続点は6。標準の固定文字1/L1〜6/T3を含む。"
+terminal_roles = { line1 = [-20, -20], load1 = [-20, 20], line2 = [0, -20], load2 = [0, 20], line3 = [20, -20], load3 = [20, 20] }
+kind = { type = "power", state = "NO", number = "3" }
+
+[symbols.terminal]
+terminal_texts = ["_"]
+label = "貫通端子"
+category = "terminal"
+path = "10_electric/10_allpole/130_terminals_terminal_strips/borne_continuite.elmt"
+link_type = "terminal"
+width = 20
+height = 40
+notes = "2接続点の汎用端子。渡り・段数は機種定義で扱う。"
+terminal_roles = { first = [0, -10], second = [0, 10] }
+kind = { type = "generic", function = "generic" }
+
+[symbols.pe_terminal]
+terminal_texts = [""]
+label = "接地端子"
+category = "terminal"
+path = "10_electric/10_allpole/130_terminals_terminal_strips/90_terminal_strips_diagram/90-10-0121.elmt"
+link_type = "simple"
+width = 30
+height = 100
+notes = "接地端子の図記号。link_type=simpleで、端子管理の自動設定は含まない。"
+terminal_roles = { first = [0, -40], second = [0, 40] }
+
+[symbols.breaker_2p]
+terminal_texts = ["1", "2", "3", "4"]
+label = "ブレーカ2極"
+category = "breaker"
+path = "10_electric/10_allpole/200_fuses_protective_gears/11_circuit_breakers/disjoncteur2.elmt"
+link_type = "master"
+width = 40
+height = 60
+notes = "標準の固定文字1/2/3/4を含む。極数と定格は型式で指定する。"
+terminal_roles = { line1 = [-10, -20], load1 = [-10, 20], line2 = [10, -20], load2 = [10, 20] }
+kind = { type = "protection" }
+
+[symbols.pushbutton_no]
+label = "押ボタン（NO）"
+category = "switch"
+path = "10_electric/10_allpole/380_signaling_operating/20_push_buttons/poussoir.elmt"
+link_type = "master"
+width = 20
+height = 60
+notes = "押すと閉じる標準押ボタン。照光・多接点・保持の表現は別記号で扱う。"
+terminal_roles = { first = [0, -21], second = [0, 21] }
+kind = { type = "commutator" }
+
+[symbols.selector_2position]
+label = "セレクタ2位置保持"
+category = "switch"
+path = "10_electric/10_allpole/380_signaling_operating/21_selector_switches/commut_2_position_fixe.elmt"
+link_type = "master"
+width = 40
+height = 60
+notes = "鍵なし2位置保持、0/1操作位置表示の標準記号。接点構成と操作位置の関係を機種定義で確認する。"
+terminal_roles = { first = [0, -21], second = [0, 21] }
+kind = { type = "commutator" }
+
+[symbols.maintained_switch_no]
+label = "保持スイッチ（NO）"
+category = "switch"
+path = "10_electric/10_allpole/380_signaling_operating/21_selector_switches/010_switch_1pos.elmt"
+link_type = "simple"
+export_link_type = "master"
+width = 20
+height = 60
+terminal_roles = { first = [0, -21], second = [0, 21] }
+kind = { type = "commutator" }
+notes = "汎用保持スイッチの機能記号。オルタネイト押ボタンは動作を文字で併記し、モメンタリ記号を流用しない。"
+
+[symbols.key_selector_2position]
+label = "鍵付きセレクタ2位置保持"
+category = "switch"
+path = "10_electric/10_allpole/380_signaling_operating/21_selector_switches/commutateur_2_positions_a_cle.elmt"
+link_type = "master"
+width = 40
+height = 60
+terminal_roles = { first = [0, -21], second = [0, 21] }
+kind = { type = "commutator" }
+notes = "鍵操作の2位置保持。鍵抜け位置と位置別接点状態を機種定義で確認する。"
+
+[symbols.emergency_key_reset_nc]
+label = "非常停止 鍵解除（NC）"
+category = "switch"
+path = "10_electric/10_allpole/380_signaling_operating/20_push_buttons/arret_urgence_deverrouillage_a_cle.elmt"
+link_type = "master"
+width = 40
+height = 60
+terminal_roles = { first = [0, -20], second = [0, 20] }
+kind = { type = "commutator" }
+notes = "押しロック・鍵解除の標準NC記号。回転解除形と区別する。"
+
+[symbols.selector_3position_2no]
+label = "セレクタ3位置保持 2a"
+category = "switch"
+path = "10_electric/10_allpole/380_signaling_operating/21_selector_switches/commutateur-a-3-positions-.elmt"
+link_type = "simple"
+width = 90
+height = 60
+terminal_roles = { contact_1_in = [0, -21], contact_1_out = [0, 21], contact_2_in = [50, -21], contact_2_out = [50, 21] }
+notes = "中央0で両接点開、左右1/2の独立2a接点。取付ブロック①②と位置別動作は機種定義で照合する。"
+
+[symbols.lamp]
+label = "表示灯"
+category = "lamp"
+path = "10_electric/10_allpole/380_signaling_operating/11_optical_signaling/lampe2.elmt"
+link_type = "simple"
+width = 30
+height = 60
+notes = "汎用表示灯。色・定格電圧は型式またはインスタンス情報に保持。"
+terminal_roles = { first = [0, -20], second = [0, 20] }
+
+[symbols.cabinet_lighting]
+label = "盤内LED照明"
+category = "lighting"
+path = "10_electric/10_allpole/380_signaling_operating/11_optical_signaling/lampe2.elmt"
+link_type = "simple"
+width = 30
+height = 60
+terminal_roles = { first = [0, -20], second = [0, 20] }
+notes = "汎用ランプの標準図記号。照明器具全体を表し、LED素子単体・蛍光管・表示灯とは分類を分ける。"
+
+[symbols.cabinet_outlet]
+label = "接地付き盤内コンセント"
+category = "outlet"
+path = "10_electric/10_allpole/140_connectors_plugs/20_socket_outlets/pc_mono_armoire.elmt"
+link_type = "simple"
+width = 30
+height = 50
+terminal_roles = { line = [-6, -17], neutral = [6, -17], earth = [0, 17] }
+text_roles = { line = [-110, -27], neutral = [18, -27], earth = [6, 9] }
+notes = "2極＋接地の標準図記号。2口製品の並列接続は機種定義に保持し、同電位の巻締端子を併記する。"
+
+[symbols.noise_filter_1p]
+label = "単相ノイズフィルタ"
+category = "noise_filter"
+path = "10_electric/10_allpole/340_converters_inverters/90_filters/almeto/ts_811.elmt"
+link_type = "simple"
+width = 60
+height = 70
+terminal_roles = { line1 = [-10, -25], line2 = [10, -25], load1 = [-10, 25], load2 = [10, 25], earth = [25, 0] }
+terminal_texts = ["L", "N", "L'", "N'", "PE"]
+text_roles = { line1 = [-19, -19], line2 = [2, -19], load1 = [-19, 10], load2 = [2, 10], earth = [26, -19] }
+notes = "標準コレクションのフィルタ機能記号。実機の素子構成を描いた等価回路ではない。同電位のFG端子は併記する。"
+
+[symbols.ammeter]
+label = "交流電流計"
+category = "ammeter"
+path = "10_electric/10_allpole/390_sensors_instruments/70_meters_measuring_indicators/amperemetre-h.elmt"
+link_type = "simple"
+width = 60
+height = 30
+terminal_roles = { left = [-20, 0], right = [20, 0] }
+terminal_texts = []
+text_roles = { left = [-49, -17], right = [24, -17] }
+notes = "Aは機能表示として保持。左右表示は実端子の位置を区別する説明用で、刻印番号を推定しない。"
+
+[symbols.current_transformer]
+label = "計測用CT"
+category = "current_transformer"
+path = "10_electric/10_allpole/340_converters_inverters/20_current_tansformers/transformateur_courant1.elmt.elmt"
+link_type = "simple"
+width = 30
+height = 50
+terminal_roles = { primary_k = [0, -10], primary_l = [0, 20], secondary_k = [10, 0], secondary_l = [10, 10] }
+terminal_texts = []
+text_roles = { primary_k = [-18, -25], primary_l = [-18, 18], secondary_k = [16, -15], secondary_l = [16, 12] }
+notes = "貫通形のK/Lは一次導体の方向。ねじ端子は二次k/lのみ。"
+
+[symbols.process_ammeter]
+label = "プロセス電流計"
+category = "ammeter"
+path = "10_electric/10_allpole/390_sensors_instruments/70_meters_measuring_indicators/amperemetre-h.elmt"
+link_type = "simple"
+width = 60
+height = 30
+terminal_roles = { left = [-20, 0], right = [20, 0] }
+terminal_texts = []
+text_roles = { left = [-49, -17], right = [24, -17] }
+notes = "Aは測定機能を表す。デジタル表示の外観ではない。接地端子がある計器は別の標準接地記号と同じタグで管理する。"
+
+[symbols.earth_connection]
+label = "接地端子"
+category = "terminal"
+path = "10_electric/10_allpole/110_network_supplies/terre.elmt"
+link_type = "terminal"
+export_link_type = "simple"
+kind = { type = "generic", function = "generic" }
+width = 20
+height = 30
+terminal_roles = { earth = [0, -11] }
+terminal_texts = []
+text_roles = { earth = [16, -18] }
+notes = "1個の接地端子を表す標準記号。端子記号はメーカー資料で指定し、測定入力との内部短絡は設けない。"
+
+[symbols.surge_protection_1p]
+label = "電源用SPD"
+category = "surge_protection"
+path = "10_electric/10_allpole/200_fuses_protective_gears/90_overvoltage_protections/parafoudre-2.elmt"
+link_type = "simple"
+width = 40
+height = 60
+terminal_roles = { line_a = [-11, -21], line_b = [10, -21], earth = [11, 17] }
+terminal_texts = ["N", "L1", "T"]
+text_roles = { line_a = [-31, -35], line_b = [15, -35], earth = [24, 17] }
+notes = "機器全体の機能記号。内部保護素子の結線図ではない。"
+
+[symbols.transformer_1p_tapped]
+label = "単相複巻トランス（一次・二次タップ付）"
+category = "transformer"
+path = "10_electric/10_allpole/330_transformers_power_supplies/10_transformers/tranfo230_400_12_24.elmt"
+link_type = "simple"
+width = 60
+height = 50
+terminal_roles = { primary_zero = [0, -20], primary_tap = [20, -20], primary_end = [40, -20], secondary_zero = [0, 10], secondary_tap = [20, 10], secondary_end = [40, 10] }
+terminal_texts = ["0V", "230V", "400V", "12V", "24V"]
+text_roles = { primary_zero = [-12, -26], primary_tap = [8, -26], primary_end = [28, -26], secondary_zero = [-12, 38], secondary_tap = [8, 38], secondary_end = [28, 38] }
+duplicate_terminal_uuids = ["{c3b19e93-736b-4fd4-9575-1ab895e8b007}"]
+notes = "一次・二次の両タップを残す。標準原図の二次中央に重複した接続点1個のみ除外し、巻線・鉄心・線の図形は保持する。電圧値・タップ位置は機種定義による。"
+
+[symbols.timer_on_delay]
+terminal_texts = ["A1", "A2"]
+label = "オンディレイコイル"
+category = "timer"
+path = "10_electric/10_allpole/310_relays_contactors_contacts/01_coils/comm_travail_retardee.elmt"
+link_type = "master"
+width = 50
+height = 60
+notes = "励磁時遅延の標準コイル。時間設定・接点の遅延方式は機種定義で確認する。"
+terminal_roles = { a1 = [0, -20], a2 = [0, 20] }
+kind = { type = "coil" }
+
+[symbols.thermal_relay_3p]
+label = "サーマル主回路3極"
+category = "thermal_relay"
+path = "10_electric/10_allpole/200_fuses_protective_gears/30_thermal_relays/relais_therm4.elmt"
+link_type = "master"
+width = 40
+height = 60
+notes = "主回路3極のみ。トリップNC/NOは別の標準接点を使う。"
+terminal_roles = { line1 = [0, -21], load1 = [0, 21], line2 = [10, -21], load2 = [10, 21], line3 = [20, -21], load3 = [20, 21] }
+kind = { type = "protection" }
+
+[symbols.terminal_3way]
+label = "3点コモン端子"
+category = "terminal"
+path = "10_electric/10_allpole/130_terminals_terminal_strips/borne_2.elmt"
+link_type = "terminal"
+width = 30
+height = 40
+terminal_roles = { first = [0, -10], second = [0, 10], third = [10, 0] }
+terminal_texts = []
+kind = { type = "generic", function = "generic" }
+
+[symbols.terminal_4way]
+label = "4点コモン端子"
+category = "terminal"
+path = "10_electric/10_allpole/130_terminals_terminal_strips/borne_5.elmt"
+link_type = "terminal"
+width = 40
+height = 40
+terminal_roles = { first = [0, -10], second = [0, 10], third = [10, 0], fourth = [-10, 0] }
+terminal_texts = []
+kind = { type = "generic", function = "generic" }
+
+[symbols.timer_changeover_on_delay]
+label = "オンディレイ切替接点"
+category = "timer"
+path = "10_electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/11_delayed_contacts/inverseur_tempo_travail.elmt"
+link_type = "slave"
+width = 40
+height = 70
+terminal_roles = { common = [0, 20], no = [0, -20], nc = [-20, -20] }
+terminal_texts = ["16", "15", "18"]
+kind = { type = "delayOn", state = "SW", number = "1" }
+
+[symbols.pushbutton_nc]
+label = "押ボタンNC"
+category = "switch"
+path = "10_electric/10_allpole/380_signaling_operating/20_push_buttons/poussoir_nf.elmt"
+link_type = "master"
+width = 20
+height = 60
+terminal_roles = { first = [0, -21], second = [0, 21] }
+terminal_texts = []
+kind = { type = "commutator" }
+
+[symbols.emergency_turn_reset_nc]
+label = "非常停止 回転解除（NC）"
+category = "switch"
+path = "10_electric/10_allpole/380_signaling_operating/20_push_buttons/arret_urgence_tourner_deverouiller.elmt"
+link_type = "master"
+width = 40
+height = 60
+terminal_roles = { first = [0, -20], second = [0, 20] }
+kind = { type = "commutator" }
+notes = "押しロック・回転解除の標準NC記号。回路全体の安全機能を認証するものではない。"
+
+[symbols.thermal_contact_nc]
+label = "サーマルトリップNC"
+category = "thermal_relay"
+path = "10_electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/15_protection_contacts/act_thermique_nf_esclave.elmt"
+link_type = "slave"
+width = 30
+height = 60
+terminal_roles = { first = [0, -20], second = [0, 20] }
+terminal_texts = ["12", "11"]
+kind = { type = "simple", state = "NC", number = "1" }
+
+[symbols.thermal_contact_no]
+label = "サーマルトリップNO"
+category = "thermal_relay"
+path = "10_electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/15_protection_contacts/act_termique_no_esclave.elmt"
+link_type = "slave"
+width = 30
+height = 60
+terminal_roles = { first = [0, -20], second = [0, 20] }
+terminal_texts = ["14", "11"]
+kind = { type = "simple", state = "NO", number = "1" }
+
+[symbols.fuse_1p]
+label = "ヒューズ1極"
+category = "fuse"
+path = "10_electric/10_allpole/200_fuses_protective_gears/10_fuses/pojistka1p.elmt"
+link_type = "simple"
+width = 20
+height = 60
+terminal_roles = { first = [0, -20], second = [0, 20] }
+terminal_texts = ["1", "2"]
+
+[symbols.inductive_sensor_no]
+label = "近接センサNO・3線式"
+category = "sensor"
+path = "10_electric/10_allpole/390_sensors_instruments/02_sensors_inductive/capteur_ind_no_3p.elmt"
+link_type = "simple"
+width = 50
+height = 80
+terminal_roles = { plus = [-10, -30], minus = [10, -30], out = [0, 30] }
+text_roles = { plus = [-48, -44], minus = [14, -44], out = [4, 24] }
+terminal_texts = ["BR", "BL", "BK"]
+
+[symbols.inductive_sensor_nc]
+label = "近接センサNC・3線式"
+category = "sensor"
+path = "10_electric/10_allpole/390_sensors_instruments/02_sensors_inductive/capteur_ind_nc_3p.elmt"
+link_type = "simple"
+width = 50
+height = 80
+terminal_roles = { plus = [-10, -30], minus = [10, -30], out = [0, 30] }
+text_roles = { plus = [-48, -44], minus = [14, -44], out = [4, 24] }
+terminal_texts = ["BR", "BL", "BK"]
+
+[symbols.inductive_sensor_2output]
+label = "近接センサNO+NC・4線式"
+category = "sensor"
+path = "10_electric/10_allpole/390_sensors_instruments/02_sensors_inductive/capteur_inductif_4.elmt"
+link_type = "simple"
+width = 60
+height = 60
+terminal_roles = { plus = [-10, -30], minus = [-10, 15], no = [13, -8], nc = [-32, -8] }
+text_roles = { plus = [-48, -44], minus = [-48, 13], no = [17, -25], nc = [-90, -25] }
+terminal_texts = ["WH", "BU", "BK", "BN"]
+notes = "一般4端子機能記号。裸線のNO/NCを明示。OSSD安全機能・ティーチ端子を表さない。"
+
+[symbols.photoelectric_sensor_no]
+label = "光電センサNO・3線式"
+category = "sensor"
+path = "10_electric/10_allpole/390_sensors_instruments/04_sensors_optical/capteur_opt_no_3p.elmt"
+link_type = "simple"
+width = 50
+height = 80
+terminal_roles = { plus = [-10, -30], minus = [10, -30], out = [0, 30] }
+text_roles = { plus = [-48, -44], minus = [14, -44], out = [4, 24] }
+terminal_texts = ["BR", "BL", "BK"]
+
+[symbols.photoelectric_sensor_nc]
+label = "光電センサNC・3線式"
+category = "sensor"
+path = "10_electric/10_allpole/390_sensors_instruments/04_sensors_optical/capteur_opt_nc_3p.elmt"
+link_type = "simple"
+width = 50
+height = 80
+terminal_roles = { plus = [-10, -30], minus = [10, -30], out = [0, 30] }
+text_roles = { plus = [-48, -44], minus = [14, -44], out = [4, 24] }
+terminal_texts = ["BR", "BL", "BK"]
+
+[symbols.limit_no]
+label = "リミットスイッチNO"
+category = "limit_switch"
+path = "10_electric/10_allpole/390_sensors_instruments/41_limit_switches/fin_de_course_no.elmt"
+link_type = "simple"
+width = 20
+height = 60
+terminal_roles = { first = [0, -21], second = [0, 21] }
+terminal_texts = []
+
+[symbols.limit_nc]
+label = "リミットスイッチNC"
+category = "limit_switch"
+path = "10_electric/10_allpole/390_sensors_instruments/41_limit_switches/fin_de_course_nf.elmt"
+link_type = "simple"
+width = 20
+height = 60
+terminal_roles = { first = [0, -21], second = [0, 21] }
+terminal_texts = []
+
+[symbols.pressure_reed_no]
+label = "圧力スイッチNO"
+category = "pressure_switch"
+path = "10_electric/10_allpole/390_sensors_instruments/13_sensors_pressure/pressostat_no.elmt"
+link_type = "simple"
+width = 40
+height = 60
+terminal_roles = { first = [0, -20], second = [0, 20] }
+terminal_texts = []
+
+[symbols.float_no]
+label = "フロートスイッチNO"
+category = "float_switch"
+path = "10_electric/10_allpole/390_sensors_instruments/12_sensors_level/niv_liquide_no.elmt"
+link_type = "simple"
+width = 40
+height = 60
+terminal_roles = { first = [0, -20], second = [0, 20] }
+terminal_texts = ["3", "4"]
+
+[symbols.float_nc]
+label = "フロートスイッチNC"
+category = "float_switch"
+path = "10_electric/10_allpole/390_sensors_instruments/12_sensors_level/niv_liquide_nf.elmt"
+link_type = "simple"
+width = 40
+height = 60
+terminal_roles = { first = [0, -20], second = [0, 20] }
+terminal_texts = ["1", "2"]
+
+[symbols.buzzer]
+label = "ブザー"
+category = "buzzer"
+path = "10_electric/10_allpole/380_signaling_operating/12_acoustic_signaling/buzzer.elmt"
+link_type = "simple"
+width = 50
+height = 60
+terminal_roles = { first = [0, -20], second = [0, 20] }
+terminal_texts = []
+
+[symbols.motor_3phase_pe]
+label = "三相モータ・PE付き"
+category = "motor"
+path = "10_electric/10_allpole/391_consumers_actuators/10_engines/moteur_tri_1.elmt"
+link_type = "simple"
+width = 70
+height = 70
+terminal_roles = { u = [-20, -20], v = [0, -20], w = [20, -20], pe = [30, 20] }
+terminal_texts = ["U1", "V1", "W1", "PE"]
+
+[symbols.solenoid_coil]
+label = "電磁弁ソレノイド"
+category = "solenoid"
+path = "10_electric/10_allpole/391_consumers_actuators/20_valves/electrovanne.elmt"
+link_type = "simple"
+width = 70
+height = 60
+terminal_roles = { a1 = [0, -20], a2 = [0, 20] }
+terminal_texts = []
+
+
+[symbols.breaker_1p]
+label = "ブレーカ1極"
+category = "breaker"
+path = "10_electric/10_allpole/200_fuses_protective_gears/11_circuit_breakers/disjonct_m_1f.elmt"
+link_type = "master"
+width = 30
+height = 50
+terminal_roles = { line1 = [0, -20], load1 = [0, 20] }
+terminal_texts = ["1", "2", "C, 16A"]
+kind = { type = "protection" }
+notes = "元記号の例示定格C, 16Aは削除し、機種定義の実定格をdisplay_ratingsで表示する。"
+
+[symbols.breaker_3p]
+label = "ブレーカ3極"
+category = "breaker"
+path = "10_electric/10_allpole/200_fuses_protective_gears/11_circuit_breakers/disjoncteur4.elmt"
+link_type = "master"
+width = 60
+height = 60
+terminal_roles = { line1 = [-20, -20], load1 = [-20, 20], line2 = [0, -20], load2 = [0, 20], line3 = [20, -20], load3 = [20, 20] }
+terminal_texts = ["1", "2", "3", "4", "5", "6"]
+kind = { type = "protection" }

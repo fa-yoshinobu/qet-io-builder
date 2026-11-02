@@ -1,0 +1,57 @@
+{
+  "category": "standard_device",
+  "model": "HW1B-V302R",
+  "definition": {
+    "manufacturer": "IDEC",
+    "series": "HW",
+    "source": "P5204A_HW 2025年9月 p.1–3（公式Webで形名・接点構成・解除方式を照合）；P5061A-G-HW-old p.291・341（HWブロック端子）",
+    "official_html": "https://www.idec.com/ja-jp/switches-indicator-lights/switches-pushbuttons/emergency-stop-switches",
+    "terminal_view": "操作部とコンタクトブロックの端子表示。複数接点はブロックごとの番号。",
+    "terminal_type": "M3.5ねじ",
+    "notes": [
+      "各bブロックは1–2、各aブロックは3–4の独立回路。同じ刻印でも内部接続しない。",
+      "b接点の直接開路と、補助a接点を区別する。安全回路全体の評価・認証は含まない。"
+    ],
+    "device_type": "switch",
+    "operation": "push_lock_turn_reset",
+    "color": "赤",
+    "illuminated": false,
+    "contact_configuration": "0a2b",
+    "display_ratings": "φ29 押しロック・回転解除 0a2b",
+    "symbol_bindings": [
+      {
+        "name": "emergency",
+        "symbol": "emergency_turn_reset_nc",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      },
+      {
+        "name": "nc_2",
+        "symbol": "contact_nc",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      }
+    ],
+    "verification_note": "メーカー公式Webカタログの形名・構成・操作と、保存済みHW端子表を照合。実機未確認。",
+    "safety_function_verified": false,
+    "terminal_numbering": "contact_block_marking_repeated",
+    "mechanically_linked": [
+      "emergency",
+      "nc_2"
+    ],
+    "source_storage_note": "P5061Aは保存済み。P5204Aのローカル保存は公式サイト取得エラーで未完了。",
+    "button_diameter_mm": 29
+  }
+}

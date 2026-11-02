@@ -1,0 +1,111 @@
+{
+  "category": "standard_device",
+  "model": "IESH-MB205G-R",
+  "definition": {
+    "manufacturer": "MISUMI",
+    "series": "産業用スイッチングハブ",
+    "device_type": "ethernet_switch",
+    "component_style": "ethernet_switch",
+    "source": "QIG-MB205G-R/MB208G-R スタートアップ・マニュアル Version 4（2020/07）p1–2、公式商品仕様・P-fail説明",
+    "official_html": "https://jp.misumi-ec.com/vona2/detail/110410238679/",
+    "misumi_html": "https://jp.misumi-ec.com/vona2/detail/110410238679/",
+    "selection_basis": "ミスミのスイッチングハブカテゴリ売れ筋欄の上位掲載を根拠に優先。2026-10-28確認。実売数量・集計方法・厳密な順位は未確認。",
+    "selection_category_html": "https://jp.misumi-ec.com/vona2/ie_control/E1300000000/E1311000000/E1311010000/",
+    "selection_observed_on": "2026-10-28",
+    "display_ratings": "5ポート 10/100/1000Mbps DC二重電源",
+    "power": {
+      "voltage": "DC12–48V（PWR1/PWR2二重化）",
+      "terminals": [
+        {
+          "label": "V2-",
+          "function": "PWR2 DC入力−"
+        },
+        {
+          "label": "V2+",
+          "function": "PWR2 DC入力＋"
+        },
+        {
+          "label": "V1-",
+          "function": "PWR1 DC入力−"
+        },
+        {
+          "label": "V1+",
+          "function": "PWR1 DC入力＋"
+        }
+      ]
+    },
+    "ports": [
+      {
+        "label": "1",
+        "type": "rj45",
+        "speed": "10/100/1000Mbps"
+      },
+      {
+        "label": "2",
+        "type": "rj45",
+        "speed": "10/100/1000Mbps"
+      },
+      {
+        "label": "3",
+        "type": "rj45",
+        "speed": "10/100/1000Mbps"
+      },
+      {
+        "label": "4",
+        "type": "rj45",
+        "speed": "10/100/1000Mbps"
+      },
+      {
+        "label": "5",
+        "type": "rj45",
+        "speed": "10/100/1000Mbps"
+      }
+    ],
+    "managed": false,
+    "ratings": {
+      "port_count": 5,
+      "speed_mbps": [
+        10,
+        100,
+        1000
+      ],
+      "supply_vdc_range": [
+        12,
+        48
+      ],
+      "supply_vac_range": null,
+      "temperature_c": [
+        -40,
+        75
+      ],
+      "ip_rating": "IP30",
+      "mounting": "DINレール",
+      "power_consumption_w": 2.5
+    },
+    "notes": [
+      "RJ45はケーブル単位の接続点。1～8の番号はポート番号で、RJ45内部8ピンの信号番号ではない。",
+      "アンマネージド製品で管理IPアドレス・局番は設定しない。実機設定・配線は未確認。",
+      "6極端子台の図示順序はV2-、V2+、P-Fail2点、V1-、V1+。電源4端子と警報2端子を分離して扱う。",
+      "PWR1/PWR2の1系統のみでも動作するがAlarmが赤点灯。2系統供給を推奨。",
+      "接地端子・DIPの有無は資料で未確認のため、推測した接続点を描かない。",
+      "QoSは公式商品仕様で非対応。AC入力ではない。",
+      "製品動作温度は−40～75℃。配線・端子台の−40～105℃定格と混同しない。"
+    ],
+    "verification_note": "公式PDFの電源接続図と公式前面図で電源ラベル・ポート数/番号を照合。実機未確認。",
+    "alarm": {
+      "terminals": [
+        {
+          "label": "P-Fail 左",
+          "function": "電源異常リレー接点（左側）"
+        },
+        {
+          "label": "P-Fail 右",
+          "function": "電源異常リレー接点（右側）"
+        }
+      ],
+      "note": "通常閉・電源異常時開。図示定格1A@24V。左右は編集上の位置呼称で、メーカーの端子番号ではない。",
+      "display_note": "P-Fail: 通常閉・電源異常時開"
+    },
+    "dip_switches": []
+  }
+}

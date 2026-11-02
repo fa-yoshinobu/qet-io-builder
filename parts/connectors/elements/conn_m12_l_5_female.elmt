@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="59" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{0ab5c392-0de0-54db-ae5f-5f0f9526794c}" />
+  <names>
+    <name lang="ja">M12 Lコード 5極 メス</name>
+    <name lang="en">conn_m12_l_5_female</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <circle x="5" y="-22" diameter="44" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="9" y="-18" diameter="36" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <rect x="24" y="-22" width="6" height="4" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <rect x="24" y="18" width="6" height="4" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="31.571067811865476" y="-9.571067811865476" diameter="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="31.571067811865476" y="4.5710678118654755" diameter="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="17.428932188134524" y="4.5710678118654755" diameter="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="17.428932188134524" y="-9.571067811865476" diameter="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="24.5" y="-2.5" diameter="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <terminal uuid="{cb733108-48a6-5bb4-847d-a4739690e876}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

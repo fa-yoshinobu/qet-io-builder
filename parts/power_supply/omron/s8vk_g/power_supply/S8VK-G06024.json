@@ -1,0 +1,120 @@
+{
+  "category": "power_supply",
+  "model": "S8VK-G06024",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "S8VK-G",
+    "input": {
+      "voltage": "単相AC100～240V",
+      "ac_voltage_range_v": [
+        85,
+        264
+      ],
+      "dc_voltage_range_v": [
+        90,
+        350
+      ],
+      "frequency_hz": [
+        50,
+        60
+      ],
+      "dc_connection": {
+        "L": "+",
+        "N": "-"
+      }
+    },
+    "output": {
+      "voltage_v": 24,
+      "current_a": 2.5,
+      "power_w": 60,
+      "boost_current_a": 3,
+      "power_basis": "power_wはカタログの容量区分。15/30Wでは24V×定格電流と一致しない。"
+    },
+    "terminal_groups": [
+      {
+        "name": "入力・保護接地",
+        "role": "input",
+        "location": "下側",
+        "terminals": [
+          {
+            "id": "input_l",
+            "label": "L",
+            "position": "入力端子部 左から1番目",
+            "signal": "L"
+          },
+          {
+            "id": "input_n",
+            "label": "N",
+            "position": "入力端子部 左から2番目",
+            "signal": "N"
+          },
+          {
+            "id": "input_pe",
+            "label": "⏚",
+            "position": "入力端子部 左から3番目",
+            "signal": "PE"
+          }
+        ]
+      },
+      {
+        "name": "DC24V出力",
+        "role": "output",
+        "location": "上側",
+        "terminals": [
+          {
+            "id": "output_1",
+            "label": "+",
+            "position": "出力端子部 左から1番目",
+            "signal": "+V"
+          },
+          {
+            "id": "output_2",
+            "label": "+",
+            "position": "出力端子部 左から2番目",
+            "signal": "+V"
+          },
+          {
+            "id": "output_3",
+            "label": "−",
+            "position": "出力端子部 左から3番目",
+            "signal": "-V"
+          },
+          {
+            "id": "output_4",
+            "label": "−",
+            "position": "出力端子部 左から4番目",
+            "signal": "-V"
+          },
+          {
+            "id": "output_5",
+            "label": "−",
+            "position": "出力端子部 左から5番目",
+            "signal": "-V"
+          }
+        ]
+      }
+    ],
+    "terminal_number_basis": "メーカーの端子番号は付けず、資料正面図の位置で識別。図中1～5は各部名称の引出番号。",
+    "internal_connections": [
+      [
+        "output_1",
+        "output_2"
+      ],
+      [
+        "output_3",
+        "output_4",
+        "output_5"
+      ]
+    ],
+    "mounting": "DINレール",
+    "connection_type": "ねじ端子",
+    "source": "T056-E1-14 p2（形式・定格）/p3–5（性能）/p8–9（回路）/p10（端子外観）",
+    "official_html": "https://www.fa.omron.co.jp/products/family/3178/lineup/",
+    "verification_note": "定格、端子印字、物理接点数を公式資料で照合。実機・端子締付・負荷条件は未確認。",
+    "wiring_notes": [
+      "PE端子を接地する。DC入力時はLへ正極を接続。",
+      "入力DCで使用する場合は外部ヒューズと資料のディレーティング条件を確認。",
+      "同極出力端子を別出力回路として扱わない。"
+    ]
+  }
+}

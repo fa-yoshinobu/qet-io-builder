@@ -1,0 +1,98 @@
+{
+  "category": "remote_io",
+  "model": "NZ2GFCM1-16DE",
+  "definition": {
+    "io": "in",
+    "points": 16,
+    "pins": [
+      "C1-20",
+      "C1-18",
+      "C1-16",
+      "C1-14",
+      "C1-12",
+      "C1-10",
+      "C1-8",
+      "C1-6",
+      "C1-19",
+      "C1-17",
+      "C1-15",
+      "C1-13",
+      "C1-11",
+      "C1-9",
+      "C1-7",
+      "C1-5"
+    ],
+    "network": "CC-Link IE Field",
+    "terminal_block": "MIL 20ピン",
+    "confirmed": true,
+    "source": "SH-081114ENG-T pp.68–69",
+    "note": "I/O電源はCON A/Bの4・5とCON1の1〜4を同時に使用しない。未使用電源コネクタに無配線プラグを装着。増設のI/O電源は別途供給。局内X番号。",
+    "common": [],
+    "input_common": "negative",
+    "manual_input_power": true,
+    "power_ports": [
+      [
+        "A1",
+        "FG"
+      ],
+      [
+        "A2",
+        "+24V UNIT"
+      ],
+      [
+        "A3",
+        "24G UNIT"
+      ],
+      [
+        "A4",
+        "+24V I/O"
+      ],
+      [
+        "A5",
+        "24G I/O"
+      ],
+      [
+        "B1",
+        "FG"
+      ],
+      [
+        "B2",
+        "+24V UNIT"
+      ],
+      [
+        "B3",
+        "24G UNIT"
+      ],
+      [
+        "B4",
+        "+24V I/O"
+      ],
+      [
+        "B5",
+        "24G I/O"
+      ],
+      [
+        "C1-1",
+        "+24V I/O"
+      ],
+      [
+        "C1-2",
+        "+24V I/O"
+      ],
+      [
+        "C1-3",
+        "24G I/O"
+      ],
+      [
+        "C1-4",
+        "24G I/O"
+      ]
+    ],
+    "power_notes": [
+      "I/O電源：CON A/Bの4・5とCON1の1〜4は同時に給電しない",
+      "未使用の電源コネクタには無配線コネクタを装着"
+    ],
+    "production_end_date": "2023-12-29",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcnet&category=discon&bunrui1=CC-Link+IE+Field"
+  }
+}

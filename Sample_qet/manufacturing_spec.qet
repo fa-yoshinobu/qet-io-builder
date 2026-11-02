@@ -1,0 +1,588 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project title="製作仕様書サンプル" version="0.100.0">
+  <properties>
+    <property name="saveddate" show="1">20261029</property>
+  </properties>
+  <titleblocktemplates>
+    <titleblocktemplate name="JP_A3_2dan">
+      <information>日本語 下部2段 図枠(改訂履歴は別ページ)</information>
+      <logos />
+      <grid rows="25;25;" cols="t16%;t20%;t12%;t12%;t10%;t10%;r100%;">
+        <field row="0" col="0" name="company" displaylabel="false" align="center" valign="center" hadjust="true" fontsize="10">
+          <value>
+            <translation lang="ja">%{company}</translation>
+            <translation lang="en">%{company}</translation>
+          </value>
+          <label>
+            <translation lang="ja">会社</translation>
+            <translation lang="en">会社</translation>
+          </label>
+        </field>
+        <field row="0" col="1" name="machine" displaylabel="true" align="center" valign="center" hadjust="true" fontsize="10" colspan="1">
+          <value>
+            <translation lang="ja">%{machine}</translation>
+            <translation lang="en">%{machine}</translation>
+          </value>
+          <label>
+            <translation lang="ja">装置名</translation>
+            <translation lang="en">装置名</translation>
+          </label>
+        </field>
+        <field row="0" col="3" name="title" displaylabel="false" align="center" valign="center" hadjust="true" fontsize="11" colspan="3">
+          <value>
+            <translation lang="ja">%title</translation>
+            <translation lang="en">%title</translation>
+          </value>
+          <label>
+            <translation lang="ja">図面名称</translation>
+            <translation lang="en">図面名称</translation>
+          </label>
+        </field>
+        <field row="1" col="0" name="drawing_no" displaylabel="true" align="center" valign="center" hadjust="true" fontsize="9">
+          <value>
+            <translation lang="ja">%{drawing_no}</translation>
+            <translation lang="en">%{drawing_no}</translation>
+          </value>
+          <label>
+            <translation lang="ja">図番</translation>
+            <translation lang="en">図番</translation>
+          </label>
+        </field>
+        <field row="1" col="1" name="date" displaylabel="true" align="center" valign="center" hadjust="true" fontsize="8">
+          <value>
+            <translation lang="ja">%date</translation>
+            <translation lang="en">%date</translation>
+          </value>
+          <label>
+            <translation lang="ja">日付</translation>
+            <translation lang="en">日付</translation>
+          </label>
+        </field>
+        <field row="1" col="2" name="rev" displaylabel="true" align="center" valign="center" hadjust="true" fontsize="9">
+          <value>
+            <translation lang="ja">%indexrev</translation>
+            <translation lang="en">%indexrev</translation>
+          </value>
+          <label>
+            <translation lang="ja">改訂</translation>
+            <translation lang="en">改訂</translation>
+          </label>
+        </field>
+        <field row="1" col="3" name="author" displaylabel="true" align="center" valign="center" hadjust="true" fontsize="8">
+          <value>
+            <translation lang="ja">%author</translation>
+            <translation lang="en">%author</translation>
+          </value>
+          <label>
+            <translation lang="ja">作成</translation>
+            <translation lang="en">作成</translation>
+          </label>
+        </field>
+        <field row="1" col="4" name="checker" displaylabel="true" align="center" valign="center" hadjust="true" fontsize="8">
+          <value>
+            <translation lang="ja">%{checker}</translation>
+            <translation lang="en">%{checker}</translation>
+          </value>
+          <label>
+            <translation lang="ja">検図</translation>
+            <translation lang="en">検図</translation>
+          </label>
+        </field>
+        <field row="1" col="5" name="approver" displaylabel="true" align="center" valign="center" hadjust="true" fontsize="8">
+          <value>
+            <translation lang="ja">%{approver}</translation>
+            <translation lang="en">%{approver}</translation>
+          </value>
+          <label>
+            <translation lang="ja">承認</translation>
+            <translation lang="en">承認</translation>
+          </label>
+        </field>
+        <field row="1" col="6" name="page" displaylabel="true" align="center" valign="center" hadjust="true" fontsize="10">
+          <value>
+            <translation lang="ja">%{folio-id} / %{folio-total}</translation>
+            <translation lang="en">%{folio-id} / %{folio-total}</translation>
+          </value>
+          <label>
+            <translation lang="ja">頁</translation>
+            <translation lang="en">頁</translation>
+          </label>
+        </field>
+      </grid>
+    </titleblocktemplate>
+  </titleblocktemplates>
+  <newdiagrams>
+    <border cols="20" colsize="62" rows="10" rowsize="80" displaycols="true" displayrows="true" />
+    <xrefs>
+      <xref type="coil" displayhas="contacts" snapto="label" offset="0" master_label="%f-%c%l" slave_label="(%f-%c%l)" showpowerctc="false" xrefpos="AlignRight" switchprefix="" delayprefix="" powerprefix="" />
+      <xref type="protection" displayhas="cross" snapto="label" offset="0" master_label="%f-%c%l" slave_label="(%f-%c%l)" showpowerctc="false" xrefpos="AlignRight" switchprefix="" delayprefix="" powerprefix="" />
+      <xref type="commutator" displayhas="cross" snapto="label" offset="0" master_label="%f-%c%l" slave_label="(%f-%c%l)" showpowerctc="false" xrefpos="AlignRight" switchprefix="" delayprefix="" powerprefix="" />
+    </xrefs>
+    <inset title="" author="" folio="%id/%total" date="null" displayAt="bottom" indexrev="A" titleblocktemplate="JP_A3_2dan" titleblocktemplateCollection="embedded" />
+  </newdiagrams>
+  <diagram title="制御盤 製作仕様書（サンプル）" author="" date="20261029" indexrev="A" folio="%id/%total" order="1" cols="20" colsize="62" rows="10" rowsize="80" displaycols="true" displayrows="true" displayAt="bottom" titleblocktemplate="JP_A3_2dan" titleblocktemplateCollection="embedded" version="0.100.0" freezeNewConductor="false" freezeNewElement="false" filename="" plant="" locmach="" auto_page_num="" uuid="{4b577454-488c-4ca5-afc8-ef08a87da184}">
+    <properties>
+      <property name="company" show="1">作図サンプル</property>
+      <property name="machine" show="1">サンプル制御盤</property>
+      <property name="drawing_no" show="1">SAMPLE-SP-001</property>
+      <property name="checker" show="1" />
+      <property name="approver" show="1" />
+    </properties>
+    <defaultconductor type="multi" num="_" displaytext="1" numsize="7" condsize="1" horizrotatetext="0" vertirotatetext="270" />
+    <elements />
+    <conductors />
+    <inputs>
+      <input uuid="{e66eb74a-1b31-4968-a61c-b3793616dbb1}" x="50" y="42" rotation="0" text="制御盤 製作仕様書" font="MS Gothic,18,-1,5,75,0,0,0,0,0" />
+      <input uuid="{676771c7-2f0b-4340-8b3c-6fce9133d8f0}" x="1050" y="52" rotation="0" text="SAMPLE / 記入例" font="MS Gothic,10,-1,5,75,0,0,0,0,0" />
+      <input uuid="{a18134a2-8809-4752-a401-fa49f40c431e}" x="62" y="95" rotation="0" text="対象：サンプル制御盤" font="MS Gothic,10,-1,5,50,0,0,0,0,0" />
+      <input uuid="{2be89577-1e5a-492f-ba7d-96f58a78f07f}" x="682" y="95" rotation="0" text="選択方式：□ → ■ ／ 数値・その他は記入" font="MS Gothic,10,-1,5,50,0,0,0,0,0" />
+      <input uuid="{4cf8b599-ed89-41c5-a42f-99fa62f1bdd6}" x="58" y="147" rotation="0" text="適用条件" font="MS Gothic,9,-1,5,75,0,0,0,0,0" />
+      <input uuid="{8a083efe-6e9d-4ff2-b978-6bf265127527}" x="58" y="173" rotation="0" text="顧客仕様" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{8994a7c4-c219-4a53-8676-01093cd80d07}" x="146" y="173" rotation="0" text="□ 有" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{864eb44b-f30c-4b83-a018-a791fa1e5c07}" x="186.66666666666666" y="173" rotation="0" text="□ 無" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{f285d514-c17f-48ea-9eeb-51f882df8a1d}" x="227.33333333333331" y="173" rotation="0" text="□ 別途" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{265e05cb-689a-4d93-b852-fec10de915ea}" x="58" y="201" rotation="0" text="設置場所" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{5427732e-0ebe-45bc-8353-e77f2e5cd3f1}" x="146" y="201" rotation="0" text="■ 屋内" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{1985bc54-6220-46fa-a928-ffd641f8b1db}" x="197.33333333333331" y="201" rotation="0" text="□ 屋外" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{8703344d-0eae-4654-a1c8-a0a545a1f509}" x="248.66666666666663" y="201" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{a0a7bf91-0481-4712-bf36-faadb9585bee}" x="58" y="229" rotation="0" text="盤形式" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{27d46efd-2746-41cd-aeb9-8768214dc75c}" x="146" y="229" rotation="0" text="□ 自立" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{132170f1-4fd7-4d47-ad51-cc9316be3261}" x="197.33333333333331" y="229" rotation="0" text="■ 壁掛け" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{35452c6e-1965-4ba4-bd80-267326cd57cf}" x="259.3333333333333" y="229" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{79b12748-f334-49c3-9f13-b2cb71f32ce8}" x="58" y="257" rotation="0" text="外形寸法" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{380cf2ba-05e2-4c9e-b502-542fde159767}" x="146" y="257" rotation="0" text="W(       ) H(       ) D(       ) mm" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{b72bd096-2a5c-433b-b57a-dd5168fb92b4}" x="58" y="285" rotation="0" text="使用温度" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{15ea0bb9-6f50-4485-b97e-ac83e2958cd2}" x="146" y="285" rotation="0" text="(                ) ℃" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{bbab9dbc-5926-4f2c-892c-08888ec9778b}" x="58" y="313" rotation="0" text="使用湿度" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{9d5c1585-f942-4d7c-ad6c-1ffdd8447c75}" x="146" y="313" rotation="0" text="(                ) %" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{d7edaaa3-956e-49fd-a876-dbcf13d3e3b9}" x="58" y="347" rotation="0" text="筐体・構造" font="MS Gothic,9,-1,5,75,0,0,0,0,0" />
+      <input uuid="{b285bae2-d741-4499-b48d-913a1c5c9798}" x="58" y="373" rotation="0" text="材質" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{8fb4723f-d311-4e4d-843b-8484d7c7c678}" x="146" y="373" rotation="0" text="□ 鋼板" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{1f6107a9-79be-4f1a-8388-2d8c2c2c617e}" x="197.33333333333331" y="373" rotation="0" text="□ ステンレス" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{fb7c44c4-0e74-4fe8-a005-927e4714c36f}" x="280.66666666666663" y="373" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{7192dcbd-fcd6-4a62-9bc7-7049f8c63009}" x="58" y="401" rotation="0" text="板厚" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{2c785d8f-3916-49a5-8054-d3d5231466bf}" x="146" y="401" rotation="0" text="外箱(     ) 扉(     ) 取付板(     ) mm" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{67cc094b-2643-4d67-92f1-889969e755ae}" x="58" y="429" rotation="0" text="保護構造" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{018fde41-6707-4cd5-86dd-7afe35522286}" x="146" y="429" rotation="0" text="□ 図面指定" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{51ff01ea-60c7-48e1-bff1-01cffe9a294a}" x="218.66666666666666" y="429" rotation="0" text="□ 別途指定" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{efc45575-0ea9-4262-97d6-901f9e7ba3dd}" x="291.3333333333333" y="429" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{2b5680bf-86e4-4b04-ac0e-a46617932512}" x="58" y="457" rotation="0" text="引込口" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{c392dec3-c3fa-4f3b-9a34-be65c5ed8c7a}" x="146" y="457" rotation="0" text="□ 上" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{f7168025-9e8d-4506-a23a-648c65f18a44}" x="186.66666666666666" y="457" rotation="0" text="□ 下" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{78ab2a62-c22f-4f9f-bfdb-c7c87d084d48}" x="227.33333333333331" y="457" rotation="0" text="□ 側面" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{09fc6099-b5de-459e-bd58-bc0fffd07b98}" x="278.66666666666663" y="457" rotation="0" text="□ 別図" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{61ed38d5-16d1-4924-b38c-9cd39d64ec0c}" x="58" y="485" rotation="0" text="扉" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{bb8bb2d9-605b-435f-b994-0ac3bef9e102}" x="146" y="485" rotation="0" text="□ 片開き" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{69c1c6a5-2c57-4aec-8bac-e2f9f32aeb46}" x="208.0" y="485" rotation="0" text="□ 両開き" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{ee36b359-b5e4-4306-9250-8c7e31eee6fd}" x="270.0" y="485" rotation="0" text="□ なし" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{345d65d8-ec0c-410c-a4db-32ec7e0db57d}" x="58" y="513" rotation="0" text="扉付属品" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{a7df0290-ad0c-484b-b67a-f4f34c4745a3}" x="146" y="513" rotation="0" text="□ ストッパ" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{cc88ccdb-c644-48aa-b2e6-48974bfc2298}" x="218.66666666666666" y="513" rotation="0" text="□ パッキン" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{6046e016-7011-4d71-8821-984e7ad6685f}" x="291.3333333333333" y="513" rotation="0" text="□ なし" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{0ea9a9ad-3dc6-41c4-922c-1b406b1c9dcc}" x="58" y="547" rotation="0" text="塗装・仕上げ" font="MS Gothic,9,-1,5,75,0,0,0,0,0" />
+      <input uuid="{a2bef332-f521-46ed-8847-faa7dcdbcb39}" x="58" y="573" rotation="0" text="仕上げ" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{c2819d1e-fd5b-4f5b-b7b2-f9504699e716}" x="146" y="573" rotation="0" text="□ 塗装" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{ae13997a-9dc4-4056-92b5-f6ffbd6fa8e8}" x="197.33333333333331" y="573" rotation="0" text="□ 無塗装" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{41970720-b96a-474b-818c-03594da5db49}" x="259.3333333333333" y="573" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{c94e876c-f934-4911-b553-2dd7b39b45cd}" x="58" y="601" rotation="0" text="塗装方法" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{b07fccf3-0389-4e65-83a2-c8d1ed668a79}" x="146" y="601" rotation="0" text="□ 焼付" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{d144a044-280f-477e-8d4c-d4e13473d908}" x="197.33333333333331" y="601" rotation="0" text="□ 粉体" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{223242c4-8dcc-4213-b9ff-1de680268771}" x="248.66666666666663" y="601" rotation="0" text="□ 別途指定" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{5b353a6a-b7db-4d09-930e-199f57e30b4f}" x="58" y="629" rotation="0" text="外面色" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{91e36613-1270-401b-a947-b8e05e39c537}" x="146" y="629" rotation="0" text="色番号 (                         )" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{6a272732-9d43-4f56-8b79-b33548993542}" x="58" y="657" rotation="0" text="内面色" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{8cb556b5-7e2d-4c46-a495-daa94bda77aa}" x="146" y="657" rotation="0" text="色番号 (                         )" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{4594587c-aece-4245-8dd6-cabfcbcc8b95}" x="58" y="685" rotation="0" text="艶" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{1efd530f-b7ff-4ffc-9069-9690e8e244c0}" x="146" y="685" rotation="0" text="□ 全艶" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{ddca89cb-e676-4c5c-9bf5-017a145dfac5}" x="197.33333333333331" y="685" rotation="0" text="□ 半艶" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{2cece2f4-006b-4577-8193-db986c3f1598}" x="248.66666666666663" y="685" rotation="0" text="□ つや消し" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{65f9786d-9511-47e1-8bde-f88cb2be2279}" x="58" y="719" rotation="0" text="その他の指定" font="MS Gothic,9,-1,5,75,0,0,0,0,0" />
+      <input uuid="{d182f4ff-5996-41ab-b26a-7e7d5edde849}" x="58" y="745" rotation="0" text="代替品" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{6a78ab8f-3f7e-4678-8592-a6cdf41399f0}" x="146" y="745" rotation="0" text="□ 不可" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{21fb692d-4e84-4554-8295-bcb2e49d7f3d}" x="197.33333333333331" y="745" rotation="0" text="■ 事前確認" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{77c5d355-902d-4fd8-a9fe-177076ece237}" x="453" y="147" rotation="0" text="電源条件" font="MS Gothic,9,-1,5,75,0,0,0,0,0" />
+      <input uuid="{8ad02d65-4387-48c8-b4e1-a7da5d44ddad}" x="453" y="173" rotation="0" text="主回路" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{0ad05aea-8325-4686-8ee1-49b6708dd095}" x="541" y="173" rotation="0" text="□ 単相" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{c578490d-ba8e-4a17-b3d1-375e3161f0d7}" x="592.3333333333334" y="173" rotation="0" text="□ 三相" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{fb372ba4-e2f6-493d-9b65-92f40cb92807}" x="643.6666666666667" y="173" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{b9c5aec3-b870-444c-a13f-60be785f6dbc}" x="453" y="201" rotation="0" text="主電圧" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{7db653ee-d62d-45ec-814e-bc5687052272}" x="541" y="201" rotation="0" text="□ 100V" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{fe811005-a088-4c49-9a29-6deab048ddff}" x="592.3333333333334" y="201" rotation="0" text="□ 200V" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{4b9f4c87-fc88-4d0d-9598-cf474fa394d8}" x="643.6666666666667" y="201" rotation="0" text="□ 400V" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{0cdf7c64-c1c6-47ab-ba8a-a9028c5da62f}" x="695.0000000000001" y="201" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{3e264462-cd69-447f-8134-4310bd8465da}" x="453" y="229" rotation="0" text="周波数" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{e3cc433e-fe5a-4817-943b-3addea5a9108}" x="541" y="229" rotation="0" text="□ 50Hz" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{19832e18-e6d7-4da2-af57-7a1f511a842c}" x="592.3333333333334" y="229" rotation="0" text="□ 60Hz" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{338d4211-c797-4592-8488-5d54e6482d7e}" x="643.6666666666667" y="229" rotation="0" text="□ 別途" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{0c3ca23a-5a03-4657-a91d-e3efadc2af2a}" x="453" y="257" rotation="0" text="制御回路" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{4f651eb2-f482-4d8a-8652-b28a2b37f240}" x="541" y="257" rotation="0" text="□ AC" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{c9da574b-fdf6-41c9-93b3-c70cb4ef46c4}" x="581.6666666666666" y="257" rotation="0" text="□ DC" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{1e9c8f17-4f06-4b16-9aa4-1d8850b7c26b}" x="622.3333333333333" y="257" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{1be681b4-326d-4144-a33b-bd0845bbbd3f}" x="453" y="285" rotation="0" text="制御電圧" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{cbaace24-f772-4ec4-a302-05fd02774b4b}" x="541" y="285" rotation="0" text="□ 24V" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{b79d96ae-ddde-4af4-a508-b36f5797313c}" x="587.0" y="285" rotation="0" text="□ 100V" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{167f46bb-4200-43c9-a78b-cc65e6458b3a}" x="638.3333333333334" y="285" rotation="0" text="□ 200V" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{ec4de892-5634-4c8a-8f02-4a5596ce1701}" x="689.6666666666667" y="285" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{69e656da-cd1e-4acd-9bfb-bab54a63afe8}" x="453" y="313" rotation="0" text="供給元" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{7cebdf38-028f-49a8-986c-696f65d7840e}" x="541" y="313" rotation="0" text="□ 盤内" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{cf101102-fdbd-4b57-ab0b-02ce34458b6e}" x="592.3333333333334" y="313" rotation="0" text="□ 外部" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{33176e94-72dd-4fe8-970b-f6fd24cf8f55}" x="643.6666666666667" y="313" rotation="0" text="□ 別途" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{ab9a3bbf-492e-4cef-a783-8cfc62f5c3d2}" x="453" y="347" rotation="0" text="配線仕様" font="MS Gothic,9,-1,5,75,0,0,0,0,0" />
+      <input uuid="{b059c50f-3b6e-4882-8df2-f16812d28f53}" x="453" y="373" rotation="0" text="配線方式" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{20735126-8452-4ef9-8708-d3bbe2ab1543}" x="541" y="373" rotation="0" text="□ ダクト" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{63ae175c-209d-4f7f-99b5-90c48ec4b12d}" x="603.0" y="373" rotation="0" text="□ 束線" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{4704978a-5ca8-47fd-a451-b9cfa80b5b36}" x="654.3333333333334" y="373" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{6957bec0-f760-4e57-b363-94c862232825}" x="453" y="401" rotation="0" text="主回路線" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{fbf1b1f8-2c0c-4fa0-8b5e-ba674bbba19d}" x="541" y="401" rotation="0" text="□ IV" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{d7f470f5-87f2-46d1-84a6-4199319987bd}" x="581.6666666666666" y="401" rotation="0" text="□ KIV" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{b557a262-6fe5-4b93-9087-2754e3178473}" x="627.6666666666666" y="401" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{774a58a2-274a-42a8-9675-7ef6e823cc05}" x="453" y="429" rotation="0" text="制御線" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{26746dc6-34ec-4283-884d-e567d013cdfa}" x="541" y="429" rotation="0" text="□ IV" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{61d173fe-3a75-45b5-9a2c-612f6ef0e407}" x="581.6666666666666" y="429" rotation="0" text="□ KIV" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{7bd5bcd1-159c-41b1-829d-caf22d468dce}" x="627.6666666666666" y="429" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{e7dc2758-e5e6-41f7-b748-229e030fec00}" x="453" y="457" rotation="0" text="線径" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{4bccd065-92dc-45c9-98a3-1b987e1607b7}" x="541" y="457" rotation="0" text="主(         ) 制御(         ) mm²" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{712d80ce-ed54-4388-965a-a3b82cc673bf}" x="453" y="485" rotation="0" text="線色" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{dbb1ba2d-7f87-476b-b982-bf779e4119f6}" x="541" y="485" rotation="0" text="□ 顧客指定" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{f475cab7-966e-4b6f-97a8-0aaabbc107e3}" x="613.6666666666666" y="485" rotation="0" text="□ 社内標準" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{a4bacfe0-3edb-4aed-8452-a29e1c14c3bb}" x="686.3333333333333" y="485" rotation="0" text="□ 別表" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{218b37e4-93c8-4ba4-9d23-25a76ac16c5b}" x="453" y="513" rotation="0" text="端末" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{4ce2c464-1e9e-4021-8070-4fd3667adeb5}" x="541" y="513" rotation="0" text="□ 丸形" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{5be19346-56b4-40ee-9d89-bc91ee2e2bec}" x="592.3333333333334" y="513" rotation="0" text="□ Y形" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{eb509a30-df22-4f59-8303-874d2af00df2}" x="638.3333333333334" y="513" rotation="0" text="□ 棒形" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{3e9a0576-069f-4342-87fc-086dc4394662}" x="689.6666666666667" y="513" rotation="0" text="□ 裸線" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{e72efd0b-5135-463d-aa6c-20b344db381b}" x="453" y="541" rotation="0" text="線番" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{960814c4-c7d6-41e3-9017-353bffda9eef}" x="541" y="541" rotation="0" text="■ チューブ" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{a573d185-bb91-4525-ae9b-4167a425c6ae}" x="613.6666666666666" y="541" rotation="0" text="□ ラベル" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{0b4cd3c7-d496-4702-9f99-f95fd0db19ea}" x="675.6666666666666" y="541" rotation="0" text="□ 無" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{cca29422-5f5e-4274-a1d0-979fe8d71221}" x="453" y="575" rotation="0" text="端子台・接地" font="MS Gothic,9,-1,5,75,0,0,0,0,0" />
+      <input uuid="{c1be7e09-8cd7-40e2-8ae2-ec0d6d81ada0}" x="453" y="601" rotation="0" text="接続方式" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{8d151d75-2ace-459a-889b-bc25c03041a7}" x="541" y="601" rotation="0" text="□ ねじ式" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{bc2fb00a-2fe7-4e67-b3b8-54183fbf121e}" x="603.0" y="601" rotation="0" text="□ ばね式" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{039a3f89-3c50-42ac-a5a6-2ae595b36574}" x="665.0" y="601" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{008b98cf-0914-46c2-b455-225219a6317a}" x="453" y="629" rotation="0" text="端子表示" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{023aa877-2352-4d08-87d5-639c05c5fb69}" x="541" y="629" rotation="0" text="■ 追番" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{287f2899-c3a6-47a5-8055-7eabe799b046}" x="592.3333333333334" y="629" rotation="0" text="□ 線番" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{bcf2a658-2b28-4c8b-bc53-b0ec65f45a19}" x="643.6666666666667" y="629" rotation="0" text="□ 指定" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{b843eb1d-a924-48fc-a5d2-7ba9f3bd4c32}" x="453" y="657" rotation="0" text="予備端子" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{d28104d8-5ae4-4942-9e87-6727506cd3d6}" x="541" y="657" rotation="0" text="□ 有" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{a8283ec7-03c8-4ea0-ab85-d5d9e864eac8}" x="581.6666666666666" y="657" rotation="0" text="□ 無" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{16b8130c-4f42-41e6-ba81-6d3276ff2f88}" x="622.3333333333333" y="657" rotation="0" text="□ 別途" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{0b456cfe-cd7c-45fd-b458-43fa2c0a25f2}" x="453" y="685" rotation="0" text="接地端子" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{cc3e1364-2130-4d69-a115-bcbc7d48d0e0}" x="541" y="685" rotation="0" text="□ 有" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{14abae59-929c-46e5-8ff2-ba3aeb240ca8}" x="581.6666666666666" y="685" rotation="0" text="□ 無" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{64575d04-a3a7-451d-a8f6-3ee1624deb35}" x="622.3333333333333" y="685" rotation="0" text="□ 別途" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{c3c058b6-b182-4d1c-9cc7-c5fceffbd2f3}" x="453" y="719" rotation="0" text="表示の指定" font="MS Gothic,9,-1,5,75,0,0,0,0,0" />
+      <input uuid="{6f6f264c-7121-43d2-83c3-af81f243a6d1}" x="453" y="745" rotation="0" text="線番方向" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{e2a87200-5da5-4f46-94af-a8440e2b7d58}" x="541" y="745" rotation="0" text="□ 縦" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{4bd55120-d84a-4a47-81f9-ee8ab78df6c7}" x="581.6666666666666" y="745" rotation="0" text="□ 横" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{6b560118-6430-4e08-9424-c1449721f6f4}" x="622.3333333333333" y="745" rotation="0" text="□ 図面指定" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{db5075d0-5a9d-4f7f-95eb-5a36d66bc97b}" x="848" y="147" rotation="0" text="表示・銘板" font="MS Gothic,9,-1,5,75,0,0,0,0,0" />
+      <input uuid="{b1feafa9-a916-42e9-a2de-a2a35b98742b}" x="848" y="173" rotation="0" text="銘板材質" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{7d11003a-5ba2-4d8b-88e8-b600932df74c}" x="936" y="173" rotation="0" text="□ 樹脂" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{c16c9ff4-1f7b-4c4c-80c2-4747294200d5}" x="987.3333333333334" y="173" rotation="0" text="□ 金属" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{1d0d8386-e095-4281-85fc-98384e067508}" x="1038.6666666666667" y="173" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{b809279d-ebe8-4846-ba53-036a26623a7f}" x="848" y="201" rotation="0" text="取付方法" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{d973c719-2e51-40c3-ab60-a3b37b37173a}" x="936" y="201" rotation="0" text="□ ねじ" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{de93fd56-bb1b-4c7e-bb75-e336e459fef7}" x="987.3333333333334" y="201" rotation="0" text="□ 接着" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{fcb81476-0a55-4f35-8883-45d7585454bd}" x="1038.6666666666667" y="201" rotation="0" text="□ その他" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{f74de24c-3976-4ce1-99bb-a58049cdeb66}" x="848" y="229" rotation="0" text="文字" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{7939ea51-6398-46b4-becf-a4753291f985}" x="936" y="229" rotation="0" text="□ 印刷" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{ff40693b-0fde-47ac-97c1-d319f78eb37e}" x="987.3333333333334" y="229" rotation="0" text="□ 彫刻" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{46ae2aad-e13e-4406-acb7-e21b95e7bf17}" x="1038.6666666666667" y="229" rotation="0" text="□ 別途" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{e6dc1575-a2fc-4fbe-93f8-9465f21fae5c}" x="848" y="257" rotation="0" text="機器表示" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{3c71dce8-9d22-4b83-954d-ca47275993fd}" x="936" y="257" rotation="0" text="■ 有" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{598a2229-a4ba-4312-90d8-2c83c758d5d8}" x="976.6666666666666" y="257" rotation="0" text="□ 無" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{b5faad9f-4178-4a87-bfd3-2b7daa2251c6}" x="1017.3333333333333" y="257" rotation="0" text="□ 別途" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{39a9e701-10e7-4041-baba-4a2a6015ca02}" x="848" y="285" rotation="0" text="表示・操作色" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{83e8ac83-ddfe-43e3-b946-345faac82651}" x="936" y="285" rotation="0" text="□ 顧客指定" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{f38aad15-a062-45c1-b42a-7af7e9cf8494}" x="1008.6666666666666" y="285" rotation="0" text="□ 社内標準" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{5ac66b53-1ac3-4b01-ae5f-2261ed01f729}" x="1081.3333333333333" y="285" rotation="0" text="□ 別表" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{2a912148-9086-4e5a-943f-5bb8c37040b5}" x="848" y="319" rotation="0" text="盤内付属品" font="MS Gothic,9,-1,5,75,0,0,0,0,0" />
+      <input uuid="{e2cfcdea-f5ff-4791-82f1-e90139b5a978}" x="848" y="345" rotation="0" text="照明" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{c50e658e-da99-4aac-b2ba-88a699310878}" x="936" y="345" rotation="0" text="□ 有" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{d8e8547c-2e79-4031-8bec-9ef380aa5a2f}" x="976.6666666666666" y="345" rotation="0" text="□ 無" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{154aae6e-d69c-4864-9ca2-ba0ce7f2faa5}" x="848" y="373" rotation="0" text="コンセント" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{9489dd3c-5d35-4999-9cea-583ef90f45b6}" x="936" y="373" rotation="0" text="□ 有" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{f1296ad6-6d41-41f0-8d69-2068fb23312e}" x="976.6666666666666" y="373" rotation="0" text="□ 無" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{f7d7adfd-73ec-4987-bc66-a4fe48da6b18}" x="848" y="401" rotation="0" text="換気" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{6ddb4f72-c242-42ca-99aa-3cab929bc6ea}" x="936" y="401" rotation="0" text="□ 自然" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{5ee709a2-a8bd-4ff2-8207-052c63f29fd1}" x="987.3333333333334" y="401" rotation="0" text="□ ファン" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{644aaeca-5105-437b-90c8-4370a8dbbae7}" x="1049.3333333333335" y="401" rotation="0" text="□ 別途" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{694624ea-dad8-4b79-ba3f-5fd98d8ebe28}" x="848" y="429" rotation="0" text="図面入れ" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{ea25c94d-021b-4f09-8e4c-4663e2858ad3}" x="936" y="429" rotation="0" text="□ 有" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{790aeba3-0943-4ada-b5cf-0634c2f0bd60}" x="976.6666666666666" y="429" rotation="0" text="□ 無" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+      <input uuid="{91c189f1-456f-44f6-957f-c3797f61dee9}" x="50" y="800" rotation="0" text="■ 選択／□ 未選択。選択は記入例、未選択・空欄は未確認。" font="MS Gothic,8,-1,5,50,0,0,0,0,0" />
+    </inputs>
+    <shapes>
+      <shape type="Rectangle" x1="50" y1="88" x2="1210" y2="122" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="1" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="670" y1="88" x2="670" y2="122" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.8" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Rectangle" x1="50" y1="144" x2="420" y2="336" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="1" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="168" x2="420" y2="168" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.8" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="138" y1="168" x2="138" y2="336" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="196" x2="420" y2="196" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="224" x2="420" y2="224" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="252" x2="420" y2="252" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="280" x2="420" y2="280" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="308" x2="420" y2="308" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Rectangle" x1="50" y1="344" x2="420" y2="536" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="1" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="368" x2="420" y2="368" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.8" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="138" y1="368" x2="138" y2="536" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="396" x2="420" y2="396" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="424" x2="420" y2="424" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="452" x2="420" y2="452" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="480" x2="420" y2="480" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="508" x2="420" y2="508" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Rectangle" x1="50" y1="544" x2="420" y2="708" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="1" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="568" x2="420" y2="568" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.8" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="138" y1="568" x2="138" y2="708" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="596" x2="420" y2="596" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="624" x2="420" y2="624" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="652" x2="420" y2="652" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="680" x2="420" y2="680" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Rectangle" x1="50" y1="716" x2="420" y2="768" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="1" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="50" y1="740" x2="420" y2="740" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.8" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="138" y1="740" x2="138" y2="768" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Rectangle" x1="445" y1="144" x2="815" y2="336" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="1" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="168" x2="815" y2="168" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.8" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="533" y1="168" x2="533" y2="336" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="196" x2="815" y2="196" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="224" x2="815" y2="224" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="252" x2="815" y2="252" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="280" x2="815" y2="280" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="308" x2="815" y2="308" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Rectangle" x1="445" y1="344" x2="815" y2="564" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="1" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="368" x2="815" y2="368" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.8" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="533" y1="368" x2="533" y2="564" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="396" x2="815" y2="396" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="424" x2="815" y2="424" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="452" x2="815" y2="452" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="480" x2="815" y2="480" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="508" x2="815" y2="508" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="536" x2="815" y2="536" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Rectangle" x1="445" y1="572" x2="815" y2="708" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="1" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="596" x2="815" y2="596" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.8" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="533" y1="596" x2="533" y2="708" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="624" x2="815" y2="624" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="652" x2="815" y2="652" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="680" x2="815" y2="680" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Rectangle" x1="445" y1="716" x2="815" y2="768" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="1" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="445" y1="740" x2="815" y2="740" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.8" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="533" y1="740" x2="533" y2="768" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Rectangle" x1="840" y1="144" x2="1210" y2="308" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="1" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="840" y1="168" x2="1210" y2="168" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.8" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="928" y1="168" x2="928" y2="308" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="840" y1="196" x2="1210" y2="196" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="840" y1="224" x2="1210" y2="224" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="840" y1="252" x2="1210" y2="252" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="840" y1="280" x2="1210" y2="280" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Rectangle" x1="840" y1="316" x2="1210" y2="452" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="1" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="840" y1="340" x2="1210" y2="340" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.8" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="928" y1="340" x2="928" y2="452" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="840" y1="368" x2="1210" y2="368" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="840" y1="396" x2="1210" y2="396" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+      <shape type="Line" x1="840" y1="424" x2="1210" y2="424" z="0" rx="0" ry="0" closed="0" is_movable="1">
+        <pen style="SolidLine" widthF="0.5" color="#000000" />
+        <brush style="NoBrush" color="#ffffff" />
+      </shape>
+    </shapes>
+  </diagram>
+</project>

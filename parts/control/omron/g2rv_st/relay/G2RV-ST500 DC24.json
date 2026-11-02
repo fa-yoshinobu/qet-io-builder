@@ -1,0 +1,67 @@
+{
+  "category": "standard_device",
+  "model": "G2RV-ST500 DC24",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "G2RV-ST",
+    "device_type": "relay",
+    "standard_family": "relay",
+    "source": "G2RV-ST/G3RV-ST SGFR-224T p.3–5・8–9（形式・外部端子TOP VIEW）",
+    "official_html": "https://www.fa.omron.co.jp/products/family/3868/lineup/",
+    "terminal_numbering": "relay_module_external_terminals",
+    "terminal_view": "リレー＋ソケット一体型の外部端子TOP VIEW。交換用リレー単体の定格とは別。",
+    "coil": {
+      "terminals": [
+        "A1",
+        "A2"
+      ],
+      "rated_voltage": "DC24V（モジュール入力）",
+      "voltages": {
+        "dc_v": [
+          "24"
+        ]
+      },
+      "voltage_selection_required": false,
+      "polarity": "A1_positive_A2_negative",
+      "polarity_by_terminal": {
+        "A1": "+",
+        "A2": "-"
+      },
+      "surge": "diode"
+    },
+    "contacts": [
+      {
+        "type": "changeover",
+        "common": [
+          "11"
+        ],
+        "no": [
+          "14"
+        ],
+        "nc": [
+          "12"
+        ]
+      }
+    ],
+    "indicator": "LED・メカニカルインジケータ",
+    "manual_test_lever": false,
+    "terminal_type": "プッシュインPlus端子",
+    "module_includes_socket": true,
+    "replacement_relay": {
+      "model": "G2RV-1-S-G DC21",
+      "coil_vdc": 21
+    },
+    "ratings": {
+      "input_vdc": 24,
+      "resistive_current_a": 6,
+      "resistive_voltage_vac": 250,
+      "resistive_voltage_vdc": 30
+    },
+    "display_ratings": "DC24V入力 1c / Push-in",
+    "notes": [
+      "ソケット込みモジュール。ソケットを追加して二重計上しない。外部入力はDC24V、交換用内部リレーはDC21V。",
+      "DC24形のA1が正極、A2が負極。AC/DC24形や微小負荷用-APへ流用しない。"
+    ],
+    "verification_note": "公式カタログの入力回路・外部端子を照合。実機未確認。"
+  }
+}

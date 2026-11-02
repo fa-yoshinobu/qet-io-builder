@@ -1,0 +1,87 @@
+{
+  "category": "iqr_analog",
+  "model": "R60TRD4-G",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "A/V+",
+      "b",
+      "B/V-",
+      "SLD"
+    ],
+    "terminals_by_channel": [
+      [
+        "A/V+",
+        "b/RTD-",
+        "B/V-",
+        "SLD"
+      ],
+      [
+        "A/V+",
+        "b",
+        "B/V-",
+        "SLD"
+      ],
+      [
+        "A/V+",
+        "b",
+        "B/V-",
+        "SLD"
+      ],
+      [
+        "A/V+",
+        "b",
+        "B/V-",
+        "SLD"
+      ]
+    ],
+    "pins_by_channel": [
+      [
+        "TB2",
+        "TB3",
+        "TB4",
+        "TB5"
+      ],
+      [
+        "TB6",
+        "TB7",
+        "TB8",
+        "TB9"
+      ],
+      [
+        "TB10",
+        "TB11",
+        "TB12",
+        "TB13"
+      ],
+      [
+        "TB14",
+        "TB15",
+        "TB16",
+        "TB17"
+      ]
+    ],
+    "power": [
+      "FG"
+    ],
+    "power_pins": [
+      "TB18"
+    ],
+    "source": "SH-082734ENG-A 4.1",
+    "note": "冷接点補償抵抗を使う場合はCH1に測温抵抗体・抵抗器を接続できない。配線方式は手動確認。",
+    "diagram_note": "RTD+は冷接点補償用（電源ではない）。補償抵抗使用時、CH1の測温抵抗体・抵抗器は接続不可。",
+    "auxiliary_terminals": [
+      {
+        "pin": "TB1",
+        "signal": "RTD+",
+        "description": "冷接点補償抵抗＋",
+        "group": "冷接点補償"
+      }
+    ]
+  }
+}

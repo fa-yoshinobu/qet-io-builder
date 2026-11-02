@@ -1,0 +1,5 @@
+[mxbody]
+fields = ["model", "title", "battery", "sd_card", "sd_card_model"]
+
+[mxio]
+fields = ["model", "title", "csv"]

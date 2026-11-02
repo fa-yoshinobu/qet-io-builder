@@ -1,0 +1,62 @@
+{
+  "category": "standard_device",
+  "model": "XW5T-P2.5-2.2-1",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "XW5T-P / XW5G-P",
+    "device_type": "terminal",
+    "standard_family": "terminal",
+    "terminal_type": "push_in",
+    "terminal_label_basis": "connection_position_not_manufacturer_pin_number",
+    "user_terminal_number_required": true,
+    "tiers": 1,
+    "wiring_ratio": "2:2",
+    "physical_wire_ports": 4,
+    "protective_earth": false,
+    "symbol_bindings": [
+      {
+        "name": "common_terminal",
+        "symbol": "terminal_4way",
+        "terminals": {
+          "first": [
+            "左配線口1"
+          ],
+          "second": [
+            "右配線口1"
+          ],
+          "third": [
+            "右配線口2"
+          ],
+          "fourth": [
+            "左配線口2"
+          ]
+        }
+      }
+    ],
+    "internal_connections": [
+      [
+        "左配線口1",
+        "右配線口1",
+        "右配線口2",
+        "左配線口2"
+      ]
+    ],
+    "ratings": {
+      "iec_voltage_v": 800,
+      "iec_current_a": 24,
+      "stranded_wire_mm2": [
+        0.14,
+        2.5
+      ]
+    },
+    "source": "SDCA-003_1_25; オムロンXW5T-P公式 定格/性能（中継用多線式端子台）",
+    "official_html": "https://www.fa.omron.co.jp/products/family/3480/specification/",
+    "verification_note": "公式形式/種類・定格表で1段1:2/2:2、配線口数と定格を確認。実機未確認。",
+    "notes": [
+      "配線口位置を説明用名称で示す。メーカー刻印番号ではない。端子番号は利用者が割り当てる。",
+      "1つの同電位分岐端子として表し、別個の絶縁接点として扱わない。",
+      "外部の隣接端子台への渡り配線は生成しない。"
+    ],
+    "display_ratings": "IEC 24A / 800V"
+  }
+}

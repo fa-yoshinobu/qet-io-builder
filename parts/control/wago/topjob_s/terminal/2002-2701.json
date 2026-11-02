@@ -1,0 +1,67 @@
+{
+  "category": "standard_device",
+  "model": "2002-2701",
+  "definition": {
+    "manufacturer": "WAGO",
+    "series": "TOPJOB S",
+    "device_type": "terminal",
+    "standard_family": "terminal",
+    "terminal_type": "push_in",
+    "terminal_label_basis": "connection_position_not_manufacturer_pin_number",
+    "user_terminal_number_required": true,
+    "tiers": 2,
+    "physical_wire_ports": 4,
+    "protective_earth": false,
+    "conductive_din_rail_required": false,
+    "symbol_bindings": [
+      {
+        "name": "lower",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "下段配線口1"
+          ],
+          "second": [
+            "下段配線口2"
+          ]
+        }
+      },
+      {
+        "name": "upper",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "上段配線口1"
+          ],
+          "second": [
+            "上段配線口2"
+          ]
+        }
+      }
+    ],
+    "internal_connections": [
+      [
+        "下段配線口1",
+        "下段配線口2"
+      ],
+      [
+        "上段配線口1",
+        "上段配線口2"
+      ]
+    ],
+    "ratings": {
+      "iec_voltage_v": 800,
+      "iec_current_a": 24
+    },
+    "nominal_cross_section_mm2": 2.5,
+    "source": "TOPJOB S レールマウント端子台カタログ p.23（PDFページ 25）",
+    "official_html": "https://www.wago.co.jp/products/terminal/",
+    "verification_note": "公式カタログの形名・配線口数・導通構成を照合。QET生成配置・配線表示を確認。手動挿入・手動配線・実機・実印字は未確認。",
+    "notes": [
+      "配線口名は説明用でメーカー刻印番号ではない。記銘板番号は利用者が指定する。",
+      "隣接端子台への渡りは別途指定し、自動短絡しない。",
+      "上下段は独立回路。バーチカルジャンパは別売で、自動接続しない。"
+    ],
+    "display_ratings": "IEC 24A / 800V"
+  }
+}

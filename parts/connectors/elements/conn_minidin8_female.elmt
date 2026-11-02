@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="59" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{2d4e278e-a1d2-52b5-9f98-e09791c6ee46}" />
+  <names>
+    <name lang="ja">MINI-DIN 8pin メス</name>
+    <name lang="en">conn_minidin8_female</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <circle x="5" y="-22" diameter="44" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="10" y="-17" diameter="34" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <rect x="23" y="13" width="8" height="4" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <rect x="23" y="-3" width="8" height="7" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="16.0" y="-11.0" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="25.0" y="-13.0" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="34.0" y="-11.0" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="13.0" y="-2.0" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="37.0" y="-2.0" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="16.0" y="6.0" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="34.0" y="6.0" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="25.0" y="6.0" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <terminal uuid="{c7b8b76a-4d14-533a-98c9-f1a749137b9f}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

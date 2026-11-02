@@ -1,0 +1,173 @@
+{
+  "category": "standard_device",
+  "model": "SJ2S-05BS",
+  "definition": {
+    "manufacturer": "IDEC",
+    "series": "SJ",
+    "device_type": "socket",
+    "source": "B-2407-0-SJ-INS-J_out (2)端子配列 TOP VIEW",
+    "official_html": "https://www.idec.com/ja-jp/industrial-components/relays-timers/sockets",
+    "terminal_view": "ソケットTOP VIEW",
+    "terminal_numbering": "socket_nema_and_iec_marking",
+    "terminal_type": "標準ねじ端子",
+    "compatible_relays": [
+      "RJ2S-CL-D24"
+    ],
+    "socket_compatibility_scope": "本プロジェクト登録機種の範囲。RF2S等の未登録シリーズは対象外。",
+    "electrical_terminals": 8,
+    "terminal_map": [
+      {
+        "socket_marking": "3(11)",
+        "relay_pin": "3",
+        "function": "common",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "4(14)",
+        "relay_pin": "4",
+        "function": "no",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "2(12)",
+        "relay_pin": "2",
+        "function": "nc",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "6(21)",
+        "relay_pin": "6",
+        "function": "common",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "5(24)",
+        "relay_pin": "5",
+        "function": "no",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "7(22)",
+        "relay_pin": "7",
+        "function": "nc",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "1(A1)",
+        "relay_pin": "1",
+        "function": "coil",
+        "wire_entries": 1
+      },
+      {
+        "socket_marking": "8(A2)",
+        "relay_pin": "8",
+        "function": "coil",
+        "wire_entries": 1
+      }
+    ],
+    "display_ratings": "RJ用 標準ねじ 8端子 / リレー別部品",
+    "symbol_bindings": [
+      {
+        "name": "pin_3",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "3(11)"
+          ],
+          "second": [
+            "3"
+          ]
+        }
+      },
+      {
+        "name": "pin_4",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "4(14)"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "pin_2",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "2(12)"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      },
+      {
+        "name": "pin_6",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "6(21)"
+          ],
+          "second": [
+            "6"
+          ]
+        }
+      },
+      {
+        "name": "pin_5",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "5(24)"
+          ],
+          "second": [
+            "5"
+          ]
+        }
+      },
+      {
+        "name": "pin_7",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "7(22)"
+          ],
+          "second": [
+            "7"
+          ]
+        }
+      },
+      {
+        "name": "pin_1",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "1(A1)"
+          ],
+          "second": [
+            "1"
+          ]
+        }
+      },
+      {
+        "name": "pin_8",
+        "symbol": "terminal",
+        "terminals": {
+          "first": [
+            "8(A2)"
+          ],
+          "second": [
+            "8"
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "標準端子でソケット刻印→リレー本体ピンを表す受動部品。接点やコイルがソケットに内蔵されている表現ではない。",
+      "渡り金具は別部品。コイル極性は装着するリレーの仕様に従う。"
+    ],
+    "verification_note": "公式資料の形式・回路・端子表記を照合。実機配線・実機動作は未確認。"
+  }
+}

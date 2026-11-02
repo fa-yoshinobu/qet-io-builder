@@ -1,0 +1,22 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71EIP91",
+  "definition": {
+    "network": "EtherNet/IP",
+    "ports": [
+      "EtherNet/IP"
+    ],
+    "source": "SH-081913ENG-G 1/PDF17,2.1/PDF19,6",
+    "slots": 1,
+    "occupied_io_points": 32,
+    "panel_interfaces": true,
+    "interfaces": [
+      {
+        "name": "EtherNet/IP",
+        "kind": "rj45",
+        "connector_label": "RJ-45 100/1000BASE-T"
+      }
+    ],
+    "diagram_notes": []
+  }
+}

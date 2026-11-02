@@ -1,0 +1,56 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71CN91",
+  "definition": {
+    "network": "CANopen",
+    "ports": [
+      "CAN I/F"
+    ],
+    "source": "SH-081734ENG-E 2.1/PDF17,6.1/PDF25,6.3/PDF27",
+    "slots": 1,
+    "occupied_io_points": 32,
+    "panel_interfaces": true,
+    "interfaces": [
+      {
+        "name": "CAN I/F",
+        "kind": "terminal",
+        "ports": [
+          "CAN+",
+          "SLD",
+          "CAN-",
+          "GND"
+        ],
+        "unconnected_ports": [
+          {
+            "signal": "NC",
+            "description": "CAN_V+（本機未使用）",
+            "position": 0
+          }
+        ],
+        "signal_labels": {
+          "CAN+": "CAN_H",
+          "SLD": "CAN_SHLD",
+          "CAN-": "CAN_L",
+          "GND": "CAN_GND"
+        }
+      }
+    ],
+    "diagram_notes": [
+      "両端にCAN+–CAN-間終端抵抗",
+      "NC (CAN_V+)は本機では未使用"
+    ],
+    "unused_terminals": [
+      {
+        "signal": "NC",
+        "description": "CAN_V+; 本機未使用。必要時に外部電源ラインを接続"
+      }
+    ],
+    "terminal_order": [
+      "NC",
+      "CAN+",
+      "SLD",
+      "CAN-",
+      "GND"
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "category": "fx5_cpu",
+  "model": "FX5UC-64MT/D",
+  "definition": {
+    "series": "FX5UC",
+    "base": "FX5UC-64M",
+    "variants": [
+      "T/D"
+    ],
+    "inputs": 32,
+    "outputs": [
+      [
+        0,
+        "0",
+        16
+      ],
+      [
+        1,
+        "20",
+        16
+      ]
+    ],
+    "in_common": "COM",
+    "confirmed": true,
+    "source": "SH-082451Q 5.9 印刷100 / PDF102",
+    "note": "コネクタ形",
+    "battery_supported": true,
+    "usb_port": false,
+    "analog": false,
+    "rs485": true,
+    "service": false,
+    "physical_io": {
+      "input_commons": [
+        {
+          "name": "COM",
+          "start": "0",
+          "points": 16,
+          "contacts": 2,
+          "internal_group": "input:COM"
+        },
+        {
+          "name": "COM",
+          "start": "20",
+          "points": 16,
+          "contacts": 2,
+          "internal_group": "input:COM"
+        }
+      ],
+      "output_commons": [
+        {
+          "group": 0,
+          "name": "COM0",
+          "contacts": 2,
+          "internal_group": "output:0"
+        },
+        {
+          "group": 1,
+          "name": "COM1",
+          "contacts": 2,
+          "internal_group": "output:1"
+        }
+      ],
+      "input_signal_contacts": 1,
+      "output_signal_contacts": 1,
+      "source": {
+        "document": "SH-082451Q",
+        "section": "5.9",
+        "printed_pages": "100",
+        "pdf_pages": "102"
+      }
+    },
+    "power_terminal_details": [
+      {
+        "name": "+",
+        "pin": "1",
+        "wire_color": "赤"
+      },
+      {
+        "name": "-",
+        "pin": "2",
+        "wire_color": "黒"
+      },
+      {
+        "name": "⏚",
+        "pin": "3",
+        "wire_color": "緑"
+      }
+    ]
+  }
+}

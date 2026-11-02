@@ -1,0 +1,418 @@
+{
+  "category": "remote_pulse",
+  "model": "AJ65BT-D75P2-S3",
+  "definition": {
+    "network_terminals": [
+      [
+        "",
+        "DA"
+      ],
+      [
+        "",
+        "DB"
+      ],
+      [
+        "",
+        "DG"
+      ],
+      [
+        "",
+        "SLD"
+      ],
+      [
+        "",
+        "24V"
+      ],
+      [
+        "",
+        "24G"
+      ],
+      [
+        "",
+        "FG"
+      ]
+    ],
+    "source": "IB-66824-I 3.7.2-3.7.4 PDF96-101;4.1.2 PDF105-106;4.3 PDF114",
+    "manual_references": [
+      {
+        "document_number": "IB-66824-I",
+        "pages": "96-101,105-106,114"
+      }
+    ],
+    "diagram_note": "OC/差動は使用方式に応じて配線。ABS信号は運転モードで機能が変わる。",
+    "function": "位置決め 2軸 パルス出力",
+    "signal_terminals": [
+      {
+        "pin": "AX1:1",
+        "signal": "PULSE F",
+        "description": "軸1 パルス出力 OC"
+      },
+      {
+        "pin": "AX1:2",
+        "signal": "PULSE R",
+        "description": "軸1 符号出力 OC"
+      },
+      {
+        "pin": "AX1:3",
+        "signal": "PULSE F+",
+        "description": "軸1 パルス出力 差動＋"
+      },
+      {
+        "pin": "AX1:4",
+        "signal": "PULSE R+",
+        "description": "軸1 符号出力 差動＋"
+      },
+      {
+        "pin": "AX1:5",
+        "signal": "CLEAR",
+        "description": "軸1 偏差カウンタクリア"
+      },
+      {
+        "pin": "AX1:6",
+        "signal": "PG0",
+        "description": "軸1 零点入力 24/15V"
+      },
+      {
+        "pin": "AX1:7",
+        "signal": "READY",
+        "description": "軸1 ドライブ準備完了"
+      },
+      {
+        "pin": "AX1:8",
+        "signal": "INPS",
+        "description": "軸1 位置決め完了"
+      },
+      {
+        "pin": "AX1:9",
+        "signal": "PULSER A+",
+        "description": "軸1 手動パルスA＋"
+      },
+      {
+        "pin": "AX1:10",
+        "signal": "PULSER B+",
+        "description": "軸1 手動パルスB＋"
+      },
+      {
+        "pin": "AX1:11",
+        "signal": "DOG",
+        "description": "軸1 近点ドグ"
+      },
+      {
+        "pin": "AX1:12",
+        "signal": "FLS",
+        "description": "軸1 上限"
+      },
+      {
+        "pin": "AX1:13",
+        "signal": "RLS",
+        "description": "軸1 下限"
+      },
+      {
+        "pin": "AX1:14",
+        "signal": "STOP",
+        "description": "軸1 停止"
+      },
+      {
+        "pin": "AX1:15",
+        "signal": "CHG",
+        "description": "軸1 速度/位置切替"
+      },
+      {
+        "pin": "AX1:16",
+        "signal": "STRT",
+        "description": "軸1 外部始動"
+      },
+      {
+        "pin": "AX1:17",
+        "signal": "ABS BIT0",
+        "description": "軸1 ABSデータ0"
+      },
+      {
+        "pin": "AX1:18",
+        "signal": "ABS BIT1",
+        "description": "軸1 ABSデータ1"
+      },
+      {
+        "pin": "AX1:19",
+        "signal": "PULSE COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX1:20",
+        "signal": "SIGN COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX1:21",
+        "signal": "PULSE F-",
+        "description": "軸1 パルス出力 差動－"
+      },
+      {
+        "pin": "AX1:22",
+        "signal": "PULSE R-",
+        "description": "軸1 符号出力 差動－"
+      },
+      {
+        "pin": "AX1:23",
+        "signal": "CLEAR COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX1:24",
+        "signal": "PG0",
+        "description": "軸1 零点入力 5V"
+      },
+      {
+        "pin": "AX1:25",
+        "signal": "PG0 COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX1:26",
+        "signal": "COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX1:27",
+        "signal": "PULSER A-",
+        "description": "軸1 手動パルスA－"
+      },
+      {
+        "pin": "AX1:28",
+        "signal": "PULSER B-",
+        "description": "軸1 手動パルスB－"
+      },
+      {
+        "pin": "AX1:29",
+        "signal": "SON",
+        "description": "軸1 サーボON"
+      },
+      {
+        "pin": "AX1:30",
+        "signal": "ABSM",
+        "description": "軸1 ABS転送モード"
+      },
+      {
+        "pin": "AX1:31",
+        "signal": "ABS REQ",
+        "description": "軸1 ABS要求"
+      },
+      {
+        "pin": "AX1:32",
+        "signal": "COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX1:33",
+        "signal": "COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX1:34",
+        "signal": "ABS READY",
+        "description": "軸1 ABS転送準備完了"
+      },
+      {
+        "pin": "AX1:35",
+        "signal": "COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX1:36",
+        "signal": "COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX2:1",
+        "signal": "PULSE F",
+        "description": "軸2 パルス出力 OC"
+      },
+      {
+        "pin": "AX2:2",
+        "signal": "PULSE R",
+        "description": "軸2 符号出力 OC"
+      },
+      {
+        "pin": "AX2:3",
+        "signal": "PULSE F+",
+        "description": "軸2 パルス出力 差動＋"
+      },
+      {
+        "pin": "AX2:4",
+        "signal": "PULSE R+",
+        "description": "軸2 符号出力 差動＋"
+      },
+      {
+        "pin": "AX2:5",
+        "signal": "CLEAR",
+        "description": "軸2 偏差カウンタクリア"
+      },
+      {
+        "pin": "AX2:6",
+        "signal": "PG0",
+        "description": "軸2 零点入力 24/15V"
+      },
+      {
+        "pin": "AX2:7",
+        "signal": "READY",
+        "description": "軸2 ドライブ準備完了"
+      },
+      {
+        "pin": "AX2:8",
+        "signal": "INPS",
+        "description": "軸2 位置決め完了"
+      },
+      {
+        "pin": "AX2:9",
+        "signal": "PULSER A+",
+        "description": "軸2 手動パルスA＋"
+      },
+      {
+        "pin": "AX2:10",
+        "signal": "PULSER B+",
+        "description": "軸2 手動パルスB＋"
+      },
+      {
+        "pin": "AX2:11",
+        "signal": "DOG",
+        "description": "軸2 近点ドグ"
+      },
+      {
+        "pin": "AX2:12",
+        "signal": "FLS",
+        "description": "軸2 上限"
+      },
+      {
+        "pin": "AX2:13",
+        "signal": "RLS",
+        "description": "軸2 下限"
+      },
+      {
+        "pin": "AX2:14",
+        "signal": "STOP",
+        "description": "軸2 停止"
+      },
+      {
+        "pin": "AX2:15",
+        "signal": "CHG",
+        "description": "軸2 速度/位置切替"
+      },
+      {
+        "pin": "AX2:16",
+        "signal": "STRT",
+        "description": "軸2 外部始動"
+      },
+      {
+        "pin": "AX2:17",
+        "signal": "ABS BIT0",
+        "description": "軸2 ABSデータ0"
+      },
+      {
+        "pin": "AX2:18",
+        "signal": "ABS BIT1",
+        "description": "軸2 ABSデータ1"
+      },
+      {
+        "pin": "AX2:19",
+        "signal": "PULSE COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX2:20",
+        "signal": "SIGN COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX2:21",
+        "signal": "PULSE F-",
+        "description": "軸2 パルス出力 差動－"
+      },
+      {
+        "pin": "AX2:22",
+        "signal": "PULSE R-",
+        "description": "軸2 符号出力 差動－"
+      },
+      {
+        "pin": "AX2:23",
+        "signal": "CLEAR COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX2:24",
+        "signal": "PG0",
+        "description": "軸2 零点入力 5V"
+      },
+      {
+        "pin": "AX2:25",
+        "signal": "PG0 COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX2:26",
+        "signal": "COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX2:27",
+        "signal": "PULSER A-",
+        "description": "軸2 手動パルスA－"
+      },
+      {
+        "pin": "AX2:28",
+        "signal": "PULSER B-",
+        "description": "軸2 手動パルスB－"
+      },
+      {
+        "pin": "AX2:29",
+        "signal": "SON",
+        "description": "軸2 サーボON"
+      },
+      {
+        "pin": "AX2:30",
+        "signal": "ABSM",
+        "description": "軸2 ABS転送モード"
+      },
+      {
+        "pin": "AX2:31",
+        "signal": "ABS REQ",
+        "description": "軸2 ABS要求"
+      },
+      {
+        "pin": "AX2:32",
+        "signal": "COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX2:33",
+        "signal": "COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX2:34",
+        "signal": "ABS READY",
+        "description": "軸2 ABS転送準備完了"
+      },
+      {
+        "pin": "AX2:35",
+        "signal": "COM",
+        "description": "コモン"
+      },
+      {
+        "pin": "AX2:36",
+        "signal": "COM",
+        "description": "コモン"
+      }
+    ],
+    "axis_connector": "36ピン 外部接続コネクタ×2",
+    "module_role": "remote_station",
+    "network": "CC-Link",
+    "auto_wiring": false,
+    "verification_status": "資料照合",
+    "verification_remaining": [
+      "実機未確認"
+    ],
+    "network_terminal_numbering": "資料の接続図に端子番号の記載がないため、信号名で表示。",
+    "production_end_date": "2021-03-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcnet&category=discon&bunrui1=CC-Link"
+  }
+}

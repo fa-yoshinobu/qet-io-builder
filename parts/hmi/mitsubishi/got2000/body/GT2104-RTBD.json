@@ -1,0 +1,109 @@
+{
+  "category": "got_body",
+  "model": "GT2104-RTBD",
+  "definition": {
+    "series": "GOT2000",
+    "subseries": "GT21",
+    "display": "4.3型",
+    "screen_size_inch": 4.3,
+    "power": {
+      "supply": "DC24V",
+      "ports": [
+        "＋",
+        "−",
+        "⏚"
+      ],
+      "port_pins": [],
+      "ground_terminals": [
+        "FG"
+      ],
+      "connection": "電源コネクタ端子台",
+      "physical_order": "電源端子配線図の左から／縦形は上から",
+      "source": "SH-081194ENG-AW 8.2–8.3/PDF328–330"
+    },
+    "interfaces": [
+      {
+        "name": "SERIAL RS-232/422/485",
+        "kind": "terminal",
+        "ports": [
+          "CSB",
+          "CSA",
+          "RSA",
+          "RSB",
+          "SG",
+          "RDB",
+          "RDA",
+          "SDB",
+          "SDA"
+        ],
+        "port_pins": [],
+        "pin_label_basis": "signal_marking",
+        "mode": "RS-422/485",
+        "modes": {
+          "RS-422/485": {
+            "ports": [
+              "CSB",
+              "CSA",
+              "RSA",
+              "RSB",
+              "SG",
+              "RDB",
+              "RDA",
+              "SDB",
+              "SDA"
+            ]
+          },
+          "RS-232": {
+            "ports": [
+              "RS",
+              "CS",
+              "SG",
+              "DR",
+              "ER",
+              "RD",
+              "SD"
+            ],
+            "unconnected_positions": [
+              "左1",
+              "左2"
+            ]
+          }
+        },
+        "physical_order": "背面視・左から"
+      },
+      {
+        "name": "Ethernet",
+        "kind": "rj45",
+        "connector_label": "RJ-45",
+        "ports": []
+      },
+      {
+        "name": "USB DEVICE 背面",
+        "kind": "usb_mini_b",
+        "connector_label": "USB Mini-B",
+        "ports": [],
+        "position": "背面"
+      },
+      {
+        "name": "SD CARD",
+        "kind": "sd",
+        "connector_label": "SD/SDHC",
+        "ports": []
+      }
+    ],
+    "battery_supported": true,
+    "battery_type": "GT11-50BAT",
+    "usb_host_ports": 0,
+    "usb_device_ports": 1,
+    "sd_card_supported": true,
+    "sd_card_optional": false,
+    "sd_card_option": "",
+    "source": "SH-081194ENG-AW 3.2 印刷104/PDF106;8.2–8.3 印刷326–328/PDF328–330; SH-081200ENG-AS 1.4/PDF51–52,2.3/PDF83–88",
+    "diagram_notes": [
+      "共用9極端子台はRS-422/485表記"
+    ],
+    "verification_note": "コネクタ形状・端子印字を資料照合。配線方式・実機は未確認",
+    "resolution": "480x272",
+    "resolution_source": "SH-081194ENG-AW 3.2 印刷104/PDF106"
+  }
+}

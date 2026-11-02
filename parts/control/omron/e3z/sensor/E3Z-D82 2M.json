@@ -1,0 +1,96 @@
+{
+  "category": "standard_device",
+  "model": "E3Z-D82 2M",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "E3Z",
+    "device_type": "photoelectric_sensor",
+    "source": "CSM_E3Z_DS_E_18_10 p2（形式）, p5/7（定格）, p11（動作・配線）",
+    "official_html": "https://www.fa.omron.co.jp/product/item/E3Z-D82_2M/",
+    "output_type": "PNP open collector",
+    "operation": "Light-ON/Dark-ON切替",
+    "wire_count": 3,
+    "connection_type": "コード引き出し 2m",
+    "wire_colors": {
+      "plus": "茶",
+      "minus": "青",
+      "out": "黒"
+    },
+    "pins": [
+      {
+        "wire_color": "茶",
+        "signal": "+V",
+        "role": "plus"
+      },
+      {
+        "wire_color": "青",
+        "signal": "0V",
+        "role": "minus"
+      },
+      {
+        "wire_color": "黒",
+        "signal": "OUT",
+        "role": "out"
+      }
+    ],
+    "sensing_method": "拡散反射形",
+    "sensing_distance_mm": 1000,
+    "sensing_target": "白画用紙 300×300mm",
+    "ratings": {
+      "supply_vdc_nominal_min": 12,
+      "supply_vdc_nominal_max": 24,
+      "supply_tolerance_percent": 10,
+      "load_current_ma_max": 100,
+      "load_supply_vdc_max": 26.4
+    },
+    "display_ratings": "PNP 12–24VDC±10% 100mA / 1000mm",
+    "verification_note": "公式資料で形式・線色・信号・出力を照合。Light-ON/Dark-ONを生成時に選択する。裸線式のためピン番号なし。実機未確認。",
+    "configuration_required": true,
+    "configuration_options": [
+      {
+        "id": "light_on",
+        "label": "Light-ON",
+        "symbol_bindings": [
+          {
+            "name": "sensor",
+            "symbol": "photoelectric_sensor_no",
+            "terminals": {
+              "plus": [
+                "茶 +V"
+              ],
+              "minus": [
+                "青 0V"
+              ],
+              "out": [
+                "黒 OUT"
+              ]
+            }
+          }
+        ],
+        "display_ratings": "PNP Light-ON 12–24VDC±10% 100mA / 1000mm"
+      },
+      {
+        "id": "dark_on",
+        "label": "Dark-ON",
+        "symbol_bindings": [
+          {
+            "name": "sensor",
+            "symbol": "photoelectric_sensor_nc",
+            "terminals": {
+              "plus": [
+                "茶 +V"
+              ],
+              "minus": [
+                "青 0V"
+              ],
+              "out": [
+                "黒 OUT"
+              ]
+            }
+          }
+        ],
+        "display_ratings": "PNP Dark-ON 12–24VDC±10% 100mA / 1000mm"
+      }
+    ]
+  }
+}

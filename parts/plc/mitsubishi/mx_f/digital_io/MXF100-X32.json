@@ -1,0 +1,270 @@
+{
+  "category": "mx_io",
+  "model": "MXF100-X32",
+  "definition": {
+    "signal_terminals": [
+      {
+        "pin": "",
+        "signal": "X00",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 0
+      },
+      {
+        "pin": "",
+        "signal": "X01",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 1
+      },
+      {
+        "pin": "",
+        "signal": "X02",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 2
+      },
+      {
+        "pin": "",
+        "signal": "X03",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 3
+      },
+      {
+        "pin": "",
+        "signal": "X04",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 4
+      },
+      {
+        "pin": "",
+        "signal": "X05",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 5
+      },
+      {
+        "pin": "",
+        "signal": "X06",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 6
+      },
+      {
+        "pin": "",
+        "signal": "X07",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 7
+      },
+      {
+        "pin": "",
+        "signal": "S/S",
+        "description": "コモン"
+      },
+      {
+        "pin": "",
+        "signal": "X08",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 8
+      },
+      {
+        "pin": "",
+        "signal": "X09",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 9
+      },
+      {
+        "pin": "",
+        "signal": "X0A",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 10
+      },
+      {
+        "pin": "",
+        "signal": "X0B",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 11
+      },
+      {
+        "pin": "",
+        "signal": "X0C",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 12
+      },
+      {
+        "pin": "",
+        "signal": "X0D",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 13
+      },
+      {
+        "pin": "",
+        "signal": "X0E",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 14
+      },
+      {
+        "pin": "",
+        "signal": "X0F",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 15
+      },
+      {
+        "pin": "",
+        "signal": "S/S",
+        "description": "コモン"
+      },
+      {
+        "pin": "",
+        "signal": "X10",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 16
+      },
+      {
+        "pin": "",
+        "signal": "X11",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 17
+      },
+      {
+        "pin": "",
+        "signal": "X12",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 18
+      },
+      {
+        "pin": "",
+        "signal": "X13",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 19
+      },
+      {
+        "pin": "",
+        "signal": "X14",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 20
+      },
+      {
+        "pin": "",
+        "signal": "X15",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 21
+      },
+      {
+        "pin": "",
+        "signal": "X16",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 22
+      },
+      {
+        "pin": "",
+        "signal": "X17",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 23
+      },
+      {
+        "pin": "",
+        "signal": "S/S",
+        "description": "コモン"
+      },
+      {
+        "pin": "",
+        "signal": "X18",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 24
+      },
+      {
+        "pin": "",
+        "signal": "X19",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 25
+      },
+      {
+        "pin": "",
+        "signal": "X1A",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 26
+      },
+      {
+        "pin": "",
+        "signal": "X1B",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 27
+      },
+      {
+        "pin": "",
+        "signal": "X1C",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 28
+      },
+      {
+        "pin": "",
+        "signal": "X1D",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 29
+      },
+      {
+        "pin": "",
+        "signal": "X1E",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 30
+      },
+      {
+        "pin": "",
+        "signal": "X1F",
+        "description": "予備",
+        "address_prefix": "X",
+        "address": 31
+      },
+      {
+        "pin": "",
+        "signal": "S/S",
+        "description": "コモン"
+      }
+    ],
+    "source": "SH-082633-E 2.1/PDF61;5章;13.2",
+    "inputs": 32,
+    "outputs": 0,
+    "diagram_note": "端子記号は実物表示、アドレスは16進の割付値。重複するコモン・端子は省略しない。",
+    "output_type": "",
+    "input_voltage": "DC24V",
+    "input_type": "シンク/ソース",
+    "terminal_type": "スプリングクランプ端子台",
+    "output_voltage": "",
+    "output_current": "",
+    "physical_terminal_labels": true,
+    "manual_references": [
+      {
+        "document_number": "SH-082633-E",
+        "pages": "59,194,282-284",
+        "page_numbering": "冊子"
+      }
+    ]
+  }
+}

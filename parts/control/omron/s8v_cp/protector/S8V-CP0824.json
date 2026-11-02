@@ -1,0 +1,156 @@
+{
+  "category": "standard_device",
+  "model": "S8V-CP0824",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "S8V-CP",
+    "device_type": "electronic_protector",
+    "component_style": "terminal_box",
+    "input": {
+      "voltage": "DC24V",
+      "allowed_voltage_v": [
+        20,
+        30
+      ],
+      "max_current_a": 70,
+      "max_current_per_positive_terminal_a": 35
+    },
+    "outputs": {
+      "channels": 8,
+      "nominal_voltage_v": 24,
+      "settings_a": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        10
+      ],
+      "setting_required": true,
+      "ul_class_2": false
+    },
+    "display_ratings": "8分岐 電流は各出力で設定",
+    "terminal_groups": [
+      {
+        "name": "電源・制御入力",
+        "role": "input",
+        "terminals": [
+          {
+            "label": "+VI1",
+            "signal": "DC24V",
+            "position": "正面入力上"
+          },
+          {
+            "label": "+VI2",
+            "signal": "DC24V",
+            "position": "正面入力下"
+          },
+          {
+            "label": "-VI1",
+            "signal": "SIGNAL_0V",
+            "position": "正面信号入力上"
+          },
+          {
+            "label": "-VI2",
+            "signal": "SIGNAL_0V",
+            "position": "正面信号入力下"
+          },
+          {
+            "label": "RST",
+            "signal": "RESET",
+            "position": "正面信号下部上"
+          }
+        ]
+      },
+      {
+        "name": "分岐出力",
+        "role": "output",
+        "terminals": [
+          {
+            "label": "+VO1",
+            "signal": "CH1_DC24V",
+            "position": "正面出力端子列・上から1"
+          },
+          {
+            "label": "+VO2",
+            "signal": "CH2_DC24V",
+            "position": "正面出力端子列・上から2"
+          },
+          {
+            "label": "+VO3",
+            "signal": "CH3_DC24V",
+            "position": "正面出力端子列・上から3"
+          },
+          {
+            "label": "+VO4",
+            "signal": "CH4_DC24V",
+            "position": "正面出力端子列・上から4"
+          },
+          {
+            "label": "+VO5",
+            "signal": "CH5_DC24V",
+            "position": "正面出力端子列・上から5"
+          },
+          {
+            "label": "+VO6",
+            "signal": "CH6_DC24V",
+            "position": "正面出力端子列・上から6"
+          },
+          {
+            "label": "+VO7",
+            "signal": "CH7_DC24V",
+            "position": "正面出力端子列・上から7"
+          },
+          {
+            "label": "+VO8",
+            "signal": "CH8_DC24V",
+            "position": "正面出力端子列・上から8"
+          }
+        ]
+      },
+      {
+        "name": "警報出力",
+        "role": "signal",
+        "terminals": [
+          {
+            "label": "ALM1",
+            "signal": "ALARM",
+            "position": "正面信号下部中"
+          },
+          {
+            "label": "ALM2",
+            "signal": "ALARM",
+            "position": "正面信号下部下"
+          }
+        ]
+      }
+    ],
+    "reset_input": {
+      "high_v": [
+        20,
+        30
+      ],
+      "low_v": [
+        0,
+        5
+      ]
+    },
+    "alarm_output": {
+      "type": "MOS FETリレー",
+      "max_voltage_v": 30,
+      "max_current_ma": 50
+    },
+    "wiring_notes": [
+      "-VI1/-VI2は内部回路の基準用。負荷電流を流さない。",
+      "負荷の0Vは別のコモン端子台から電源0Vへ戻す。",
+      "ALM1/ALM2は警報信号用。DC24Vの給電出力ではない。"
+    ],
+    "diagram_notes": [
+      "-VIへ負荷電流を流さない",
+      "ALM: DC30V / 50mA以下"
+    ],
+    "source": "T226-E1_6_1 p1–2（型式・定格）、p4–6（回路・接続・端子）",
+    "official_html": "https://www.fa.omron.co.jp/products/family/3780/lineup/",
+    "verification_note": "各部参照番号を端子番号として登録しない。端子名称と接点数を公式図で照合。電流設定・選定・実機動作は未確認。"
+  }
+}

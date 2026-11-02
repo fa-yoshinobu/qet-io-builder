@@ -1,0 +1,566 @@
+{
+  "category": "remote_io",
+  "model": "NZ2GFCE3-16TE",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "module_role": "main",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female"
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female"
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "CON A",
+        "connector_type": "one_touch_5",
+        "pins": [
+          [
+            "1",
+            "FG"
+          ],
+          [
+            "2",
+            "+24V(UNIT)"
+          ],
+          [
+            "3",
+            "24G(UNIT)"
+          ],
+          [
+            "4",
+            "+24V(I/O)"
+          ],
+          [
+            "5",
+            "24G(I/O)"
+          ]
+        ]
+      },
+      {
+        "name": "CON B",
+        "connector_type": "one_touch_5",
+        "pins": [
+          [
+            "1",
+            "FG"
+          ],
+          [
+            "2",
+            "+24V(UNIT)"
+          ],
+          [
+            "3",
+            "24G(UNIT)"
+          ],
+          [
+            "4",
+            "+24V(I/O)"
+          ],
+          [
+            "5",
+            "24G(I/O)"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "A1",
+        "FG"
+      ],
+      [
+        "A2",
+        "+24V UNIT"
+      ],
+      [
+        "A3",
+        "24G UNIT"
+      ],
+      [
+        "A4",
+        "+24V I/O"
+      ],
+      [
+        "A5",
+        "24G I/O"
+      ],
+      [
+        "B1",
+        "FG"
+      ],
+      [
+        "B2",
+        "+24V UNIT"
+      ],
+      [
+        "B3",
+        "24G UNIT"
+      ],
+      [
+        "B4",
+        "+24V I/O"
+      ],
+      [
+        "B5",
+        "24G I/O"
+      ]
+    ],
+    "confirmed": true,
+    "source": "SH-081114ENG-T 4.2 印刷105,106,107 / PDF107,108,109",
+    "source_reference": {
+      "document": "SH-081114ENG-T",
+      "section": "4.2",
+      "printed_pages": [
+        105,
+        106,
+        107
+      ],
+      "pdf_pages": [
+        107,
+        108,
+        109
+      ]
+    },
+    "lifecycle": "公式ラインアップ掲載（発売中の断定ではない）",
+    "extension_support": "最大1台",
+    "note": "局内X/Y番号を表示。CPU側の割付はネットワーク設定で確認。",
+    "power_notes": [
+      "未使用電源コネクタに無配線コネクタを装着",
+      "増設I/O電源は別途供給"
+    ],
+    "io": "out",
+    "points": 16,
+    "pins": [
+      "C1-4",
+      "C2-4",
+      "C3-4",
+      "C4-4",
+      "C5-4",
+      "C6-4",
+      "C7-4",
+      "C8-4",
+      "C9-4",
+      "C10-4",
+      "C11-4",
+      "C12-4",
+      "C13-4",
+      "C14-4",
+      "C15-4",
+      "C16-4"
+    ],
+    "terminal_block": "e-CON 4ピン",
+    "out": "source",
+    "vplus": "",
+    "com": "",
+    "manual_output_note": "I/O電源は構成・コネクタページを参照",
+    "io_connectors": [
+      {
+        "name": "CON1",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "Y0"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON2",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "Y1"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON3",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "Y2"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON4",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "Y3"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON5",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "Y4"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON6",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "Y5"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON7",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "Y6"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON8",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "Y7"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON9",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "Y8"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON10",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "Y9"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON11",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "YA"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON12",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "YB"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON13",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "YC"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON14",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "YD"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON15",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "YE"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      },
+      {
+        "name": "CON16",
+        "connector_type": "econ_4",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "NC"
+          ],
+          [
+            "3",
+            "24G"
+          ],
+          [
+            "4",
+            "YF"
+          ]
+        ],
+        "no_connect_pins": [
+          "2"
+        ]
+      }
+    ]
+  }
+}

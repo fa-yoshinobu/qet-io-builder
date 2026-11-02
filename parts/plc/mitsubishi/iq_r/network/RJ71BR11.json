@@ -1,0 +1,12 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71BR11",
+  "definition": {
+    "network": "MELSECNET/H 同軸",
+    "ports": [
+      "同軸"
+    ],
+    "source": "SH-082202ENG 1.2",
+    "connector_type": "coax"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "category": "iqr_q",
+  "model": "RX40C7",
+  "definition": {
+    "io": "in",
+    "points": 16,
+    "pins": "TB16",
+    "common": [
+      "TB17"
+    ],
+    "confirmed": true,
+    "note": "自型式の端子表で確認済み。TB17=COM。",
+    "source": "SH-081247ENG-M 3.1 PDF30/印刷28"
+  }
+}

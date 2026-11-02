@@ -1,0 +1,91 @@
+{
+  "category": "standard_device",
+  "model": "HW1B-A122G",
+  "definition": {
+    "manufacturer": "IDEC",
+    "series": "HW",
+    "source": "P5061A-G-HW-old 印刷p.290・291・341（形名・動作・ブロック別端子）",
+    "official_html": "https://www.idec.com/ja-jp/switches-indicator-lights",
+    "terminal_view": "操作部とコンタクトブロックの端子表示。複数接点はブロックごとの番号。",
+    "terminal_type": "M3.5ねじ",
+    "notes": [
+      "機器番号・複数接点の機械連動と照光回路は配置後に関連付ける。ランプと接点は別回路。",
+      "2025年6月版以降の新カタログモデルとは構成・寸法が異なる場合がある。ここではP5061A掲載ねじ端子機種の電気端子を扱う。",
+      "保持動作は汎用保持スイッチの機能記号とオルタネイトの文字表示で表す。押ボタン外観は再現せず、モメンタリ押ボタン記号を流用しない。",
+      "同種の接点ブロックが複数ある場合も、各a接点は3–4、各b接点は1–2の別回路。刻印が同じでも内部接続しない。"
+    ],
+    "device_type": "switch",
+    "operation": "alternate",
+    "color": "緑",
+    "illuminated": false,
+    "contact_configuration": "2a2b",
+    "display_ratings": "オルタネイト（押すごとに保持/解除） 2a2b",
+    "symbol_bindings": [
+      {
+        "name": "pushbutton",
+        "symbol": "maintained_switch_no",
+        "terminals": {
+          "first": [
+            "3"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "no_2",
+        "symbol": "contact_no",
+        "terminals": {
+          "first": [
+            "3"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "nc_1",
+        "symbol": "contact_nc",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      },
+      {
+        "name": "nc_2",
+        "symbol": "contact_nc",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      }
+    ],
+    "mechanically_linked": [
+      "pushbutton",
+      "no_2",
+      "nc_1",
+      "nc_2"
+    ],
+    "verification_note": "公式資料の形式・回路・端子表記を照合。実機配線・実機動作は未確認。",
+    "operating_states": {
+      "released": {
+        "no": "open",
+        "nc": "closed"
+      },
+      "latched": {
+        "no": "closed",
+        "nc": "open"
+      }
+    }
+  }
+}

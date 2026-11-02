@@ -1,0 +1,118 @@
+{
+  "category": "standard_device",
+  "model": "MS4SC-CE",
+  "definition": {
+    "manufacturer": "FUJI ELECTRIC",
+    "series": "MS4S",
+    "device_type": "timer",
+    "source": "62E1-J-0042c_タイマ 2-5～8・15～17・24～27（形式・接続図・動作・ソケット）",
+    "official_html": "https://www.fujielectric.co.jp/products/timer/ms4s_st7p/",
+    "operation": "power_on_delay",
+    "reset": "self_reset",
+    "contact_configuration": "限時1c＋瞬時1c",
+    "instantaneous_contacts": 1,
+    "coil": {
+      "terminals": [
+        "2",
+        "7"
+      ],
+      "rated_voltage": "AC/DC24V",
+      "voltage_selection_required": false,
+      "polarity_by_terminal": {
+        "2": "- (DC)",
+        "7": "+ (DC)"
+      }
+    },
+    "ratings": {
+      "supply_vdc": 24,
+      "resistive_contact_rating": {
+        "voltage_v_ac": 250,
+        "current_a": 5
+      },
+      "supply_vac": 24
+    },
+    "time": {
+      "setting_range_total": "0.05秒～60時間",
+      "mode": "on_delay",
+      "unit_options": [
+        "0.1s",
+        "s",
+        "min",
+        "h"
+      ],
+      "full_scale_options": [
+        6,
+        12,
+        30,
+        60
+      ],
+      "range_count": 16
+    },
+    "selection_required": [
+      "time_range",
+      "set_time"
+    ],
+    "socket_candidates": [
+      "TP48X"
+    ],
+    "terminal_numbering": "timer_body_physical_pin",
+    "display_ratings": "AC/DC24V オンディレイ 限時1c＋瞬時1c",
+    "default_configuration": "on_delay",
+    "configuration_options": [
+      {
+        "id": "on_delay",
+        "label": "オンディレイ",
+        "symbol_bindings": [
+          {
+            "name": "timer",
+            "symbol": "timer_on_delay",
+            "terminals": {
+              "a1": [
+                "2"
+              ],
+              "a2": [
+                "7"
+              ]
+            }
+          },
+          {
+            "name": "instant_contact_1",
+            "symbol": "contact_changeover",
+            "terminals": {
+              "common": [
+                "1"
+              ],
+              "no": [
+                "3"
+              ],
+              "nc": [
+                "4"
+              ]
+            }
+          },
+          {
+            "name": "timed_contact_2",
+            "symbol": "timer_changeover_on_delay",
+            "terminals": {
+              "common": [
+                "8"
+              ],
+              "no": [
+                "6"
+              ],
+              "nc": [
+                "5"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "本体ピン番号を使用。ソケットは同番号の外部端子への通過接続を別部品として出力する。",
+      "DC電源の極性を守る。AC/DC共用品をACで使用する場合は極性なし。",
+      "時限設定は実機で合わせる。別の動作方式・電圧・時間レンジ品へ流用しない。"
+    ],
+    "verification_note": "公式国内カタログで照合。実機未確認。"
+  }
+}

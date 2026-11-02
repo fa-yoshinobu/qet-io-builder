@@ -1,0 +1,47 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ61BT11",
+  "definition": {
+    "network": "CC-Link",
+    "ports": [
+      "DA",
+      "SLD",
+      "DB",
+      "FG",
+      "DG"
+    ],
+    "source": "SH-081269ENG-G 6.1 PDF37/印刷35;6.2 PDF38/印刷36",
+    "connector_type": "terminal",
+    "port_pins": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "unconnected_pins": [
+      "1",
+      "2"
+    ],
+    "unconnected_ports": [
+      {
+        "pin": "1",
+        "signal": "NC",
+        "description": "配線不可",
+        "position": 0
+      },
+      {
+        "pin": "2",
+        "signal": "NC",
+        "description": "配線不可",
+        "position": 1
+      }
+    ],
+    "shield_ground_connected": true,
+    "notes": [
+      "1・2はNC（配線禁止）",
+      "SLD・FGは内部接続",
+      "終端抵抗はDA–DB間に接続"
+    ]
+  }
+}

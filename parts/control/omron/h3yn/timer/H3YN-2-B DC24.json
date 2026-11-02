@@ -1,0 +1,118 @@
+{
+  "category": "standard_device",
+  "model": "H3YN-2-B DC24",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "H3YN-B",
+    "device_type": "timer",
+    "source": "CSM_H3Y_M092-E1_2_8 p.23–24・27・29–30・38（H3YN-B、標準結線・動作・極性）",
+    "official_html": "https://www.fa.omron.co.jp/product/item/H3YN-2-B_DC24/",
+    "operation": "power_on_delay",
+    "reset": "self_reset",
+    "contact_configuration": "2c 限時",
+    "instantaneous_contacts": 0,
+    "coil": {
+      "terminals": [
+        "13",
+        "14"
+      ],
+      "rated_voltage": "DC24V",
+      "voltages": {
+        "dc_v": [
+          "24"
+        ]
+      },
+      "voltage_selection_required": false,
+      "polarity_by_terminal": {
+        "13": "-",
+        "14": "+"
+      }
+    },
+    "ratings": {
+      "supply_vdc": 24,
+      "resistive_contact_rating": {
+        "voltage_v_ac": 250,
+        "current_a": 5
+      },
+      "supply_on_consumption_w": 1.1,
+      "supply_off_consumption_w": 0.1
+    },
+    "time": {
+      "setting_range_total": "0.1秒～10分",
+      "range_options": [
+        "1s",
+        "10s",
+        "1min",
+        "10min"
+      ],
+      "mode": "on_delay"
+    },
+    "selection_required": [
+      "time_range",
+      "set_time"
+    ],
+    "socket_candidates": [
+      "PYF-08-PU-L"
+    ],
+    "terminal_numbering": "timer_body_physical_pin",
+    "display_ratings": "DC24V オンディレイ 2c / 短時間",
+    "default_configuration": "on_delay",
+    "configuration_options": [
+      {
+        "id": "on_delay",
+        "label": "オンディレイ",
+        "symbol_bindings": [
+          {
+            "name": "timer",
+            "symbol": "timer_on_delay",
+            "terminals": {
+              "a1": [
+                "13"
+              ],
+              "a2": [
+                "14"
+              ]
+            }
+          },
+          {
+            "name": "timed_contact_1",
+            "symbol": "timer_changeover_on_delay",
+            "terminals": {
+              "common": [
+                "9"
+              ],
+              "no": [
+                "5"
+              ],
+              "nc": [
+                "1"
+              ]
+            }
+          },
+          {
+            "name": "timed_contact_2",
+            "symbol": "timer_changeover_on_delay",
+            "terminals": {
+              "common": [
+                "12"
+              ],
+              "no": [
+                "8"
+              ],
+              "nc": [
+                "4"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "作図はオンディレイのみ。インターバル・フリッカおよびパルス外部入力結線へ流用しない。",
+      "DC電源13−・14＋。本体ピン番号を使い、ソケットIEC刻印とは区別する。",
+      "全出力は限時c接点。瞬時接点はない。時間レンジと設定値は実機で合わせる。",
+      "B形はPYF-08-PU-L/PYF-14-PU-L対応。ベージュ形の取付・ソケット適合を混在させない。"
+    ],
+    "verification_note": "公式カタログを保存して端子・極性・オンディレイ動作を照合。実機の設定時間・動作は未確認。"
+  }
+}

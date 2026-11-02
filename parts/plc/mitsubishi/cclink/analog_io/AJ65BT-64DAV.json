@@ -1,0 +1,154 @@
+{
+  "category": "remote_analog",
+  "model": "AJ65BT-64DAV",
+  "definition": {
+    "channels": [
+      "出力",
+      "出力",
+      "出力",
+      "出力"
+    ],
+    "terminals": [
+      "V+",
+      "COM"
+    ],
+    "power": [],
+    "network_terminals": [
+      [
+        "1",
+        "DA"
+      ],
+      [
+        "2",
+        "DB"
+      ],
+      [
+        "3",
+        "DG"
+      ],
+      [
+        "4",
+        "SLD"
+      ],
+      [
+        "5",
+        "+24V"
+      ],
+      [
+        "6",
+        "FG"
+      ],
+      [
+        "7",
+        "24G"
+      ]
+    ],
+    "source": "SH-3615-G 4.2 PDF32;4.6 PDF36-37",
+    "manual_references": [
+      {
+        "document_number": "SH-3615-G",
+        "pages": "36-37"
+      }
+    ],
+    "diagram_note": "HLD/CLRは短絡でHOLD、開放でCLEAR。TESTは通常時開放。",
+    "auxiliary_terminals": [
+      {
+        "pin": "8",
+        "signal": "TEST",
+        "description": "テスト"
+      },
+      {
+        "pin": "10",
+        "signal": "TEST",
+        "description": "テスト"
+      },
+      {
+        "pin": "9",
+        "signal": "HLD/CLR",
+        "description": "保持/クリア"
+      },
+      {
+        "pin": "11",
+        "signal": "HLD/CLR",
+        "description": "保持/クリア"
+      }
+    ],
+    "pins_by_channel": [
+      [
+        "13",
+        "14"
+      ],
+      [
+        "17",
+        "18"
+      ],
+      [
+        "21",
+        "22"
+      ],
+      [
+        "25",
+        "26"
+      ]
+    ],
+    "function": "アナログ出力",
+    "signal_labels_by_direction": {
+      "出力": {
+        "V+": "電圧出力",
+        "COM": "コモン"
+      }
+    },
+    "unused_pins": [
+      {
+        "pin": "12",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "pin": "15",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "pin": "16",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "pin": "19",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "pin": "20",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "pin": "23",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "pin": "24",
+        "signal": "NC",
+        "connectable": false
+      },
+      {
+        "pin": "27",
+        "signal": "NC",
+        "connectable": false
+      }
+    ],
+    "module_role": "remote_station",
+    "network": "CC-Link",
+    "auto_wiring": false,
+    "verification_status": "資料照合",
+    "verification_remaining": [
+      "実機未確認"
+    ],
+    "blank_terminal_marking": "端子表が空欄の実端子は、図面上の未接続指示としてNCを付記。",
+    "production_end_date": "2021-09-30",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcnet&category=discon&bunrui1=CC-Link"
+  }
+}

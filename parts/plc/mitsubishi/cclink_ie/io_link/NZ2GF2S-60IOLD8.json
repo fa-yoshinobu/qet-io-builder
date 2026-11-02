@@ -1,0 +1,256 @@
+{
+  "category": "remote_iolink",
+  "model": "NZ2GF2S-60IOLD8",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "confirmed": true,
+    "source": "SH-081916-E 印刷12-20/34-41 / PDF14-22/36-43",
+    "note": "IO-Linkマスタ。CQの機能はポートモード設定による。通常の固定DI/DOユニットとして扱わない。",
+    "power_notes": [
+      "UNIT3極とIO-Link40極の外部給電を区別",
+      "UNIT–I/O間は絶縁、CH間は非絶縁。L+1.6A/CH、4A/COM"
+    ],
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female",
+        "pins": []
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female",
+        "pins": []
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "UNIT POWER",
+        "connector_type": "terminal_3",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "24G"
+          ],
+          [
+            "3",
+            "FG"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "UNIT POWER 1",
+        "+24V"
+      ],
+      [
+        "UNIT POWER 2",
+        "24G"
+      ],
+      [
+        "UNIT POWER 3",
+        "FG"
+      ]
+    ],
+    "terminal_block": "I/O端子台",
+    "channels": [
+      "CH1",
+      "CH2",
+      "CH3",
+      "CH4",
+      "CH5",
+      "CH6",
+      "CH7",
+      "CH8"
+    ],
+    "io_link_modes": [
+      "無効",
+      "IO-Link(標準)",
+      "IO-Link(シンク入力)",
+      "SIO(シンク入力)",
+      "SIO(ソース出力)",
+      "電源供給"
+    ],
+    "io_connectors": [
+      {
+        "name": "IO-LINK",
+        "connector_type": "terminal_40",
+        "gender": "none",
+        "pins": [
+          [
+            "1",
+            "+24V"
+          ],
+          [
+            "2",
+            "24G"
+          ],
+          [
+            "3",
+            "+24V"
+          ],
+          [
+            "4",
+            "24G"
+          ],
+          [
+            "5",
+            "NC"
+          ],
+          [
+            "6",
+            "FG"
+          ],
+          [
+            "7",
+            "NC"
+          ],
+          [
+            "8",
+            "NC"
+          ],
+          [
+            "9",
+            "L1+"
+          ],
+          [
+            "10",
+            "L1-"
+          ],
+          [
+            "11",
+            "CQ1"
+          ],
+          [
+            "12",
+            "DI1"
+          ],
+          [
+            "13",
+            "L2+"
+          ],
+          [
+            "14",
+            "L2-"
+          ],
+          [
+            "15",
+            "CQ2"
+          ],
+          [
+            "16",
+            "DI2"
+          ],
+          [
+            "17",
+            "L3+"
+          ],
+          [
+            "18",
+            "L3-"
+          ],
+          [
+            "19",
+            "CQ3"
+          ],
+          [
+            "20",
+            "DI3"
+          ],
+          [
+            "21",
+            "L4+"
+          ],
+          [
+            "22",
+            "L4-"
+          ],
+          [
+            "23",
+            "CQ4"
+          ],
+          [
+            "24",
+            "DI4"
+          ],
+          [
+            "25",
+            "L5+"
+          ],
+          [
+            "26",
+            "L5-"
+          ],
+          [
+            "27",
+            "CQ5"
+          ],
+          [
+            "28",
+            "DI5"
+          ],
+          [
+            "29",
+            "L6+"
+          ],
+          [
+            "30",
+            "L6-"
+          ],
+          [
+            "31",
+            "CQ6"
+          ],
+          [
+            "32",
+            "DI6"
+          ],
+          [
+            "33",
+            "L7+"
+          ],
+          [
+            "34",
+            "L7-"
+          ],
+          [
+            "35",
+            "CQ7"
+          ],
+          [
+            "36",
+            "DI7"
+          ],
+          [
+            "37",
+            "L8+"
+          ],
+          [
+            "38",
+            "L8-"
+          ],
+          [
+            "39",
+            "CQ8"
+          ],
+          [
+            "40",
+            "DI8"
+          ]
+        ],
+        "no_connect_pins": [
+          "5",
+          "7",
+          "8"
+        ]
+      }
+    ]
+  }
+}

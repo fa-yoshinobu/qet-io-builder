@@ -1,0 +1,37 @@
+{
+  "category": "fx5_ext",
+  "model": "FX5-C16EYT/D",
+  "definition": {
+    "variants": [
+      ""
+    ],
+    "inputs": 0,
+    "outputs": [
+      [
+        0,
+        16
+      ]
+    ],
+    "confirmed": true,
+    "source": "SH-082451Q 6.2 印刷114 / PDF116",
+    "physical_io": {
+      "input_commons": [],
+      "output_commons": [
+        {
+          "group": 0,
+          "name": "COM0",
+          "contacts": 2,
+          "internal_group": "output:0"
+        }
+      ],
+      "input_signal_contacts": 1,
+      "output_signal_contacts": 1,
+      "source": {
+        "document": "SH-082451Q",
+        "section": "6.2",
+        "printed_pages": "114",
+        "pdf_pages": "116"
+      }
+    }
+  }
+}

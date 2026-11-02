@@ -1,0 +1,73 @@
+{
+  "category": "standard_device",
+  "model": "A22NS-3BM-NBA-G101-NN",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "A22N",
+    "device_type": "switch",
+    "source": "CSM_A22N_M22N_A30N_A254-E1_4_13 p21,31（接点動作・端子）; 国内公式個別商品（形式・定格）",
+    "official_html": "https://www.fa.omron.co.jp/product/item/A22NS-3BM-NBA-G101-NN/",
+    "terminal_view": "BOTTOM VIEW",
+    "ratings": {
+      "rated_through_current_a": 10,
+      "ac_15_at_240v_a": 3,
+      "dc_13_at_24v_a": 4
+    },
+    "verification_note": "公式の接点構成表と端子図を照合。実機動作・手動関連付けは未確認。",
+    "operation": "maintained",
+    "positions": [
+      "1",
+      "0",
+      "2"
+    ],
+    "operation_angle_deg": 45,
+    "color": "黒",
+    "illuminated": false,
+    "terminal_type": "ねじ端子",
+    "contact_configuration": "2a",
+    "display_ratings": "3位置保持 各45° 2a",
+    "symbol_bindings": [
+      {
+        "name": "selector",
+        "symbol": "selector_3position_2no",
+        "terminals": {
+          "contact_1_in": [
+            "3"
+          ],
+          "contact_1_out": [
+            "4"
+          ],
+          "contact_2_in": [
+            "3"
+          ],
+          "contact_2_out": [
+            "4"
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "左記号がブロック位置1、右記号が位置3。各NOの3–4刻印は独立回路であり、同番号同士を内部接続しない。",
+      "操作位置1で左NO閉、0で両方開、2で右NO閉。保持式であり自動復帰ではない。"
+    ],
+    "contact_block_positions": {
+      "contact_1": "1",
+      "contact_2": "3"
+    },
+    "terminal_numbering": "contact_block_marking_repeated",
+    "position_contact_table": {
+      "1": {
+        "contact_1": "closed",
+        "contact_2": "open"
+      },
+      "0": {
+        "contact_1": "open",
+        "contact_2": "open"
+      },
+      "2": {
+        "contact_1": "open",
+        "contact_2": "closed"
+      }
+    }
+  }
+}

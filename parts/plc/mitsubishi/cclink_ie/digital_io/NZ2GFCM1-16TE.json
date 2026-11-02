@@ -1,0 +1,274 @@
+{
+  "category": "remote_io",
+  "model": "NZ2GFCM1-16TE",
+  "definition": {
+    "network": "CC-Link IE Field",
+    "module_role": "main",
+    "network_connectors": [
+      {
+        "name": "P1",
+        "connector_type": "rj45",
+        "gender": "female"
+      },
+      {
+        "name": "P2",
+        "connector_type": "rj45",
+        "gender": "female"
+      }
+    ],
+    "power_connectors": [
+      {
+        "name": "CON A",
+        "connector_type": "one_touch_5",
+        "pins": [
+          [
+            "1",
+            "FG"
+          ],
+          [
+            "2",
+            "+24V(UNIT)"
+          ],
+          [
+            "3",
+            "24G(UNIT)"
+          ],
+          [
+            "4",
+            "+24V(I/O)"
+          ],
+          [
+            "5",
+            "24G(I/O)"
+          ]
+        ]
+      },
+      {
+        "name": "CON B",
+        "connector_type": "one_touch_5",
+        "pins": [
+          [
+            "1",
+            "FG"
+          ],
+          [
+            "2",
+            "+24V(UNIT)"
+          ],
+          [
+            "3",
+            "24G(UNIT)"
+          ],
+          [
+            "4",
+            "+24V(I/O)"
+          ],
+          [
+            "5",
+            "24G(I/O)"
+          ]
+        ]
+      }
+    ],
+    "power_ports": [
+      [
+        "A1",
+        "FG"
+      ],
+      [
+        "A2",
+        "+24V UNIT"
+      ],
+      [
+        "A3",
+        "24G UNIT"
+      ],
+      [
+        "A4",
+        "+24V I/O"
+      ],
+      [
+        "A5",
+        "24G I/O"
+      ],
+      [
+        "B1",
+        "FG"
+      ],
+      [
+        "B2",
+        "+24V UNIT"
+      ],
+      [
+        "B3",
+        "24G UNIT"
+      ],
+      [
+        "B4",
+        "+24V I/O"
+      ],
+      [
+        "B5",
+        "24G I/O"
+      ],
+      [
+        "C1-1",
+        "24G I/O"
+      ],
+      [
+        "C1-2",
+        "24G I/O"
+      ],
+      [
+        "C1-3",
+        "+24V I/O"
+      ],
+      [
+        "C1-4",
+        "+24V I/O"
+      ]
+    ],
+    "confirmed": true,
+    "source": "SH-081114ENG-T 4.2 印刷110,111 / PDF112,113",
+    "source_reference": {
+      "document": "SH-081114ENG-T",
+      "section": "4.2",
+      "printed_pages": [
+        110,
+        111
+      ],
+      "pdf_pages": [
+        112,
+        113
+      ]
+    },
+    "lifecycle": "生産終了2023-12-29（FA-D-0404-A p1/PDF1）",
+    "extension_support": "最大1台",
+    "note": "局内X/Y番号を表示。CPU側の割付はネットワーク設定で確認。",
+    "power_notes": [
+      "I/O電源: CON A/Bの4・5とCON1の1–4を同時給電しない",
+      "未使用電源コネクタに無配線コネクタを装着"
+    ],
+    "io": "out",
+    "points": 16,
+    "pins": [
+      "C1-20",
+      "C1-18",
+      "C1-16",
+      "C1-14",
+      "C1-12",
+      "C1-10",
+      "C1-8",
+      "C1-6",
+      "C1-19",
+      "C1-17",
+      "C1-15",
+      "C1-13",
+      "C1-11",
+      "C1-9",
+      "C1-7",
+      "C1-5"
+    ],
+    "terminal_block": "MIL 20ピン",
+    "out": "source",
+    "vplus": "",
+    "com": "",
+    "manual_output_note": "I/O電源は構成ページを参照",
+    "io_connectors": [
+      {
+        "name": "CON1",
+        "connector_type": "mil_20",
+        "pins": [
+          [
+            "1",
+            "24G I/O"
+          ],
+          [
+            "2",
+            "24G I/O"
+          ],
+          [
+            "3",
+            "+24V I/O"
+          ],
+          [
+            "4",
+            "+24V I/O"
+          ],
+          [
+            "5",
+            "YF"
+          ],
+          [
+            "6",
+            "Y7"
+          ],
+          [
+            "7",
+            "YE"
+          ],
+          [
+            "8",
+            "Y6"
+          ],
+          [
+            "9",
+            "YD"
+          ],
+          [
+            "10",
+            "Y5"
+          ],
+          [
+            "11",
+            "YC"
+          ],
+          [
+            "12",
+            "Y4"
+          ],
+          [
+            "13",
+            "YB"
+          ],
+          [
+            "14",
+            "Y3"
+          ],
+          [
+            "15",
+            "YA"
+          ],
+          [
+            "16",
+            "Y2"
+          ],
+          [
+            "17",
+            "Y9"
+          ],
+          [
+            "18",
+            "Y1"
+          ],
+          [
+            "19",
+            "Y8"
+          ],
+          [
+            "20",
+            "Y0"
+          ]
+        ]
+      }
+    ],
+    "lifecycle_source": {
+      "document": "FA-D-0404-A",
+      "pdf_pages": [
+        1
+      ]
+    },
+    "production_end_date": "2023-12-29",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcnet&category=discon&bunrui1=CC-Link+IE+Field"
+  }
+}

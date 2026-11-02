@@ -1,0 +1,14 @@
+{
+  "category": "fx5_comm",
+  "model": "FX5-422-BD-GOT",
+  "definition": {
+    "network": "RS-422 GOT",
+    "ports": [
+      "MINI-DIN 8ピン"
+    ],
+    "terminal_labels": false,
+    "connection": "MINI-DIN 8pin メス",
+    "form": "board",
+    "source": "JY997D60101H 1.2"
+  }
+}

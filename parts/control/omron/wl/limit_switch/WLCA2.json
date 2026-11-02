@@ -1,0 +1,56 @@
+{
+  "category": "standard_device",
+  "model": "WLCA2",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "WL",
+    "device_type": "limit_switch",
+    "source": "CSM_WL_DS_E_19_8 p1（接点・端子）, p4-5（形式）, p20（定格）",
+    "official_html": "https://www.ia.omron.com/products/family/326/lineup.html",
+    "terminal_type": "ねじ端子",
+    "terminal_view": "カバーを外した端子表示。外形の左右を表す配置ではない。",
+    "contact_configuration": "1NO+1NC（2回路双断）",
+    "actuator": "ローラ・レバー R38",
+    "operation": "自己復帰。無操作時は1-2閉、3-4開。操作時は1-2開、3-4閉。",
+    "normal_state": "無操作",
+    "ratings": {
+      "resistive_load_ac_250v_a": 10,
+      "resistive_load_dc_30v_a": 6,
+      "minimum_load_dc_5v_ma": 160,
+      "ip_rating": "IP67"
+    },
+    "display_ratings": "1a1b 250VAC 10A（抵抗負荷）",
+    "symbol_bindings": [
+      {
+        "name": "NO",
+        "symbol": "limit_no",
+        "terminals": {
+          "first": [
+            "3"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "NC",
+        "symbol": "limit_nc",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "NOとNCは同一アクチュエータで連動する独立2回路。1c共通端子として接続しない。",
+      "一般負荷形。PLCの微小電流負荷にそのまま適合するとは限らない。",
+      "標準記号は接点機能を表す。アクチュエータの実物外形は表さない。"
+    ],
+    "verification_note": "資料照合済み。実機未確認。"
+  }
+}

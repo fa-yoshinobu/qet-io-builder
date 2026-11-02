@@ -1,0 +1,73 @@
+{
+  "category": "standard_device",
+  "model": "RU2S-D24",
+  "definition": {
+    "manufacturer": "IDEC",
+    "series": "RU",
+    "device_type": "relay",
+    "standard_family": "relay",
+    "source": "SJPJA01A-H015H026-RU H-016–018（形式・定格・内部配線BOTTOM VIEW）",
+    "official_html": "https://www.idec.com/ja-jp/industrial-components/relays-timers/relays/ru-universal-relay/ru2s-d24",
+    "terminal_view": "リレー本体BOTTOM VIEW、無励磁状態。数字は本体ピン番号、IEC機能名とは区別する。",
+    "terminal_numbering": "relay_body",
+    "coil": {
+      "terminals": [
+        "13",
+        "14"
+      ],
+      "rated_voltage": "DC24V",
+      "voltages": {
+        "dc_v": [
+          "24"
+        ]
+      },
+      "polarity": "none",
+      "surge": "none",
+      "voltage_selection_required": false
+    },
+    "contacts": [
+      {
+        "type": "changeover",
+        "common": [
+          "9"
+        ],
+        "no": [
+          "5"
+        ],
+        "nc": [
+          "1"
+        ]
+      },
+      {
+        "type": "changeover",
+        "common": [
+          "12"
+        ],
+        "no": [
+          "8"
+        ],
+        "nc": [
+          "4"
+        ]
+      }
+    ],
+    "indicator": "LED",
+    "manual_test_lever": true,
+    "socket_candidates": [
+      "SM2S-05C",
+      "SU2S-21L"
+    ],
+    "display_ratings": "DC24V LED 2c 10A（抵抗負荷の代表値）",
+    "ratings": {
+      "coil_vdc": 24,
+      "resistive_current_a": 10
+    },
+    "notes": [
+      "標準形。順/逆極性ダイオード付・CR付の別形番へこの定義を流用しない。",
+      "コイルの電源と接点回路は別配線。LED内部回路は情報として保持し、標準コイル記号へ内蔵回路を描き足さない。",
+      "本体の番号を使用する。ソケットのIEC表記への読み替えはソケット定義を参照。",
+      "公式PDFで端子割当を再照合済み。"
+    ],
+    "verification_note": "公式資料の形式・回路・端子表記を照合。実機配線・実機動作は未確認。"
+  }
+}

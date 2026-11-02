@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="63" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{4650d80e-966d-5bed-879c-0634898013a2}" />
+  <names>
+    <name lang="ja">HDMI Type-A</name>
+    <name lang="en">conn_hdmi</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <rect x="5" y="-11" width="48" height="22" rx="2" ry="2" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <polygon x1="9" y1="-7" x2="49" y2="-7" x3="49" y3="1" x4="44" y4="6" x5="14" y5="6" x6="9" y6="1" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <rect x="15" y="-4" width="28" height="3" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <terminal uuid="{860f10ce-91b3-5ef5-88c6-7ca1a7bbe680}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

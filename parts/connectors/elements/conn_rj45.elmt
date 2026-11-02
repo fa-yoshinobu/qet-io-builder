@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="55" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{342a34ec-1217-5123-97f8-e8bd4b3fe3a8}" />
+  <names>
+    <name lang="ja">RJ-45</name>
+    <name lang="en">conn_rj45</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <rect x="5" y="-20" width="40" height="40" rx="3" ry="3" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <polygon x1="11" y1="-12" x2="39" y2="-12" x3="39" y3="7" x4="31" y4="7" x5="31" y5="13" x6="19" y6="13" x7="19" y7="7" x8="11" y8="7" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="14.5" y1="-12" x2="14.5" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="17.5" y1="-12" x2="17.5" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="20.5" y1="-12" x2="20.5" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="23.5" y1="-12" x2="23.5" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="26.5" y1="-12" x2="26.5" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="29.5" y1="-12" x2="29.5" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="32.5" y1="-12" x2="32.5" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <line x1="35.5" y1="-12" x2="35.5" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <rect x="9" y="-18" width="5" height="3" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <rect x="36" y="-18" width="5" height="3" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <terminal uuid="{d2cc6c67-4599-5ebb-9635-07a4b03aa220}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

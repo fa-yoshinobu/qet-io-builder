@@ -1,0 +1,58 @@
+{
+  "category": "standard_device",
+  "model": "AL-512",
+  "definition": {
+    "manufacturer": "渡辺電機工業",
+    "series": "AL",
+    "device_type": "ammeter",
+    "source": "1906N20-11 p.91、取扱説明UR-45876L p.1–2",
+    "official_html": "https://www.watanabe-electric.co.jp/products/detail/12057/",
+    "measured_quantity": "dc_process_current",
+    "indication": "digital_led",
+    "auxiliary_supply_required": false,
+    "supply": "入力電流DC4–20mAから給電",
+    "physical_wiring_terminals": 3,
+    "terminal_type": "ねじ端子",
+    "ratings": {
+      "input_current_ma_min": 4,
+      "input_current_ma_max": 20,
+      "maximum_permissible_input_ma": 50,
+      "voltage_drop_v_typ_at_4ma": 5,
+      "voltage_drop_v_typ_at_20ma": 5.3,
+      "accuracy_percent_fs": 0.1,
+      "accuracy_digits": 1
+    },
+    "scaling": {
+      "offset_min": -200,
+      "offset_max": 200,
+      "full_scale_min": 100,
+      "full_scale_max": 1999,
+      "setting": "前面内部の調整ボリウムと小数点ソケット"
+    },
+    "display_ratings": "DC4–20mA / ループ給電 / スケーリング",
+    "part_display_ratings": {
+      "earth": "E 接地"
+    },
+    "symbol_bindings": [
+      {
+        "name": "meter",
+        "symbol": "process_ammeter",
+        "terminals": {"left": ["HI"], "right": ["LO"]}
+      },
+      {
+        "name": "earth",
+        "symbol": "earth_connection",
+        "terminals": {"earth": ["E"]}
+      }
+    ],
+    "notes": [
+      "入力HIは＋、LOは－。Eは接地端子。計器とEの別記号へ同じ自由タグを入力する。自動関連付けはない。",
+      "DC4–20mAのプロセス信号用。CT二次5A・AC電流・通常のDC24V電源を入力へ接続しない。",
+      "表示値は任意の物理量へのスケーリングであり、出荷状態の電流値表示やCT比を仮定しない。",
+      "入力信号から給電するため、20mA時約5.3Vの電圧降下を含めてループ全体の負担を確認する。",
+      "外部制御はなし。D.Pは内部小数点ソケットであり、外部接続点を追加しない。",
+      "標準記号は機能を表し、デジタル表示の外観・寸法・内部回路を再現しない。"
+    ],
+    "verification_note": "公式仕様・取扱説明の端子、定格、内部設定を照合。実機未確認。"
+  }
+}

@@ -1,0 +1,4 @@
+# このフォルダの部品に対応するページ種類とGUIの表示項目
+[fx5ext]
+fields = ["model", "title", "input_csv", "output_csv", "x_start", "y_start"]
+

@@ -1,0 +1,42 @@
+{
+  "category": "standard_device",
+  "model": "HW1P-1Q4S",
+  "definition": {
+    "manufacturer": "IDEC",
+    "series": "HW",
+    "source": "P5061A-G-HW-old 印刷p.293・341（注文形名・色記号・照光定格・X1/X2）",
+    "official_html": "https://www.idec.com/ja-jp/switches-indicator-lights",
+    "terminal_view": "操作部とコンタクトブロックの端子表示。複数接点はブロックごとの番号。",
+    "terminal_type": "M3.5ねじ",
+    "notes": [
+      "機器番号・複数接点の機械連動と照光回路は配置後に関連付ける。ランプと接点は別回路。",
+      "2025年6月版以降の新カタログモデルとは構成・寸法が異なる場合がある。ここではP5061A掲載ねじ端子機種の電気端子を扱う。"
+    ],
+    "device_type": "lamp",
+    "lamp": {
+      "rated_voltage": "AC/DC24V",
+      "color": "青",
+      "polarity": "none",
+      "terminals": [
+        "X1",
+        "X2"
+      ]
+    },
+    "display_ratings": "LED AC/DC24V 青",
+    "symbol_bindings": [
+      {
+        "name": "lamp",
+        "symbol": "lamp",
+        "terminals": {
+          "first": [
+            "X1"
+          ],
+          "second": [
+            "X2"
+          ]
+        }
+      }
+    ],
+    "verification_note": "公式資料の形式・回路・端子表記を照合。実機配線・実機動作は未確認。"
+  }
+}

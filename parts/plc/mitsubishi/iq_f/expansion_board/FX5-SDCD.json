@@ -1,0 +1,9 @@
+{
+  "category": "fx5_board",
+  "model": "FX5-SDCD",
+  "definition": {
+    "connection": "SDカードスロット",
+    "ports": [],
+    "source": "SH-082451Q 10.3"
+  }
+}

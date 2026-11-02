@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition type="element" version="0.100" width="59" height="60" hotspot_x="0" hotspot_y="30" link_type="simple">
+  <uuid uuid="{6925a86b-5e9b-5606-b856-35f66d97951b}" />
+  <names>
+    <name lang="ja">7/8インチ 5極 オス</name>
+    <name lang="en">conn_7_8_5_male</name>
+  </names>
+  <elementInformations />
+  <informations>コネクタ正面図(qet-io-builder 共通部品 renderers/connectors.py)</informations>
+  <description>
+    <circle x="5" y="-22" diameter="44" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <circle x="9" y="-18" diameter="36" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black" />
+    <rect x="24" y="18" width="6" height="4" rx="0" ry="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="32.071067811865476" y="-9.071067811865476" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="32.071067811865476" y="5.0710678118654755" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="17.928932188134524" y="5.0710678118654755" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="17.928932188134524" y="-9.071067811865476" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <circle x="25.0" y="-2.0" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+    <terminal uuid="{92c7c4ce-ba61-5e71-9739-03e453bea859}" orientation="w" x="5" y="0" name="" type="Generic" />
+  </description>
+</definition>

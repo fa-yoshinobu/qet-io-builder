@@ -1,0 +1,14 @@
+{
+  "category": "iqr_comm",
+  "model": "RJ71GP21-SX",
+  "definition": {
+    "network": "CC-Link IE Controller",
+    "ports": [
+      "IN",
+      "OUT"
+    ],
+    "source": "SH-082368ENG 2.2",
+    "connector_type": "optical",
+    "connector_label": "光ファイバ (LC)"
+  }
+}

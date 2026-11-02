@@ -1,0 +1,14 @@
+{
+  "category": "iqr_q",
+  "model": "RY41NT2P",
+  "definition": {
+    "io": "out",
+    "out": "sink",
+    "points": 32,
+    "pins": "PINS32",
+    "vplus": "B1/B2",
+    "com": "A1/A2",
+    "confirmed": true,
+    "note": "A6TBXY36の端子は 0〜1F・24V・0V(SH-081247ENG 付録1)"
+  }
+}

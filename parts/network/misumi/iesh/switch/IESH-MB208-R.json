@@ -1,0 +1,103 @@
+{
+  "category": "standard_device",
+  "model": "IESH-MB208-R",
+  "definition": {
+    "manufacturer": "MISUMI",
+    "series": "IESH",
+    "device_type": "ethernet_switch",
+    "component_style": "ethernet_switch",
+    "source": "IESH-MB208-R ハードウェア・インストール・ガイド v3.2 p10,11,13,14; 公式商品仕様",
+    "official_html": "https://jp.misumi-ec.com/vona2/detail/110400224050/",
+    "misumi_html": "https://jp.misumi-ec.com/vona2/detail/110400224050/",
+    "selection_basis": {
+      "source_html": "https://jp.misumi-ec.com/vona2/ie_control/E1300000000/E1311000000/E1311010000/",
+      "observed_on": "2026-10-28",
+      "display_position": 1,
+      "note": "ミスミのスイッチングハブカテゴリ売れ筋欄の表示順。実販売数量・型番別順位は非公開。"
+    },
+    "display_ratings": "8ポート 10/100Mbps / DC12–45V",
+    "power": {
+      "voltage": "DC12–45V",
+      "dc_voltage_min_v": 12,
+      "dc_voltage_max_v": 45,
+      "ac_voltage_nominal_v": null,
+      "terminals": [
+        {
+          "label": "V-",
+          "function": "DC電源 −"
+        },
+        {
+          "label": "V+",
+          "function": "DC電源 ＋"
+        }
+      ],
+      "connection_type": "着脱式3極端子台（接地Eを含む）"
+    },
+    "ground": {
+      "label": "E",
+      "function": "接地",
+      "connection_type": "電源端子台の接地端子"
+    },
+    "ports": [
+      {
+        "label": "1",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "2",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "3",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "4",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "5",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "6",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "7",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      },
+      {
+        "label": "8",
+        "type": "rj45",
+        "speed": "10/100BASE-TX"
+      }
+    ],
+    "managed": false,
+    "poe": false,
+    "dip_switches": [],
+    "alarm_terminals": [],
+    "housing": "プラスチック",
+    "ratings": {
+      "operating_temperature_c": [
+        -10,
+        60
+      ],
+      "ip_rating": "IP30"
+    },
+    "notes": [
+      "Ethernetはケーブル単位の接続点。RJ45内部ピンの個別配線を描かない。",
+      "Eは現行ミスミ商品ページの接地表記。実物の電源端子/接地刻印と本体版を確認する。",
+      "アンマネージド。管理用IPアドレス・局番の設定はない。",
+      "5ポート機種のAC24V入力を8ポート機種へ流用しない。"
+    ],
+    "verification_note": "公式仕様・取扱説明書の端子配置を照合。実機配線・実機動作は未確認。"
+  }
+}

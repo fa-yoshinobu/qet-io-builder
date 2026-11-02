@@ -1,0 +1,36 @@
+{
+  "category": "got_option",
+  "model": "GT25-J71GN13-T2",
+  "definition": {
+    "series": "GOTオプション",
+    "option_type": "IE TSN",
+    "interfaces": [
+      {
+        "name": "PORT1",
+        "kind": "rj45",
+        "ports": [],
+        "connector_label": "RJ-45"
+      },
+      {
+        "name": "PORT2",
+        "kind": "rj45",
+        "ports": [],
+        "connector_label": "RJ-45"
+      }
+    ],
+    "compatible_series": [
+      "GOT2000",
+      "GOT3000"
+    ],
+    "applicability_notes": "GOT2000:GT27/GT25。GT25除外は本文注A。GOT3000:GT37+GT37-IF2000",
+    "adapter_required": {
+      "GOT3000": "GT37-IF2000"
+    },
+    "source": "IB-0800633E-F 2/3",
+    "power_notes": "GOT内部5V 0.92A",
+    "settings_notes": "局番/ネットワーク番号/速度等はGOT通信設定。独立した24V入力端子なし",
+    "verification_note": "コネクタ個別pin番号・内部シールド接続は未確認",
+    "diagram_notes": [],
+    "auto_wiring": false
+  }
+}

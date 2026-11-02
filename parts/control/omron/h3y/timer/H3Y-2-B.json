@@ -1,0 +1,122 @@
+{
+  "category": "standard_device",
+  "model": "H3Y-2-B",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "H3Y",
+    "device_type": "timer",
+    "source": "CSM_H3Y_M092-E1_2_8 p17–20（黒色-B形式）",
+    "official_html": "https://www.fa.omron.co.jp/products/family/3482/lineup/",
+    "operation": "power_on_delay",
+    "reset": "self_reset",
+    "contact_configuration": "2c 限時",
+    "instantaneous_contacts": 0,
+    "coil": {
+      "terminals": [
+        "13",
+        "14"
+      ],
+      "polarity_by_terminal": {
+        "13": "- (DC)",
+        "14": "+ (DC)"
+      }
+    },
+    "ratings": {
+      "supply_voltage_options": {
+        "ac_v": [
+          "100–120",
+          "200–230"
+        ],
+        "dc_v": [
+          "12",
+          "24",
+          "48",
+          "100–110"
+        ]
+      },
+      "resistive_contact_rating": {
+        "voltage_v_ac": 250,
+        "current_a": 5
+      }
+    },
+    "time": {
+      "rated_time_options": [
+        "0.5s",
+        "1s",
+        "5s",
+        "10s",
+        "30s",
+        "60s",
+        "120s",
+        "3min",
+        "5min",
+        "10min",
+        "30min",
+        "60min",
+        "3h"
+      ],
+      "setting_range_total": "0.04s～3h（注文時最大目盛ごとに範囲が異なる）",
+      "mode": "on_delay"
+    },
+    "selection_required": [
+      "supply_voltage",
+      "rated_time",
+      "set_time"
+    ],
+    "socket_candidates": [
+      "PYF-08-PU-L"
+    ],
+    "display_ratings": "オンディレイ 2c / 電圧・時間は別指定",
+    "symbol_bindings": [
+      {
+        "name": "timer",
+        "symbol": "timer_on_delay",
+        "terminals": {
+          "a1": [
+            "13"
+          ],
+          "a2": [
+            "14"
+          ]
+        }
+      },
+      {
+        "name": "timed_contact_1",
+        "symbol": "timer_changeover_on_delay",
+        "terminals": {
+          "common": [
+            "9"
+          ],
+          "no": [
+            "5"
+          ],
+          "nc": [
+            "1"
+          ]
+        }
+      },
+      {
+        "name": "timed_contact_2",
+        "symbol": "timer_changeover_on_delay",
+        "terminals": {
+          "common": [
+            "12"
+          ],
+          "no": [
+            "8"
+          ],
+          "nc": [
+            "4"
+          ]
+        }
+      }
+    ],
+    "terminal_numbering": "timer_body_physical_pin",
+    "verification_note": "タイマ本体底面の物理ピンを資料照合。電圧/時間SKUは未選択。ソケットIEC刻印へ自動変換しない。実機動作は未確認。",
+    "notes": [
+      "DC電源では13が負、14が正。AC時は交流接続。",
+      "全接点は電源印加後のオンディレイ限時動作。瞬時接点として扱わない。",
+      "-0（基板端子）、H3YN多機能モードはこの定義に含めない。"
+    ]
+  }
+}

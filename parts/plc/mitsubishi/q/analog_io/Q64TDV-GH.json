@@ -1,0 +1,74 @@
+{
+  "category": "q_analog",
+  "model": "Q64TDV-GH",
+  "definition": {
+    "channels": [
+      "入力",
+      "入力",
+      "入力",
+      "入力"
+    ],
+    "terminals": [
+      "+",
+      "-",
+      "SLD"
+    ],
+    "power": [
+      "FG"
+    ],
+    "source": "SH-080141-P 4.3 PDF76/4-3; 4.4.2 PDF77-78/4-4-4-5",
+    "pins_by_channel": [
+      [
+        "8",
+        "10",
+        "6"
+      ],
+      [
+        "9",
+        "11",
+        "7"
+      ],
+      [
+        "12",
+        "14",
+        "16"
+      ],
+      [
+        "13",
+        "15",
+        "17"
+      ]
+    ],
+    "power_pins": [
+      "18"
+    ],
+    "auxiliary_terminals": [
+      {
+        "pin": "1",
+        "signal": "RTD+",
+        "description": "冷接点補償用Pt100＋",
+        "group": "冷接点補償"
+      },
+      {
+        "pin": "3",
+        "signal": "RTD-",
+        "description": "冷接点補償用Pt100－",
+        "group": "冷接点補償"
+      }
+    ],
+    "channel_isolation": true,
+    "signal_labels_by_direction": {
+      "入力": {
+        "+": "入力＋",
+        "-": "入力－",
+        "SLD": "シールド"
+      }
+    },
+    "wiring_notes": [
+      "RTD+/RTD-は冷接点補償用Pt100接続であり電源ではない。",
+      "チャンネル端子は非連続番号。端子2,4,5は空き。"
+    ],
+    "production_end_date": "2029-12-31",
+    "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E3%82%A2%E3%83%8A%E3%83%AD%E3%82%B0"
+  }
+}

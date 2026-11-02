@@ -1,0 +1,78 @@
+{
+  "category": "standard_device",
+  "model": "A22NL-BNM-TGA-G102-GC",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "A22N",
+    "device_type": "switch",
+    "source": "CSM_A22N_M22N_A30N_A254-E1_4_13 p12,16（定格・端子配列）; 国内公式個別商品",
+    "official_html": "https://www.fa.omron.co.jp/product/item/A22NL-BNM-TGA-G102-GC/",
+    "terminal_view": "BOTTOM VIEW",
+    "ratings": {
+      "rated_through_current_a": 10,
+      "ac_15_at_240v_a": 3,
+      "dc_13_at_24v_a": 4
+    },
+    "verification_note": "端子表示と接点を資料照合。操作部と接点ユニットの実配置・実機動作は未確認。",
+    "operation": "momentary",
+    "color": "緑",
+    "illuminated": true,
+    "terminal_type": "ねじ端子",
+    "contact_configuration": "1a1b",
+    "lamp": {
+      "rated_voltage": "AC/DC24V",
+      "color": "緑",
+      "terminals": [
+        "X1",
+        "X2"
+      ]
+    },
+    "display_ratings": "モーメンタリ 1a1b / 照光 AC/DC24V 緑",
+    "symbol_bindings": [
+      {
+        "name": "pushbutton",
+        "symbol": "pushbutton_no",
+        "terminals": {
+          "first": [
+            "3"
+          ],
+          "second": [
+            "4"
+          ]
+        }
+      },
+      {
+        "name": "nc",
+        "symbol": "contact_nc",
+        "terminals": {
+          "first": [
+            "1"
+          ],
+          "second": [
+            "2"
+          ]
+        }
+      },
+      {
+        "name": "lamp",
+        "symbol": "lamp",
+        "terminals": {
+          "first": [
+            "X1"
+          ],
+          "second": [
+            "X2"
+          ]
+        }
+      }
+    ],
+    "mechanically_linked": [
+      "pushbutton",
+      "nc"
+    ],
+    "notes": [
+      "NOはユニット位置1、NCは位置3、点灯ユニットは中央。操作部1個に連動する接点。",
+      "ランプ電源と接点回路は別配線。QET上で機器番号・連動を関連付ける。"
+    ]
+  }
+}

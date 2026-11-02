@@ -1,0 +1,65 @@
+{
+  "category": "standard_device",
+  "model": "E2E-X2B212 2M",
+  "definition": {
+    "manufacturer": "OMRON",
+    "series": "E2E NEXT",
+    "device_type": "proximity_sensor",
+    "source": "CSM_E2E_D121-E1_3_5 p29（形式）, p38（定格）, p47/49（配線）",
+    "official_html": "https://www.fa.omron.co.jp/product/item/E2E-X2B212_2M/",
+    "output_type": "PNP open collector",
+    "operation": "NC",
+    "wire_count": 3,
+    "connection_type": "コード引き出し 2m",
+    "wire_colors": {
+      "plus": "茶",
+      "minus": "青",
+      "out": "黒"
+    },
+    "pins": [
+      {
+        "wire_color": "茶",
+        "signal": "+V",
+        "role": "plus"
+      },
+      {
+        "wire_color": "青",
+        "signal": "0V",
+        "role": "minus"
+      },
+      {
+        "wire_color": "黒",
+        "signal": "OUT",
+        "role": "out"
+      }
+    ],
+    "sensing_method": "誘導形・シールド",
+    "sensing_distance_mm": 2,
+    "body_size": "M12",
+    "ratings": {
+      "supply_vdc_min": 10,
+      "supply_vdc_max": 30,
+      "load_current_ma_max": 200,
+      "current_consumption_ma_max": 16
+    },
+    "display_ratings": "PNP NC 10–30VDC 200mA / M12 2mm",
+    "verification_note": "公式資料で形式・線色・信号・出力を照合。裸線式のためピン番号なし。実機未確認。",
+    "symbol_bindings": [
+      {
+        "name": "sensor",
+        "symbol": "inductive_sensor_nc",
+        "terminals": {
+          "plus": [
+            "茶 +V"
+          ],
+          "minus": [
+            "青 0V"
+          ],
+          "out": [
+            "黒 OUT"
+          ]
+        }
+      }
+    ]
+  }
+}
