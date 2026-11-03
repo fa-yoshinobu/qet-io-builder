@@ -41,6 +41,8 @@ python tools/export_standard_parts.py "E3Z-D61 2M" 出力フォルダ --configur
 
 QET標準コレクションはインストール先から読み込み、派生部品には元記号の作者・ライセンス表示を保持します。参照先は `--qet-elements` または環境変数 `QET_ELEMENTS_DIR` で変更できます。
 
+標準記号と派生部品の利用・再配布条件は [外部記号のライセンス](../../THIRD_PARTY_NOTICES.md) を参照してください。
+
 ## 表記と確認範囲
 
 - MY/LYはリレー本体の実ピン番号。ソケット候補は情報として記録し、ソケットのIEC番号へ自動変換しません。
