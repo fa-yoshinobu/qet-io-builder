@@ -1,0 +1,73 @@
+{
+  "category": "terminal_block",
+  "model": "PCX-1H34-TB40-K-Nano",
+  "definition": {
+    "manufacturer": "東洋技研",
+    "source": [
+      "東洋技研 PCX-1H34-TB□-□／PCXV-1H34-TB□-□ キーエンスPLC対応 p.2「記名板・結線図」、p.3「適合PLC形式」、p.4「I/Oワイヤリングパック」",
+      "東洋技研 KB□N-1H1H-□MB シールド無し p.1「KB34N-1H1H-□MB ケーブル図」 両端ヒロセ HIF3BA-34D-2.54R、MIL34極1対1",
+      "キーエンス KV Nanoシリーズ 基本ユニット（コネクタタイプ）ユーザーズマニュアル（084542） 第2章 2-14",
+      "ミスミ 配線部品カタログ p.579「PLC側コネクタ MIL34芯用」、p.580「PLC用端子台組合せケーブル」 両端MIL規格34芯メス、キーエンス適合機種",
+      "ミスミ GRPTS-M20-M20・GRPTS-M34-M34・GRPTS-M40-M40 結線図 p.1 MIL−MIL欄のピン1～34を同番接続"
+    ],
+    "compatible": [
+      {
+        "models": [
+          "KV-NC32T"
+        ],
+        "cable_manufacturer": "東洋技研",
+        "cable": "KB34N-1H1H-1MB",
+        "kit": "PCX-AB-1"
+      },
+      {
+        "models": [
+          "KV-NC32T"
+        ],
+        "cable_manufacturer": "ミスミ",
+        "cable": "GRPTS-M34-M34-1"
+      }
+    ],
+    "connections": [
+      {"bank": "TB1", "position": 1, "terminal": "000", "pins": ["1"]},
+      {"bank": "TB1", "position": 2, "terminal": "001", "pins": ["2"]},
+      {"bank": "TB1", "position": 3, "terminal": "002", "pins": ["3"]},
+      {"bank": "TB1", "position": 4, "terminal": "003", "pins": ["4"]},
+      {"bank": "TB1", "position": 5, "terminal": "004", "pins": ["5"]},
+      {"bank": "TB1", "position": 6, "terminal": "005", "pins": ["6"]},
+      {"bank": "TB1", "position": 7, "terminal": "006", "pins": ["7"]},
+      {"bank": "TB1", "position": 8, "terminal": "007", "pins": ["8"]},
+      {"bank": "TB1", "position": 9, "terminal": "008", "pins": ["9"]},
+      {"bank": "TB1", "position": 10, "terminal": "009", "pins": ["10"]},
+      {"bank": "TB1", "position": 11, "terminal": "010", "pins": ["11"]},
+      {"bank": "TB1", "position": 12, "terminal": "011", "pins": ["12"]},
+      {"bank": "TB1", "position": 13, "terminal": "012", "pins": ["13"]},
+      {"bank": "TB1", "position": 14, "terminal": "013", "pins": ["14"]},
+      {"bank": "TB1", "position": 15, "terminal": "014", "pins": ["15"]},
+      {"bank": "TB1", "position": 16, "terminal": "015", "pins": ["16"]},
+      {"bank": "TB1", "position": 17, "terminal": "COM 0 (IN)", "pins": ["17"]},
+      {"bank": "TB1", "position": 18, "terminal": "COM 0 (IN)", "pins": ["17"]},
+      {"bank": "TB1", "position": 19, "terminal": "COM 0 (IN)", "pins": ["17"]},
+      {"bank": "TB1", "position": 20, "terminal": "COM 0 (IN)", "pins": ["17"]},
+      {"bank": "TB2", "position": 1, "terminal": "500", "pins": ["19"]},
+      {"bank": "TB2", "position": 2, "terminal": "501", "pins": ["20"]},
+      {"bank": "TB2", "position": 3, "terminal": "502", "pins": ["21"]},
+      {"bank": "TB2", "position": 4, "terminal": "503", "pins": ["22"]},
+      {"bank": "TB2", "position": 5, "terminal": "504", "pins": ["23"]},
+      {"bank": "TB2", "position": 6, "terminal": "505", "pins": ["24"]},
+      {"bank": "TB2", "position": 7, "terminal": "506", "pins": ["25"]},
+      {"bank": "TB2", "position": 8, "terminal": "507", "pins": ["26"]},
+      {"bank": "TB2", "position": 9, "terminal": "508", "pins": ["27"]},
+      {"bank": "TB2", "position": 10, "terminal": "509", "pins": ["28"]},
+      {"bank": "TB2", "position": 11, "terminal": "510", "pins": ["29"]},
+      {"bank": "TB2", "position": 12, "terminal": "511", "pins": ["30"]},
+      {"bank": "TB2", "position": 13, "terminal": "512", "pins": ["31"]},
+      {"bank": "TB2", "position": 14, "terminal": "513", "pins": ["32"]},
+      {"bank": "TB2", "position": 15, "terminal": "514", "pins": ["33"]},
+      {"bank": "TB2", "position": 16, "terminal": "515", "pins": ["34"]},
+      {"bank": "TB2", "position": 17, "terminal": "COM 1 (OUT)", "pins": ["18"]},
+      {"bank": "TB2", "position": 18, "terminal": "COM 1 (OUT)", "pins": ["18"]},
+      {"bank": "TB2", "position": 19, "terminal": "COM 1 (OUT)", "pins": ["18"]},
+      {"bank": "TB2", "position": 20, "terminal": "COM 1 (OUT)", "pins": ["18"]}
+    ]
+  }
+}

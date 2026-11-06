@@ -103,7 +103,7 @@ function applyPage(result) {
 }
 
 // ------------------------------------------------------------ 描画
-const TITLES = { home: 'PLC・GOT 図面生成', drawing: '三菱電機 PLC・GOT 図面', keyence: 'キーエンス KV・VT', omron: 'オムロン NX・NA', parts: '制御部品の書出し・ユーザーコレクション登録' };
+const TITLES = { home: 'PLC・GOT 図面生成', drawing: '三菱電機 PLC・GOT 図面', keyence: 'キーエンス KV・VT', omron: 'オムロン NX・NA', terminals: '三菱電機 I/O図・中継端子台図', parts: '制御部品の書出し・ユーザーコレクション登録' };
 
 function setMode(mode) {
   S.mode = mode;
@@ -112,6 +112,7 @@ function setMode(mode) {
   $('#view-keyence').hidden = mode !== 'keyence';
   $('#view-omron').hidden = mode !== 'omron';
   $('#view-parts').hidden = mode !== 'parts';
+  $('#view-terminals').hidden = mode !== 'terminals';
   $('#tools-drawing').hidden = mode !== 'drawing';
   $('#tools-parts').hidden = mode !== 'parts';
   document.querySelector('.home-btn').hidden = mode === 'home';
@@ -120,7 +121,8 @@ function setMode(mode) {
   else if (mode === 'parts') renderParts();
   else if (mode === 'home') renderHome();
   else {
-    renderConfigurationMenu();
+    if (mode === 'terminals') showTerminalForm('mitsubishi', $('#view-terminals .maker-menu'));
+    else renderConfigurationMenu();
     document.title = TITLES[mode];
     setStatus('');
   }
@@ -139,7 +141,10 @@ function renderConfigurationMenu() {
   const prefix = S.mode === 'keyence' ? 'kv' : 'nx';
   const task = $('input[name="' + prefix + '-task"]:checked').value;
   const config = task === 'configuration';
+  const terminal = task === 'terminal';
   const select = $('#' + prefix + '-series');
+  select.hidden = terminal;
+  $('label[for="' + prefix + '-series"]').hidden = terminal;
   if (select.dataset.task !== task) {
     const series = prefix === 'kv'
       ? (task === 'panel' ? ['VT3', 'VT5'] : KV_CONFIGURATION_SERIES)
@@ -152,12 +157,42 @@ function renderConfigurationMenu() {
     for (const input of $('#' + prefix + '-single').querySelectorAll('input[type="text"]')) input.value = '';
   }
   $('#' + prefix + '-configuration').hidden = !config;
-  $('#' + prefix + '-single').hidden = config;
-  if (!config) showMakerModels(prefix);
+  $('#' + prefix + '-single').hidden = config || terminal;
+  $('#terminal-form').hidden = !terminal;
+  if (terminal) showTerminalForm(S.mode, $('#view-' + S.mode + ' .maker-menu'));
+  else if (!config) showMakerModels(prefix);
   const working = S.snap && (S.snap.pages.length || S.snap.path);
   const button = $('#' + prefix + '-config-continue');
   button.hidden = !working || projectMaker() !== S.mode;
   if (!button.hidden) button.textContent = `作業中の構成に戻る（${S.snap.name}${S.snap.dirty ? '・未保存' : ''}）`;
+}
+
+function showTerminalForm(maker, container) {
+  const form = $('#terminal-form');
+  container.append(form);
+  form.hidden = false;
+  const models = Object.keys(S.meta.terminal_blocks[maker]).sort();
+  $('#terminal-plc').replaceChildren(...models.map((model) => new Option(model, model)));
+  showTerminalBlocks();
+}
+
+function compatibleTerminalChoices() {
+  const maker = S.mode === 'terminals' ? 'mitsubishi' : S.mode;
+  return S.meta.terminal_blocks[maker][$('#terminal-plc').value];
+}
+
+function showTerminalBlocks() {
+  const models = new Map(compatibleTerminalChoices().map((item) => [item.model, item.maker]));
+  $('#terminal-model').replaceChildren(...Array.from(models, ([model, maker]) => new Option(maker + '　' + model, model)));
+  showTerminalCables();
+}
+
+function showTerminalCables() {
+  const choices = compatibleTerminalChoices().filter((row) => row.model === $('#terminal-model').value);
+  $('#terminal-cable').replaceChildren(...choices.map((row) => {
+    const label = row.cable_maker + '　' + row.cable + (row.kit ? '（セット ' + row.kit + '）' : '');
+    return new Option(label, row.cable);
+  }));
 }
 
 function render() {
@@ -1264,6 +1299,15 @@ const actions = {
   async 'home-parts'() { setMode('parts'); },
   async 'home-keyence'() { setMode('keyence'); },
   async 'home-omron'() { setMode('omron'); },
+  'home-terminals'() { setMode('terminals'); },
+  async 'generate-terminal-block'() {
+    const model = $('#terminal-model').value;
+    const path = await pathFor('I/O図・中継端子台図の保存先（.qet）', model + '.qet');
+    if (path === null) return;
+    const result = await run('generate_terminal_block', model, $('#terminal-plc').value, $('#terminal-cable').value,
+      $('#terminal-plc-tag').value.trim(), $('#terminal-block-tag').value.trim(), $('#terminal-cable-tag').value.trim(), path);
+    if (result) setStatus('図面を生成しました: ' + result.out);
+  },
   async 'kv-config-new'() { await newConfiguration('keyence', $('#kv-series').value); },
   async 'nx-config-new'() { await newConfiguration('omron', $('#nx-series').value); },
   async 'kv-config-open'() { await openConfiguration('keyence'); },
@@ -1422,6 +1466,8 @@ document.addEventListener('input', (e) => {
 
 async function onChange(el) {
   if (el.name === 'kv-task' || el.name === 'nx-task') { renderConfigurationMenu(); return; }
+  if (el.id === 'terminal-plc') { showTerminalBlocks(); return; }
+  if (el.id === 'terminal-model') { showTerminalCables(); return; }
   if (el.id === 'nx-series' || el.id === 'kv-series') { showMakerModels(el.id.slice(0, 2)); return; }
   if (el.id === 'kv-model') { showKvSettings(); return; }
   if (el.dataset.settingVisible) {
@@ -1570,6 +1616,9 @@ window.addEventListener('beforeunload', (e) => {
   if (!S.meta || S.meta.error || !S.snap || S.snap.error) {
     document.body.textContent = '起動できませんでした: ' + ((S.meta && S.meta.error) || (S.snap && S.snap.error) || '');
     return;
+  }
+  for (const entry of document.querySelectorAll('[data-terminal-maker]')) {
+    entry.hidden = !S.meta.terminal_blocks[entry.dataset.terminalMaker];
   }
   setMode('home');
   setStatus(S.meta.browser_paths ? 'ブラウザ確認モード: ファイルはパスを入力して指定します' : '');

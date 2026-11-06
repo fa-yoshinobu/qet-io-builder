@@ -1,0 +1,59 @@
+{
+  "category": "terminal_block",
+  "model": "MWS-M34-HT34-KV",
+  "definition": {
+    "manufacturer": "ミスミ",
+    "source": [
+      "ミスミ MWSシリーズ（バネアップ）製品仕様（シリーズコード110400193520）「記名版イメージ」「結線図 MWS-M34-HT34-KV」 KV Nano用端子番号と記名、丸・Y端子用インターフェイス端子台カタログ EC-345～346",
+      "ミスミ PLC対応ケーブル端子台セット カタログ p.580「KVシリーズ専用カスタマイズ端子台」 KV-NC32EX／KV-NC32ET適合、p.579 34芯ケーブル",
+      "キーエンス KV Nanoシリーズ 基本ユニット（コネクタタイプ）ユーザーズマニュアル（084542） 第2章 2-21、2-29"
+    ],
+    "compatible": [
+      {
+        "models": [
+          "KV-NC32EX",
+          "KV-NC32ET"
+        ],
+        "cable_manufacturer": "ミスミ",
+        "cable": "GRPTS-M34-M34-1",
+        "kit": "GRPTS-M34-M34-1-KVSET"
+      }
+    ],
+    "connections": [
+      {"bank": "上段", "position": 1, "terminal": "100", "pins": ["2"]},
+      {"bank": "上段", "position": 2, "terminal": "101", "pins": ["4"]},
+      {"bank": "上段", "position": 3, "terminal": "102", "pins": ["6"]},
+      {"bank": "上段", "position": 4, "terminal": "103", "pins": ["8"]},
+      {"bank": "上段", "position": 5, "terminal": "104", "pins": ["10"]},
+      {"bank": "上段", "position": 6, "terminal": "105", "pins": ["12"]},
+      {"bank": "上段", "position": 7, "terminal": "106", "pins": ["14"]},
+      {"bank": "上段", "position": 8, "terminal": "107", "pins": ["16"]},
+      {"bank": "上段", "position": 9, "terminal": "108", "pins": ["18"]},
+      {"bank": "上段", "position": 10, "terminal": "109", "pins": ["20"]},
+      {"bank": "上段", "position": 11, "terminal": "110", "pins": ["22"]},
+      {"bank": "上段", "position": 12, "terminal": "111", "pins": ["24"]},
+      {"bank": "上段", "position": 13, "terminal": "112", "pins": ["26"]},
+      {"bank": "上段", "position": 14, "terminal": "113", "pins": ["28"]},
+      {"bank": "上段", "position": 15, "terminal": "114", "pins": ["30"]},
+      {"bank": "上段", "position": 16, "terminal": "115", "pins": ["32"]},
+      {"bank": "上段", "position": 17, "terminal": "com1", "pins": ["34"]},
+      {"bank": "下段", "position": 1, "terminal": "000", "pins": ["1"]},
+      {"bank": "下段", "position": 2, "terminal": "001", "pins": ["3"]},
+      {"bank": "下段", "position": 3, "terminal": "002", "pins": ["5"]},
+      {"bank": "下段", "position": 4, "terminal": "003", "pins": ["7"]},
+      {"bank": "下段", "position": 5, "terminal": "004", "pins": ["9"]},
+      {"bank": "下段", "position": 6, "terminal": "005", "pins": ["11"]},
+      {"bank": "下段", "position": 7, "terminal": "006", "pins": ["13"]},
+      {"bank": "下段", "position": 8, "terminal": "007", "pins": ["15"]},
+      {"bank": "下段", "position": 9, "terminal": "008", "pins": ["17"]},
+      {"bank": "下段", "position": 10, "terminal": "009", "pins": ["19"]},
+      {"bank": "下段", "position": 11, "terminal": "010", "pins": ["21"]},
+      {"bank": "下段", "position": 12, "terminal": "011", "pins": ["23"]},
+      {"bank": "下段", "position": 13, "terminal": "012", "pins": ["25"]},
+      {"bank": "下段", "position": 14, "terminal": "013", "pins": ["27"]},
+      {"bank": "下段", "position": 15, "terminal": "014", "pins": ["29"]},
+      {"bank": "下段", "position": 16, "terminal": "015", "pins": ["31"]},
+      {"bank": "下段", "position": 17, "terminal": "com0", "pins": ["33"]}
+    ]
+  }
+}

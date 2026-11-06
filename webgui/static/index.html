@@ -45,6 +45,7 @@
           <div class="home-actions">
             <button type="button" class="btn solid big" data-action="home-new">新しく作る</button>
             <button type="button" class="btn big" data-action="home-open">プロジェクトを開く</button>
+            <button type="button" class="btn big" data-action="home-terminals" data-terminal-maker="mitsubishi" hidden>I/O図・中継端子台図</button>
             <button type="button" class="btn big" data-action="home-continue" id="home-continue" hidden>作業中のプロジェクトに戻る</button>
           </div>
         </section>
@@ -89,6 +90,7 @@
         <label><input type="radio" name="kv-task" value="configuration" checked>PLC構成</label>
         <label><input type="radio" name="kv-task" value="unit">ユニット単体図</label>
         <label><input type="radio" name="kv-task" value="panel">タッチパネル図</label>
+        <label data-terminal-maker="keyence" hidden><input type="radio" name="kv-task" value="terminal">I/O図・中継端子台図</label>
       </fieldset>
       <label for="kv-series">シリーズ</label>
       <select id="kv-series"></select>
@@ -132,6 +134,7 @@
         <label><input type="radio" name="nx-task" value="configuration" checked>PLC構成</label>
         <label><input type="radio" name="nx-task" value="unit">ユニット単体図</label>
         <label><input type="radio" name="nx-task" value="panel">タッチパネル図</label>
+        <label data-terminal-maker="omron" hidden><input type="radio" name="nx-task" value="terminal">I/O図・中継端子台図</label>
       </fieldset>
       <label for="nx-series">シリーズ</label>
       <select id="nx-series"></select>
@@ -150,6 +153,27 @@
         <label for="nx-tag">タグ名</label>
         <input id="nx-tag" type="text">
         <button type="button" class="btn solid big" data-action="nx-generate">図面を生成（.qet）</button>
+      </div>
+    </section>
+  </main>
+
+  <main class="home" id="view-terminals" hidden>
+    <section class="home-card maker-menu">
+      <h1>三菱電機 I/O図・中継端子台図</h1>
+      <div class="maker-form" id="terminal-form">
+        <label for="terminal-plc">PLC・I/Oユニット形名</label>
+        <select id="terminal-plc"></select>
+        <label for="terminal-model">中継端子台</label>
+        <select id="terminal-model"></select>
+        <label for="terminal-cable">接続ケーブル</label>
+        <select id="terminal-cable"></select>
+        <label for="terminal-plc-tag">PLC側タグ</label>
+        <input id="terminal-plc-tag" type="text" value="PLC1">
+        <label for="terminal-block-tag">端子台タグ</label>
+        <input id="terminal-block-tag" type="text" value="TB1">
+        <label for="terminal-cable-tag">ケーブル番号</label>
+        <input id="terminal-cable-tag" type="text" value="CB1">
+        <button type="button" class="btn solid big" data-action="generate-terminal-block">別ページにまとめて生成（.qet）</button>
       </div>
     </section>
   </main>

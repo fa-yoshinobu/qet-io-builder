@@ -234,6 +234,25 @@ class Api:
         return max(preceding) if preceding else matches[0] if len(matches) == 1 else None
 
     # ------------------------------------------------------------ 一覧・プロジェクト
+    def _terminal_block_choices(self):
+        choices = {}
+        for block in gen.TERMINAL_BLOCKS.values():
+            for connection in block['compatible']:
+                for plc_model in connection['models']:
+                    if plc_model in gen.KV_IO:
+                        plc_maker = 'keyence'
+                    elif plc_model in gen.UNIT_DIAGRAMS:
+                        plc_maker = gen.UNIT_DIAGRAMS[plc_model]['manufacturer']
+                    elif plc_model in gen.IO_UNITS:
+                        plc_maker = 'mitsubishi'
+                    else:
+                        continue
+                    by_model = choices.setdefault(plc_maker, {})
+                    by_model.setdefault(plc_model, []).append(dict(model=block['model'], maker=block['manufacturer'],
+                                                                   cable=connection['cable'], cable_maker=connection['cable_manufacturer'],
+                                                                   kit=connection.get('kit', '')))
+        return choices
+
     @_safe
     def meta(self):
         def kv_function(spec):
@@ -255,6 +274,7 @@ class Api:
             'series': core.SERIES_NAMES,
             'project_fields': PROJECT_FIELDS,
             'browser_paths': self._dialogs is None,
+            'terminal_blocks': self._terminal_block_choices(),
             'kv_models': {model: spec['series'] for model, spec in sorted({**gen.KV_IO, **keyence}.items())},
             'kv_functions': {**{m: kv_function(s) for m, s in gen.KV_IO.items()},
                              **{m: s['function'] for m, s in keyence.items()}},
@@ -1749,12 +1769,7 @@ class Api:
                     unit_no=unit_no, tag=tag, communication_mode=communication_mode)
         page.update(settings or {})
         config = dict(project_title=series + ' ユニット図', front_pages=False)
-        project, _ = gen.build_project(config, [(page, None)])
-        with tempfile.TemporaryDirectory(dir=path.parent) as folder:
-            temporary = Path(folder) / 'unit.qet'
-            gen.ET.ElementTree(project).write(temporary, encoding='utf-8')
-            os.replace(temporary, path)
-        return {'ok': True, 'out': str(path)}
+        return self._export_diagrams(path, config, [(page, None)])
 
     @_safe
     def generate_nx(self, model, unit_no='', tag='', out=None):
@@ -1767,8 +1782,19 @@ class Api:
         if path.suffix.lower() != '.qet':
             path = path.with_suffix('.qet')
         page = dict(kind='unit_diagram', model=model, unit_no=unit_no, tag=tag)
-        project, _ = gen.build_project(dict(project_title='オムロンNA タッチパネル図' if panel else 'オムロンNX ユニット図',
-                                          front_pages=False), [(page, None)])
+        config = dict(project_title='オムロンNA タッチパネル図' if panel else 'オムロンNX ユニット図', front_pages=False)
+        return self._export_diagrams(path, config, [(page, None)])
+
+    @_safe
+    def generate_terminal_block(self, model, plc_model, cable, plc_tag, block_tag, cable_tag, out=None):
+        pages = gen.terminal_block_project_pages(model, plc_model, cable, plc_tag, block_tag, cable_tag)
+        path = self._ask('save', 'I/O図・中継端子台図の保存先', out, model + '.qet', ('QET図面 (*.qet)',))
+        if path.suffix.lower() != '.qet':
+            path = path.with_suffix('.qet')
+        return self._export_diagrams(path, dict(project_title=plc_model + ' I/O・中継端子台図', front_pages=False), pages)
+
+    def _export_diagrams(self, path, config, pages):
+        project, _ = gen.build_project(config, pages)
         with tempfile.TemporaryDirectory(dir=path.parent) as folder:
             temporary = Path(folder) / 'unit.qet'
             gen.ET.ElementTree(project).write(temporary, encoding='utf-8')

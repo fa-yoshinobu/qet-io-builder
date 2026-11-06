@@ -20,16 +20,20 @@ def draw_half(page, pg, spec, section, side):
         load_lane = 'P' if spec['output_type'] == 'sink' else 'N'
         common_lane = 'N' if load_lane == 'P' else 'P'
         lanes = {load_lane: x['P'], common_lane: x['N']}
-        output_lane_labels(page, x['P'], LANE[load_lane], x['N'], LANE[common_lane])
     else:
         io_table_header(page, pg, x['plc'] + 4, 250, (45, 100), (pin_label, '信号', '用途'))
         common_lane = spec['input_common']
         load_lane = 'N' if common_lane == 'P' else 'P'
         lanes = {name: x[name] for name in ('P', 'N')}
-        for name, lx in lanes.items():
-            ctext(page, lx, 44, LANE[name], 8, True)
-    page.text(x['tb'] - 18, 46, pg.get('tb_name', 'TB'), 8, True)
-    previous = {name: page.place('junction', lx, LANE_TOP_Y) for name, lx in lanes.items()}
+    cable_layout = pg.get('cable_layout')
+    if not cable_layout:
+        if output:
+            output_lane_labels(page, x['P'], LANE[load_lane], x['N'], LANE[common_lane])
+        else:
+            for name, lx in lanes.items():
+                ctext(page, lx, 44, LANE[name], 8, True)
+        page.text(x['tb'] - 18, 46, pg.get('tb_name', 'TB'), 8, True)
+        previous = {name: page.place('junction', lx, LANE_TOP_Y) for name, lx in lanes.items()}
     top = 70
     for pin, signal in section['halves'][side]:
         if signal == 'NC':
@@ -41,6 +45,8 @@ def draw_half(page, pg, spec, section, side):
         terminal = page.place(key, x['plc'], y,
                               label=signal, comment='コモン' if common else '',
                               infos={'auxiliary1': pin}, texts=texts)
+        if cable_layout:
+            continue
         line_no(page, x['num'], y)
         tb = page.place('tb_terminal', x['tb'], y, label=tb_label(pg, pin=pin),
                         texts=[('label', -10, -22, 7, False)])
@@ -64,7 +70,8 @@ def draw_half(page, pg, spec, section, side):
                 contact = page.place('contact_a', x['contact'], y)
                 page.wire(node, 'e', contact, 'w')
                 page.wire(contact, 'e', tb, 'w', num=signal, show=True)
-    page.extend_lanes(lanes.values(), bottom=790)
+    if not cable_layout:
+        page.extend_lanes(lanes.values(), bottom=790)
     if output and section.get('output_group_sizes'):
         group_top = 70
         for count in section['output_group_sizes'][side]:
@@ -260,16 +267,22 @@ def build_pages(pg, spec, symbols):
             symbols[key] = symbol
     if spec.get('analog'):
         return build_analog(pg, spec, symbols)
-    pages = [(pg['model'] + ' 本体', build_nano_body(pg, spec, symbols))] if spec.get('body') else []
-    for section in spec['pages']:
+    pages = [(pg['model'] + ' 本体', build_nano_body(pg, spec, symbols))] if spec.get('body') and not pg.get('cable_layout') else []
+    sections = spec['pages']
+    if (pg.get('cable_layout') and spec.get('body') and len(sections) == 2
+            and all(len(section['halves']) == 1 for section in sections)
+            and [section.get('directions') for section in sections] == [['input'], ['output']]):
+        sections = [dict(section='内蔵I/O', directions=['input', 'output'], labels=['入力', '出力'],
+                         halves=[section['halves'][0] for section in sections])]
+    for section in sections:
         page = Page(symbols)
         for side in range(len(section['halves'])):
             draw_half(page, pg, spec, section, side)
         nc_pins = [pin for half in section['halves'] for pin, signal in half if signal == 'NC']
-        note = 'DC24V配線例。' + spec['note']
+        note = ('' if pg.get('cable_layout') else 'DC24V配線例。') + spec['note']
         if nc_pins:
             note += ' NCピン' + '・'.join(sorted(nc_pins, key=int)) + 'は接続しない。'
-        page.text(30, 800, note, 8)
+        page.text(30, 750 if pg.get('cable_layout') else 800, note, 8)
         title = ' '.join(filter(None, (pg['model'], section['section'], section.get('bank'), '入出力配線図')))
         pages.append((title, page))
     return pages

@@ -1415,7 +1415,7 @@ UNITS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "parts")
 def read_unit_definitions(path=UNITS_DIR):
     """機種別ファイルを集め、重複や不正な定義を拒否する。"""
     categories = ("kv_io", "inverter", "remote_pulse", "mx_cpu", "mx_io", "remote_mixed", "remote_io", "remote_analog", "remote_iolink", "iqr_mixed", "q_mixed", "iqr_q", "fx5_cpu", "fx5_ext", "fx5_analog", "fx5_comm", "fx5_board", "iqr_cpu", "iqr_power", "iqr_base", "iqr_analog", "iqr_comm", "q_cpu", "q_power", "q_base", "q_analog", "q_comm", "got_body", "got_option", "power_supply", "standard_device")
-    categories = ("unit_diagram",) + categories
+    categories = ("unit_diagram", "terminal_block") + categories
     d = {category: {} for category in categories}
     if not os.path.isdir(path):
         raise ValueError(f"機種定義フォルダがありません: {path}")
@@ -1432,6 +1432,8 @@ def read_unit_definitions(path=UNITS_DIR):
             if model in d[category]:
                 raise ValueError(f"機種定義が重複しています: {model} ({file})")
             definition = item["definition"]
+            if category == "terminal_block":
+                definition = dict(definition, model=item["model"])
             if category == "fx5_cpu" and (len(definition.get("variants", [])) != 1 or
                     (definition.get("base", "") + definition["variants"][0]).upper() != model):
                 raise ValueError(f"CPUのbaseとvariantsが形名と一致しません: {file}")
@@ -1491,18 +1493,54 @@ def load_units(path=UNITS_DIR):
     from renderers.unit_diagrams import validate
     for model, spec in d["unit_diagram"].items():
         validate(model, spec)
-    return io_units, cpus, exts, d["fx5_analog"], d["iqr_cpu"], d["iqr_power"], d["iqr_base"], d["iqr_analog"], d["q_cpu"], d["q_power"], d["q_base"], d["q_analog"], d["q_comm"], d["iqr_comm"], d["fx5_comm"], d["q_mixed"], d["iqr_mixed"], d["remote_mixed"], boards, d["remote_analog"], d["remote_iolink"], d["got_body"], d["got_option"], d["standard_device"], d["remote_pulse"], d["mx_cpu"], d["mx_io"], d["inverter"], d["kv_io"], d["unit_diagram"]
+    return io_units, cpus, exts, d["fx5_analog"], d["iqr_cpu"], d["iqr_power"], d["iqr_base"], d["iqr_analog"], d["q_cpu"], d["q_power"], d["q_base"], d["q_analog"], d["q_comm"], d["iqr_comm"], d["fx5_comm"], d["q_mixed"], d["iqr_mixed"], d["remote_mixed"], boards, d["remote_analog"], d["remote_iolink"], d["got_body"], d["got_option"], d["standard_device"], d["remote_pulse"], d["mx_cpu"], d["mx_io"], d["inverter"], d["kv_io"], d["unit_diagram"], d["terminal_block"]
 
 
 def use_units(path=UNITS_DIR):
-    global IO_UNITS, FX5U_SPECS, FX5_EXT_SPECS, FX5_ANALOG_SPECS, IQR_CPU, IQR_POWER, IQR_BASE, IQR_ANALOG, Q_CPU, Q_POWER, Q_BASE, Q_ANALOG, Q_COMM, IQR_COMM, FX5_COMM, Q_MIXED, IQR_MIXED, REMOTE_MIXED, FX5_BOARDS, REMOTE_ANALOG, REMOTE_IOLINK, GOT_BODY, GOT_OPTION, STANDARD_DEVICES, REMOTE_PULSE, MX_CPU, MX_IO, INVERTERS, KV_IO, UNIT_DIAGRAMS, DEFAULT_RELAY_TYPES
-    IO_UNITS, FX5U_SPECS, FX5_EXT_SPECS, FX5_ANALOG_SPECS, IQR_CPU, IQR_POWER, IQR_BASE, IQR_ANALOG, Q_CPU, Q_POWER, Q_BASE, Q_ANALOG, Q_COMM, IQR_COMM, FX5_COMM, Q_MIXED, IQR_MIXED, REMOTE_MIXED, FX5_BOARDS, REMOTE_ANALOG, REMOTE_IOLINK, GOT_BODY, GOT_OPTION, STANDARD_DEVICES, REMOTE_PULSE, MX_CPU, MX_IO, INVERTERS, KV_IO, UNIT_DIAGRAMS = load_units(path)
+    global IO_UNITS, FX5U_SPECS, FX5_EXT_SPECS, FX5_ANALOG_SPECS, IQR_CPU, IQR_POWER, IQR_BASE, IQR_ANALOG, Q_CPU, Q_POWER, Q_BASE, Q_ANALOG, Q_COMM, IQR_COMM, FX5_COMM, Q_MIXED, IQR_MIXED, REMOTE_MIXED, FX5_BOARDS, REMOTE_ANALOG, REMOTE_IOLINK, GOT_BODY, GOT_OPTION, STANDARD_DEVICES, REMOTE_PULSE, MX_CPU, MX_IO, INVERTERS, KV_IO, UNIT_DIAGRAMS, TERMINAL_BLOCKS, DEFAULT_RELAY_TYPES
+    IO_UNITS, FX5U_SPECS, FX5_EXT_SPECS, FX5_ANALOG_SPECS, IQR_CPU, IQR_POWER, IQR_BASE, IQR_ANALOG, Q_CPU, Q_POWER, Q_BASE, Q_ANALOG, Q_COMM, IQR_COMM, FX5_COMM, Q_MIXED, IQR_MIXED, REMOTE_MIXED, FX5_BOARDS, REMOTE_ANALOG, REMOTE_IOLINK, GOT_BODY, GOT_OPTION, STANDARD_DEVICES, REMOTE_PULSE, MX_CPU, MX_IO, INVERTERS, KV_IO, UNIT_DIAGRAMS, TERMINAL_BLOCKS = load_units(path)
     MX_IO = {**MX_CPU, **MX_IO}
     DEFAULT_RELAY_TYPES = {model: {"poles": list(range(1, len(spec["contacts"]) + 1)), "contacts": spec["contacts"], "coil": spec["coil"]}
                            for model, spec in STANDARD_DEVICES.items() if spec.get("device_type") == "relay"}
 
 
 use_units()
+
+
+def terminal_block_choice(pg):
+    spec = TERMINAL_BLOCKS.get(str(pg.get('model', '')).upper())
+    if spec is None:
+        raise ValueError('登録済みの中継端子台を選んでください')
+    for key, label in [('plc_tag', 'PLC側のタグ'), ('tag', '端子台のタグ'), ('cable_tag', 'ケーブル番号')]:
+        value = pg.get(key)
+        if not isinstance(value, str) or not value.strip() or '\n' in value or '\r' in value:
+            raise ValueError(label + 'を1行で入力してください')
+        if text_w(value, 9) > 360:
+            raise ValueError(label + 'が図面の接続表示に収まる長さにしてください')
+    if pg['tag'].strip() == pg['plc_tag'].strip():
+        raise ValueError('PLC側と端子台にはそれぞれのタグを指定してください')
+    for choice in spec['compatible']:
+        if pg.get('plc_model') in choice['models'] and pg.get('cable') == choice['cable']:
+            return spec, choice
+    raise ValueError('このPLC・中継端子台に対応するケーブルを選んでください')
+
+
+def terminal_block_project_pages(model, plc_model, cable, plc_tag, block_tag, cable_tag):
+    pg = dict(kind='terminal_block', model=model, plc_model=plc_model, cable=cable,
+              plc_tag=plc_tag, tag=block_tag, cable_tag=cable_tag)
+    terminal_block_choice(pg)
+    return [(pg, None)]
+
+
+def label_cable_sheets(pg, spec, choice, io_diagrams, block_diagrams, nums):
+    source = f"{pg['plc_tag']}（{pg['plc_model']}）I/Oコネクタ"
+    target = f"{pg['tag']}（{spec['model']}）コネクタ"
+    cable = f"{pg['cable_tag']}  {choice['cable_manufacturer']}  {choice['cable']}"
+    for diagrams, peers in [(io_diagrams, block_diagrams), (block_diagrams, io_diagrams)]:
+        pages = '・'.join(str(nums[id(sheet)]) for _, sheet in peers)
+        for _, sheet in diagrams:
+            sheet.text(30, 773, f"ケーブル  {cable}     相手図  p.{pages}", 9, True)
+            sheet.text(30, 793, f"{source}  ↔  {target}", 9)
 
 
 def fx_spec(pg):
@@ -3099,6 +3137,8 @@ def build_project(cfg, pages_rows):
     xref_reset(xref_devices(pages_rows, cfg))
     body = []
     pages_of = {}          # id(pg) → その設定から作ったページ(構成ページの参照に使う)
+    cable_sheets = []
+    cable_ids = set()
     shared = None          # 右半分が空いている増設ユニットのページ(body の番号)
     for pg, rows in pages_rows:
         first = len(body)
@@ -3130,6 +3170,19 @@ def build_project(cfg, pages_rows):
         elif pg["kind"] in ("kvbody", "nxbody"):
             from renderers.plc_configuration import build_pages
             body.extend(build_pages(pg, symbols))
+        elif pg["kind"] == "terminal_block":
+            from renderers.terminal_blocks import build_pages as block_pages
+            from renderers.keyence import build_pages as kv_pages
+            spec, choice = terminal_block_choice(pg)
+            cable_id = pg['cable_tag'].strip()
+            if cable_id in cable_ids:
+                raise ValueError(f'中継端子台のケーブル番号が重複しています: {cable_id}')
+            cable_ids.add(cable_id)
+            io_pg = dict(pg, kind='kv_io', model=pg["plc_model"], tag=pg["plc_tag"], cable_layout=True)
+            io_diagrams = kv_pages(io_pg, KV_IO[io_pg["model"]], symbols)
+            block_diagrams = block_pages(pg, spec, symbols)
+            body.extend(io_diagrams + block_diagrams)
+            cable_sheets.append((pg, spec, choice, io_diagrams, block_diagrams))
         elif pg["kind"] == "unit_diagram":
             from renderers.unit_diagrams import build_pages
             body.extend(build_pages(pg, UNIT_DIAGRAMS[pg["model"].upper()], symbols))
@@ -3241,6 +3294,8 @@ def build_project(cfg, pages_rows):
         front += toc
 
     nums = {id(page): i for i, (_, page) in enumerate(front + body, 1)}
+    for pg, spec, choice, io_diagrams, block_diagrams in cable_sheets:
+        label_cable_sheets(pg, spec, choice, io_diagrams, block_diagrams, nums)
     # 構成ページに各ユニットのページ番号を書く(ページ番号が決まってから)
     def page_of(pg_):
         got = pages_of.get(id(pg_))
@@ -3355,6 +3410,15 @@ def write_iolist(path, pages_rows):
                         for pin, signal in terminals:
                             w.writerow([pg['model'], signal, '', '', f'{location} {pin}'.strip(), '', ''])
                 continue
+            if pg['kind'] == 'terminal_block':
+                spec, _ = terminal_block_choice(pg)
+                signals = {pin: signal for section in KV_IO[pg['plc_model']]['pages']
+                           for half in section['halves'] for pin, signal in half}
+                for row in spec['connections']:
+                    for pin in row['pins']:
+                        endpoint = ' '.join((pg['tag'], row['bank'], row['terminal'])).strip()
+                        w.writerow([pg['plc_tag'], signals[pin], '', '', pin, endpoint, ''])
+                continue
             if pg['kind'] in ('mxbody', 'inverter'):
                 continue
             if pg['kind'] in ('mxio', 'remotepulse'):
@@ -3441,6 +3505,14 @@ def main(cfg_path, out_path):
             from plc_configuration import validate as validate_configuration
             try:
                 validate_configuration(pg, {'kv_io': KV_IO, 'unit_diagram': UNIT_DIAGRAMS})
+            except ValueError as error:
+                errs.append(str(error))
+            else:
+                pages_rows.append((pg, None))
+            continue
+        if pg['kind'] == 'terminal_block':
+            try:
+                terminal_block_choice(pg)
             except ValueError as error:
                 errs.append(str(error))
             else:
