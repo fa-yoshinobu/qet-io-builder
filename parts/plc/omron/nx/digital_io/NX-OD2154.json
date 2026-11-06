@@ -1,0 +1,67 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-OD2154",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N） 付録 A-1 A-49"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "デジタル出力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "OUT0",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B1",
+            "signal": "OUT1",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A3",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B3",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A5",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B5",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A7",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B7",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          }
+        ]
+      }
+    ],
+    "note": "",
+    "output_type": "sink"
+  }
+}

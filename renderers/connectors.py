@@ -74,6 +74,37 @@ def dsub(count):
     return draw
 
 
+def vga(sym, x0, cy, gender=''):
+    """高密度D-sub 15極（VGA）：5極×3段。"""
+    sym.rrect(x0, cy - 20, 102, 40, 5)
+    _screws(sym, (x0 + 9, x0 + 93), cy)
+    sym.polygon([(x0 + 25, cy - 15), (x0 + 77, cy - 15),
+                 (x0 + 72, cy + 15), (x0 + 30, cy + 15)])
+    _pins(sym, [(x0 + 35 + col * 8 + (row % 2) * 2, cy - 8 + row * 8)
+                for row in range(3) for col in range(5)], 4, gender)
+vga.width = 102
+
+
+def dvi_d(sym, x0, cy, gender=''):
+    """DVI-Dの共通外形。資料にないリンク数・実ピン数は描き分けない。"""
+    sym.rrect(x0, cy - 20, 136, 40, 4)
+    _screws(sym, (x0 + 9, x0 + 127), cy)
+    sym.rrect(x0 + 23, cy - 15, 90, 30, 2)
+    sym.rect(x0 + 29, cy - 10, 57, 20)
+    sym.rect(x0 + 94, cy - 2, 13, 4)
+    if gender == 'male':
+        _fill(sym)
+dvi_d.width = 136
+
+
+def audio_jack(sym, x0, cy, gender=''):
+    """3.5mm音声ジャックの正面。"""
+    sym.circle(x0, cy - 15, 30)
+    sym.circle(x0 + 5, cy - 10, 20)
+    sym.circle(x0 + 10, cy - 5, 10)
+audio_jack.width = 30
+
+
 def gpib(sym, x0, cy, gender=''):
     """IEEE 488(GP-IB) 24 ピン: 角丸のフランジ、固定ねじ、台形のシェル、中央の舌に上下12本ずつの接点"""
     w = 130
@@ -144,6 +175,38 @@ def usb_minib(sym, x0, cy, gender=''):
                  (x0 + 8, cy + 5), (x0 + 4, cy + 1)])
     sym.rect(x0 + 8, cy - 2, 12, 3); _fill(sym)
 usb_minib.width = 28
+
+
+def usb_b(sym, x0, cy, gender=''):
+    """USB Type-B。シェルの開口、中央の樹脂ブロック、上下の4接点。"""
+    sym.rrect(x0, cy - 16, 32, 32, 3)
+    sym.polygon([(x0 + 4, cy - 5), (x0 + 11, cy - 12), (x0 + 21, cy - 12),
+                 (x0 + 28, cy - 5), (x0 + 28, cy + 12), (x0 + 4, cy + 12)], thin=True)
+    sym.rect(x0 + 9, cy - 5, 14, 10)
+    sym.parts[-1][1]['style'] = sym.parts[-1][1]['style'].replace('line-weight:normal', 'line-weight:thin')
+    for x in (x0 + 12, x0 + 20):
+        for y in (cy - 6, cy + 3):
+            sym.rect(x - 1, y, 2, 3)
+            _fill(sym)
+    sym.line(x0 + 2, cy + 8, x0 + 4, cy + 8, thin=True)
+    sym.line(x0 + 28, cy + 8, x0 + 30, cy + 8, thin=True)
+usb_b.width = 32
+
+
+def modular6(sym, x0, cy, gender=''):
+    """6ピンモジュラージャック。開口、ばね接点、ラッチの受け。"""
+    sym.rrect(x0, cy - 18, 38, 36, 3)
+    sym.polygon([(x0 + 5, cy - 12), (x0 + 33, cy - 12), (x0 + 33, cy + 7),
+                 (x0 + 26, cy + 7), (x0 + 26, cy + 13), (x0 + 12, cy + 13),
+                 (x0 + 12, cy + 7), (x0 + 5, cy + 7)], thin=True)
+    for i in range(6):
+        x = x0 + 9 + i * 4
+        sym.rect(x - 1, cy - 12, 2, 3)
+        _fill(sym)
+        sym.line(x, cy - 9, x, cy + 1, thin=True)
+        sym.line(x, cy + 1, x + 1, cy + 3, thin=True)
+    sym.line(x0 + 14, cy + 10, x0 + 24, cy + 10, thin=True)
+modular6.width = 38
 
 
 def usb_a(sym, x0, cy, gender=''):
@@ -344,6 +407,9 @@ CONNECTORS = {
     'dsub9': ('D-sub 9pin', dsub(9)),
     'dsub15': ('D-sub 15pin', dsub(15)),
     'dsub25': ('D-sub 25pin', dsub(25)),
+    'vga': ('高密度D-sub 15pin', vga),
+    'dvi_d': ('DVI-D', dvi_d),
+    'audio_jack': ('3.5mm 音声ジャック', audio_jack),
     'gpib': ('IEEE 488 24pin', gpib),
     'minidin8': ('MINI-DIN 8pin', minidin(8)),
     'minidin6': ('MINI-DIN 6pin', minidin(6)),
@@ -352,6 +418,8 @@ CONNECTORS = {
     'optical': ('光ファイバ 2心', optical),
     'usb_minib': ('USB Mini-B', usb_minib),
     'usb_a': ('USB Type-A', usb_a),
+    'usb_b': ('USB Type-B', usb_b),
+    'modular6': ('モジュラー 6pin', modular6),
     'usb_c': ('USB Type-C', usb_c),
     'hdmi': ('HDMI Type-A', hdmi),
     'sd': ('SD カード', sd),

@@ -1,0 +1,43 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-V680C2",
+  "source": [
+    "NXシリーズ RFIDユニット ユーザーズマニュアル（SDGR-717C）第3章 3-2～3-3、第4章 4-8～4-10、4-17～4-18"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "RFID",
+    "sections": [
+      {
+        "name": "機能接地",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "FG",
+            "purpose": "機能接地"
+          }
+        ]
+      },
+      {
+        "name": "CH1 アンプ・アンテナ",
+        "connector": {
+          "kind": "proprietary",
+          "label": "CH1 アンプ・アンテナ"
+        },
+        "terminals": []
+      },
+      {
+        "name": "CH2 アンプ・アンテナ",
+        "connector": {
+          "kind": "proprietary",
+          "label": "CH2 アンプ・アンテナ"
+        },
+        "terminals": []
+      }
+    ],
+    "note": "ユニット電源とアンプ駆動用I/O電源はNXバスから供給。アンテナは直接接続せず、アンプV680-HA63□、延長ケーブルV700-A4□または専用ケーブルV700-A40-Wで接続する。"
+  }
+}

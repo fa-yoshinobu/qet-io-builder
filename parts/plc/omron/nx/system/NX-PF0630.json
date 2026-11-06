@@ -1,0 +1,62 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-PF0630",
+  "source": [
+    "NXシリーズ システムユニット ユーザーズマニュアル（SBCA-409K） 第4章 4-32～4-38、付録 A-7"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "I/O電源追加供給",
+    "sections": [
+      {
+        "name": "I/O電源 DC5～24V",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "IOV",
+            "purpose": "外部電源"
+          },
+          {
+            "pin": "A3",
+            "signal": "IOG",
+            "purpose": "外部電源"
+          },
+          {
+            "pin": "A5",
+            "signal": "IOV",
+            "purpose": "外部電源"
+          },
+          {
+            "pin": "A7",
+            "signal": "IOG",
+            "purpose": "外部電源"
+          },
+          {
+            "pin": "B1",
+            "signal": "IOV",
+            "purpose": "外部電源"
+          },
+          {
+            "pin": "B3",
+            "signal": "IOG",
+            "purpose": "外部電源"
+          },
+          {
+            "pin": "B5",
+            "signal": "IOV",
+            "purpose": "外部電源"
+          },
+          {
+            "pin": "B7",
+            "signal": "IOG",
+            "purpose": "外部電源"
+          }
+        ]
+      }
+    ],
+    "note": "外部電源はA1(IOV)、A3(IOG)へ入力。その他の端子は外部機器への電源接続に使用できる。ユニット電源とは別のI/O電源を使用し、電圧は使用機器に合わせて選ぶ。"
+  }
+}

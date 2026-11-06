@@ -1,0 +1,258 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-ID6142-5",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N）付録 A-1 A-39"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "デジタル入力",
+    "sections": [
+      {
+        "name": "I/Oコネクタ",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "3",
+            "signal": "COM1",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "5",
+            "signal": "IN31",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "7",
+            "signal": "IN30",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "9",
+            "signal": "IN29",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "11",
+            "signal": "IN28",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "13",
+            "signal": "IN27",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "15",
+            "signal": "IN26",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "17",
+            "signal": "IN25",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "19",
+            "signal": "IN24",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "21",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "23",
+            "signal": "COM0",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "25",
+            "signal": "IN15",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "27",
+            "signal": "IN14",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "29",
+            "signal": "IN13",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "31",
+            "signal": "IN12",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "33",
+            "signal": "IN11",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "35",
+            "signal": "IN10",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "37",
+            "signal": "IN09",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "39",
+            "signal": "IN08",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "2",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "4",
+            "signal": "COM1",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "6",
+            "signal": "IN23",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "8",
+            "signal": "IN22",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "10",
+            "signal": "IN21",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "12",
+            "signal": "IN20",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "14",
+            "signal": "IN19",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "16",
+            "signal": "IN18",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "18",
+            "signal": "IN17",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "20",
+            "signal": "IN16",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "22",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "24",
+            "signal": "COM0",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "26",
+            "signal": "IN07",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "28",
+            "signal": "IN06",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "30",
+            "signal": "IN05",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "32",
+            "signal": "IN04",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "34",
+            "signal": "IN03",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "36",
+            "signal": "IN02",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "38",
+            "signal": "IN01",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "40",
+            "signal": "IN00",
+            "purpose": "",
+            "io": "input"
+          }
+        ]
+      }
+    ],
+    "note": "入力電源の極性は＋、－どちらでも構いません。23と24（COM0）は、必ず両端子とも配線してください。3と4（COM1）は、必ず両端子とも配線してください。同名COMの両端子には同じ極性で配線する。入力0～15はCOM0、入力16～31はCOM1に対応する。"
+  }
+}

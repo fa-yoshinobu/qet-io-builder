@@ -1,0 +1,199 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-SC20V",
+  "source": [
+    "KV-SC20V ユーザーズマニュアル（084171）第2章 2-14～2-15",
+    "KV-X500シリーズ ユーザーズマニュアル（084914）付録 付-25、KV-7000シリーズ ユーザーズマニュアル（084754）付録 付-38、KV-8000シリーズ ユーザーズマニュアル（084823）付録 付-43"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "高速カウンタ",
+    "sections": [
+      {
+        "name": "入出力コネクタ",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "A＋(24V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "2",
+            "signal": "A＋(12V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "3",
+            "signal": "A＋(5V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "4",
+            "signal": "A－COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "5",
+            "signal": "B＋(24V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "6",
+            "signal": "B＋(12V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "7",
+            "signal": "B＋(5V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "8",
+            "signal": "B－COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "9",
+            "signal": "Z＋(24V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "10",
+            "signal": "Z＋(12V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "11",
+            "signal": "Z＋(5V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "12",
+            "signal": "Z－COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "13",
+            "signal": "インプットキャプチャ1",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "14",
+            "signal": "インプットキャプチャ0／イネーブル",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "15",
+            "signal": "OUT0",
+            "purpose": "CH0 出力"
+          },
+          {
+            "pin": "16",
+            "signal": "OUT1",
+            "purpose": "CH0 出力"
+          },
+          {
+            "pin": "17",
+            "signal": "制御入力コモン",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "18",
+            "signal": "A＋(24V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "19",
+            "signal": "A＋(12V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "20",
+            "signal": "A＋(5V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "21",
+            "signal": "A－COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "22",
+            "signal": "B＋(24V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "23",
+            "signal": "B＋(12V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "24",
+            "signal": "B＋(5V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "25",
+            "signal": "B－COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "26",
+            "signal": "Z＋(24V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "27",
+            "signal": "Z＋(12V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "28",
+            "signal": "Z＋(5V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "29",
+            "signal": "Z－COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "30",
+            "signal": "インプットキャプチャ1",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "31",
+            "signal": "インプットキャプチャ0／イネーブル",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "32",
+            "signal": "OUT0",
+            "purpose": "CH1 出力"
+          },
+          {
+            "pin": "33",
+            "signal": "OUT1",
+            "purpose": "CH1 出力"
+          },
+          {
+            "pin": "34",
+            "signal": "出力コモン",
+            "purpose": "コモン"
+          }
+        ],
+        "connector": {
+          "kind": "mil_34",
+          "label": "34極コネクタ"
+        }
+      }
+    ],
+    "note": "A－COM・B－COM・Z－COMは各相独立。制御入力COMは17番、出力COMは34番。入力は接続機器に合う5V／12V／24V端子を選ぶ。 KV-7000Cを介した既存ユニット接続の適用条件に従う。"
+  }
+}

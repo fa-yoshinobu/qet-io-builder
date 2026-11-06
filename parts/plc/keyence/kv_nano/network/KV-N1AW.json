@@ -1,0 +1,23 @@
+{
+  "category": "kv_io",
+  "model": "KV-N1AW",
+  "source": [
+    "KV Nanoシリーズ 基本ユニット（端子台タイプ）ユーザーズマニュアル（084490）第2章 2-65～2-66"
+  ],
+  "definition": {
+    "series": [
+      "KV Nano"
+    ],
+    "connection": "端子",
+    "input_common": "P",
+    "pages": [],
+    "note": "外部配線端子なし。",
+    "module": {
+      "function": "増設アクセスウィンドウ",
+      "interfaces": [],
+      "description": "KV Nano端子台タイプ基本ユニットの増設カセットに装着。",
+      "note": "外部配線端子なし。",
+      "display": true
+    }
+  }
+}

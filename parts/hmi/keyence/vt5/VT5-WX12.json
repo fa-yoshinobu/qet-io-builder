@@ -1,0 +1,145 @@
+{
+  "category": "unit_diagram",
+  "model": "VT5-WX12",
+  "source": [
+    "VT5-WX15/WX12 取扱説明書（96M17058、2111-1）本体の各部名称・一般仕様・入出力仕様 p.1",
+    "VT5シリーズ カタログ（144237）ラインナップ p.3"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "VT5"
+    ],
+    "function": "タッチパネル",
+    "display": "12型 1024×768",
+    "sections": [
+      {
+        "name": "DC24V電源入力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "＋",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "main"
+          },
+          {
+            "pin": "",
+            "signal": "－",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "main"
+          }
+        ]
+      },
+      {
+        "name": "パワーコントロール",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "P_A",
+            "purpose": "リモート電源ボタン"
+          },
+          {
+            "pin": "2",
+            "signal": "P_B",
+            "purpose": "リモート電源ボタン"
+          },
+          {
+            "pin": "3",
+            "signal": "X_A",
+            "purpose": "シャットダウン要求入力"
+          },
+          {
+            "pin": "4",
+            "signal": "X_B",
+            "purpose": "シャットダウン要求入力"
+          },
+          {
+            "pin": "5",
+            "signal": "Y_A",
+            "purpose": "シャットダウン完了出力"
+          },
+          {
+            "pin": "6",
+            "signal": "Y_B",
+            "purpose": "シャットダウン完了出力"
+          }
+        ]
+      },
+      {
+        "name": "LAN1",
+        "connector": {
+          "kind": "rj45",
+          "label": "1000BASE-T／100BASE-TX"
+        },
+        "terminals": []
+      },
+      {
+        "name": "LAN2",
+        "connector": {
+          "kind": "rj45",
+          "label": "1000BASE-T／100BASE-TX"
+        },
+        "terminals": []
+      },
+      {
+        "name": "前面 USBホスト",
+        "connector": {
+          "kind": "usb_a",
+          "label": "USB2.0 Type-A"
+        },
+        "terminals": []
+      },
+      {
+        "name": "背面 USB-1 ホスト",
+        "connector": {
+          "kind": "usb_a",
+          "label": "USB3.0/2.0 Type-A"
+        },
+        "terminals": []
+      },
+      {
+        "name": "背面 USB-2 ホスト",
+        "connector": {
+          "kind": "usb_a",
+          "label": "USB3.0/2.0 Type-A"
+        },
+        "terminals": []
+      },
+      {
+        "name": "背面 USB-3 ホスト",
+        "connector": {
+          "kind": "usb_a",
+          "label": "USB2.0 Type-A"
+        },
+        "terminals": []
+      },
+      {
+        "name": "DVI-D出力",
+        "connector": {
+          "kind": "dvi_d",
+          "label": "DVI-D"
+        },
+        "terminals": []
+      },
+      {
+        "name": "オーディオ出力",
+        "connector": {
+          "kind": "audio_jack",
+          "label": "Audio"
+        },
+        "terminals": []
+      },
+      {
+        "name": "SDカード",
+        "connector": {
+          "kind": "sd",
+          "label": "SDカードスロット"
+        },
+        "terminals": []
+      }
+    ],
+    "note": "電源DC24V±20％。P_A/P_Bはリモート電源ボタン用（内部5V回路）。X_A/X_BはDC24Vシャットダウン要求入力、Y_A/Y_BはMOSFET双方向出力（DC30V 0.2A）。端子の用途に従って接続。USB3.0のケーブル長は3m以下。"
+  }
+}

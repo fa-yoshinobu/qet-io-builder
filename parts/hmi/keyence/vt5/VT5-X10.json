@@ -1,0 +1,288 @@
+{
+  "category": "unit_diagram",
+  "model": "VT5-X10",
+  "source": [
+    "VT5シリーズ ハードウェアマニュアル（144164、2041-1）第2章 各部名称 2-2、電源端子図・インターフェース仕様 2-9～2-12",
+    "VT5シリーズ カタログ（144237）ラインナップ p.3"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "VT5"
+    ],
+    "function": "タッチパネル",
+    "display": "10型 1024×768",
+    "sections": [
+      {
+        "name": "DC24V電源入力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "＋",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "main"
+          },
+          {
+            "pin": "",
+            "signal": "－",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "main"
+          }
+        ]
+      },
+      {
+        "name": "COM1 RS-232C",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "TXD (SD)",
+            "purpose": "送信データ"
+          },
+          {
+            "pin": "2",
+            "signal": "RXD (RD)",
+            "purpose": "受信データ"
+          },
+          {
+            "pin": "3",
+            "signal": "RTS (RS)",
+            "purpose": "送信要求"
+          },
+          {
+            "pin": "4",
+            "signal": "CTS (CS)",
+            "purpose": "送信可"
+          },
+          {
+            "pin": "5",
+            "signal": "SG",
+            "purpose": "シグナルグランド"
+          }
+        ]
+      },
+      {
+        "name": "COM2 RS-422A/485",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "TXDA",
+            "purpose": "送信データA／RS-485 A"
+          },
+          {
+            "pin": "2",
+            "signal": "TXDB",
+            "purpose": "送信データB／RS-485 B"
+          },
+          {
+            "pin": "3",
+            "signal": "RXDA",
+            "purpose": "受信データA／RS-485 A"
+          },
+          {
+            "pin": "4",
+            "signal": "RXDB",
+            "purpose": "受信データB／RS-485 B"
+          },
+          {
+            "pin": "5",
+            "signal": "SG",
+            "purpose": "シグナルグランド"
+          },
+          {
+            "pin": "6",
+            "signal": "RTSA",
+            "purpose": "送信要求A"
+          },
+          {
+            "pin": "7",
+            "signal": "RTSB",
+            "purpose": "送信要求B"
+          },
+          {
+            "pin": "8",
+            "signal": "CTSA",
+            "purpose": "送信可A"
+          },
+          {
+            "pin": "9",
+            "signal": "CTSB",
+            "purpose": "送信可B"
+          }
+        ]
+      },
+      {
+        "name": "LAN1",
+        "connector": {
+          "kind": "rj45",
+          "label": "100BASE-TX（MDI配列）"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "TD＋",
+            "purpose": "送信データ＋（MDI）"
+          },
+          {
+            "pin": "2",
+            "signal": "TD－",
+            "purpose": "送信データ－（MDI）"
+          },
+          {
+            "pin": "3",
+            "signal": "RD＋",
+            "purpose": "受信データ＋（MDI）"
+          },
+          {
+            "pin": "4",
+            "signal": "―",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "5",
+            "signal": "―",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "6",
+            "signal": "RD－",
+            "purpose": "受信データ－（MDI）"
+          },
+          {
+            "pin": "7",
+            "signal": "―",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "8",
+            "signal": "―",
+            "purpose": "未使用",
+            "connectable": false
+          }
+        ]
+      },
+      {
+        "name": "LAN2",
+        "connector": {
+          "kind": "rj45",
+          "label": "100BASE-TX（MDI配列）"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "TD＋",
+            "purpose": "送信データ＋（MDI）"
+          },
+          {
+            "pin": "2",
+            "signal": "TD－",
+            "purpose": "送信データ－（MDI）"
+          },
+          {
+            "pin": "3",
+            "signal": "RD＋",
+            "purpose": "受信データ＋（MDI）"
+          },
+          {
+            "pin": "4",
+            "signal": "―",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "5",
+            "signal": "―",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "6",
+            "signal": "RD－",
+            "purpose": "受信データ－（MDI）"
+          },
+          {
+            "pin": "7",
+            "signal": "―",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "8",
+            "signal": "―",
+            "purpose": "未使用",
+            "connectable": false
+          }
+        ]
+      },
+      {
+        "name": "前面 USBホスト",
+        "connector": {
+          "kind": "usb_a",
+          "label": "Type-A"
+        },
+        "terminals": []
+      },
+      {
+        "name": "前面 USBデバイス",
+        "connector": {
+          "kind": "usb_minib",
+          "label": "Mini-B"
+        },
+        "terminals": []
+      },
+      {
+        "name": "背面 USBデバイス",
+        "connector": {
+          "kind": "usb_b",
+          "label": "Type-B"
+        },
+        "terminals": []
+      },
+      {
+        "name": "背面 USBホスト",
+        "connector": {
+          "kind": "usb_a",
+          "label": "Type-A"
+        },
+        "terminals": []
+      },
+      {
+        "name": "RGB入力",
+        "connector": {
+          "kind": "vga",
+          "label": "アナログRGB"
+        },
+        "terminals": []
+      },
+      {
+        "name": "DVI-D出力",
+        "connector": {
+          "kind": "dvi_d",
+          "label": "DVI-D"
+        },
+        "terminals": []
+      },
+      {
+        "name": "オーディオ出力",
+        "connector": {
+          "kind": "audio_jack",
+          "label": "Audio"
+        },
+        "terminals": []
+      },
+      {
+        "name": "SDカード",
+        "connector": {
+          "kind": "sd",
+          "label": "SDカードスロット"
+        },
+        "terminals": []
+      }
+    ],
+    "note": "電源DC24V±20％。前面USBホスト（Type-A）・前面USBデバイス（Mini-B）・背面USBデバイス（Type-B）は同時使用不可で、いずれか1口を使用。背面USBホストは独立して使用可。 RS-485時はTXDA–RXDA、TXDB–RXDBをそれぞれ外部短絡。終端抵抗は配線構成に合わせて設定。"
+  }
+}

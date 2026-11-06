@@ -1,0 +1,67 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-OC2733",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N） 付録 A-1 A-91"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "リレー出力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "NO0",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B1",
+            "signal": "NC0",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A3",
+            "signal": "C0",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "B3",
+            "signal": "C0",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "A5",
+            "signal": "NO1",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B5",
+            "signal": "NC1",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A7",
+            "signal": "C1",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "B7",
+            "signal": "C1",
+            "purpose": "コモン"
+          }
+        ]
+      }
+    ],
+    "note": "NO0・NC0はC0、NO1・NC1はC1と組み合わせる。NC0・NC1はb接点出力であり、未使用端子を意味しない。",
+    "output_type": "relay"
+  }
+}

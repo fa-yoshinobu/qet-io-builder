@@ -1,0 +1,76 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-PU1",
+  "source": [
+    "KV-7000シリーズ ユーザーズマニュアル（084754）第2章 2-12～2-13",
+    "KV-8000シリーズ ユーザーズマニュアル（084823）第2章 2-11～2-12",
+    "KV-X500シリーズ ユーザーズマニュアル（084914）第2章 2-10～2-11"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "AC電源",
+    "sections": [
+      {
+        "name": "サービス電源出力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "＋",
+            "purpose": "電源出力"
+          },
+          {
+            "pin": "",
+            "signal": "－",
+            "purpose": "電源出力"
+          },
+          {
+            "pin": "",
+            "signal": "FG",
+            "purpose": "接地"
+          }
+        ]
+      },
+      {
+        "name": "エラー出力（B接点）",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "ERROR",
+            "purpose": "エラー出力"
+          },
+          {
+            "pin": "",
+            "signal": "ERROR",
+            "purpose": "エラー出力"
+          }
+        ]
+      },
+      {
+        "name": "AC100～240V入力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "FG",
+            "purpose": "接地"
+          },
+          {
+            "pin": "",
+            "signal": "N",
+            "purpose": "外部電源"
+          },
+          {
+            "pin": "",
+            "signal": "L",
+            "purpose": "外部電源"
+          }
+        ]
+      }
+    ],
+    "note": "CPUの左側へ接続。サービス電源は外部P24／N24へ接続しない。エラー出力は正常時ON、重度エラー時OFF。"
+  }
+}

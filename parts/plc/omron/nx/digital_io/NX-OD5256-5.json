@@ -1,0 +1,139 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-OD5256-5",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N）付録 A-1 A-81"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "デジタル出力",
+    "sections": [
+      {
+        "name": "I/Oコネクタ",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "COM(+V)",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "3",
+            "signal": "0V",
+            "purpose": ""
+          },
+          {
+            "pin": "5",
+            "signal": "OUT15",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "7",
+            "signal": "OUT14",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "9",
+            "signal": "OUT13",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "11",
+            "signal": "OUT12",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "13",
+            "signal": "OUT11",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "15",
+            "signal": "OUT10",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "17",
+            "signal": "OUT09",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "19",
+            "signal": "OUT08",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "2",
+            "signal": "COM(+V)",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "4",
+            "signal": "0V",
+            "purpose": ""
+          },
+          {
+            "pin": "6",
+            "signal": "OUT07",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "8",
+            "signal": "OUT06",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "10",
+            "signal": "OUT05",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "12",
+            "signal": "OUT04",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "14",
+            "signal": "OUT03",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "16",
+            "signal": "OUT02",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "18",
+            "signal": "OUT01",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "20",
+            "signal": "OUT00",
+            "purpose": "",
+            "io": "output"
+          }
+        ]
+      }
+    ],
+    "note": "1と2(COM(+V))は、必ず両端子とも配線してください。3と4(0V)は、必ず両端子とも配線してください。",
+    "output_type": "source"
+  }
+}

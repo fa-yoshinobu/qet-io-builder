@@ -1,0 +1,191 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-TC3407",
+  "source": [
+    "NXシリーズ 温度調節ユニット ユーザーズマニュアル（SGTD-748J） 4-4-1 4-37～4-38"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "温度調節",
+    "sections": [
+      {
+        "name": "端子台 A/B",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "OUT1",
+            "purpose": "加熱側の制御出力（＋）*1"
+          },
+          {
+            "pin": "A2",
+            "signal": "IOG1",
+            "purpose": "加熱側の制御出力（－）*1"
+          },
+          {
+            "pin": "A3",
+            "signal": "OUT5",
+            "purpose": "冷却側の制御出力（＋）*1"
+          },
+          {
+            "pin": "A4",
+            "signal": "IOG5",
+            "purpose": "冷却側の制御出力（－）*1"
+          },
+          {
+            "pin": "A5",
+            "signal": "CJ1+",
+            "purpose": "冷接点センサ",
+            "connectable": false
+          },
+          {
+            "pin": "A6",
+            "signal": "B1/TC1＋",
+            "purpose": "測温抵抗体入力（B）／熱電対入力（＋）"
+          },
+          {
+            "pin": "A7",
+            "signal": "B1/TC1－",
+            "purpose": "測温抵抗体入力（B）／熱電対入力（－）"
+          },
+          {
+            "pin": "A8",
+            "signal": "A1",
+            "purpose": "測温抵抗体入力（A）"
+          },
+          {
+            "pin": "B1",
+            "signal": "OUT2",
+            "purpose": "加熱側の制御出力（＋）*1"
+          },
+          {
+            "pin": "B2",
+            "signal": "IOG2",
+            "purpose": "加熱側の制御出力（－）*1"
+          },
+          {
+            "pin": "B3",
+            "signal": "OUT6",
+            "purpose": "冷却側の制御出力（＋）*1"
+          },
+          {
+            "pin": "B4",
+            "signal": "IOG6",
+            "purpose": "冷却側の制御出力（－）*1"
+          },
+          {
+            "pin": "B5",
+            "signal": "CJ1－",
+            "purpose": "冷接点センサ",
+            "connectable": false
+          },
+          {
+            "pin": "B6",
+            "signal": "B2/TC2＋",
+            "purpose": "測温抵抗体入力（B）／熱電対入力（＋）"
+          },
+          {
+            "pin": "B7",
+            "signal": "B2/TC2－",
+            "purpose": "測温抵抗体入力（B）／熱電対入力（－）"
+          },
+          {
+            "pin": "B8",
+            "signal": "A2",
+            "purpose": "測温抵抗体入力（A）"
+          }
+        ]
+      },
+      {
+        "name": "端子台 C/D",
+        "terminals": [
+          {
+            "pin": "C1",
+            "signal": "OUT3",
+            "purpose": "加熱側の制御出力（＋）*1"
+          },
+          {
+            "pin": "C2",
+            "signal": "IOG3",
+            "purpose": "加熱側の制御出力（－）*1"
+          },
+          {
+            "pin": "C3",
+            "signal": "OUT7",
+            "purpose": "冷却側の制御出力（＋）*1"
+          },
+          {
+            "pin": "C4",
+            "signal": "IOG7",
+            "purpose": "冷却側の制御出力（－）*1"
+          },
+          {
+            "pin": "C5",
+            "signal": "CJ2+",
+            "purpose": "冷接点センサ",
+            "connectable": false
+          },
+          {
+            "pin": "C6",
+            "signal": "B3/TC3＋",
+            "purpose": "測温抵抗体入力（B）／熱電対入力（＋）"
+          },
+          {
+            "pin": "C7",
+            "signal": "B3/TC3－",
+            "purpose": "測温抵抗体入力（B）／熱電対入力（－）"
+          },
+          {
+            "pin": "C8",
+            "signal": "A3",
+            "purpose": "測温抵抗体入力（A）"
+          },
+          {
+            "pin": "D1",
+            "signal": "OUT4",
+            "purpose": "加熱側の制御出力（＋）*1"
+          },
+          {
+            "pin": "D2",
+            "signal": "IOG4",
+            "purpose": "加熱側の制御出力（－）*1"
+          },
+          {
+            "pin": "D3",
+            "signal": "OUT8",
+            "purpose": "冷却側の制御出力（＋）*1"
+          },
+          {
+            "pin": "D4",
+            "signal": "IOG8",
+            "purpose": "冷却側の制御出力（－）*1"
+          },
+          {
+            "pin": "D5",
+            "signal": "CJ2－",
+            "purpose": "冷接点センサ",
+            "connectable": false
+          },
+          {
+            "pin": "D6",
+            "signal": "B4/TC4＋",
+            "purpose": "測温抵抗体入力（B）／熱電対入力（＋）"
+          },
+          {
+            "pin": "D7",
+            "signal": "B4/TC4－",
+            "purpose": "測温抵抗体入力（B）／熱電対入力（－）"
+          },
+          {
+            "pin": "D8",
+            "signal": "A4",
+            "purpose": "測温抵抗体入力（A）"
+          }
+        ]
+      }
+    ],
+    "note": "冷接点センサは触れたり取り外したりしない。センサの種類に応じて熱電対または測温抵抗体の端子へ接続する。"
+  }
+}

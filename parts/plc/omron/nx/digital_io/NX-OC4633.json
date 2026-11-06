@@ -1,0 +1,116 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-OC4633",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N） 付録 A-1 A-93"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "リレー出力",
+    "sections": [
+      {
+        "name": "端子台 A/B",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "0",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B1",
+            "signal": "C0",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "A3",
+            "signal": "1",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B3",
+            "signal": "C1",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "A5",
+            "signal": "2",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B5",
+            "signal": "C2",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "A7",
+            "signal": "3",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B7",
+            "signal": "C3",
+            "purpose": "コモン"
+          }
+        ]
+      },
+      {
+        "name": "端子台 C/D",
+        "terminals": [
+          {
+            "pin": "C1",
+            "signal": "4",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "D1",
+            "signal": "C4",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "C3",
+            "signal": "5",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "D3",
+            "signal": "C5",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "C5",
+            "signal": "6",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "D5",
+            "signal": "C6",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "C7",
+            "signal": "7",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "D7",
+            "signal": "C7",
+            "purpose": "コモン"
+          }
+        ]
+      }
+    ],
+    "note": "出力0～7はそれぞれC0～C7をコモンとする。",
+    "output_type": "relay"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-ID5142-1",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N）付録 A-1 A-34"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "デジタル入力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A0",
+            "signal": "IN0",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A1",
+            "signal": "IN2",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A2",
+            "signal": "IN4",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A3",
+            "signal": "IN6",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A4",
+            "signal": "IN8",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A5",
+            "signal": "IN10",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A6",
+            "signal": "IN12",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A7",
+            "signal": "IN14",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A8",
+            "signal": "COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "B0",
+            "signal": "IN1",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B1",
+            "signal": "IN3",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B2",
+            "signal": "IN5",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B3",
+            "signal": "IN7",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B4",
+            "signal": "IN9",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B5",
+            "signal": "IN11",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B6",
+            "signal": "IN13",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B7",
+            "signal": "IN15",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B8",
+            "signal": "COM",
+            "purpose": "コモン"
+          }
+        ]
+      }
+    ],
+    "note": "端子番号はマニュアル上の呼称で、ユニットへの印字はない。入力電源の極性は＋、－どちらでも構いません。"
+  }
+}

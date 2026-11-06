@@ -1,0 +1,102 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-TBX01",
+  "source": [
+    "NXシリーズ システムユニット ユーザーズマニュアル（SBCA-409K） 第4章 4-43、付録 A-15～A-16"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "シールド接続",
+    "sections": [
+      {
+        "name": "シールド・機能接地",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "A2",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "A3",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "A4",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "A5",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "A6",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "A7",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "A8",
+            "signal": "機能接地",
+            "purpose": "機能接地"
+          },
+          {
+            "pin": "B1",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "B2",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "B3",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "B4",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "B5",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "B6",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "B7",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "B8",
+            "signal": "機能接地",
+            "purpose": "機能接地"
+          }
+        ]
+      }
+    ],
+    "note": "14点のSHLD端子は機能接地端子およびDINレール接触プレートとユニット内部で接続される。"
+  }
+}

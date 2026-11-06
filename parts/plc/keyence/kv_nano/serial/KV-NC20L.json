@@ -1,0 +1,235 @@
+{
+  "category": "kv_io",
+  "model": "KV-NC20L",
+  "source": [
+    "KV Nanoシリーズ 基本ユニット（コネクタタイプ）ユーザーズマニュアル（084542）第2章 2-35～2-37"
+  ],
+  "definition": {
+    "series": [
+      "KV Nano"
+    ],
+    "connection": "端子",
+    "input_common": "P",
+    "pages": [],
+    "note": "Port2は選択した通信方式の端子を表示。SGは基本ユニットの内部GNDと絶縁。",
+    "module": {
+      "function": "シリアル通信",
+      "modes": {
+        "RS-232C": [
+          {
+            "name": "Port1 RS-232C",
+            "kind": "dsub9",
+            "gender": "male",
+            "pinout": [
+              {
+                "pin": "2",
+                "signal": "RD",
+                "description": "受信"
+              },
+              {
+                "pin": "3",
+                "signal": "SD",
+                "description": "送信"
+              },
+              {
+                "pin": "4",
+                "signal": "ER",
+                "description": "端末レディ"
+              },
+              {
+                "pin": "5",
+                "signal": "SG",
+                "description": "信号グランド"
+              },
+              {
+                "pin": "6",
+                "signal": "DR",
+                "description": "セットレディ"
+              },
+              {
+                "pin": "7",
+                "signal": "RS",
+                "description": "送信要求"
+              },
+              {
+                "pin": "8",
+                "signal": "CS",
+                "description": "送信可"
+              }
+            ],
+            "unused": ["1", "9"]
+          },
+          {
+            "name": "Port2 RS-232C",
+            "kind": "terminal",
+            "pinout": [
+              {
+                "pin": "1",
+                "signal": "SD",
+                "description": "送信"
+              },
+              {
+                "pin": "4",
+                "signal": "RD",
+                "description": "受信"
+              },
+              {
+                "pin": "5",
+                "signal": "SG",
+                "description": "信号グランド"
+              }
+            ],
+            "unused": ["2", "3"]
+          }
+        ],
+        "RS-422A／RS-485（4線式）": [
+          {
+            "name": "Port1 RS-232C",
+            "kind": "dsub9",
+            "gender": "male",
+            "pinout": [
+              {
+                "pin": "2",
+                "signal": "RD",
+                "description": "受信"
+              },
+              {
+                "pin": "3",
+                "signal": "SD",
+                "description": "送信"
+              },
+              {
+                "pin": "4",
+                "signal": "ER",
+                "description": "端末レディ"
+              },
+              {
+                "pin": "5",
+                "signal": "SG",
+                "description": "信号グランド"
+              },
+              {
+                "pin": "6",
+                "signal": "DR",
+                "description": "セットレディ"
+              },
+              {
+                "pin": "7",
+                "signal": "RS",
+                "description": "送信要求"
+              },
+              {
+                "pin": "8",
+                "signal": "CS",
+                "description": "送信可"
+              }
+            ],
+            "unused": ["1", "9"]
+          },
+          {
+            "name": "Port2 RS-422A／RS-485（4線式）",
+            "kind": "terminal",
+            "pinout": [
+              {
+                "pin": "1",
+                "signal": "SDA(-)",
+                "description": "送信－"
+              },
+              {
+                "pin": "2",
+                "signal": "SDB(+)",
+                "description": "送信＋"
+              },
+              {
+                "pin": "3",
+                "signal": "RDA(-)",
+                "description": "受信－"
+              },
+              {
+                "pin": "4",
+                "signal": "RDB(+)",
+                "description": "受信＋"
+              },
+              {
+                "pin": "5",
+                "signal": "SG",
+                "description": "信号グランド"
+              }
+            ]
+          }
+        ],
+        "RS-485（2線式）": [
+          {
+            "name": "Port1 RS-232C",
+            "kind": "dsub9",
+            "gender": "male",
+            "pinout": [
+              {
+                "pin": "2",
+                "signal": "RD",
+                "description": "受信"
+              },
+              {
+                "pin": "3",
+                "signal": "SD",
+                "description": "送信"
+              },
+              {
+                "pin": "4",
+                "signal": "ER",
+                "description": "端末レディ"
+              },
+              {
+                "pin": "5",
+                "signal": "SG",
+                "description": "信号グランド"
+              },
+              {
+                "pin": "6",
+                "signal": "DR",
+                "description": "セットレディ"
+              },
+              {
+                "pin": "7",
+                "signal": "RS",
+                "description": "送信要求"
+              },
+              {
+                "pin": "8",
+                "signal": "CS",
+                "description": "送信可"
+              }
+            ],
+            "unused": ["1", "9"]
+          },
+          {
+            "name": "Port2 RS-485（2線式）",
+            "kind": "terminal",
+            "pinout": [
+              {
+                "pin": "1",
+                "signal": "S/R(-)",
+                "description": "送受信－"
+              },
+              {
+                "pin": "2",
+                "signal": "S/R(+)",
+                "description": "送受信＋"
+              },
+              {
+                "pin": "5",
+                "signal": "SG",
+                "description": "信号グランド"
+              }
+            ],
+            "unused": ["3", "4"]
+          }
+        ]
+      },
+      "settings": [
+        ["通信設定", "communication"]
+      ],
+      "note": "Port2は選択した通信方式の端子を表示。SGは基本ユニットの内部GNDと絶縁。"
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-EC0132",
+  "source": [
+    "NXシリーズ 位置インタフェースユニット ユーザーズマニュアル（SBCE-374L） 第6章 6-16"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "インクリメンタルエンコーダ入力",
+    "sections": [
+      {
+        "name": "端子台 A/B",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "I0",
+            "purpose": "外部入力0"
+          },
+          {
+            "pin": "B1",
+            "signal": "I1",
+            "purpose": "外部入力1"
+          },
+          {
+            "pin": "A2",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B2",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A3",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B3",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A4",
+            "signal": "I2",
+            "purpose": "外部入力2"
+          },
+          {
+            "pin": "B4",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "A5",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B5",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "A6",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B6",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          }
+        ]
+      },
+      {
+        "name": "端子台 C/D",
+        "terminals": [
+          {
+            "pin": "C1",
+            "signal": "A+",
+            "purpose": "カウンタ入力A+側"
+          },
+          {
+            "pin": "D1",
+            "signal": "B+",
+            "purpose": "カウンタ入力B+側"
+          },
+          {
+            "pin": "C2",
+            "signal": "A-",
+            "purpose": "カウンタ入力A-側"
+          },
+          {
+            "pin": "D2",
+            "signal": "B-",
+            "purpose": "カウンタ入力B-側"
+          },
+          {
+            "pin": "C3",
+            "signal": "Z+",
+            "purpose": "カウンタ入力Z+側"
+          },
+          {
+            "pin": "D3",
+            "signal": "5V",
+            "purpose": "エンコーダ用電源出力5V"
+          },
+          {
+            "pin": "C4",
+            "signal": "Z-",
+            "purpose": "カウンタ入力Z-側"
+          },
+          {
+            "pin": "D4",
+            "signal": "0V",
+            "purpose": "エンコーダ用電源出力0V"
+          },
+          {
+            "pin": "C5",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "D5",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "C6",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "D6",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          }
+        ]
+      }
+    ],
+    "note": "エンコーダ用5V出力はI/O電源DC24Vからユニット内部で生成する。"
+  }
+}

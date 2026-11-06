@@ -1,0 +1,255 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-OD6121-6",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N）付録 A-1 A-87"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "デジタル出力",
+    "sections": [
+      {
+        "name": "I/Oコネクタ",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "OUT0",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A2",
+            "signal": "OUT1",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A3",
+            "signal": "OUT2",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A4",
+            "signal": "OUT3",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A5",
+            "signal": "OUT4",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A6",
+            "signal": "OUT5",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A7",
+            "signal": "OUT6",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A8",
+            "signal": "OUT7",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A9",
+            "signal": "COM0",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "A10",
+            "signal": "+V0",
+            "purpose": ""
+          },
+          {
+            "pin": "A11",
+            "signal": "OUT8",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A12",
+            "signal": "OUT9",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A13",
+            "signal": "OUT10",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A14",
+            "signal": "OUT11",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A15",
+            "signal": "OUT12",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A16",
+            "signal": "OUT13",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A17",
+            "signal": "OUT14",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A18",
+            "signal": "OUT15",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A19",
+            "signal": "COM0",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "A20",
+            "signal": "+V0",
+            "purpose": ""
+          },
+          {
+            "pin": "B1",
+            "signal": "OUT16",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B2",
+            "signal": "OUT17",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B3",
+            "signal": "OUT18",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B4",
+            "signal": "OUT19",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B5",
+            "signal": "OUT20",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B6",
+            "signal": "OUT21",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B7",
+            "signal": "OUT22",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B8",
+            "signal": "OUT23",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B9",
+            "signal": "COM1",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "B10",
+            "signal": "+V1",
+            "purpose": ""
+          },
+          {
+            "pin": "B11",
+            "signal": "OUT24",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B12",
+            "signal": "OUT25",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B13",
+            "signal": "OUT26",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B14",
+            "signal": "OUT27",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B15",
+            "signal": "OUT28",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B16",
+            "signal": "OUT29",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B17",
+            "signal": "OUT30",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B18",
+            "signal": "OUT31",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B19",
+            "signal": "COM1",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "B20",
+            "signal": "+V1",
+            "purpose": ""
+          }
+        ]
+      }
+    ],
+    "note": "A9とA19（COM0）は、必ず両端子とも配線してください。B9とB19（COM1）は、必ず両端子とも配線してください。A10とA20（+V0）は、必ず両端子とも配線してください。B10とB20（+V1）は、必ず両端子とも配線してください。出力0～15は＋V0・COM0、出力16～31は＋V1・COM1に対応する。",
+    "output_type": "sink"
+  }
+}

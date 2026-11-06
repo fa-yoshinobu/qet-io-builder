@@ -1,0 +1,102 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-8000",
+  "source": [
+    "KV-8000シリーズ ユーザーズマニュアル（084823）第2章 2-6～2-8、第3章 3-18～3-19"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-8000"
+    ],
+    "function": "CPU",
+    "sections": [
+      {
+        "name": "DC24V電源入力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "24V",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "main"
+          },
+          {
+            "pin": "",
+            "signal": "0V",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "main"
+          },
+          {
+            "pin": "",
+            "signal": "FG",
+            "purpose": "接地"
+          }
+        ]
+      },
+      {
+        "name": "USB",
+        "terminals": [],
+        "connector": {
+          "kind": "usb_b",
+          "label": "USB Type-B"
+        }
+      },
+      {
+        "name": "Ethernet／EtherNet/IP",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "TD＋",
+            "purpose": "送信＋"
+          },
+          {
+            "pin": "2",
+            "signal": "TD－",
+            "purpose": "送信－"
+          },
+          {
+            "pin": "3",
+            "signal": "RD＋",
+            "purpose": "受信＋"
+          },
+          {
+            "pin": "6",
+            "signal": "RD－",
+            "purpose": "受信－"
+          },
+          {
+            "pin": "4",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "5",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "7",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "8",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          }
+        ],
+        "connector": {
+          "kind": "rj45",
+          "label": "100BASE-TX"
+        }
+      }
+    ],
+    "note": "KV-PU1を接続する場合、CPUのDC電源入力端子から重ねて給電しない。"
+  }
+}

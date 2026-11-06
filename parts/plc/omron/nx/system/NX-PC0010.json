@@ -1,0 +1,102 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-PC0010",
+  "source": [
+    "NXシリーズ システムユニット ユーザーズマニュアル（SBCA-409K） 第4章 4-39～4-42、付録 A-12"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "I/O電源接続",
+    "sections": [
+      {
+        "name": "外部機器へのI/O電源接続",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "A2",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "A3",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "A4",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "A5",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "A6",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "A7",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "A8",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "B1",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "B2",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "B3",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "B4",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "B5",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "B6",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "B7",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          },
+          {
+            "pin": "B8",
+            "signal": "IOG",
+            "purpose": "I/O電源接続"
+          }
+        ]
+      }
+    ],
+    "note": "NXバスから供給されたI/O電源の接続点を追加するユニット。本ユニットへ外部電源を供給しない。"
+  }
+}

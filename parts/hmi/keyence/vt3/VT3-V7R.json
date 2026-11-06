@@ -1,0 +1,227 @@
+{
+  "category": "unit_diagram",
+  "model": "VT3-V7R",
+  "source": [
+    "VT3シリーズ ハードウェアマニュアル（144143） 1-2 1-12、2-1 2-8、2-2 2-16、2-38～2-39、3-2 3-24～3-25、3-3 3-30"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "VT3"
+    ],
+    "function": "タッチパネル",
+    "sections": [
+      {
+        "name": "PORT1 USB",
+        "connector": {
+          "kind": "usb_b",
+          "label": "パソコン接続 USB Type-B"
+        },
+        "terminals": []
+      },
+      {
+        "name": "FG",
+        "connector": {
+          "kind": "proprietary",
+          "label": "本体接続ケーブル シールド"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "FG",
+            "purpose": "機能接地"
+          },
+          {
+            "pin": "2",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          }
+        ]
+      },
+      {
+        "name": "CN1 電源・十字キー",
+        "connector": {
+          "kind": "proprietary",
+          "label": "本体接続ケーブル"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "24V",
+            "purpose": "外部電源",
+            "lane": "P"
+          },
+          {
+            "pin": "2",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          },
+          {
+            "pin": "3",
+            "signal": "GND",
+            "purpose": "外部電源",
+            "lane": "N"
+          },
+          {
+            "pin": "4",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          },
+          {
+            "pin": "5",
+            "signal": "KEY1",
+            "purpose": "十字キー 上"
+          },
+          {
+            "pin": "6",
+            "signal": "KEY2",
+            "purpose": "十字キー 右"
+          },
+          {
+            "pin": "7",
+            "signal": "KEY3",
+            "purpose": "十字キー 下"
+          },
+          {
+            "pin": "8",
+            "signal": "KEY4",
+            "purpose": "十字キー 左"
+          },
+          {
+            "pin": "9",
+            "signal": "KEYCOM",
+            "purpose": "コモン"
+          }
+        ],
+        "expand": true
+      },
+      {
+        "name": "CN2 RS-232C／RS-485",
+        "connector": {
+          "kind": "proprietary",
+          "label": "本体接続ケーブル"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "TXD(SD)",
+            "purpose": "RS-232C 送信データ"
+          },
+          {
+            "pin": "2",
+            "signal": "RXD(RD)",
+            "purpose": "RS-232C 受信データ"
+          },
+          {
+            "pin": "3",
+            "signal": "RTS(RS)",
+            "purpose": "RS-232C 送信要求"
+          },
+          {
+            "pin": "4",
+            "signal": "CTS(CS)",
+            "purpose": "RS-232C 送信許可"
+          },
+          {
+            "pin": "5",
+            "signal": "DSR(DR)",
+            "purpose": "RS-232C 送信データあり"
+          },
+          {
+            "pin": "6",
+            "signal": "DTR(ER)",
+            "purpose": "RS-232C データ端末準備完了"
+          },
+          {
+            "pin": "7",
+            "signal": "A",
+            "purpose": "RS-485 信号A"
+          },
+          {
+            "pin": "8",
+            "signal": "B",
+            "purpose": "RS-485 信号B"
+          },
+          {
+            "pin": "9",
+            "signal": "SG",
+            "purpose": "シグナルグランド"
+          },
+          {
+            "pin": "10",
+            "signal": "SG",
+            "purpose": "シグナルグランド"
+          }
+        ]
+      },
+      {
+        "name": "CN3 RS-422A",
+        "connector": {
+          "kind": "proprietary",
+          "label": "本体接続ケーブル"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "TXDA",
+            "purpose": "RS-422A 送信データA"
+          },
+          {
+            "pin": "2",
+            "signal": "TXDB",
+            "purpose": "RS-422A 送信データB"
+          },
+          {
+            "pin": "3",
+            "signal": "RTSA",
+            "purpose": "RS-422A 送信要求A"
+          },
+          {
+            "pin": "4",
+            "signal": "RTSB",
+            "purpose": "RS-422A 送信要求B"
+          },
+          {
+            "pin": "5",
+            "signal": "RXDA",
+            "purpose": "RS-422A 受信データA"
+          },
+          {
+            "pin": "6",
+            "signal": "RXDB",
+            "purpose": "RS-422A 受信データB"
+          },
+          {
+            "pin": "7",
+            "signal": "CTSA",
+            "purpose": "RS-422A 送信許可A"
+          },
+          {
+            "pin": "8",
+            "signal": "CTSB",
+            "purpose": "RS-422A 送信許可B"
+          },
+          {
+            "pin": "9",
+            "signal": "SG",
+            "purpose": "シグナルグランド"
+          },
+          {
+            "pin": "10",
+            "signal": "SG",
+            "purpose": "シグナルグランド"
+          },
+          {
+            "pin": "11",
+            "signal": "DSR(DR)",
+            "purpose": "RS-422A 送信データあり"
+          }
+        ]
+      }
+    ],
+    "note": "DC24V±10％は本体接続ケーブル経由でCN1へ供給する。接続する通信方式に応じCN2またはCN3を使用する。電源線を延長する場合はシールド付き2芯ケーブルを使用し、シールドを電源のFG端子で接地する。十字キー出力はNPNオープンコレクタ、4点1コモン。"
+  }
+}

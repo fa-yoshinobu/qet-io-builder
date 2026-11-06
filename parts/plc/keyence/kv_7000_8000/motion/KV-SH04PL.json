@@ -1,0 +1,452 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-SH04PL",
+  "source": [
+    "パルス列位置決めユニット KV-SH04PL ユーザーズマニュアル（084964）第2章 2-14～2-15"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "パルス列位置決め",
+    "sections": [
+      {
+        "name": "軸1／軸2",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "1LSF",
+            "purpose": "軸1 正方向リミット"
+          },
+          {
+            "pin": "2",
+            "signal": "2LSF",
+            "purpose": "軸2 正方向リミット"
+          },
+          {
+            "pin": "3",
+            "signal": "1LSR",
+            "purpose": "軸1 負方向リミット"
+          },
+          {
+            "pin": "4",
+            "signal": "2LSR",
+            "purpose": "軸2 負方向リミット"
+          },
+          {
+            "pin": "5",
+            "signal": "1ORG",
+            "purpose": "軸1 原点センサ"
+          },
+          {
+            "pin": "6",
+            "signal": "2ORG",
+            "purpose": "軸2 原点センサ"
+          },
+          {
+            "pin": "7",
+            "signal": "1STOP",
+            "purpose": "軸1 停止センサ"
+          },
+          {
+            "pin": "8",
+            "signal": "2STOP",
+            "purpose": "軸2 停止センサ"
+          },
+          {
+            "pin": "9",
+            "signal": "1SP0ST",
+            "purpose": "軸1 連続即時起動"
+          },
+          {
+            "pin": "10",
+            "signal": "2SP0ST",
+            "purpose": "軸2 連続即時起動"
+          },
+          {
+            "pin": "11",
+            "signal": "1Z＋",
+            "purpose": "軸1 位置決めZ相＋"
+          },
+          {
+            "pin": "12",
+            "signal": "2Z＋",
+            "purpose": "軸2 位置決めZ相＋"
+          },
+          {
+            "pin": "13",
+            "signal": "1Z－",
+            "purpose": "軸1 位置決めZ相－"
+          },
+          {
+            "pin": "14",
+            "signal": "2Z－",
+            "purpose": "軸2 位置決めZ相－"
+          },
+          {
+            "pin": "15",
+            "signal": "1SVEND",
+            "purpose": "軸1 サーボエンド"
+          },
+          {
+            "pin": "16",
+            "signal": "2SVEND",
+            "purpose": "軸2 サーボエンド"
+          },
+          {
+            "pin": "17",
+            "signal": "1SVRDY",
+            "purpose": "軸1 サーボレディ"
+          },
+          {
+            "pin": "18",
+            "signal": "2SVRDY",
+            "purpose": "軸2 サーボレディ"
+          },
+          {
+            "pin": "19",
+            "signal": "1ALM",
+            "purpose": "軸1 ドライバアラーム"
+          },
+          {
+            "pin": "20",
+            "signal": "2ALM",
+            "purpose": "軸2 ドライバアラーム"
+          },
+          {
+            "pin": "21",
+            "signal": "1ALMRES",
+            "purpose": "軸1 アラームリセット"
+          },
+          {
+            "pin": "22",
+            "signal": "2ALMRES",
+            "purpose": "軸2 アラームリセット"
+          },
+          {
+            "pin": "23",
+            "signal": "1SVON",
+            "purpose": "軸1 サーボON"
+          },
+          {
+            "pin": "24",
+            "signal": "2SVON",
+            "purpose": "軸2 サーボON"
+          },
+          {
+            "pin": "25",
+            "signal": "1CLR",
+            "purpose": "軸1 偏差カウンタクリア"
+          },
+          {
+            "pin": "26",
+            "signal": "2CLR",
+            "purpose": "軸2 偏差カウンタクリア"
+          },
+          {
+            "pin": "27",
+            "signal": "1FP＋",
+            "purpose": "軸1 正転パルス＋"
+          },
+          {
+            "pin": "28",
+            "signal": "2FP＋",
+            "purpose": "軸2 正転パルス＋"
+          },
+          {
+            "pin": "29",
+            "signal": "1FP－",
+            "purpose": "軸1 正転パルス－"
+          },
+          {
+            "pin": "30",
+            "signal": "2FP－",
+            "purpose": "軸2 正転パルス－"
+          },
+          {
+            "pin": "31",
+            "signal": "1RP＋",
+            "purpose": "軸1 逆転パルス＋"
+          },
+          {
+            "pin": "32",
+            "signal": "2RP＋",
+            "purpose": "軸2 逆転パルス＋"
+          },
+          {
+            "pin": "33",
+            "signal": "1RP－",
+            "purpose": "軸1 逆転パルス－"
+          },
+          {
+            "pin": "34",
+            "signal": "2RP－",
+            "purpose": "軸2 逆転パルス－"
+          },
+          {
+            "pin": "35",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "36",
+            "signal": "FSTOP",
+            "purpose": "強制停止入力"
+          },
+          {
+            "pin": "37",
+            "signal": "＋5V_OUT",
+            "purpose": "DC5V電源出力"
+          },
+          {
+            "pin": "38",
+            "signal": "－COM",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "io"
+          },
+          {
+            "pin": "39",
+            "signal": "＋COM",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "io"
+          },
+          {
+            "pin": "40",
+            "signal": "－COM",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "io"
+          }
+        ],
+        "connector": {
+          "kind": "mil_40",
+          "label": "40極コネクタ"
+        }
+      },
+      {
+        "name": "軸3／軸4",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "3LSF",
+            "purpose": "軸3 正方向リミット"
+          },
+          {
+            "pin": "2",
+            "signal": "4LSF",
+            "purpose": "軸4 正方向リミット"
+          },
+          {
+            "pin": "3",
+            "signal": "3LSR",
+            "purpose": "軸3 負方向リミット"
+          },
+          {
+            "pin": "4",
+            "signal": "4LSR",
+            "purpose": "軸4 負方向リミット"
+          },
+          {
+            "pin": "5",
+            "signal": "3ORG",
+            "purpose": "軸3 原点センサ"
+          },
+          {
+            "pin": "6",
+            "signal": "4ORG",
+            "purpose": "軸4 原点センサ"
+          },
+          {
+            "pin": "7",
+            "signal": "3STOP",
+            "purpose": "軸3 停止センサ"
+          },
+          {
+            "pin": "8",
+            "signal": "4STOP",
+            "purpose": "軸4 停止センサ"
+          },
+          {
+            "pin": "9",
+            "signal": "3SP0ST",
+            "purpose": "軸3 連続即時起動"
+          },
+          {
+            "pin": "10",
+            "signal": "4SP0ST",
+            "purpose": "軸4 連続即時起動"
+          },
+          {
+            "pin": "11",
+            "signal": "3Z＋",
+            "purpose": "軸3 位置決めZ相＋"
+          },
+          {
+            "pin": "12",
+            "signal": "4Z＋",
+            "purpose": "軸4 位置決めZ相＋"
+          },
+          {
+            "pin": "13",
+            "signal": "3Z－",
+            "purpose": "軸3 位置決めZ相－"
+          },
+          {
+            "pin": "14",
+            "signal": "4Z－",
+            "purpose": "軸4 位置決めZ相－"
+          },
+          {
+            "pin": "15",
+            "signal": "3SVEND",
+            "purpose": "軸3 サーボエンド"
+          },
+          {
+            "pin": "16",
+            "signal": "4SVEND",
+            "purpose": "軸4 サーボエンド"
+          },
+          {
+            "pin": "17",
+            "signal": "3SVRDY",
+            "purpose": "軸3 サーボレディ"
+          },
+          {
+            "pin": "18",
+            "signal": "4SVRDY",
+            "purpose": "軸4 サーボレディ"
+          },
+          {
+            "pin": "19",
+            "signal": "3ALM",
+            "purpose": "軸3 ドライバアラーム"
+          },
+          {
+            "pin": "20",
+            "signal": "4ALM",
+            "purpose": "軸4 ドライバアラーム"
+          },
+          {
+            "pin": "21",
+            "signal": "3ALMRES",
+            "purpose": "軸3 アラームリセット"
+          },
+          {
+            "pin": "22",
+            "signal": "4ALMRES",
+            "purpose": "軸4 アラームリセット"
+          },
+          {
+            "pin": "23",
+            "signal": "3SVON",
+            "purpose": "軸3 サーボON"
+          },
+          {
+            "pin": "24",
+            "signal": "4SVON",
+            "purpose": "軸4 サーボON"
+          },
+          {
+            "pin": "25",
+            "signal": "3CLR",
+            "purpose": "軸3 偏差カウンタクリア"
+          },
+          {
+            "pin": "26",
+            "signal": "4CLR",
+            "purpose": "軸4 偏差カウンタクリア"
+          },
+          {
+            "pin": "27",
+            "signal": "3FP＋",
+            "purpose": "軸3 正転パルス＋"
+          },
+          {
+            "pin": "28",
+            "signal": "4FP＋",
+            "purpose": "軸4 正転パルス＋"
+          },
+          {
+            "pin": "29",
+            "signal": "3FP－",
+            "purpose": "軸3 正転パルス－"
+          },
+          {
+            "pin": "30",
+            "signal": "4FP－",
+            "purpose": "軸4 正転パルス－"
+          },
+          {
+            "pin": "31",
+            "signal": "3RP＋",
+            "purpose": "軸3 逆転パルス＋"
+          },
+          {
+            "pin": "32",
+            "signal": "4RP＋",
+            "purpose": "軸4 逆転パルス＋"
+          },
+          {
+            "pin": "33",
+            "signal": "3RP－",
+            "purpose": "軸3 逆転パルス－"
+          },
+          {
+            "pin": "34",
+            "signal": "4RP－",
+            "purpose": "軸4 逆転パルス－"
+          },
+          {
+            "pin": "35",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "36",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "37",
+            "signal": "＋5V_OUT",
+            "purpose": "DC5V電源出力"
+          },
+          {
+            "pin": "38",
+            "signal": "－COM",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "io"
+          },
+          {
+            "pin": "39",
+            "signal": "＋COM",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "io"
+          },
+          {
+            "pin": "40",
+            "signal": "－COM",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "io"
+          }
+        ],
+        "connector": {
+          "kind": "mil_40",
+          "label": "40極コネクタ"
+        }
+      }
+    ],
+    "note": "＋COM、－COM、＋5V_OUTは各同名端子が内部共通。サーボ信号は使用するドライバ方式に従って接続。ラインレシーバ接続時はドライバSGと－COMを接続する。"
+  }
+}

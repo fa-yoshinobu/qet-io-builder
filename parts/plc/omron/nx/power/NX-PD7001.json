@@ -1,0 +1,56 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-PD7001",
+  "source": [
+    "NXシリーズ CPUユニット ユーザーズマニュアル ハードウェア編（SBCA-418S）第3章 3-10～3-12、第4章 4-27～4-31"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "電源",
+    "sections": [
+      {
+        "name": "電源・接地・運転中出力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "+",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "unit"
+          },
+          {
+            "pin": "",
+            "signal": "-",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "unit"
+          },
+          {
+            "pin": "",
+            "signal": "LG",
+            "purpose": "機能接地"
+          },
+          {
+            "pin": "",
+            "signal": "GR",
+            "purpose": "保護接地"
+          },
+          {
+            "pin": "",
+            "signal": "RUN OUTPUT",
+            "purpose": "運転中出力"
+          },
+          {
+            "pin": "",
+            "signal": "RUN OUTPUT",
+            "purpose": "運転中出力"
+          }
+        ]
+      }
+    ],
+    "note": "電源はDC24V。RUN OUTPUTはCPUが運転モード時ON、プログラムモードまたは全停止フォールト時OFF。端子番号のない接続点は機能名で識別。"
+  }
+}

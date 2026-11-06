@@ -1,0 +1,37 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-XH32EC",
+  "source": [
+    "位置決め・モーションユニット KV-XH64EC/XH32EC/XH16EC ユーザーズマニュアル（084972）第2章 2-2～2-8"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "位置決め・モーション",
+    "sections": [
+      {
+        "name": "機能接地",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "FG",
+            "purpose": "接地"
+          }
+        ]
+      },
+      {
+        "name": "PORT1",
+        "terminals": [],
+        "connector": {
+          "kind": "rj45",
+          "label": "EtherCAT 100BASE-TX"
+        }
+      }
+    ],
+    "note": "FGはD種接地。各ポートの用途は機器・通信構成に合わせて設定する。"
+  }
+}

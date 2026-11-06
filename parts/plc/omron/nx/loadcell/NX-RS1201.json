@@ -1,0 +1,106 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-RS1201",
+  "source": [
+    "NXシリーズ ロードセル入力ユニット ユーザーズマニュアル（SBCA-439F） 第4章 4-4 4-24～4-25"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "ロードセル入力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "SIG+",
+            "purpose": "ロードセル入力（＋）"
+          },
+          {
+            "pin": "A2",
+            "signal": "SIG−",
+            "purpose": "ロードセル入力（－）"
+          },
+          {
+            "pin": "A3",
+            "signal": "EXC+",
+            "purpose": "ロードセル印加電圧5V"
+          },
+          {
+            "pin": "A4",
+            "signal": "EXC−",
+            "purpose": "ロードセル印加電圧0V"
+          },
+          {
+            "pin": "A5",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "A6",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "A7",
+            "signal": "SHLD",
+            "purpose": "シールド端子"
+          },
+          {
+            "pin": "A8",
+            "signal": "FG",
+            "purpose": "機能接地"
+          },
+          {
+            "pin": "B1",
+            "signal": "S+",
+            "purpose": "印加電圧測定入力（＋）"
+          },
+          {
+            "pin": "B2",
+            "signal": "S−",
+            "purpose": "印加電圧測定入力（－）"
+          },
+          {
+            "pin": "B3",
+            "signal": "EXC+",
+            "purpose": "ロードセル印加電圧5V"
+          },
+          {
+            "pin": "B4",
+            "signal": "EXC−",
+            "purpose": "ロードセル印加電圧0V"
+          },
+          {
+            "pin": "B5",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B6",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B7",
+            "signal": "SHLD",
+            "purpose": "シールド端子"
+          },
+          {
+            "pin": "B8",
+            "signal": "FG",
+            "purpose": "機能接地"
+          }
+        ]
+      }
+    ],
+    "note": "4線式ではS＋とEXC＋、S－とEXC－をそれぞれ接続する。シールドはSHLDへ接続し、機能接地端子を接地する。"
+  }
+}

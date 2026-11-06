@@ -1,0 +1,84 @@
+{
+  "category": "unit_diagram",
+  "model": "NX102-1020",
+  "source": [
+    "NXシリーズ 形NX102 CPUユニット ユーザーズマニュアル ハードウェア編（SBCA-462N）第3章 3-2～3-5、第5章 5-34～5-39"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "CPU",
+    "sections": [
+      {
+        "name": "ユニット電源 DC24V",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "24V",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "unit"
+          },
+          {
+            "pin": "B1",
+            "signal": "24V",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "unit"
+          },
+          {
+            "pin": "A3",
+            "signal": "0V",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "unit"
+          },
+          {
+            "pin": "B3",
+            "signal": "0V",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "unit"
+          },
+          {
+            "pin": "A7",
+            "signal": "機能接地",
+            "purpose": "機能接地"
+          },
+          {
+            "pin": "B7",
+            "signal": "機能接地",
+            "purpose": "機能接地"
+          }
+        ]
+      },
+      {
+        "name": "PORT1 EtherNet/IP",
+        "connector": {
+          "kind": "rj45",
+          "label": "PORT1 EtherNet/IP"
+        },
+        "terminals": []
+      },
+      {
+        "name": "PORT2 EtherNet/IP",
+        "connector": {
+          "kind": "rj45",
+          "label": "PORT2 EtherNet/IP"
+        },
+        "terminals": []
+      },
+      {
+        "name": "PORT3 EtherCAT",
+        "connector": {
+          "kind": "rj45",
+          "label": "PORT3 EtherCAT"
+        },
+        "terminals": []
+      }
+    ],
+    "note": "A1/B1、A3/B3はそれぞれ内部共通。A5/B5（NC）には接続しない。NXユニット用I/O電源は別途供給する。"
+  }
+}

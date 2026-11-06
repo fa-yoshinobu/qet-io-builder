@@ -1,0 +1,186 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-HAD402",
+  "source": [
+    "NXシリーズ アナログI/Oユニット ユーザーズマニュアル 高速アナログ入力ユニット編（SBCA-461D）4-4 4-20～4-24"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "高速アナログ入力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "IN1",
+            "purpose": "トリガ入力1"
+          },
+          {
+            "pin": "B1",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "A2",
+            "signal": "IOV1",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B2",
+            "signal": "IOG1",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A3",
+            "signal": "IN2",
+            "purpose": "トリガ入力2"
+          },
+          {
+            "pin": "B3",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "A4",
+            "signal": "IOV2",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B4",
+            "signal": "IOG2",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A5",
+            "signal": "IN3",
+            "purpose": "トリガ入力3"
+          },
+          {
+            "pin": "B5",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "A6",
+            "signal": "IOV3",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B6",
+            "signal": "IOG3",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A7",
+            "signal": "IN4",
+            "purpose": "トリガ入力4"
+          },
+          {
+            "pin": "B7",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "A8",
+            "signal": "IOV4",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B8",
+            "signal": "IOG4",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "C1",
+            "signal": "SHT1+",
+            "purpose": "電流入力切替1+"
+          },
+          {
+            "pin": "D1",
+            "signal": "入力1+",
+            "purpose": "アナログ入力1+"
+          },
+          {
+            "pin": "C2",
+            "signal": "SHT1-",
+            "purpose": "電流入力切替1-"
+          },
+          {
+            "pin": "D2",
+            "signal": "入力1-",
+            "purpose": "アナログ入力1-"
+          },
+          {
+            "pin": "C3",
+            "signal": "SHT2+",
+            "purpose": "電流入力切替2+"
+          },
+          {
+            "pin": "D3",
+            "signal": "入力2+",
+            "purpose": "アナログ入力2+"
+          },
+          {
+            "pin": "C4",
+            "signal": "SHT2-",
+            "purpose": "電流入力切替2-"
+          },
+          {
+            "pin": "D4",
+            "signal": "入力2-",
+            "purpose": "アナログ入力2-"
+          },
+          {
+            "pin": "C5",
+            "signal": "SHT3+",
+            "purpose": "電流入力切替3+"
+          },
+          {
+            "pin": "D5",
+            "signal": "入力3+",
+            "purpose": "アナログ入力3+"
+          },
+          {
+            "pin": "C6",
+            "signal": "SHT3-",
+            "purpose": "電流入力切替3-"
+          },
+          {
+            "pin": "D6",
+            "signal": "入力3-",
+            "purpose": "アナログ入力3-"
+          },
+          {
+            "pin": "C7",
+            "signal": "SHT4+",
+            "purpose": "電流入力切替4+"
+          },
+          {
+            "pin": "D7",
+            "signal": "入力4+",
+            "purpose": "アナログ入力4+"
+          },
+          {
+            "pin": "C8",
+            "signal": "SHT4-",
+            "purpose": "電流入力切替4-"
+          },
+          {
+            "pin": "D8",
+            "signal": "入力4-",
+            "purpose": "アナログ入力4-"
+          }
+        ]
+      }
+    ],
+    "note": "電流入力時は対象CHのSHT＋とSHT－を長さ4cm以下のケーブルで短絡する。入力配線はシールド線を使用し、標準配線例ではシールドを接地しない。ノイズ対策として接地する場合はユニット側のみとし、両端接地しない。"
+  }
+}

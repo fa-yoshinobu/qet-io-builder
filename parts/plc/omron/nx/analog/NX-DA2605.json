@@ -1,0 +1,64 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-DA2605",
+  "source": [
+    "NXシリーズ アナログI/Oユニット ユーザーズマニュアル アナログ入力ユニット、アナログ出力ユニット編（SBCA-408K） 付録 A-1 A-29"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "アナログ出力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "V1＋",
+            "purpose": ""
+          },
+          {
+            "pin": "B1",
+            "signal": "V2＋",
+            "purpose": ""
+          },
+          {
+            "pin": "A3",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B3",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A5",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B5",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A7",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B7",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          }
+        ]
+      }
+    ],
+    "note": ""
+  }
+}

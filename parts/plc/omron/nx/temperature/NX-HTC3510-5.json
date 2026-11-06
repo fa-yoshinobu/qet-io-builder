@@ -1,0 +1,396 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-HTC3510-5",
+  "source": [
+    "NXシリーズ 高機能温度調節ユニット ユーザーズマニュアル（SGTD-752A）4-3-8 4-21～4-23、4-3-9 4-24～4-25"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "高機能温度調節",
+    "sections": [
+      {
+        "name": "CN1（温度・アナログ・冷接点入力）",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "A1/I1（+）",
+            "purpose": "測温抵抗体入力（A）/ 電流入力（+）"
+          },
+          {
+            "pin": "2",
+            "signal": "A2/I2（+）",
+            "purpose": "測温抵抗体入力（A）/ 電流入力（+）"
+          },
+          {
+            "pin": "3",
+            "signal": "B1/TC1（-）/V1（-）/I1（-）",
+            "purpose": "測温抵抗体入力（B）/ 熱電対入力"
+          },
+          {
+            "pin": "4",
+            "signal": "B2/TC2（-）/V2（-）/I2（-）",
+            "purpose": "測温抵抗体入力（B）/ 熱電対入力"
+          },
+          {
+            "pin": "5",
+            "signal": "B1/TC1（+）/V1（+）",
+            "purpose": "測温抵抗体入力（B）/ 熱電対入力"
+          },
+          {
+            "pin": "6",
+            "signal": "B2/TC2（+）/V2（+）",
+            "purpose": "測温抵抗体入力（B）/ 熱電対入力"
+          },
+          {
+            "pin": "7",
+            "signal": "A3/I3（+）",
+            "purpose": "測温抵抗体入力（A）/ 電流入力（+）"
+          },
+          {
+            "pin": "8",
+            "signal": "A4/I4（+）",
+            "purpose": "測温抵抗体入力（A）/ 電流入力（+）"
+          },
+          {
+            "pin": "9",
+            "signal": "B3/TC3（-）/V3（-）/I3（-）",
+            "purpose": "測温抵抗体入力（B）/ 熱電対入力"
+          },
+          {
+            "pin": "10",
+            "signal": "B4/TC4（-）/V4（-）/I4（-）",
+            "purpose": "測温抵抗体入力（B）/ 熱電対入力"
+          },
+          {
+            "pin": "11",
+            "signal": "B3/TC3（+）/V3（+）",
+            "purpose": "測温抵抗体入力（B）/ 熱電対入力"
+          },
+          {
+            "pin": "12",
+            "signal": "B4/TC4（+）/V4（+）",
+            "purpose": "測温抵抗体入力（B）/ 熱電対入力"
+          },
+          {
+            "pin": "13",
+            "signal": "CJ（B）",
+            "purpose": "冷接点センサ"
+          },
+          {
+            "pin": "14",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "15",
+            "signal": "CJ（B）",
+            "purpose": "冷接点センサ"
+          },
+          {
+            "pin": "16",
+            "signal": "CJ（A）",
+            "purpose": "冷接点センサ"
+          },
+          {
+            "pin": "17",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "18",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "19",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "20",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "21",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "22",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "23",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "24",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "25",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "26",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "27",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "28",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "29",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "30",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "31",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "32",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "33",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "34",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          }
+        ]
+      },
+      {
+        "name": "CN2（CT入力・制御出力）",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "CT1",
+            "purpose": "CT 入力"
+          },
+          {
+            "pin": "2",
+            "signal": "CT1",
+            "purpose": "CT 入力"
+          },
+          {
+            "pin": "3",
+            "signal": "CT2",
+            "purpose": "CT 入力"
+          },
+          {
+            "pin": "4",
+            "signal": "CT2",
+            "purpose": "CT 入力"
+          },
+          {
+            "pin": "5",
+            "signal": "CT3",
+            "purpose": "CT 入力"
+          },
+          {
+            "pin": "6",
+            "signal": "CT3",
+            "purpose": "CT 入力"
+          },
+          {
+            "pin": "7",
+            "signal": "CT4",
+            "purpose": "CT 入力"
+          },
+          {
+            "pin": "8",
+            "signal": "CT4",
+            "purpose": "CT 入力"
+          },
+          {
+            "pin": "9",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "10",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "11",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "12",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "13",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "14",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "15",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "16",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "17",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "18",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "19",
+            "signal": "OUT1",
+            "purpose": "制御出力（加熱側）（+）"
+          },
+          {
+            "pin": "20",
+            "signal": "IOG1",
+            "purpose": "制御出力（加熱側）（-）"
+          },
+          {
+            "pin": "21",
+            "signal": "OUT2",
+            "purpose": "制御出力（加熱側）（+）"
+          },
+          {
+            "pin": "22",
+            "signal": "IOG2",
+            "purpose": "制御出力（加熱側）（-）"
+          },
+          {
+            "pin": "23",
+            "signal": "OUT3",
+            "purpose": "制御出力（加熱側）（+）"
+          },
+          {
+            "pin": "24",
+            "signal": "IOG3",
+            "purpose": "制御出力（加熱側）（-）"
+          },
+          {
+            "pin": "25",
+            "signal": "OUT4",
+            "purpose": "制御出力（加熱側）（+）"
+          },
+          {
+            "pin": "26",
+            "signal": "IOG4",
+            "purpose": "制御出力（加熱側）（-）"
+          },
+          {
+            "pin": "27",
+            "signal": "OUT5",
+            "purpose": "制御出力（冷却側）（+）"
+          },
+          {
+            "pin": "28",
+            "signal": "IOG5",
+            "purpose": "制御出力（冷却側）（-）"
+          },
+          {
+            "pin": "29",
+            "signal": "OUT6",
+            "purpose": "制御出力（冷却側）（+）"
+          },
+          {
+            "pin": "30",
+            "signal": "IOG6",
+            "purpose": "制御出力（冷却側）（-）"
+          },
+          {
+            "pin": "31",
+            "signal": "OUT7",
+            "purpose": "制御出力（冷却側）（+）"
+          },
+          {
+            "pin": "32",
+            "signal": "IOG7",
+            "purpose": "制御出力（冷却側）（-）"
+          },
+          {
+            "pin": "33",
+            "signal": "OUT8",
+            "purpose": "制御出力（冷却側）（+）"
+          },
+          {
+            "pin": "34",
+            "signal": "IOG8",
+            "purpose": "制御出力（冷却側）（-）"
+          }
+        ]
+      }
+    ],
+    "note": "CN1には使用前に付属の冷接点センサを接続する。形XW2K-34G-T使用時は赤線をB8（MIL16番）、黒線2本をA7・A8（MIL13・15番）に接続する。黒線に極性はない。冷接点センサは交換時以外取り外さない。各センサの種類に応じた入力端子を使用する。"
+  }
+}

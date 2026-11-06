@@ -1,0 +1,85 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-ECT101",
+  "source": [
+    "NXシリーズ EtherCATスレーブユニット ユーザーズマニュアル（SBCD-381A）第3章 3-2、第4章 4-3～4-8"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "EtherCATスレーブ",
+    "sections": [
+      {
+        "name": "EtherCAT IN",
+        "connector": {
+          "kind": "rj45",
+          "label": "EtherCAT IN"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "TD+",
+            "purpose": "送信データ＋"
+          },
+          {
+            "pin": "2",
+            "signal": "TD-",
+            "purpose": "送信データ－"
+          },
+          {
+            "pin": "3",
+            "signal": "RD+",
+            "purpose": "受信データ＋"
+          },
+          {
+            "pin": "6",
+            "signal": "RD-",
+            "purpose": "受信データ－"
+          },
+          {
+            "pin": "フード",
+            "signal": "FG",
+            "purpose": "保安用接地"
+          }
+        ]
+      },
+      {
+        "name": "EtherCAT OUT",
+        "connector": {
+          "kind": "rj45",
+          "label": "EtherCAT OUT"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "TD+",
+            "purpose": "送信データ＋"
+          },
+          {
+            "pin": "2",
+            "signal": "TD-",
+            "purpose": "送信データ－"
+          },
+          {
+            "pin": "3",
+            "signal": "RD+",
+            "purpose": "受信データ＋"
+          },
+          {
+            "pin": "6",
+            "signal": "RD-",
+            "purpose": "受信データ－"
+          },
+          {
+            "pin": "フード",
+            "signal": "FG",
+            "purpose": "保安用接地"
+          }
+        ]
+      }
+    ],
+    "note": "電源はNXバスから供給。INは上位マスタ側、OUTは次のスレーブへ接続。終端スレーブのOUTは未接続。LANピン4/5/7/8に信号割付はない。シールドは両端のコネクタフードへ接続。"
+  }
+}

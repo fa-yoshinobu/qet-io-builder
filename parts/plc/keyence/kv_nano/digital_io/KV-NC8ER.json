@@ -1,0 +1,53 @@
+{
+  "category": "kv_io",
+  "model": "KV-NC8ER",
+  "source": [
+    "KV Nanoシリーズ 基本ユニット（コネクタタイプ）ユーザーズマニュアル（084542）第2章 2-26"
+  ],
+  "definition": {
+    "series": [
+      "KV Nano"
+    ],
+    "connection": "端子",
+    "input_common": "P",
+    "pages": [
+      {
+        "section": "",
+        "directions": ["output", "output"],
+        "labels": ["上側", "下側"],
+        "halves": [
+          [
+            ["1", "000"],
+            ["3", "001"],
+            ["5", "002"],
+            ["7", "003"],
+            ["2", "COM0"],
+            ["4", "COM0"],
+            ["6", "COM0"],
+            ["8", "COM0"]
+          ],
+          [
+            ["1", "004"],
+            ["3", "005"],
+            ["5", "006"],
+            ["7", "007"],
+            ["2", "COM1"],
+            ["4", "COM1"],
+            ["6", "COM1"],
+            ["8", "COM1"]
+          ]
+        ],
+        "output_group_sizes": [
+          [
+            8
+          ],
+          [
+            8
+          ]
+        ]
+      }
+    ],
+    "output_type": "relay",
+    "note": "COM0とCOM1は独立。同名の4端子はそれぞれ内部で共通。"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "category": "unit_diagram",
+  "model": "NA5-15W101B-V1",
+  "source": [
+    "NAシリーズ ユーザーズマニュアル ハードウェア（-V1）編（SBSA-558H）第1章 1-3-1 1-6、1-4-2 1-13、第2章 2-1-1 2-4～2-8、第3章 3-4-1 3-15～3-18"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NA5"
+    ],
+    "function": "タッチパネル",
+    "display": "15.4型 1280×800",
+    "sections": [
+      {
+        "name": "電源入力 DC24V",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "+24V",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "unit"
+          },
+          {
+            "pin": "2",
+            "signal": "0V",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "unit"
+          },
+          {
+            "pin": "3",
+            "signal": "FG",
+            "purpose": "機能接地"
+          }
+        ]
+      },
+      {
+        "name": "保護接地",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "PE",
+            "purpose": "保護接地"
+          }
+        ]
+      },
+      {
+        "name": "Ethernet ポート1",
+        "connector": {
+          "kind": "rj45",
+          "label": "Ethernet ポート1"
+        },
+        "terminals": []
+      },
+      {
+        "name": "Ethernet ポート2",
+        "connector": {
+          "kind": "rj45",
+          "label": "Ethernet ポート2"
+        },
+        "terminals": []
+      },
+      {
+        "name": "シリアル通信（RS-232C）",
+        "connector": {
+          "kind": "dsub9",
+          "label": "シリアル通信（RS-232C）",
+          "gender": "female"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "2",
+            "signal": "SD",
+            "purpose": "送信データ"
+          },
+          {
+            "pin": "3",
+            "signal": "RD",
+            "purpose": "受信データ"
+          },
+          {
+            "pin": "4",
+            "signal": "RS",
+            "purpose": "送信要求"
+          },
+          {
+            "pin": "5",
+            "signal": "CS",
+            "purpose": "送信可"
+          },
+          {
+            "pin": "6",
+            "signal": "+5V",
+            "purpose": "DC5V出力"
+          },
+          {
+            "pin": "7",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "8",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "9",
+            "signal": "SG",
+            "purpose": "信号用接地"
+          },
+          {
+            "pin": "フード",
+            "signal": "FG",
+            "purpose": "保安用接地"
+          }
+        ]
+      },
+      {
+        "name": "USB Type-A 1",
+        "connector": {
+          "kind": "usb_a",
+          "label": "USB Type-A 1"
+        },
+        "terminals": []
+      },
+      {
+        "name": "USB Type-A 2",
+        "connector": {
+          "kind": "usb_a",
+          "label": "USB Type-A 2"
+        },
+        "terminals": []
+      },
+      {
+        "name": "USB Type-B",
+        "connector": {
+          "kind": "usb_b",
+          "label": "USB Type-B"
+        },
+        "terminals": []
+      },
+      {
+        "name": "SDメモリカード",
+        "connector": {
+          "kind": "sd",
+          "label": "SDメモリカード"
+        },
+        "terminals": []
+      }
+    ],
+    "note": "電源DC24V（許容DC19.2～28.8V）。Ethernetは10/100/1000BASE-Tに対応。シリアルのピン6はDC5V出力（±5%、最大250mA）。USB Type-Aは周辺機器、Type-BはSysmac Studio接続用。時計保持用バッテリはCJ1W-BAT01。"
+  }
+}

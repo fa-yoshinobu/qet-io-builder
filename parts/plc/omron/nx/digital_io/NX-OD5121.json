@@ -1,0 +1,119 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-OD5121",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N） 付録 A-1 A-67"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "デジタル出力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "OUT0",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B1",
+            "signal": "OUT1",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A2",
+            "signal": "OUT2",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B2",
+            "signal": "OUT3",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A3",
+            "signal": "OUT4",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B3",
+            "signal": "OUT5",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A4",
+            "signal": "OUT6",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B4",
+            "signal": "OUT7",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A5",
+            "signal": "OUT8",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B5",
+            "signal": "OUT9",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A6",
+            "signal": "OUT10",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B6",
+            "signal": "OUT11",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A7",
+            "signal": "OUT12",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B7",
+            "signal": "OUT13",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A8",
+            "signal": "OUT14",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B8",
+            "signal": "OUT15",
+            "purpose": "",
+            "io": "output"
+          }
+        ]
+      }
+    ],
+    "note": "",
+    "output_type": "sink"
+  }
+}

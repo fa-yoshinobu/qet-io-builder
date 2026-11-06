@@ -1,0 +1,54 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-DN20",
+  "source": [
+    "KV-DN20 ユーザーズマニュアル（084133）第4章 4-6～4-7",
+    "KV-X500シリーズ ユーザーズマニュアル（084914）付録 付-25、KV-7000シリーズ ユーザーズマニュアル（084754）付録 付-38、KV-8000シリーズ ユーザーズマニュアル（084823）付録 付-43"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "DeviceNet",
+    "sections": [
+      {
+        "name": "DeviceNet",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "V＋",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "network"
+          },
+          {
+            "pin": "2",
+            "signal": "CAN_H",
+            "purpose": "通信信号High"
+          },
+          {
+            "pin": "3",
+            "signal": "SHIELD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "4",
+            "signal": "CAN_L",
+            "purpose": "通信信号Low"
+          },
+          {
+            "pin": "5",
+            "signal": "V－",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "network"
+          }
+        ]
+      }
+    ],
+    "note": "DeviceNet通信電源DC24Vを供給する。 KV-7000Cを介した既存ユニット接続の適用条件に従う。"
+  }
+}

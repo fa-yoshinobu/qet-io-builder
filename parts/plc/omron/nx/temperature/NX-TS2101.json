@@ -1,0 +1,114 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-TS2101",
+  "source": [
+    "NXシリーズ アナログI/Oユニット ユーザーズマニュアル 温度入力ユニット、ヒータ断線検知ユニット編（SBCA-440F） 付録 A-1 A-6"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "温度入力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B1",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "A2",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B2",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "A3",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B3",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "A4",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B4",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "A5",
+            "signal": "TC2＋",
+            "purpose": "熱電対入力"
+          },
+          {
+            "pin": "B5",
+            "signal": "TC2－",
+            "purpose": "熱電対入力"
+          },
+          {
+            "pin": "A6",
+            "signal": "CJ1＋",
+            "purpose": "冷接点センサ",
+            "connectable": false
+          },
+          {
+            "pin": "B6",
+            "signal": "CJ1－",
+            "purpose": "冷接点センサ",
+            "connectable": false
+          },
+          {
+            "pin": "A7",
+            "signal": "TC1＋",
+            "purpose": "熱電対入力"
+          },
+          {
+            "pin": "B7",
+            "signal": "TC1－",
+            "purpose": "熱電対入力"
+          },
+          {
+            "pin": "A8",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B8",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          }
+        ]
+      }
+    ],
+    "note": "冷接点センサは触れたり取り外したりしない。"
+  }
+}

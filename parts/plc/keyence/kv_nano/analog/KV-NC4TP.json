@@ -1,0 +1,86 @@
+{
+  "category": "kv_io",
+  "model": "KV-NC4TP",
+  "source": [
+    "KV Nanoシリーズ用アナログ・温度ユニット ユーザーズマニュアル（084272） 第6章 6-8～6-10"
+  ],
+  "definition": {
+    "series": [
+      "KV Nano"
+    ],
+    "connection": "端子",
+    "pages": [],
+    "note": "熱電対は＋・－へ接続し、・/bは接続しない。白金測温抵抗体はb・B・Aへ接続（全CH間非絶縁）。NC端子7・8・15・16の冷接点補償抵抗は取り外さず、外部配線しない。",
+    "analog": {
+      "function": "温度入力",
+      "channels": [
+        "入力",
+        "入力",
+        "入力",
+        "入力"
+      ],
+      "terminals": [
+        {
+          "pin": "1",
+          "signal": "・/b",
+          "purpose": "CH0 測温抵抗体b"
+        },
+        {
+          "pin": "2",
+          "signal": "＋/B",
+          "purpose": "CH0 熱電対＋／B"
+        },
+        {
+          "pin": "3",
+          "signal": "－/A",
+          "purpose": "CH0 熱電対－／A"
+        },
+        {
+          "pin": "4",
+          "signal": "・/b",
+          "purpose": "CH1 測温抵抗体b"
+        },
+        {
+          "pin": "5",
+          "signal": "＋/B",
+          "purpose": "CH1 熱電対＋／B"
+        },
+        {
+          "pin": "6",
+          "signal": "－/A",
+          "purpose": "CH1 熱電対－／A"
+        },
+        {
+          "pin": "9",
+          "signal": "・/b",
+          "purpose": "CH2 測温抵抗体b"
+        },
+        {
+          "pin": "10",
+          "signal": "＋/B",
+          "purpose": "CH2 熱電対＋／B"
+        },
+        {
+          "pin": "11",
+          "signal": "－/A",
+          "purpose": "CH2 熱電対－／A"
+        },
+        {
+          "pin": "12",
+          "signal": "・/b",
+          "purpose": "CH3 測温抵抗体b"
+        },
+        {
+          "pin": "13",
+          "signal": "＋/B",
+          "purpose": "CH3 熱電対＋／B"
+        },
+        {
+          "pin": "14",
+          "signal": "－/A",
+          "purpose": "CH3 熱電対－／A"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-XL402",
+  "source": [
+    "KV-XL202/XL402 ユーザーズマニュアル（084966）第2章 2-8～2-9"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "シリアル通信",
+    "sections": [
+      {
+        "name": "PORT1 RS-422A／RS-485",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "SDA－／SR－",
+            "purpose": "送信／送受信－"
+          },
+          {
+            "pin": "2",
+            "signal": "SDB＋／SR＋",
+            "purpose": "送信／送受信＋"
+          },
+          {
+            "pin": "3",
+            "signal": "RDA－",
+            "purpose": "4線式受信－"
+          },
+          {
+            "pin": "4",
+            "signal": "RDB＋",
+            "purpose": "4線式受信＋"
+          },
+          {
+            "pin": "5",
+            "signal": "SG",
+            "purpose": "信号グランド"
+          }
+        ]
+      },
+      {
+        "name": "PORT2 RS-422A／RS-485",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "SDA－／SR－",
+            "purpose": "送信／送受信－"
+          },
+          {
+            "pin": "2",
+            "signal": "SDB＋／SR＋",
+            "purpose": "送信／送受信＋"
+          },
+          {
+            "pin": "3",
+            "signal": "RDA－",
+            "purpose": "4線式受信－"
+          },
+          {
+            "pin": "4",
+            "signal": "RDB＋",
+            "purpose": "4線式受信＋"
+          },
+          {
+            "pin": "5",
+            "signal": "SG",
+            "purpose": "信号グランド"
+          }
+        ]
+      }
+    ],
+    "note": "SGはCPU内部GNDと絶縁。RS-485（2線式）では3・4番端子を接続しない。"
+  }
+}

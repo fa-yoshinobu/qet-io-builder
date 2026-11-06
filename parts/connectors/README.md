@@ -16,6 +16,9 @@
 | `dsub9` | D-sub 9pin |
 | `dsub15` | D-sub 15pin |
 | `dsub25` | D-sub 25pin |
+| `vga` | 高密度D-sub 15pin（3段） |
+| `dvi_d` | DVI-D共通外形（リンク数・実ピン数は表さない） |
+| `audio_jack` | 3.5mm音声ジャック |
 | `gpib` | IEEE 488 24pin |
 | `minidin8` | MINI-DIN 8pin |
 | `minidin6` | MINI-DIN 6pin |
@@ -24,6 +27,8 @@
 | `optical` | 光ファイバ 2心 |
 | `usb_minib` | USB Mini-B |
 | `usb_a` | USB Type-A |
+| `usb_b` | USB Type-B |
+| `modular6` | モジュラー 6pin |
 | `usb_c` | USB Type-C |
 | `hdmi` | HDMI Type-A |
 | `sd` | SD カード |

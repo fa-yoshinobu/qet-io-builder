@@ -1,0 +1,106 @@
+{
+  "category": "kv_io",
+  "model": "KV-NC4AD",
+  "source": [
+    "KV Nanoシリーズ用アナログ・温度ユニット ユーザーズマニュアル（084272） 第4章 4-7～4-8"
+  ],
+  "definition": {
+    "series": [
+      "KV Nano"
+    ],
+    "connection": "端子",
+    "pages": [],
+    "note": "CH0～CH3のCOMは内部共通。異なる電位へ接続しない。電流入力時は各CHのVと直下のIを短絡し、もう一方のIとCOMへ信号を接続する。",
+    "analog": {
+      "function": "アナログ入力",
+      "channels": [
+        "入力",
+        "入力",
+        "入力",
+        "入力"
+      ],
+      "terminals": [
+        {
+          "pin": "1",
+          "signal": "V",
+          "purpose": "CH0 電圧入力"
+        },
+        {
+          "pin": "2",
+          "signal": "I",
+          "purpose": "CH0 電流入力"
+        },
+        {
+          "pin": "3",
+          "signal": "I",
+          "purpose": "CH0 電流入力"
+        },
+        {
+          "pin": "4",
+          "signal": "COM",
+          "purpose": "コモン"
+        },
+        {
+          "pin": "5",
+          "signal": "V",
+          "purpose": "CH1 電圧入力"
+        },
+        {
+          "pin": "6",
+          "signal": "I",
+          "purpose": "CH1 電流入力"
+        },
+        {
+          "pin": "7",
+          "signal": "I",
+          "purpose": "CH1 電流入力"
+        },
+        {
+          "pin": "8",
+          "signal": "COM",
+          "purpose": "コモン"
+        },
+        {
+          "pin": "9",
+          "signal": "V",
+          "purpose": "CH2 電圧入力"
+        },
+        {
+          "pin": "10",
+          "signal": "I",
+          "purpose": "CH2 電流入力"
+        },
+        {
+          "pin": "11",
+          "signal": "I",
+          "purpose": "CH2 電流入力"
+        },
+        {
+          "pin": "12",
+          "signal": "COM",
+          "purpose": "コモン"
+        },
+        {
+          "pin": "13",
+          "signal": "V",
+          "purpose": "CH3 電圧入力"
+        },
+        {
+          "pin": "14",
+          "signal": "I",
+          "purpose": "CH3 電流入力"
+        },
+        {
+          "pin": "15",
+          "signal": "I",
+          "purpose": "CH3 電流入力"
+        },
+        {
+          "pin": "16",
+          "signal": "COM",
+          "purpose": "コモン"
+        }
+      ]
+    }
+  }
+}

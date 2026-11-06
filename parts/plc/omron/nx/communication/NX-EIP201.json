@@ -1,0 +1,33 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-EIP201",
+  "source": [
+    "NXシリーズ EtherNet/IPユニット ユーザーズマニュアル（SBCD-382E）第2章 2-3、第3章 3-2、第5章 5-12"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "EtherNet/IPユニット",
+    "sections": [
+      {
+        "name": "PORT1 EtherNet/IP",
+        "connector": {
+          "kind": "rj45",
+          "label": "PORT1 EtherNet/IP"
+        },
+        "terminals": []
+      },
+      {
+        "name": "PORT2 EtherNet/IP",
+        "connector": {
+          "kind": "rj45",
+          "label": "PORT2 EtherNet/IP"
+        },
+        "terminals": []
+      }
+    ],
+    "note": "電源はCPUのXバスから供給。外部給電端子はない。通信ポートは10BASE-T/100BASE-TX/1000BASE-Tに対応。"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-L20V",
+  "source": [
+    "KV-L20V ユーザーズマニュアル（084161）第2章 2-9～2-10",
+    "KV-X500シリーズ ユーザーズマニュアル（084914）付録 付-25、KV-7000シリーズ ユーザーズマニュアル（084754）付録 付-38、KV-8000シリーズ ユーザーズマニュアル（084823）付録 付-43"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "シリアル通信",
+    "sections": [
+      {
+        "name": "PORT1 RS-232C",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "CD",
+            "purpose": "キャリア検出"
+          },
+          {
+            "pin": "2",
+            "signal": "RD",
+            "purpose": "受信"
+          },
+          {
+            "pin": "3",
+            "signal": "SD",
+            "purpose": "送信"
+          },
+          {
+            "pin": "4",
+            "signal": "ER",
+            "purpose": "端末レディ"
+          },
+          {
+            "pin": "5",
+            "signal": "SG",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "6",
+            "signal": "DR",
+            "purpose": "セットレディ"
+          },
+          {
+            "pin": "7",
+            "signal": "RS",
+            "purpose": "送信要求"
+          },
+          {
+            "pin": "8",
+            "signal": "CS",
+            "purpose": "送信可"
+          },
+          {
+            "pin": "9",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          }
+        ],
+        "connector": {
+          "kind": "dsub9",
+          "label": "D-sub 9極",
+          "gender": "male"
+        }
+      },
+      {
+        "name": "PORT2 RS-232C／RS-422A／RS-485",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "SG",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "2",
+            "signal": "RDA－",
+            "purpose": "4線式受信－"
+          },
+          {
+            "pin": "3",
+            "signal": "SD／SDA－／S/R－",
+            "purpose": "送信／送受信－"
+          },
+          {
+            "pin": "4",
+            "signal": "RDB＋",
+            "purpose": "4線式受信＋"
+          },
+          {
+            "pin": "5",
+            "signal": "RD／SDB＋／S/R＋",
+            "purpose": "受信／送受信＋"
+          }
+        ]
+      }
+    ],
+    "note": "PORT2は選択する通信方式に従って配線。RS-232CとRS-485（2線式）では2・4番端子を接続しない。 KV-7000Cを介した既存ユニット接続の適用条件に従う。"
+  }
+}

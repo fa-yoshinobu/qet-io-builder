@@ -1,0 +1,108 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-TC2406",
+  "source": [
+    "NXシリーズ 温度調節ユニット ユーザーズマニュアル（SGTD-748J） 4-4-1 4-30"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "温度調節",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "A2",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "A3",
+            "signal": "OUT1",
+            "purpose": "加熱側の制御出力（＋）*1"
+          },
+          {
+            "pin": "A4",
+            "signal": "IOG1",
+            "purpose": "加熱側の制御出力（－）*1"
+          },
+          {
+            "pin": "A5",
+            "signal": "CJ1+",
+            "purpose": "冷接点センサ",
+            "connectable": false
+          },
+          {
+            "pin": "A6",
+            "signal": "B1/TC1＋",
+            "purpose": "測温抵抗体入力（B）／熱電対入力（＋）"
+          },
+          {
+            "pin": "A7",
+            "signal": "B1/TC1－",
+            "purpose": "測温抵抗体入力（B）／熱電対入力（－）"
+          },
+          {
+            "pin": "A8",
+            "signal": "A1",
+            "purpose": "測温抵抗体入力（A）"
+          },
+          {
+            "pin": "B1",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "B2",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "B3",
+            "signal": "OUT2",
+            "purpose": "加熱側の制御出力（＋）*1"
+          },
+          {
+            "pin": "B4",
+            "signal": "IOG2",
+            "purpose": "加熱側の制御出力（－）*1"
+          },
+          {
+            "pin": "B5",
+            "signal": "CJ1－",
+            "purpose": "冷接点センサ",
+            "connectable": false
+          },
+          {
+            "pin": "B6",
+            "signal": "B2/TC2＋",
+            "purpose": "測温抵抗体入力（B）／熱電対入力（＋）"
+          },
+          {
+            "pin": "B7",
+            "signal": "B2/TC2－",
+            "purpose": "測温抵抗体入力（B）／熱電対入力（－）"
+          },
+          {
+            "pin": "B8",
+            "signal": "A2",
+            "purpose": "測温抵抗体入力（A）"
+          }
+        ]
+      }
+    ],
+    "note": "冷接点センサは触れたり取り外したりしない。センサの種類に応じて熱電対または測温抵抗体の端子へ接続する。"
+  }
+}

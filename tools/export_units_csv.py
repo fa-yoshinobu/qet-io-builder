@@ -137,6 +137,31 @@ for model, spec in _d['inverter'].items():
     rows.append([spec['series'], model, model, 'inverter', spec['function'], '', '', '', '',
                  '端子台・通信コネクタ', '', '端子資料照合・実機未確認', ''])
 
+for model, spec in sorted(_d['kv_io'].items()):
+    if spec.get('module') or spec.get('analog'):
+        module = spec.get('module') or spec['analog']
+        channels = module.get('channels', [])
+        rows.append([' / '.join(spec['series']), model, model, 'kv_io', module['function'],
+                     channels.count('入力') if channels else '', channels.count('出力') if channels else '',
+                     'アナログ' if spec.get('analog') else '', 'CH' if channels else '', spec['connection'], '',
+                     '端子資料照合・接続は手動' if module.get('interfaces') or channels or module.get('modes') else '本体図対応', ''])
+        continue
+    counts = {'input': 0, 'output': 0}
+    for section in spec['pages']:
+        for side, terminals in enumerate(section['halves']):
+            direction = section['directions'][side] if 'directions' in section else ('output' if spec['output'] else 'input')
+            counts[direction] += sum(signal.isdecimal() for pin, signal in terminals)
+    rows.append([' / '.join(spec['series']), model, model, 'kv_io', '本体・内蔵I/O' if spec.get('body') else '拡張I/O', counts['input'],
+                 counts['output'], spec.get('output_type', ''), 'ユニット内信号名', spec['connection'], '', '端子資料照合・DC24V配線例', ''])
+
+for model, spec in sorted(_d['unit_diagram'].items()):
+    terminals = [row for section in spec['sections'] for row in section.get('terminals', [])]
+    nin = sum(row.get('io') == 'input' for row in terminals)
+    nout = sum(row.get('io') == 'output' for row in terminals)
+    rows.append([' / '.join(spec['series']), model, model, 'unit_diagram', spec['function'], nin or '', nout or '',
+                 spec.get('output_type', ''), 'メーカー端子名', ' / '.join(section['name'] for section in spec['sections']), '',
+                 '端子資料照合・外部接続は案件に合わせて設定', ''])
+
 head = ["シリーズ", "形名", "JSONのmodel指定例", "JSONのkind", "入出力", "入力点数", "出力点数", "出力方式",
         "アドレス表記", "配線先", "コモン端子", "確認状態", "サンプルPDF"]
 path = os.path.join(HERE, "units_supported.csv")

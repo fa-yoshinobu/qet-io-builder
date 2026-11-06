@@ -236,6 +236,16 @@ class Api:
             'series': core.SERIES_NAMES,
             'project_fields': PROJECT_FIELDS,
             'browser_paths': self._dialogs is None,
+            'kv_models': {model: spec['series'] for model, spec in sorted({**gen.KV_IO,
+                          **{m: s for m, s in gen.UNIT_DIAGRAMS.items() if s['manufacturer'] == 'keyence'}}.items())},
+            'nx_models': {model: spec['function'] for model, spec in sorted(gen.UNIT_DIAGRAMS.items())
+                          if spec['manufacturer'] == 'omron'},
+            'omron_series': {model: spec['series'] for model, spec in gen.UNIT_DIAGRAMS.items()
+                             if spec['manufacturer'] == 'omron'},
+            'kv_modes': {model: list(spec['module']['modes']) for model, spec in gen.KV_IO.items()
+                         if spec.get('module', {}).get('modes')},
+            'kv_settings': {model: [key for label, key in spec['module'].get('settings', [])]
+                            for model, spec in gen.KV_IO.items() if spec.get('module')},
         }
 
     @_safe
@@ -1415,6 +1425,52 @@ class Api:
         return {'path': str(path)}
 
     # ------------------------------------------------------------ 出力
+    @_safe
+    def generate_kv(self, series, model, unit_no='', tag='', out=None, communication_mode='', settings=None):
+        model = str(model).upper()
+        spec = gen.KV_IO.get(model)
+        if spec is None and gen.UNIT_DIAGRAMS.get(model, {}).get('manufacturer') == 'keyence':
+            spec = gen.UNIT_DIAGRAMS[model]
+        if not spec or series not in spec['series']:
+            raise ValueError('選択したシリーズのユニットを指定してください')
+        title = 'VTタッチパネル図面の保存先' if spec.get('function') == 'タッチパネル' else 'KVユニット図面の保存先'
+        path = self._ask('save', title, out, model + '.qet', ('QET図面 (*.qet)',))
+        if path.suffix.lower() != '.qet':
+            path = path.with_suffix('.qet')
+        allowed = {key for label, key in spec.get('module', {}).get('settings', [])}
+        if settings is not None and (not isinstance(settings, dict) or
+                                    any(key not in allowed or not isinstance(value, str) for key, value in settings.items())):
+            raise ValueError('このユニットの設定項目を文字列で指定してください')
+        page = dict(kind='kv_io' if model in gen.KV_IO else 'unit_diagram', model=model,
+                    unit_no=unit_no, tag=tag, communication_mode=communication_mode)
+        page.update(settings or {})
+        config = dict(project_title=series + ' ユニット図', front_pages=False)
+        project, _ = gen.build_project(config, [(page, None)])
+        with tempfile.TemporaryDirectory(dir=path.parent) as folder:
+            temporary = Path(folder) / 'unit.qet'
+            gen.ET.ElementTree(project).write(temporary, encoding='utf-8')
+            os.replace(temporary, path)
+        return {'ok': True, 'out': str(path)}
+
+    @_safe
+    def generate_nx(self, model, unit_no='', tag='', out=None):
+        model = str(model).upper()
+        if gen.UNIT_DIAGRAMS.get(model, {}).get('manufacturer') != 'omron':
+            raise ValueError('対応するオムロンの機種を選択してください')
+        panel = gen.UNIT_DIAGRAMS[model].get('function') == 'タッチパネル'
+        title = 'NAタッチパネル図面の保存先' if panel else 'NXユニット図面の保存先'
+        path = self._ask('save', title, out, model + '.qet', ('QET図面 (*.qet)',))
+        if path.suffix.lower() != '.qet':
+            path = path.with_suffix('.qet')
+        page = dict(kind='unit_diagram', model=model, unit_no=unit_no, tag=tag)
+        project, _ = gen.build_project(dict(project_title='オムロンNA タッチパネル図' if panel else 'オムロンNX ユニット図',
+                                          front_pages=False), [(page, None)])
+        with tempfile.TemporaryDirectory(dir=path.parent) as folder:
+            temporary = Path(folder) / 'unit.qet'
+            gen.ET.ElementTree(project).write(temporary, encoding='utf-8')
+            os.replace(temporary, path)
+        return {'ok': True, 'out': str(path)}
+
     def _run(self, *args):
         return subprocess.run([sys.executable, *map(str, args)], capture_output=True, text=True, encoding='utf-8',
                               errors='replace', env={**os.environ, 'PYTHONIOENCODING': 'utf-8'})

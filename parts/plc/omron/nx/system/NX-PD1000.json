@@ -1,0 +1,60 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-PD1000",
+  "source": [
+    "NXシリーズ システムユニット ユーザーズマニュアル（SBCA-409K） 第4章 4-28～4-31、付録 A-4～A-5"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "ユニット電源追加供給",
+    "sections": [
+      {
+        "name": "ユニット電源 DC24V",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "UV",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "unit"
+          },
+          {
+            "pin": "B1",
+            "signal": "UV",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "unit"
+          },
+          {
+            "pin": "A3",
+            "signal": "UG",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "unit"
+          },
+          {
+            "pin": "B3",
+            "signal": "UG",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "unit"
+          },
+          {
+            "pin": "A7",
+            "signal": "機能接地",
+            "purpose": "機能接地"
+          },
+          {
+            "pin": "B7",
+            "signal": "機能接地",
+            "purpose": "機能接地"
+          }
+        ]
+      }
+    ],
+    "note": "UV同士、UG同士は内部共通。A5/B5（NC）は接続しない。"
+  }
+}

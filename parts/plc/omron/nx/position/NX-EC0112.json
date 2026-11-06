@@ -1,0 +1,104 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-EC0112",
+  "source": [
+    "NXシリーズ 位置インタフェースユニット ユーザーズマニュアル（SBCE-374L） 第6章 6-12"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "インクリメンタルエンコーダ入力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "A",
+            "purpose": "カウンタ入力A"
+          },
+          {
+            "pin": "B1",
+            "signal": "B",
+            "purpose": "カウンタ入力B"
+          },
+          {
+            "pin": "A2",
+            "signal": "Z",
+            "purpose": "カウンタ入力Z"
+          },
+          {
+            "pin": "B2",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "A3",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B3",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A4",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B4",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A5",
+            "signal": "I0",
+            "purpose": "外部入力0"
+          },
+          {
+            "pin": "B5",
+            "signal": "I1",
+            "purpose": "外部入力1"
+          },
+          {
+            "pin": "A6",
+            "signal": "I2",
+            "purpose": "外部入力2"
+          },
+          {
+            "pin": "B6",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "A7",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B7",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A8",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B8",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          }
+        ]
+      }
+    ],
+    "note": "IOV・IOGはNXバスから供給されるI/O電源に接続されている。"
+  }
+}

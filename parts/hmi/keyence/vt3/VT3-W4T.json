@@ -1,0 +1,100 @@
+{
+  "category": "unit_diagram",
+  "model": "VT3-W4T",
+  "source": [
+    "VT3シリーズ ハードウェアマニュアル（144143） 1-2 1-12、2-1 2-7、2-2 2-15、2-25、2-35、3-3 3-28"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "VT3"
+    ],
+    "function": "タッチパネル",
+    "sections": [
+      {
+        "name": "電源 DC24V",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "＋",
+            "purpose": "外部電源",
+            "lane": "P"
+          },
+          {
+            "pin": "",
+            "signal": "－",
+            "purpose": "外部電源",
+            "lane": "N"
+          },
+          {
+            "pin": "N.C.",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          }
+        ]
+      },
+      {
+        "name": "PORT1 USB",
+        "connector": {
+          "kind": "usb_b",
+          "label": "パソコン接続 USB Type-B"
+        },
+        "terminals": []
+      },
+      {
+        "name": "PORT2 RS-232C",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "TXD(SD)",
+            "purpose": "送信データ"
+          },
+          {
+            "pin": "2",
+            "signal": "RXD(RD)",
+            "purpose": "受信データ"
+          },
+          {
+            "pin": "3",
+            "signal": "RTS(RS)",
+            "purpose": "送信要求"
+          },
+          {
+            "pin": "4",
+            "signal": "CTS(CS)",
+            "purpose": "送信可"
+          },
+          {
+            "pin": "5",
+            "signal": "S.G.",
+            "purpose": "シグナルグランド"
+          },
+          {
+            "pin": "6",
+            "signal": "DTR(ER)",
+            "purpose": "データ端末準備完了"
+          },
+          {
+            "pin": "7",
+            "signal": "DSR(DR)",
+            "purpose": "送信データあり"
+          },
+          {
+            "pin": "8",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          },
+          {
+            "pin": "9",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          }
+        ]
+      }
+    ],
+    "note": "DC24V±10％を供給する。"
+  }
+}

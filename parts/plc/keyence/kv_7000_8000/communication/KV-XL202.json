@@ -1,0 +1,99 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-XL202",
+  "source": [
+    "KV-XL202/XL402 ユーザーズマニュアル（084966）第2章 2-8～2-9"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "シリアル通信",
+    "sections": [
+      {
+        "name": "PORT1 RS-232C",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "SD",
+            "purpose": "送信"
+          },
+          {
+            "pin": "2",
+            "signal": "RD",
+            "purpose": "受信"
+          },
+          {
+            "pin": "3",
+            "signal": "RS",
+            "purpose": "送信要求"
+          },
+          {
+            "pin": "4",
+            "signal": "CS",
+            "purpose": "送信可"
+          },
+          {
+            "pin": "5",
+            "signal": "ER",
+            "purpose": "端末レディ"
+          },
+          {
+            "pin": "6",
+            "signal": "DR",
+            "purpose": "セットレディ"
+          },
+          {
+            "pin": "7",
+            "signal": "SG",
+            "purpose": "信号グランド"
+          }
+        ]
+      },
+      {
+        "name": "PORT2 RS-232C",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "SD",
+            "purpose": "送信"
+          },
+          {
+            "pin": "2",
+            "signal": "RD",
+            "purpose": "受信"
+          },
+          {
+            "pin": "3",
+            "signal": "RS",
+            "purpose": "送信要求"
+          },
+          {
+            "pin": "4",
+            "signal": "CS",
+            "purpose": "送信可"
+          },
+          {
+            "pin": "5",
+            "signal": "ER",
+            "purpose": "端末レディ"
+          },
+          {
+            "pin": "6",
+            "signal": "DR",
+            "purpose": "セットレディ"
+          },
+          {
+            "pin": "7",
+            "signal": "SG",
+            "purpose": "信号グランド"
+          }
+        ]
+      }
+    ],
+    "note": "SGはCPU内部GNDと絶縁。"
+  }
+}

@@ -1,0 +1,284 @@
+{
+  "category": "unit_diagram",
+  "model": "VT3-V8",
+  "source": [
+    "VT3シリーズ ハードウェアマニュアル（144143） 1-2 1-12、2-1 2-2～2-6、2-2 2-25～2-30、3-3 3-29～3-30"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "VT3"
+    ],
+    "function": "タッチパネル",
+    "sections": [
+      {
+        "name": "電源 DC24V",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "＋",
+            "purpose": "外部電源",
+            "lane": "P"
+          },
+          {
+            "pin": "",
+            "signal": "－",
+            "purpose": "外部電源",
+            "lane": "N"
+          },
+          {
+            "pin": "N.C.",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          }
+        ]
+      },
+      {
+        "name": "PORT1 USB",
+        "connector": {
+          "kind": "usb_b",
+          "label": "パソコン接続 USB Type-B"
+        },
+        "terminals": []
+      },
+      {
+        "name": "PORT1 SERIAL",
+        "connector": {
+          "kind": "modular6",
+          "label": "パソコン接続 RS-232C"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          },
+          {
+            "pin": "2",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          },
+          {
+            "pin": "3",
+            "signal": "RD",
+            "purpose": "受信データ"
+          },
+          {
+            "pin": "4",
+            "signal": "SG",
+            "purpose": "シグナルグランド"
+          },
+          {
+            "pin": "5",
+            "signal": "SD",
+            "purpose": "送信データ"
+          },
+          {
+            "pin": "6",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          }
+        ]
+      },
+      {
+        "name": "PORT2",
+        "connector": {
+          "kind": "proprietary",
+          "label": "20ピンハーフピッチ RS-232C／RS-422A"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          },
+          {
+            "pin": "2",
+            "signal": "TXD(SD)",
+            "purpose": "RS-232C 送信データ"
+          },
+          {
+            "pin": "3",
+            "signal": "RXD(RD)",
+            "purpose": "RS-232C 受信データ"
+          },
+          {
+            "pin": "4",
+            "signal": "RTS(RS)",
+            "purpose": "RS-232C 送信要求"
+          },
+          {
+            "pin": "5",
+            "signal": "CTS(CS)",
+            "purpose": "RS-232C 送信可"
+          },
+          {
+            "pin": "6",
+            "signal": "DSR(DR)",
+            "purpose": "RS-232C 送信データあり"
+          },
+          {
+            "pin": "7",
+            "signal": "SG",
+            "purpose": "シグナルグランド"
+          },
+          {
+            "pin": "8",
+            "signal": "TMC1",
+            "purpose": "終端抵抗用"
+          },
+          {
+            "pin": "9",
+            "signal": "TMC2",
+            "purpose": "終端抵抗用"
+          },
+          {
+            "pin": "10",
+            "signal": "DTR(ER)",
+            "purpose": "RS-232C データ端末準備完了"
+          },
+          {
+            "pin": "11",
+            "signal": "TXDA",
+            "purpose": "RS-422A 送信データA"
+          },
+          {
+            "pin": "12",
+            "signal": "TXDB",
+            "purpose": "RS-422A 送信データB"
+          },
+          {
+            "pin": "13",
+            "signal": "RXDA",
+            "purpose": "RS-422A 受信データA"
+          },
+          {
+            "pin": "14",
+            "signal": "RXDB",
+            "purpose": "RS-422A 受信データB"
+          },
+          {
+            "pin": "15",
+            "signal": "RTSA",
+            "purpose": "RS-422A 送信要求A"
+          },
+          {
+            "pin": "16",
+            "signal": "RTSB",
+            "purpose": "RS-422A 送信要求B"
+          },
+          {
+            "pin": "17",
+            "signal": "CTSA",
+            "purpose": "RS-422A 送信可A"
+          },
+          {
+            "pin": "18",
+            "signal": "CTSB",
+            "purpose": "RS-422A 送信可B"
+          },
+          {
+            "pin": "19",
+            "signal": "TMR1",
+            "purpose": "終端抵抗用"
+          },
+          {
+            "pin": "20",
+            "signal": "TMR2",
+            "purpose": "終端抵抗用"
+          }
+        ],
+        "expand": true
+      },
+      {
+        "name": "PORT3",
+        "connector": {
+          "kind": "dsub9",
+          "label": "RS-232C／バーコードリーダ",
+          "gender": "male"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          },
+          {
+            "pin": "2",
+            "signal": "TXD",
+            "purpose": "送信データ"
+          },
+          {
+            "pin": "3",
+            "signal": "RXD",
+            "purpose": "受信データ"
+          },
+          {
+            "pin": "4",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          },
+          {
+            "pin": "5",
+            "signal": "SG",
+            "purpose": "シグナルグランド"
+          },
+          {
+            "pin": "6",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          },
+          {
+            "pin": "7",
+            "signal": "CTS",
+            "purpose": "送信可"
+          },
+          {
+            "pin": "8",
+            "signal": "RTS",
+            "purpose": "送信要求"
+          },
+          {
+            "pin": "9",
+            "signal": "Vcc(5V)",
+            "purpose": "バーコードリーダ用電源"
+          }
+        ]
+      },
+      {
+        "name": "PORT4 RS-485／KLリンク",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "A",
+            "purpose": "通信線A"
+          },
+          {
+            "pin": "",
+            "signal": "B",
+            "purpose": "通信線B"
+          },
+          {
+            "pin": "",
+            "signal": "TERM",
+            "purpose": "終端抵抗設定"
+          },
+          {
+            "pin": "",
+            "signal": "SG",
+            "purpose": "シグナルグランド"
+          }
+        ]
+      }
+    ],
+    "note": "DC24V±10％を供給する。PORT3の9番はDC5V出力。PLCや別電源式バーコードリーダを接続する場合は9番を接続しない。PORT2のTMC・TMRは終端抵抗用端子。PORT4のTERMは通信構成に応じて設定する。"
+  }
+}

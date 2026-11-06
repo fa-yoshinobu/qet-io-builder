@@ -1,0 +1,90 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-7300",
+  "source": [
+    "KV-7000シリーズ ユーザーズマニュアル（084754）第2章 2-6～2-8、第3章 3-18～3-19"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000"
+    ],
+    "function": "CPU",
+    "sections": [
+      {
+        "name": "DC24V電源入力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "24V",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "main"
+          },
+          {
+            "pin": "",
+            "signal": "0V",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "main"
+          },
+          {
+            "pin": "",
+            "signal": "FG",
+            "purpose": "接地"
+          }
+        ]
+      },
+      {
+        "name": "USB",
+        "terminals": [],
+        "connector": {
+          "kind": "usb_b",
+          "label": "USB Type-B"
+        }
+      },
+      {
+        "name": "RS-232C",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "2",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "3",
+            "signal": "RD",
+            "purpose": "受信"
+          },
+          {
+            "pin": "4",
+            "signal": "SG",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "5",
+            "signal": "SD",
+            "purpose": "送信"
+          },
+          {
+            "pin": "6",
+            "signal": "GND",
+            "purpose": "グランド"
+          }
+        ],
+        "connector": {
+          "kind": "modular6",
+          "label": "モジュラー6極"
+        }
+      }
+    ],
+    "note": "KV-PU1を接続する場合、CPUのDC電源入力端子から重ねて給電しない。"
+  }
+}

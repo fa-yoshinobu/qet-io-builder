@@ -97,6 +97,7 @@ def draw_notes(p, x, width, notes):
     unique = dict.fromkeys(value for note in notes if (value := drawing_text(note)))
     lines = [line for note in unique for line in wrap(note, width - 24, 8)]
     if not lines:
+        p.communication_footer_top = getattr(p, 'communication_footer_top', 800)
         return 800
     top = 800 - (len(lines) - 1) * 16
     p.communication_footer_top = min(getattr(p, 'communication_footer_top', 800), top)

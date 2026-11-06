@@ -1,0 +1,135 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-AD40G",
+  "source": [
+    "AD/DA変換ユニット ユーザーズマニュアル（084213）第5章 5-3～5-5",
+    "KV-X500シリーズ ユーザーズマニュアル（084914）付録 付-25、KV-7000シリーズ ユーザーズマニュアル（084754）付録 付-38、KV-8000シリーズ ユーザーズマニュアル（084823）付録 付-43"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "アナログ入力",
+    "sections": [
+      {
+        "name": "CH_A0 入力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "A0＋",
+            "purpose": "電圧入力"
+          },
+          {
+            "pin": "",
+            "signal": "A0_I",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "",
+            "signal": "A0－",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "",
+            "signal": "COM_A",
+            "purpose": "コモン"
+          }
+        ]
+      },
+      {
+        "name": "CH_A1 入力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "A1＋",
+            "purpose": "電圧入力"
+          },
+          {
+            "pin": "",
+            "signal": "A1_I",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "",
+            "signal": "A1－",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "",
+            "signal": "COM_A",
+            "purpose": "コモン"
+          }
+        ]
+      },
+      {
+        "name": "CH_B0 入力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "B0＋",
+            "purpose": "電圧入力"
+          },
+          {
+            "pin": "",
+            "signal": "B0_I",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "",
+            "signal": "B0－",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "",
+            "signal": "COM_B",
+            "purpose": "コモン"
+          }
+        ]
+      },
+      {
+        "name": "CH_B1 入力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "B1＋",
+            "purpose": "電圧入力"
+          },
+          {
+            "pin": "",
+            "signal": "B1_I",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "",
+            "signal": "B1－",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "",
+            "signal": "COM_B",
+            "purpose": "コモン"
+          }
+        ]
+      },
+      {
+        "name": "外部トリガ",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "TRIG",
+            "purpose": "外部トリガ"
+          },
+          {
+            "pin": "",
+            "signal": "GND",
+            "purpose": "トリガグランド"
+          }
+        ]
+      }
+    ],
+    "note": "CH_A0/A1とCH_B0/B1の組間は絶縁。COM_AとCOM_Bは共通ではない。 KV-7000Cを介した既存ユニット接続の適用条件に従う。"
+  }
+}

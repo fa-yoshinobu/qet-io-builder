@@ -1,0 +1,112 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-TS2201",
+  "source": [
+    "NXシリーズ アナログI/Oユニット ユーザーズマニュアル 温度入力ユニット、ヒータ断線検知ユニット編（SBCA-440F） 付録 A-1 A-9"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "温度入力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B1",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "A2",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B2",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "A3",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B3",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "A4",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B4",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "A5",
+            "signal": "A2",
+            "purpose": "測温抵抗体入力"
+          },
+          {
+            "pin": "B5",
+            "signal": "B2",
+            "purpose": "測温抵抗体入力"
+          },
+          {
+            "pin": "A6",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B6",
+            "signal": "B2",
+            "purpose": "測温抵抗体入力"
+          },
+          {
+            "pin": "A7",
+            "signal": "A1",
+            "purpose": "測温抵抗体入力"
+          },
+          {
+            "pin": "B7",
+            "signal": "B1",
+            "purpose": "測温抵抗体入力"
+          },
+          {
+            "pin": "A8",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B8",
+            "signal": "B1",
+            "purpose": "測温抵抗体入力"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  }
+}

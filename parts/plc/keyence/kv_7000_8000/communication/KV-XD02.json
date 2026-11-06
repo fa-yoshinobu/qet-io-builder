@@ -1,0 +1,116 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-XD02",
+  "source": [
+    "KV-XD02 ユーザーズマニュアル（084957）第2章 2-1～2-4"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "データ活用",
+    "sections": [
+      {
+        "name": "PORT1",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "TRD0＋",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "2",
+            "signal": "TRD0－",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "3",
+            "signal": "TRD1＋",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "4",
+            "signal": "TRD2＋",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "5",
+            "signal": "TRD2－",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "6",
+            "signal": "TRD1－",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "7",
+            "signal": "TRD3＋",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "8",
+            "signal": "TRD3－",
+            "purpose": "送受信データ"
+          }
+        ],
+        "connector": {
+          "kind": "rj45",
+          "label": "100BASE-TX／1000BASE-T"
+        }
+      },
+      {
+        "name": "PORT2",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "TRD0＋",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "2",
+            "signal": "TRD0－",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "3",
+            "signal": "TRD1＋",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "4",
+            "signal": "TRD2＋",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "5",
+            "signal": "TRD2－",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "6",
+            "signal": "TRD1－",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "7",
+            "signal": "TRD3＋",
+            "purpose": "送受信データ"
+          },
+          {
+            "pin": "8",
+            "signal": "TRD3－",
+            "purpose": "送受信データ"
+          }
+        ],
+        "connector": {
+          "kind": "rj45",
+          "label": "100BASE-TX／1000BASE-T"
+        }
+      }
+    ],
+    "note": "2ポートには異なるネットワークのIPアドレスを設定する。"
+  }
+}

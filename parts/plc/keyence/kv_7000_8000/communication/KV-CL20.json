@@ -1,0 +1,75 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-CL20",
+  "source": [
+    "KV-CL20/RCシリーズ ユーザーズマニュアル（084149）第3章 3-10～3-11",
+    "KV-X500シリーズ ユーザーズマニュアル（084914）付録 付-25、KV-7000シリーズ ユーザーズマニュアル（084754）付録 付-38、KV-8000シリーズ ユーザーズマニュアル（084823）付録 付-43"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "CC-Link",
+    "sections": [
+      {
+        "name": "CC-Link",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "DA",
+            "purpose": "通信信号A"
+          },
+          {
+            "pin": "2",
+            "signal": "DB",
+            "purpose": "通信信号B"
+          },
+          {
+            "pin": "3",
+            "signal": "DG",
+            "purpose": "通信グランド"
+          },
+          {
+            "pin": "4",
+            "signal": "SLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "5",
+            "signal": "FG",
+            "purpose": "接地"
+          },
+          {
+            "pin": "6",
+            "signal": "DA",
+            "purpose": "通信信号A"
+          },
+          {
+            "pin": "7",
+            "signal": "DB",
+            "purpose": "通信信号B"
+          },
+          {
+            "pin": "8",
+            "signal": "DG",
+            "purpose": "通信グランド"
+          },
+          {
+            "pin": "9",
+            "signal": "SLD",
+            "purpose": "シールド"
+          },
+          {
+            "pin": "10",
+            "signal": "FG",
+            "purpose": "接地"
+          }
+        ]
+      }
+    ],
+    "note": "同名端子の組（1/6、2/7、3/8、4/9、5/10）はそれぞれ内部短絡。 KV-7000Cを介した既存ユニット接続の適用条件に従う。"
+  }
+}

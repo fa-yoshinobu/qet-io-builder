@@ -1,0 +1,137 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-TP40",
+  "source": [
+    "KV-TP40 ユーザーズマニュアル（084211）第1章 1-9～1-12、第2章 2-5～2-7",
+    "KV-X500シリーズ ユーザーズマニュアル（084914）付録 付-25、KV-7000シリーズ ユーザーズマニュアル（084754）付録 付-38、KV-8000シリーズ ユーザーズマニュアル（084823）付録 付-43"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "温度・アナログ入力",
+    "sections": [
+      {
+        "name": "CH0",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "0B/＋/V＋",
+            "purpose": "熱電対＋／測温抵抗体B／電圧入力"
+          },
+          {
+            "pin": "",
+            "signal": "0・/・/I＋",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "",
+            "signal": "0A/－/－",
+            "purpose": "熱電対－／測温抵抗体A／信号グランド"
+          },
+          {
+            "pin": "",
+            "signal": "0b/・/・",
+            "purpose": "測温抵抗体b"
+          }
+        ]
+      },
+      {
+        "name": "CH1",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "1B/＋/V＋",
+            "purpose": "熱電対＋／測温抵抗体B／電圧入力"
+          },
+          {
+            "pin": "",
+            "signal": "1・/・/I＋",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "",
+            "signal": "1A/－/－",
+            "purpose": "熱電対－／測温抵抗体A／信号グランド"
+          },
+          {
+            "pin": "",
+            "signal": "1b/・/・",
+            "purpose": "測温抵抗体b"
+          }
+        ]
+      },
+      {
+        "name": "CH2",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "2B/＋/V＋",
+            "purpose": "熱電対＋／測温抵抗体B／電圧入力"
+          },
+          {
+            "pin": "",
+            "signal": "2・/・/I＋",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "",
+            "signal": "2A/－/－",
+            "purpose": "熱電対－／測温抵抗体A／信号グランド"
+          },
+          {
+            "pin": "",
+            "signal": "2b/・/・",
+            "purpose": "測温抵抗体b"
+          }
+        ]
+      },
+      {
+        "name": "CH3",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "3B/＋/V＋",
+            "purpose": "熱電対＋／測温抵抗体B／電圧入力"
+          },
+          {
+            "pin": "",
+            "signal": "3・/・/I＋",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "",
+            "signal": "3A/－/－",
+            "purpose": "熱電対－／測温抵抗体A／信号グランド"
+          },
+          {
+            "pin": "",
+            "signal": "3b/・/・",
+            "purpose": "測温抵抗体b"
+          }
+        ]
+      },
+      {
+        "name": "未接続端子",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          }
+        ]
+      }
+    ],
+    "note": "熱電対使用時は冷接点補償抵抗を取り外さない。白金測温抵抗体使用時は冷接点補償抵抗を取り外す。 KV-7000Cを介した既存ユニット接続の適用条件に従う。"
+  }
+}

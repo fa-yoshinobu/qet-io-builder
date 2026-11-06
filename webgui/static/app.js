@@ -93,12 +93,14 @@ function applyPage(result) {
 }
 
 // ------------------------------------------------------------ 描画
-const TITLES = { home: 'PLC・GOT 図面生成', drawing: 'PLC・GOT 図面', parts: '制御部品の書出し・ユーザーコレクション登録' };
+const TITLES = { home: 'PLC・GOT 図面生成', drawing: '三菱電機 PLC・GOT 図面', keyence: 'キーエンス KV・VT', omron: 'オムロン NX・NA', parts: '制御部品の書出し・ユーザーコレクション登録' };
 
 function setMode(mode) {
   S.mode = mode;
   $('#view-home').hidden = mode !== 'home';
   $('#view-drawing').hidden = mode !== 'drawing';
+  $('#view-keyence').hidden = mode !== 'keyence';
+  $('#view-omron').hidden = mode !== 'omron';
   $('#view-parts').hidden = mode !== 'parts';
   $('#tools-drawing').hidden = mode !== 'drawing';
   $('#tools-parts').hidden = mode !== 'parts';
@@ -106,7 +108,11 @@ function setMode(mode) {
   $('#app-title').textContent = TITLES[mode];
   if (mode === 'drawing') render();
   else if (mode === 'parts') renderParts();
-  else renderHome();
+  else if (mode === 'home') renderHome();
+  else {
+    document.title = TITLES[mode];
+    setStatus('');
+  }
 }
 
 function renderHome() {
@@ -839,6 +845,33 @@ async function generate() {
   if ((await showMessage('生成完了', result.message, { buttons })) === 'open') await run('open_file', result.out);
 }
 
+function showKvModels() {
+  const models = Object.entries(S.meta.kv_models)
+    .filter(([, series]) => series.includes($('#kv-series').value));
+  $('#kv-model').replaceChildren(...models.map(([model]) => new Option(model, model)));
+  showKvSettings();
+}
+
+function showKvSettings() {
+  const model = $('#kv-model').value;
+  $('#kv-wiring-note').hidden = $('#kv-series').value.startsWith('VT');
+  const modes = S.meta.kv_modes[model] || [];
+  $('#kv-mode-field').hidden = modes.length === 0;
+  $('#kv-mode').replaceChildren(...modes.map((mode) => new Option(mode, mode)));
+  const settings = S.meta.kv_settings[model] || [];
+  for (const key of ['ip', 'communication']) {
+    $('#kv-' + key + '-field').hidden = !settings.includes(key);
+  }
+}
+
+function showNxModels() {
+  const query = $('#nx-search').value.trim().toUpperCase();
+  const models = Object.entries(S.meta.nx_models || {}).filter(([model, role]) =>
+    (S.meta.omron_series[model] || []).includes($('#nx-series').value) &&
+    (model + ' ' + role).toUpperCase().includes(query));
+  $('#nx-model').replaceChildren(...models.map(([model, role]) => new Option(model + '　' + role, model)));
+}
+
 // ------------------------------------------------------------ 制御部品の書出し・ユーザーコレクション登録画面
 const PV = { rows: null, maker: '', group: '', q: '', sel: null, options: null, choice: {}, registering: false };
 
@@ -1090,6 +1123,23 @@ const actions = {
   },
   async 'home-continue'() { setMode('drawing'); },
   async 'home-parts'() { setMode('parts'); },
+  async 'home-keyence'() { showKvModels(); setMode('keyence'); },
+  async 'home-omron'() { showNxModels(); setMode('omron'); },
+  async 'nx-generate'() {
+    const model = $('#nx-model').value;
+    const path = await pathFor($('#nx-series').value === 'NA5' ? 'NAタッチパネル図面の保存先（.qet）' : 'NXユニット図面の保存先（.qet）', model + '.qet');
+    if (path === null) return;
+    const result = await run('generate_nx', model, $('#nx-unit-no').value, $('#nx-tag').value, path);
+    if (result) setStatus('図面を生成しました: ' + result.out);
+  },
+  async 'kv-generate'() {
+    const model = $('#kv-model').value;
+    const path = await pathFor($('#kv-series').value.startsWith('VT') ? 'VTタッチパネル図面の保存先（.qet）' : 'KVユニット図面の保存先（.qet）', model + '.qet');
+    if (path === null) return;
+    const settings = Object.fromEntries((S.meta.kv_settings[model] || []).map((key) => [key, $('#kv-' + key).value]));
+    const result = await run('generate_kv', $('#kv-series').value, model, $('#kv-unit-no').value, $('#kv-tag').value, path, $('#kv-mode').value, settings);
+    if (result) setStatus('図面を生成しました: ' + result.out);
+  },
   async 'pv-export'() { await exportSelectedPart(); },
   async 'pv-register'() { await registerSelectedPart(); },
   async 'pv-register-all'() { await registerAllParts(); },
@@ -1211,9 +1261,14 @@ document.addEventListener('change', (e) => {
 
 document.addEventListener('input', (e) => {
   if (e.target.id === 'pv-q') { PV.q = e.target.value; renderPartsTable(); }
+  if (e.target.id === 'nx-search') showNxModels();
 });
 
 async function onChange(el) {
+  if (el.id === 'nx-search') { showNxModels(); return; }
+  if (el.id === 'nx-series') { $('#nx-search').value = ''; showNxModels(); return; }
+  if (el.id === 'kv-series') { showKvModels(); return; }
+  if (el.id === 'kv-model') { showKvSettings(); return; }
   if (el.dataset.settingVisible) {
     const result = await run('set_setting_visibility', S.index, el.dataset.settingVisible, el.checked);
     if (result) { applyPage(result); render(); }

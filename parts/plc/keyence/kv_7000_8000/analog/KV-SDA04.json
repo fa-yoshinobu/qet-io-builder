@@ -1,0 +1,123 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-SDA04",
+  "source": [
+    "AD/DA変換ユニット KV-SAD04/SDA04 ユーザーズマニュアル（084969）第3章 3-3～3-5"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "アナログ出力",
+    "sections": [
+      {
+        "name": "CH0",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "V0＋",
+            "purpose": "電圧出力"
+          },
+          {
+            "pin": "2",
+            "signal": "I0＋",
+            "purpose": "電流出力"
+          },
+          {
+            "pin": "3",
+            "signal": "COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "4",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          }
+        ]
+      },
+      {
+        "name": "CH1",
+        "terminals": [
+          {
+            "pin": "5",
+            "signal": "V1＋",
+            "purpose": "電圧出力"
+          },
+          {
+            "pin": "6",
+            "signal": "I1＋",
+            "purpose": "電流出力"
+          },
+          {
+            "pin": "7",
+            "signal": "COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "8",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          }
+        ]
+      },
+      {
+        "name": "CH2",
+        "terminals": [
+          {
+            "pin": "9",
+            "signal": "V2＋",
+            "purpose": "電圧出力"
+          },
+          {
+            "pin": "10",
+            "signal": "I2＋",
+            "purpose": "電流出力"
+          },
+          {
+            "pin": "11",
+            "signal": "COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "12",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          }
+        ]
+      },
+      {
+        "name": "CH3",
+        "terminals": [
+          {
+            "pin": "13",
+            "signal": "V3＋",
+            "purpose": "電圧出力"
+          },
+          {
+            "pin": "14",
+            "signal": "I3＋",
+            "purpose": "電流出力"
+          },
+          {
+            "pin": "15",
+            "signal": "COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "16",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          }
+        ]
+      }
+    ],
+    "note": "各CHのCOMは内部共通。電圧または電流の出力方式を設定して使用する。"
+  }
+}

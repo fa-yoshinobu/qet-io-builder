@@ -1,0 +1,119 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-SAD04",
+  "source": [
+    "AD/DA変換ユニット KV-SAD04/SDA04 ユーザーズマニュアル（084969）第2章 2-3～2-5"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "アナログ入力",
+    "sections": [
+      {
+        "name": "CH0",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "V0＋",
+            "purpose": "電圧入力"
+          },
+          {
+            "pin": "2",
+            "signal": "I0＋",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "3",
+            "signal": "0－",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "4",
+            "signal": "COM",
+            "purpose": "コモン"
+          }
+        ]
+      },
+      {
+        "name": "CH1",
+        "terminals": [
+          {
+            "pin": "5",
+            "signal": "V1＋",
+            "purpose": "電圧入力"
+          },
+          {
+            "pin": "6",
+            "signal": "I1＋",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "7",
+            "signal": "1－",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "8",
+            "signal": "COM",
+            "purpose": "コモン"
+          }
+        ]
+      },
+      {
+        "name": "CH2",
+        "terminals": [
+          {
+            "pin": "9",
+            "signal": "V2＋",
+            "purpose": "電圧入力"
+          },
+          {
+            "pin": "10",
+            "signal": "I2＋",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "11",
+            "signal": "2－",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "12",
+            "signal": "COM",
+            "purpose": "コモン"
+          }
+        ]
+      },
+      {
+        "name": "CH3",
+        "terminals": [
+          {
+            "pin": "13",
+            "signal": "V3＋",
+            "purpose": "電圧入力"
+          },
+          {
+            "pin": "14",
+            "signal": "I3＋",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "15",
+            "signal": "3－",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "16",
+            "signal": "COM",
+            "purpose": "コモン"
+          }
+        ]
+      }
+    ],
+    "note": "各CHのCOMは内部共通。電流入力時は同じCHのV＋とI＋を短絡する。"
+  }
+}

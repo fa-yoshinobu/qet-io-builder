@@ -1,0 +1,87 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-ID3444",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N） 付録 A-1 A-19"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "デジタル入力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "IN0",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B1",
+            "signal": "IN1",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A2",
+            "signal": "IOV0",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B2",
+            "signal": "IOV1",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A3",
+            "signal": "IOG0",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B3",
+            "signal": "IOG1",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A4",
+            "signal": "IN2",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B4",
+            "signal": "IN3",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A5",
+            "signal": "IOV2",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B5",
+            "signal": "IOV3",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A6",
+            "signal": "IOG2",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B6",
+            "signal": "IOG3",
+            "purpose": "I/O電源"
+          }
+        ]
+      }
+    ],
+    "note": "",
+    "input_type": "pnp"
+  }
+}

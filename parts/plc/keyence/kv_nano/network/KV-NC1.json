@@ -1,0 +1,22 @@
+{
+  "category": "kv_io",
+  "model": "KV-NC1",
+  "source": [
+    "KV Nanoシリーズ 基本ユニット（コネクタタイプ）ユーザーズマニュアル（084542）第2章 2-39"
+  ],
+  "definition": {
+    "series": [
+      "KV Nano"
+    ],
+    "connection": "端子",
+    "input_common": "P",
+    "pages": [],
+    "note": "ユニット間の専用接続。外部配線端子なし。",
+    "module": {
+      "function": "接続変換ユニット",
+      "interfaces": [],
+      "description": "コネクタタイプの拡張ユニットと、端子台タイプの拡張ユニットを接続する。",
+      "note": "ユニット間の専用接続。外部配線端子なし。"
+    }
+  }
+}

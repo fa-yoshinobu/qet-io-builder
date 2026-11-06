@@ -1,0 +1,228 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-SSC02",
+  "source": [
+    "KV-SSC02 ユーザーズマニュアル（084968）第2章 2-14～2-15"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "高速カウンタ",
+    "sections": [
+      {
+        "name": "入出力コネクタ",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "A＋(24V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "2",
+            "signal": "A＋(24V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "3",
+            "signal": "A＋(12V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "4",
+            "signal": "A＋(12V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "5",
+            "signal": "A＋(5V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "6",
+            "signal": "A＋(5V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "7",
+            "signal": "A－COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "8",
+            "signal": "A－COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "9",
+            "signal": "B＋(24V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "10",
+            "signal": "B＋(24V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "11",
+            "signal": "B＋(12V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "12",
+            "signal": "B＋(12V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "13",
+            "signal": "B＋(5V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "14",
+            "signal": "B＋(5V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "15",
+            "signal": "B－COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "16",
+            "signal": "B－COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "17",
+            "signal": "Z＋(24V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "18",
+            "signal": "Z＋(24V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "19",
+            "signal": "Z＋(12V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "20",
+            "signal": "Z＋(12V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "21",
+            "signal": "Z＋(5V)",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "22",
+            "signal": "Z＋(5V)",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "23",
+            "signal": "Z－COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "24",
+            "signal": "Z－COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "25",
+            "signal": "インプットキャプチャ0／イネーブル",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "26",
+            "signal": "インプットキャプチャ0／イネーブル",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "27",
+            "signal": "インプットキャプチャ1",
+            "purpose": "CH0 入力"
+          },
+          {
+            "pin": "28",
+            "signal": "インプットキャプチャ1",
+            "purpose": "CH1 入力"
+          },
+          {
+            "pin": "29",
+            "signal": "OUT0",
+            "purpose": "CH0 出力"
+          },
+          {
+            "pin": "30",
+            "signal": "OUT0",
+            "purpose": "CH1 出力"
+          },
+          {
+            "pin": "31",
+            "signal": "OUT1",
+            "purpose": "CH0 出力"
+          },
+          {
+            "pin": "32",
+            "signal": "OUT1",
+            "purpose": "CH1 出力"
+          },
+          {
+            "pin": "33",
+            "signal": "DATA＋",
+            "purpose": "シリアルエンコーダ"
+          },
+          {
+            "pin": "34",
+            "signal": "DATA－",
+            "purpose": "シリアルエンコーダ"
+          },
+          {
+            "pin": "35",
+            "signal": "CLK＋",
+            "purpose": "シリアルエンコーダ"
+          },
+          {
+            "pin": "36",
+            "signal": "CLK－",
+            "purpose": "シリアルエンコーダ"
+          },
+          {
+            "pin": "37",
+            "signal": "＋5V",
+            "purpose": "エンコーダ電源出力"
+          },
+          {
+            "pin": "38",
+            "signal": "SG",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "39",
+            "signal": "制御入力COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "40",
+            "signal": "出力コモン",
+            "purpose": "コモン"
+          }
+        ],
+        "connector": {
+          "kind": "mil_40",
+          "label": "40極コネクタ"
+        }
+      }
+    ],
+    "note": "各相のA－COM・B－COM・Z－COMは独立。制御入力COMは39番、出力COMは40番。SGと出力COMは内部短絡。37番は5V出力で24Vを接続しない。"
+  }
+}

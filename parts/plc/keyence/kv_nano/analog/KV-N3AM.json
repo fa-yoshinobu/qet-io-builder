@@ -1,0 +1,70 @@
+{
+  "category": "kv_io",
+  "model": "KV-N3AM",
+  "source": [
+    "KV Nanoシリーズ用アナログ・温度ユニット ユーザーズマニュアル（084272） 第3章 3-8～3-9"
+  ],
+  "definition": {
+    "series": [
+      "KV Nano"
+    ],
+    "connection": "端子",
+    "pages": [],
+    "note": "C0・C1・C2は内部共通。異なる電位へ接続しない。NC端子は接続しない。電流入力時は同じCHのV＋とI＋を短絡する。",
+    "analog": {
+      "function": "アナログ入出力",
+      "channels": [
+        "入力",
+        "入力",
+        "出力"
+      ],
+      "terminals": [
+        {
+          "pin": "V0+",
+          "signal": "V0+",
+          "purpose": "CH0 電圧入力"
+        },
+        {
+          "pin": "I0+",
+          "signal": "I0+",
+          "purpose": "CH0 電流入力"
+        },
+        {
+          "pin": "C0",
+          "signal": "C0",
+          "purpose": "コモン"
+        },
+        {
+          "pin": "V1+",
+          "signal": "V1+",
+          "purpose": "CH1 電圧入力"
+        },
+        {
+          "pin": "I1+",
+          "signal": "I1+",
+          "purpose": "CH1 電流入力"
+        },
+        {
+          "pin": "C1",
+          "signal": "C1",
+          "purpose": "コモン"
+        },
+        {
+          "pin": "V2+",
+          "signal": "V2+",
+          "purpose": "CH2 電圧出力"
+        },
+        {
+          "pin": "I2+",
+          "signal": "I2+",
+          "purpose": "CH2 電流出力"
+        },
+        {
+          "pin": "C2",
+          "signal": "C2",
+          "purpose": "コモン"
+        }
+      ]
+    }
+  }
+}

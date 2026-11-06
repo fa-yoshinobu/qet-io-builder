@@ -1,0 +1,69 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-OC2633",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N） 付録 A-1 A-89"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "リレー出力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "0",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B1",
+            "signal": "C0",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "A3",
+            "signal": "1",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B3",
+            "signal": "C1",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "A5",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B5",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "A7",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "B7",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          }
+        ]
+      }
+    ],
+    "note": "出力0のコモンはC0、出力1のコモンはC1。",
+    "output_type": "relay"
+  }
+}

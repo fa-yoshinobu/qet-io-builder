@@ -1,0 +1,187 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-CT2320",
+  "source": [
+    "NXシリーズ 高速カウンタユニット ユーザーズマニュアル（SBCA-509B） 4-4 4-28"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "高速カウンタ",
+    "sections": [
+      {
+        "name": "端子台 A/B",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "A1+",
+            "purpose": "カウンタ1 入力 A 相+"
+          },
+          {
+            "pin": "B1",
+            "signal": "B1+",
+            "purpose": "カウンタ1 入力 B 相+"
+          },
+          {
+            "pin": "A2",
+            "signal": "A1-",
+            "purpose": "カウンタ1 入力 A 相-"
+          },
+          {
+            "pin": "B2",
+            "signal": "B1-",
+            "purpose": "カウンタ1 入力 B 相-"
+          },
+          {
+            "pin": "A3",
+            "signal": "Z1+",
+            "purpose": "カウンタ1 入力 Z 相+"
+          },
+          {
+            "pin": "B3",
+            "signal": "5V_1",
+            "purpose": "エンコーダ用電源出力1"
+          },
+          {
+            "pin": "A4",
+            "signal": "Z1-",
+            "purpose": "カウンタ1 入力 Z 相-"
+          },
+          {
+            "pin": "B4",
+            "signal": "0V_1",
+            "purpose": "エンコーダ用電源出力1"
+          },
+          {
+            "pin": "A5",
+            "signal": "A2+",
+            "purpose": "カウンタ2 入力 A 相+"
+          },
+          {
+            "pin": "B5",
+            "signal": "B2+",
+            "purpose": "カウンタ2 入力 B 相+"
+          },
+          {
+            "pin": "A6",
+            "signal": "A2-",
+            "purpose": "カウンタ2 入力 A 相-"
+          },
+          {
+            "pin": "B6",
+            "signal": "B2-",
+            "purpose": "カウンタ2 入力 B 相-"
+          },
+          {
+            "pin": "A7",
+            "signal": "Z2+",
+            "purpose": "カウンタ2 入力 Z 相+"
+          },
+          {
+            "pin": "B7",
+            "signal": "5V_2",
+            "purpose": "エンコーダ用電源出力2"
+          },
+          {
+            "pin": "A8",
+            "signal": "Z2-",
+            "purpose": "カウンタ2 入力 Z 相-"
+          },
+          {
+            "pin": "B8",
+            "signal": "0V_2",
+            "purpose": "エンコーダ用電源出力2"
+          }
+        ]
+      },
+      {
+        "name": "端子台 C/D",
+        "terminals": [
+          {
+            "pin": "C1",
+            "signal": "IN0",
+            "purpose": "外部入力0"
+          },
+          {
+            "pin": "D1",
+            "signal": "IN1",
+            "purpose": "外部入力1"
+          },
+          {
+            "pin": "C2",
+            "signal": "IN2",
+            "purpose": "外部入力2"
+          },
+          {
+            "pin": "D2",
+            "signal": "IN3",
+            "purpose": "外部入力3"
+          },
+          {
+            "pin": "C3",
+            "signal": "IN4",
+            "purpose": "外部入力4"
+          },
+          {
+            "pin": "D3",
+            "signal": "IN5",
+            "purpose": "外部入力5"
+          },
+          {
+            "pin": "C4",
+            "signal": "IOG",
+            "purpose": "I/O 電源−"
+          },
+          {
+            "pin": "D4",
+            "signal": "IOG",
+            "purpose": "I/O 電源−"
+          },
+          {
+            "pin": "C5",
+            "signal": "OUT0",
+            "purpose": "外部出力0"
+          },
+          {
+            "pin": "D5",
+            "signal": "OUT1",
+            "purpose": "外部出力1"
+          },
+          {
+            "pin": "C6",
+            "signal": "OUT2",
+            "purpose": "外部出力2"
+          },
+          {
+            "pin": "D6",
+            "signal": "OUT3",
+            "purpose": "外部出力3"
+          },
+          {
+            "pin": "C7",
+            "signal": "OUT4",
+            "purpose": "外部出力4"
+          },
+          {
+            "pin": "D7",
+            "signal": "OUT5",
+            "purpose": "外部出力5"
+          },
+          {
+            "pin": "C8",
+            "signal": "V_O",
+            "purpose": "外部出力用電源"
+          },
+          {
+            "pin": "D8",
+            "signal": "G_O",
+            "purpose": "外部出力用電源"
+          }
+        ]
+      }
+    ],
+    "note": "2チャネルモード用。6チャネルモードでは端子機能が異なるため、この図を使用しない。エンコーダ用電源出力はDC5V。24Vエンコーダには使用しない。カウンタ入力はシールドケーブルを使用し、シールドをD種接地する。"
+  }
+}

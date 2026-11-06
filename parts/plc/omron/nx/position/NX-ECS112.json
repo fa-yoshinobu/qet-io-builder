@@ -1,0 +1,86 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-ECS112",
+  "source": [
+    "NXシリーズ 位置インタフェースユニット ユーザーズマニュアル（SBCE-374L） 第7章 7-11"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "SSI入力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "C+",
+            "purpose": "同期クロック出力+側"
+          },
+          {
+            "pin": "B1",
+            "signal": "D+",
+            "purpose": "SSI データ入力+側"
+          },
+          {
+            "pin": "A2",
+            "signal": "C-",
+            "purpose": "同期クロック出力-側"
+          },
+          {
+            "pin": "B2",
+            "signal": "D-",
+            "purpose": "SSI データ入力-側"
+          },
+          {
+            "pin": "A3",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B3",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A4",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B4",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A5",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "B5",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "A6",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "B6",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          }
+        ]
+      }
+    ],
+    "note": "IOV・IOGはNXバスから供給されるI/O電源に接続されている。"
+  }
+}

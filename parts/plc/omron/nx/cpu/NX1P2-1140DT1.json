@@ -1,0 +1,321 @@
+{
+  "category": "unit_diagram",
+  "model": "NX1P2-1140DT1",
+  "source": [
+    "NXシリーズ 形NX1P2 CPUユニット ユーザーズマニュアル ハードウェア編（SBCA-448M）第3章 3-2～3-5、3-10～3-14、第5章 5-36～5-41、5-52～5-55"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "CPU・内蔵I/O",
+    "sections": [
+      {
+        "name": "ユニット電源 DC24V",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "+",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "unit"
+          },
+          {
+            "pin": "",
+            "signal": "+",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "unit"
+          },
+          {
+            "pin": "",
+            "signal": "-",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "unit"
+          },
+          {
+            "pin": "",
+            "signal": "-",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "unit"
+          },
+          {
+            "pin": "",
+            "signal": "機能接地",
+            "purpose": "機能接地"
+          }
+        ]
+      },
+      {
+        "name": "PORT1 EtherNet/IP",
+        "connector": {
+          "kind": "rj45",
+          "label": "PORT1 EtherNet/IP"
+        },
+        "terminals": []
+      },
+      {
+        "name": "PORT2 EtherCAT",
+        "connector": {
+          "kind": "rj45",
+          "label": "PORT2 EtherCAT"
+        },
+        "terminals": []
+      },
+      {
+        "name": "内蔵入力 00～07",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "00",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "01",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "02",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "03",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "04",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "05",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "06",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "07",
+            "purpose": ""
+          }
+        ]
+      },
+      {
+        "name": "内蔵入力 08～15",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "08",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "09",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "10",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "11",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "12",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "13",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "14",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "15",
+            "purpose": ""
+          }
+        ]
+      },
+      {
+        "name": "内蔵入力 16～23",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "16",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "17",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "18",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "19",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "20",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "21",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "22",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "23",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "COM",
+            "purpose": "コモン"
+          }
+        ]
+      },
+      {
+        "name": "内蔵出力 00～07",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "00",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "01",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "02",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "03",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "04",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "05",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "06",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "07",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "C0(+V)",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "",
+            "signal": "0V0",
+            "purpose": "外部電源"
+          }
+        ]
+      },
+      {
+        "name": "内蔵出力 08～15",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "08",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "09",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "10",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "11",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "12",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "13",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "14",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "15",
+            "purpose": ""
+          },
+          {
+            "pin": "",
+            "signal": "C1(+V)",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "",
+            "signal": "0V1",
+            "purpose": "外部電源"
+          }
+        ]
+      }
+    ],
+    "note": "＋端子同士、－端子同士は内部共通。内蔵入力はNPN/PNP共用。内蔵出力はPNP（ソース）。NC端子は接続しない。C0とC1は独立。0V0と0V1も独立。端子欄が空欄の接続点は実物の信号記号で識別する。"
+  }
+}

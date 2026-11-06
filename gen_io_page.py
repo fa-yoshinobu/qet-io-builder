@@ -868,6 +868,8 @@ ORIENT_NUM = dict(n=0, e=1, s=2, w=3)
 
 
 def io_text_cell(key, info):
+    if key.startswith('plc_in_unit'):
+        return {'auxiliary1':(4,45), 'label':(49,105), 'comment':(154,100)}.get(info)
     if key.startswith('plc_in'):
         return {'auxiliary1':(4,45), 'label':(49,55)}.get(info)
     if key.startswith('plc_out'):
@@ -1412,7 +1414,8 @@ UNITS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "parts")
 
 def read_unit_definitions(path=UNITS_DIR):
     """機種別ファイルを集め、重複や不正な定義を拒否する。"""
-    categories = ("inverter", "remote_pulse", "mx_cpu", "mx_io", "remote_mixed", "remote_io", "remote_analog", "remote_iolink", "iqr_mixed", "q_mixed", "iqr_q", "fx5_cpu", "fx5_ext", "fx5_analog", "fx5_comm", "fx5_board", "iqr_cpu", "iqr_power", "iqr_base", "iqr_analog", "iqr_comm", "q_cpu", "q_power", "q_base", "q_analog", "q_comm", "got_body", "got_option", "power_supply", "standard_device")
+    categories = ("kv_io", "inverter", "remote_pulse", "mx_cpu", "mx_io", "remote_mixed", "remote_io", "remote_analog", "remote_iolink", "iqr_mixed", "q_mixed", "iqr_q", "fx5_cpu", "fx5_ext", "fx5_analog", "fx5_comm", "fx5_board", "iqr_cpu", "iqr_power", "iqr_base", "iqr_analog", "iqr_comm", "q_cpu", "q_power", "q_base", "q_analog", "q_comm", "got_body", "got_option", "power_supply", "standard_device")
+    categories = ("unit_diagram",) + categories
     d = {category: {} for category in categories}
     if not os.path.isdir(path):
         raise ValueError(f"機種定義フォルダがありません: {path}")
@@ -1485,12 +1488,15 @@ def load_units(path=UNITS_DIR):
     cpus = dict(sorted(cpus.items(), key=lambda kv: -len(kv[0])))
     exts = dict(sorted(exts.items(), key=lambda kv: -len(kv[0])))
     boards = {**d['fx5_board'], **{m: s for m, s in d['fx5_comm'].items() if s.get('form') == 'board'}}
-    return io_units, cpus, exts, d["fx5_analog"], d["iqr_cpu"], d["iqr_power"], d["iqr_base"], d["iqr_analog"], d["q_cpu"], d["q_power"], d["q_base"], d["q_analog"], d["q_comm"], d["iqr_comm"], d["fx5_comm"], d["q_mixed"], d["iqr_mixed"], d["remote_mixed"], boards, d["remote_analog"], d["remote_iolink"], d["got_body"], d["got_option"], d["standard_device"], d["remote_pulse"], d["mx_cpu"], d["mx_io"], d["inverter"]
+    from renderers.unit_diagrams import validate
+    for model, spec in d["unit_diagram"].items():
+        validate(model, spec)
+    return io_units, cpus, exts, d["fx5_analog"], d["iqr_cpu"], d["iqr_power"], d["iqr_base"], d["iqr_analog"], d["q_cpu"], d["q_power"], d["q_base"], d["q_analog"], d["q_comm"], d["iqr_comm"], d["fx5_comm"], d["q_mixed"], d["iqr_mixed"], d["remote_mixed"], boards, d["remote_analog"], d["remote_iolink"], d["got_body"], d["got_option"], d["standard_device"], d["remote_pulse"], d["mx_cpu"], d["mx_io"], d["inverter"], d["kv_io"], d["unit_diagram"]
 
 
 def use_units(path=UNITS_DIR):
-    global IO_UNITS, FX5U_SPECS, FX5_EXT_SPECS, FX5_ANALOG_SPECS, IQR_CPU, IQR_POWER, IQR_BASE, IQR_ANALOG, Q_CPU, Q_POWER, Q_BASE, Q_ANALOG, Q_COMM, IQR_COMM, FX5_COMM, Q_MIXED, IQR_MIXED, REMOTE_MIXED, FX5_BOARDS, REMOTE_ANALOG, REMOTE_IOLINK, GOT_BODY, GOT_OPTION, STANDARD_DEVICES, REMOTE_PULSE, MX_CPU, MX_IO, INVERTERS, DEFAULT_RELAY_TYPES
-    IO_UNITS, FX5U_SPECS, FX5_EXT_SPECS, FX5_ANALOG_SPECS, IQR_CPU, IQR_POWER, IQR_BASE, IQR_ANALOG, Q_CPU, Q_POWER, Q_BASE, Q_ANALOG, Q_COMM, IQR_COMM, FX5_COMM, Q_MIXED, IQR_MIXED, REMOTE_MIXED, FX5_BOARDS, REMOTE_ANALOG, REMOTE_IOLINK, GOT_BODY, GOT_OPTION, STANDARD_DEVICES, REMOTE_PULSE, MX_CPU, MX_IO, INVERTERS = load_units(path)
+    global IO_UNITS, FX5U_SPECS, FX5_EXT_SPECS, FX5_ANALOG_SPECS, IQR_CPU, IQR_POWER, IQR_BASE, IQR_ANALOG, Q_CPU, Q_POWER, Q_BASE, Q_ANALOG, Q_COMM, IQR_COMM, FX5_COMM, Q_MIXED, IQR_MIXED, REMOTE_MIXED, FX5_BOARDS, REMOTE_ANALOG, REMOTE_IOLINK, GOT_BODY, GOT_OPTION, STANDARD_DEVICES, REMOTE_PULSE, MX_CPU, MX_IO, INVERTERS, KV_IO, UNIT_DIAGRAMS, DEFAULT_RELAY_TYPES
+    IO_UNITS, FX5U_SPECS, FX5_EXT_SPECS, FX5_ANALOG_SPECS, IQR_CPU, IQR_POWER, IQR_BASE, IQR_ANALOG, Q_CPU, Q_POWER, Q_BASE, Q_ANALOG, Q_COMM, IQR_COMM, FX5_COMM, Q_MIXED, IQR_MIXED, REMOTE_MIXED, FX5_BOARDS, REMOTE_ANALOG, REMOTE_IOLINK, GOT_BODY, GOT_OPTION, STANDARD_DEVICES, REMOTE_PULSE, MX_CPU, MX_IO, INVERTERS, KV_IO, UNIT_DIAGRAMS = load_units(path)
     MX_IO = {**MX_CPU, **MX_IO}
     DEFAULT_RELAY_TYPES = {model: {"poles": list(range(1, len(spec["contacts"]) + 1)), "contacts": spec["contacts"], "coil": spec["coil"]}
                            for model, spec in STANDARD_DEVICES.items() if spec.get("device_type") == "relay"}
@@ -3121,6 +3127,12 @@ def build_project(cfg, pages_rows):
                 title = pg.get("title", pg["model"] + " アナログ端子")
                 if count > 1: title += f" ({part + 1}/{count})"
                 body.append((title, build_fx_analog_page(pg, cfg, symbols, rows, part * page_channels)))
+        elif pg["kind"] == "unit_diagram":
+            from renderers.unit_diagrams import build_pages
+            body.extend(build_pages(pg, UNIT_DIAGRAMS[pg["model"].upper()], symbols))
+        elif pg["kind"] == "kv_io":
+            from renderers.keyence import build_pages
+            body.extend(build_pages(pg, KV_IO[pg["model"].upper()], symbols))
         elif pg["kind"] in ("remotepulse", "mxio"):
             from renderers.terminal_pages import build_pages
             spec = (REMOTE_PULSE if pg['kind'] == 'remotepulse' else MX_IO)[pg['model'].upper()]
@@ -3315,6 +3327,31 @@ def write_iolist(path, pages_rows):
         w = csv.writer(f)
         w.writerow(["ユニット", "アドレス", "用途", "機器番号", "ピン/端子/コモン", "端子台番号", "線番"])
         for pg, rows in pages_rows:
+            if pg['kind'] == 'unit_diagram':
+                from renderers.unit_diagrams import terminal_records
+                for section, terminal in terminal_records(UNIT_DIAGRAMS[pg['model'].upper()]):
+                    w.writerow([pg['model'], terminal['signal'], terminal.get('purpose', ''), '',
+                                section['name'] + ' ' + terminal.get('pin', ''), '', ''])
+                continue
+            if pg['kind'] == 'kv_io':
+                kv_spec = KV_IO[pg['model'].upper()]
+                for terminal in kv_spec.get('analog', {}).get('terminals', []):
+                    w.writerow([pg['model'], terminal['signal'], terminal['purpose'], '', terminal['pin'], '', ''])
+                module = kv_spec.get('module', {})
+                for terminal in module.get('power', []):
+                    w.writerow([pg['model'], terminal['signal'], '外部電源' if terminal['lane'] else '接地', '', '', '', ''])
+                modes = module.get('modes', {})
+                interfaces = modes[pg.get('communication_mode') or next(iter(modes))] if modes else module.get('interfaces', [])
+                for interface in interfaces:
+                    for terminal in interface.get('pinout', []):
+                        w.writerow([pg['model'], terminal['signal'], terminal.get('description', ''), '',
+                                    interface['name'] + ' ' + terminal['pin'], '', ''])
+                for section in kv_spec['pages']:
+                    for side, terminals in enumerate(section['halves']):
+                        location = section.get('labels', ['', ''])[side] or section['section']
+                        for pin, signal in terminals:
+                            w.writerow([pg['model'], signal, '', '', f'{location} {pin}'.strip(), '', ''])
+                continue
             if pg['kind'] in ('mxbody', 'inverter'):
                 continue
             if pg['kind'] in ('mxio', 'remotepulse'):
@@ -3396,6 +3433,20 @@ def main(cfg_path, out_path):
                 raise ValueError('通信・機器設定欄は文字列で指定してください')
         except ValueError as error:
             errs.append(str(error))
+            continue
+        if pg['kind'] == 'unit_diagram':
+            model = str(pg.get('model', '')).upper()
+            if model not in UNIT_DIAGRAMS:
+                errs.append('未対応のユニットです: ' + model)
+            else:
+                pages_rows.append((pg, None))
+            continue
+        if pg['kind'] == 'kv_io':
+            model = str(pg.get('model', '')).upper()
+            if model not in KV_IO:
+                errs.append('未対応のKVユニットです: ' + model)
+            else:
+                pages_rows.append((pg, None))
             continue
         if pg['kind'] == 'inverter':
             if str(pg.get('model', '')).upper() not in INVERTERS:

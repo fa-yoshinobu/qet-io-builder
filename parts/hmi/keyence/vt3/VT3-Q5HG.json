@@ -1,0 +1,57 @@
+{
+  "category": "unit_diagram",
+  "model": "VT3-Q5HG",
+  "source": [
+    "VT3シリーズ ハードウェアマニュアル（144143） 1-2 1-12、2-1 2-5～2-6、2-2 2-13、2-31～2-34、3-2 3-11～3-15、3-4 3-31"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "VT3"
+    ],
+    "function": "タッチパネル",
+    "sections": [
+      {
+        "name": "PORT1 USB",
+        "connector": {
+          "kind": "usb_b",
+          "label": "パソコン接続 USB Type-B"
+        },
+        "terminals": []
+      },
+      {
+        "name": "CN1",
+        "connector": {
+          "kind": "proprietary",
+          "label": "外部スイッチ用 専用接続口／イネーブル"
+        },
+        "terminals": []
+      },
+      {
+        "name": "CN2A",
+        "connector": {
+          "kind": "proprietary",
+          "label": "RS-232C 専用接続口"
+        },
+        "terminals": []
+      },
+      {
+        "name": "CN2B",
+        "connector": {
+          "kind": "proprietary",
+          "label": "RS-422 専用接続口"
+        },
+        "terminals": []
+      },
+      {
+        "name": "CN3",
+        "connector": {
+          "kind": "proprietary",
+          "label": "Ethernet／RS-485／ファンクションスイッチ／電源"
+        },
+        "terminals": []
+      }
+    ],
+    "note": "DC24V±10％は専用接続ケーブルを経由してCN3へ供給する（＋24V・0V・FG）。CN2AとCN2Bは使用する通信方式に合わせて接続する。押しボタン・キースイッチはオプション装着時のみ使用できる。ケーブルのFGをD種接地し、FG1・FG2がある場合は両方を接地する。"
+  }
+}

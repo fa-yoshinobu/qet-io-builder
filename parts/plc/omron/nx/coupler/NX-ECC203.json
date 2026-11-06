@@ -1,0 +1,99 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-ECC203",
+  "source": [
+    "NXシリーズ EtherCATカプラユニット ユーザーズマニュアル（SBCD-361S）第4章 4-12～4-13、第7章 7-5、7-9～7-10、7-30"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "EtherCATカプラ",
+    "sections": [
+      {
+        "name": "ユニット電源 DC24V",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "UV",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "unit"
+          },
+          {
+            "pin": "B1",
+            "signal": "UV",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "unit"
+          },
+          {
+            "pin": "A3",
+            "signal": "UG",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "unit"
+          },
+          {
+            "pin": "B3",
+            "signal": "UG",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "unit"
+          },
+          {
+            "pin": "A7",
+            "signal": "機能接地",
+            "purpose": "機能接地"
+          },
+          {
+            "pin": "B7",
+            "signal": "機能接地",
+            "purpose": "機能接地"
+          }
+        ]
+      },
+      {
+        "name": "I/O電源 DC5～24V",
+        "terminals": [
+          {
+            "pin": "A5",
+            "signal": "IOV",
+            "purpose": "外部電源"
+          },
+          {
+            "pin": "B5",
+            "signal": "IOG",
+            "purpose": "外部電源"
+          }
+        ]
+      },
+      {
+        "name": "EtherCAT IN",
+        "connector": {
+          "kind": "rj45",
+          "label": "EtherCAT IN"
+        },
+        "terminals": []
+      },
+      {
+        "name": "EtherCAT OUT",
+        "connector": {
+          "kind": "rj45",
+          "label": "EtherCAT OUT"
+        },
+        "terminals": []
+      },
+      {
+        "name": "ペリフェラル USB Type-B",
+        "connector": {
+          "kind": "usb_b",
+          "label": "ペリフェラル USB Type-B"
+        },
+        "terminals": []
+      }
+    ],
+    "note": "UV/UGのユニット電源とIOV/IOGのI/O電源は必ず別々の外部電源を使用する。UV同士、UG同士は内部共通。I/O電源は使用機器に合わせてDC5～24Vを選ぶ。"
+  }
+}

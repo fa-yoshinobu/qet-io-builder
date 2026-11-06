@@ -1,0 +1,262 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-MD6121-5",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N）付録 A-1 A-99"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "デジタル入出力",
+    "sections": [
+      {
+        "name": "CN1（左・出力）",
+        "terminals": [
+          {
+            "pin": "20",
+            "signal": "OUT0",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "18",
+            "signal": "OUT1",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "16",
+            "signal": "OUT2",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "14",
+            "signal": "OUT3",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "12",
+            "signal": "OUT4",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "10",
+            "signal": "OUT5",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "8",
+            "signal": "OUT6",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "6",
+            "signal": "OUT7",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "4",
+            "signal": "COM0",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "2",
+            "signal": "+V0",
+            "purpose": ""
+          },
+          {
+            "pin": "19",
+            "signal": "OUT8",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "17",
+            "signal": "OUT9",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "15",
+            "signal": "OUT10",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "13",
+            "signal": "OUT11",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "11",
+            "signal": "OUT12",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "9",
+            "signal": "OUT13",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "7",
+            "signal": "OUT14",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "5",
+            "signal": "OUT15",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "3",
+            "signal": "COM0",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "1",
+            "signal": "+V0",
+            "purpose": ""
+          }
+        ]
+      },
+      {
+        "name": "CN2（右・入力）",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "3",
+            "signal": "COM1",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "5",
+            "signal": "IN15",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "7",
+            "signal": "IN14",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "9",
+            "signal": "IN13",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "11",
+            "signal": "IN12",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "13",
+            "signal": "IN11",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "15",
+            "signal": "IN10",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "17",
+            "signal": "IN09",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "19",
+            "signal": "IN08",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "2",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "4",
+            "signal": "COM1",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "6",
+            "signal": "IN07",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "8",
+            "signal": "IN06",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "10",
+            "signal": "IN05",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "12",
+            "signal": "IN04",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "14",
+            "signal": "IN03",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "16",
+            "signal": "IN02",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "18",
+            "signal": "IN01",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "20",
+            "signal": "IN00",
+            "purpose": "",
+            "io": "input"
+          }
+        ]
+      }
+    ],
+    "note": "CN1の3と4(COM0)は、必ず両端子とも配線してください。CN1の1と2(+V0)は、必ず両端子とも配線してください。CN2の入力電源の極性は＋、－どちらでも構いません。CN2の3と4(COM1)は、必ず両端子とも配線してください。CN2の同名COM両端子には同じ極性で配線する。",
+    "output_type": "sink"
+  }
+}

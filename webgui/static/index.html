@@ -38,12 +38,26 @@
       <h1>何をしますか</h1>
       <div class="home-cards">
         <section class="home-card">
-          <h2>PLC・GOT の図面を作る</h2>
+          <h2>三菱電機 PLC・GOT</h2>
           <p>PLC・GOT・リモートIOの構成を組み、構成図・入出力・通信などの図面（.qet）を生成します。</p>
           <div class="home-actions">
             <button type="button" class="btn solid big" data-action="home-new">新しく作る</button>
             <button type="button" class="btn big" data-action="home-open">プロジェクトを開く</button>
             <button type="button" class="btn big" data-action="home-continue" id="home-continue" hidden>作業中のプロジェクトに戻る</button>
+          </div>
+        </section>
+        <section class="home-card">
+          <h2>キーエンス KV・VT</h2>
+          <p>KVのユニット図、VT3・VT5のタッチパネル図を生成します。</p>
+          <div class="home-actions">
+            <button type="button" class="btn solid big" data-action="home-keyence">KV・VTシリーズを選ぶ</button>
+          </div>
+        </section>
+        <section class="home-card">
+          <h2>オムロン NX・NA</h2>
+          <p>NXのユニット図、NA5のタッチパネル図を生成します。</p>
+          <div class="home-actions">
+            <button type="button" class="btn solid big" data-action="home-omron">NX・NAシリーズを選ぶ</button>
           </div>
         </section>
         <section class="home-card">
@@ -65,6 +79,58 @@
   </div>
 
   <!-- PLC・GOT 図面 -->
+  <main class="home" id="view-keyence" hidden>
+    <section class="home-card">
+      <h1>キーエンス KV・VT 図面</h1>
+      <label for="kv-series">シリーズ</label>
+      <select id="kv-series">
+        <option>KV Nano</option>
+        <option>KV-8000</option>
+        <option>KV-7000</option>
+        <option>KV-X</option>
+        <option>VT3</option>
+        <option>VT5</option>
+      </select>
+      <label for="kv-model">ユニット形名</label>
+      <select id="kv-model"></select>
+      <div id="kv-mode-field" hidden>
+        <label for="kv-mode">通信方式</label>
+        <select id="kv-mode"></select>
+      </div>
+      <div id="kv-ip-field" hidden>
+        <label for="kv-ip">IP設定</label>
+        <input id="kv-ip" type="text">
+      </div>
+      <div id="kv-communication-field" hidden>
+        <label for="kv-communication">通信設定</label>
+        <input id="kv-communication" type="text">
+      </div>
+      <label for="kv-unit-no">ユニットNo.</label>
+      <input id="kv-unit-no" type="text">
+      <label for="kv-tag">タグ名</label>
+      <input id="kv-tag" type="text">
+      <p id="kv-wiring-note">デジタル入出力はDC24V配線例です。入力はプラスコモン、出力は選んだ形名の仕様に合わせます。</p>
+      <button type="button" class="btn solid big" data-action="kv-generate">ユニット図面を生成（.qet）</button>
+    </section>
+  </main>
+
+  <main class="home" id="view-omron" hidden>
+    <section class="home-card">
+      <h1>オムロン NX・NA 図面</h1>
+      <label for="nx-series">シリーズ</label>
+      <select id="nx-series"><option>NX</option><option>NA5</option></select>
+      <label for="nx-search">形名・機能で絞り込み</label>
+      <input id="nx-search" type="search">
+      <label for="nx-model">ユニット形名</label>
+      <select id="nx-model"></select>
+      <label for="nx-unit-no">ユニットNo.</label>
+      <input id="nx-unit-no" type="text">
+      <label for="nx-tag">タグ名</label>
+      <input id="nx-tag" type="text">
+      <button type="button" class="btn solid big" data-action="nx-generate">ユニット図面を生成（.qet）</button>
+    </section>
+  </main>
+
   <div class="body" id="view-drawing" hidden>
     <section class="pane pages" aria-label="ページ">
       <div class="pane-head">ページ<span class="count" id="page-count"></span></div>

@@ -1,0 +1,102 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-CIF105",
+  "source": [
+    "NXシリーズ コミュニケーションインタフェースユニット ユーザーズマニュアル（SBCA-422H） 第4章 4-19、4-24～4-25"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "RS-422A/485",
+    "sections": [
+      {
+        "name": "RS-422A/485",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "SDA−",
+            "purpose": "送信データ－"
+          },
+          {
+            "pin": "B1",
+            "signal": "SDB+",
+            "purpose": "送信データ＋"
+          },
+          {
+            "pin": "A2",
+            "signal": "SDA−",
+            "purpose": "送信データ－"
+          },
+          {
+            "pin": "B2",
+            "signal": "SDB+",
+            "purpose": "送信データ＋"
+          },
+          {
+            "pin": "A3",
+            "signal": "TERSDA−",
+            "purpose": "終端送信データ－"
+          },
+          {
+            "pin": "B3",
+            "signal": "TERSDB+",
+            "purpose": "終端送信データ＋"
+          },
+          {
+            "pin": "A4",
+            "signal": "RDA−",
+            "purpose": "受信データ－"
+          },
+          {
+            "pin": "B4",
+            "signal": "RDB+",
+            "purpose": "受信データ＋"
+          },
+          {
+            "pin": "A5",
+            "signal": "RDA−",
+            "purpose": "受信データ－"
+          },
+          {
+            "pin": "B5",
+            "signal": "RDB+",
+            "purpose": "受信データ＋"
+          },
+          {
+            "pin": "A6",
+            "signal": "TERRDA−",
+            "purpose": "終端受信データ－"
+          },
+          {
+            "pin": "B6",
+            "signal": "TERRDB+",
+            "purpose": "終端受信データ＋"
+          },
+          {
+            "pin": "A7",
+            "signal": "SG",
+            "purpose": "信号用接地"
+          },
+          {
+            "pin": "B7",
+            "signal": "SG",
+            "purpose": "信号用接地"
+          },
+          {
+            "pin": "A8",
+            "signal": "FG",
+            "purpose": "機能接地"
+          },
+          {
+            "pin": "B8",
+            "signal": "FG",
+            "purpose": "機能接地"
+          }
+        ]
+      }
+    ],
+    "note": "電源はNXバスから供給。2線式の終端抵抗はA3-B3、4線式の終端抵抗はA6-B6の短絡でON。方式・局位置に合わせて接続し、短絡は自動で行わない。SGはユニット内部0Vと接続。相手機器によりSDA/B・RDA/Bの極性呼称が逆の場合がある。"
+  }
+}

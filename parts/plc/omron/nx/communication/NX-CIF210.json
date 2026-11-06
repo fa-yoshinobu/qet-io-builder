@@ -1,0 +1,151 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-CIF210",
+  "source": [
+    "NXシリーズ コミュニケーションインタフェースユニット ユーザーズマニュアル（SBCA-422H） 第3章 3-4、第4章 4-17、4-20、4-25"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "RS-232C 2ポート",
+    "sections": [
+      {
+        "name": "機能接地",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "FG",
+            "purpose": "機能接地"
+          }
+        ]
+      },
+      {
+        "name": "PORT1 RS-232C",
+        "connector": {
+          "kind": "dsub9",
+          "label": "PORT1 RS-232C",
+          "gender": "male"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "2",
+            "signal": "RD",
+            "purpose": "受信データ"
+          },
+          {
+            "pin": "3",
+            "signal": "SD",
+            "purpose": "送信データ"
+          },
+          {
+            "pin": "4",
+            "signal": "ER",
+            "purpose": "データターミナルレディ"
+          },
+          {
+            "pin": "5",
+            "signal": "SG",
+            "purpose": "信号用接地"
+          },
+          {
+            "pin": "6",
+            "signal": "DR",
+            "purpose": "データセットレディ"
+          },
+          {
+            "pin": "7",
+            "signal": "RS",
+            "purpose": "送信要求"
+          },
+          {
+            "pin": "8",
+            "signal": "CS",
+            "purpose": "送信可"
+          },
+          {
+            "pin": "9",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "シェル",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          }
+        ]
+      },
+      {
+        "name": "PORT2 RS-232C",
+        "connector": {
+          "kind": "dsub9",
+          "label": "PORT2 RS-232C",
+          "gender": "male"
+        },
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "2",
+            "signal": "RD",
+            "purpose": "受信データ"
+          },
+          {
+            "pin": "3",
+            "signal": "SD",
+            "purpose": "送信データ"
+          },
+          {
+            "pin": "4",
+            "signal": "ER",
+            "purpose": "データターミナルレディ"
+          },
+          {
+            "pin": "5",
+            "signal": "SG",
+            "purpose": "信号用接地"
+          },
+          {
+            "pin": "6",
+            "signal": "DR",
+            "purpose": "データセットレディ"
+          },
+          {
+            "pin": "7",
+            "signal": "RS",
+            "purpose": "送信要求"
+          },
+          {
+            "pin": "8",
+            "signal": "CS",
+            "purpose": "送信可"
+          },
+          {
+            "pin": "9",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "シェル",
+            "signal": "SHLD",
+            "purpose": "シールド"
+          }
+        ]
+      }
+    ],
+    "note": "電源はNXバスから供給。各D-subのピン1/9は未使用。外部機器との結線は通信仕様に合わせる。"
+  }
+}

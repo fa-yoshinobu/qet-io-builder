@@ -1,0 +1,30 @@
+{
+  "category": "kv_io",
+  "model": "KV-NC1EP",
+  "source": [
+    "EtherNet/IP機能 KV-EP21V／KV-8000(A)／KV-7500／KV-5500／KV-NC1EP ユーザーズマニュアル（084825）第1章 1-7、第2章 2-5"
+  ],
+  "definition": {
+    "series": [
+      "KV Nano"
+    ],
+    "connection": "端子",
+    "input_common": "P",
+    "pages": [],
+    "note": "KV-N14シリーズには接続できない。端子台タイプの基本ユニットにはKV-N1を介して接続。",
+    "module": {
+      "function": "EtherNet/IP",
+      "interfaces": [
+        {
+          "name": "EtherNet/IP",
+          "kind": "rj45",
+          "connector_label": "10BASE-T／100BASE-TX"
+        }
+      ],
+      "settings": [
+        ["IP設定", "ip"]
+      ],
+      "note": "KV-N14シリーズには接続できない。端子台タイプの基本ユニットにはKV-N1を介して接続。"
+    }
+  }
+}

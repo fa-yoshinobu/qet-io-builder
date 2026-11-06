@@ -1,0 +1,82 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-ECS212",
+  "source": [
+    "NXシリーズ 位置インタフェースユニット ユーザーズマニュアル（SBCE-374L） 第7章 7-13"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "SSI入力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "C1+",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "B1",
+            "signal": "D1+",
+            "purpose": "SSI データ入力1+側"
+          },
+          {
+            "pin": "A2",
+            "signal": "C1-",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "B2",
+            "signal": "D1-",
+            "purpose": "SSI データ入力1-側"
+          },
+          {
+            "pin": "A3",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B3",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A4",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B4",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A5",
+            "signal": "C2+",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "B5",
+            "signal": "D2+",
+            "purpose": "SSI データ入力2+側"
+          },
+          {
+            "pin": "A6",
+            "signal": "C2-",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "B6",
+            "signal": "D2-",
+            "purpose": "SSI データ入力2-側"
+          }
+        ]
+      }
+    ],
+    "note": "IOV・IOGはNXバスから供給されるI/O電源に接続されている。"
+  }
+}

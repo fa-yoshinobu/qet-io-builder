@@ -1,0 +1,137 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-AM40V",
+  "source": [
+    "AD/DA変換ユニット ユーザーズマニュアル（084213）第4章 4-3～4-5",
+    "KV-X500シリーズ ユーザーズマニュアル（084914）付録 付-25、KV-7000シリーズ ユーザーズマニュアル（084754）付録 付-38、KV-8000シリーズ ユーザーズマニュアル（084823）付録 付-43"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "アナログ入出力",
+    "sections": [
+      {
+        "name": "CH0 入力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "V0＋",
+            "purpose": "電圧入力"
+          },
+          {
+            "pin": "",
+            "signal": "I0＋",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "",
+            "signal": "0－",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "",
+            "signal": "C0",
+            "purpose": "コモン"
+          }
+        ]
+      },
+      {
+        "name": "CH1 入力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "V1＋",
+            "purpose": "電圧入力"
+          },
+          {
+            "pin": "",
+            "signal": "I1＋",
+            "purpose": "電流入力"
+          },
+          {
+            "pin": "",
+            "signal": "1－",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "",
+            "signal": "C1",
+            "purpose": "コモン"
+          }
+        ]
+      },
+      {
+        "name": "CH2 出力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "V2＋",
+            "purpose": "電圧出力"
+          },
+          {
+            "pin": "",
+            "signal": "I2＋",
+            "purpose": "電流出力"
+          },
+          {
+            "pin": "",
+            "signal": "V2－",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "",
+            "signal": "I2－",
+            "purpose": "信号グランド"
+          }
+        ]
+      },
+      {
+        "name": "CH3 出力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "V3＋",
+            "purpose": "電圧出力"
+          },
+          {
+            "pin": "",
+            "signal": "I3＋",
+            "purpose": "電流出力"
+          },
+          {
+            "pin": "",
+            "signal": "V3－",
+            "purpose": "信号グランド"
+          },
+          {
+            "pin": "",
+            "signal": "I3－",
+            "purpose": "信号グランド"
+          }
+        ]
+      },
+      {
+        "name": "補助端子",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          }
+        ]
+      }
+    ],
+    "note": "C0・C1・V2－・V3－・I2－・I3－は内部共通。異なる電位へ接続しない。 KV-7000Cを介した既存ユニット接続の適用条件に従う。"
+  }
+}

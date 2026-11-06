@@ -1,0 +1,140 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-ID5142-5",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N）付録 A-1 A-36"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "デジタル入力",
+    "sections": [
+      {
+        "name": "I/Oコネクタ",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "3",
+            "signal": "COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "5",
+            "signal": "IN15",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "7",
+            "signal": "IN14",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "9",
+            "signal": "IN13",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "11",
+            "signal": "IN12",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "13",
+            "signal": "IN11",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "15",
+            "signal": "IN10",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "17",
+            "signal": "IN09",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "19",
+            "signal": "IN08",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "2",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "4",
+            "signal": "COM",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "6",
+            "signal": "IN07",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "8",
+            "signal": "IN06",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "10",
+            "signal": "IN05",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "12",
+            "signal": "IN04",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "14",
+            "signal": "IN03",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "16",
+            "signal": "IN02",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "18",
+            "signal": "IN01",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "20",
+            "signal": "IN00",
+            "purpose": "",
+            "io": "input"
+          }
+        ]
+      }
+    ],
+    "note": "入力電源の極性は＋、－どちらでも構いません。3と4(COM)は、必ず両端子とも配線してください。同名COMの両端子には同じ極性で配線する。"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "category": "kv_io",
+  "model": "KV-N11L",
+  "source": [
+    "KV Nanoシリーズ 基本ユニット（端子台タイプ）ユーザーズマニュアル（084490）第2章 2-60～2-63"
+  ],
+  "definition": {
+    "series": [
+      "KV Nano"
+    ],
+    "connection": "端子",
+    "input_common": "P",
+    "pages": [],
+    "note": "SGは基本ユニットの内部GNDと絶縁。",
+    "module": {
+      "function": "シリアル通信",
+      "modes": {
+        "RS-422A／RS-485（4線式）": [
+          {
+            "name": "RS-422A／RS-485（4線式）",
+            "kind": "terminal",
+            "pinout": [
+              {
+                "pin": "1",
+                "signal": "SDA(-)",
+                "description": "送信－"
+              },
+              {
+                "pin": "2",
+                "signal": "SDB(+)",
+                "description": "送信＋"
+              },
+              {
+                "pin": "3",
+                "signal": "RDA(-)",
+                "description": "受信－"
+              },
+              {
+                "pin": "4",
+                "signal": "RDB(+)",
+                "description": "受信＋"
+              },
+              {
+                "pin": "5",
+                "signal": "SG",
+                "description": "信号グランド"
+              }
+            ]
+          }
+        ],
+        "RS-485（2線式）": [
+          {
+            "name": "RS-485（2線式）",
+            "kind": "terminal",
+            "pinout": [
+              {
+                "pin": "1",
+                "signal": "S/R(-)",
+                "description": "送受信－"
+              },
+              {
+                "pin": "2",
+                "signal": "S/R(+)",
+                "description": "送受信＋"
+              },
+              {
+                "pin": "5",
+                "signal": "SG",
+                "description": "信号グランド"
+              }
+            ],
+            "unused": ["3", "4"]
+          }
+        ]
+      },
+      "settings": [
+        ["通信設定", "communication"]
+      ],
+      "note": "SGは基本ユニットの内部GNDと絶縁。"
+    }
+  }
+}

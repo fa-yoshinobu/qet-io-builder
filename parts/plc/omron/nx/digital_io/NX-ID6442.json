@@ -1,0 +1,220 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-ID6442",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N） 付録 A-1 A-32"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "デジタル入力",
+    "sections": [
+      {
+        "name": "端子台 A/B",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "IN0",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B1",
+            "signal": "IN1",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A2",
+            "signal": "IN2",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B2",
+            "signal": "IN3",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A3",
+            "signal": "IN4",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B3",
+            "signal": "IN5",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A4",
+            "signal": "IN6",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B4",
+            "signal": "IN7",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A5",
+            "signal": "IN8",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B5",
+            "signal": "IN9",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A6",
+            "signal": "IN10",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B6",
+            "signal": "IN11",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A7",
+            "signal": "IN12",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B7",
+            "signal": "IN13",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A8",
+            "signal": "IN14",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B8",
+            "signal": "IN15",
+            "purpose": "",
+            "io": "input"
+          }
+        ]
+      },
+      {
+        "name": "端子台 C/D",
+        "terminals": [
+          {
+            "pin": "C1",
+            "signal": "IN16",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "D1",
+            "signal": "IN17",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "C2",
+            "signal": "IN18",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "D2",
+            "signal": "IN19",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "C3",
+            "signal": "IN20",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "D3",
+            "signal": "IN21",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "C4",
+            "signal": "IN22",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "D4",
+            "signal": "IN23",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "C5",
+            "signal": "IN24",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "D5",
+            "signal": "IN25",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "C6",
+            "signal": "IN26",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "D6",
+            "signal": "IN27",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "C7",
+            "signal": "IN28",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "D7",
+            "signal": "IN29",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "C8",
+            "signal": "IN30",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "D8",
+            "signal": "IN31",
+            "purpose": "",
+            "io": "input"
+          }
+        ]
+      }
+    ],
+    "note": "",
+    "input_type": "pnp"
+  }
+}

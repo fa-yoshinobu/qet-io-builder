@@ -1,0 +1,68 @@
+{
+  "category": "kv_io",
+  "model": "KV-NC10L",
+  "source": [
+    "KV Nanoシリーズ 基本ユニット（コネクタタイプ）ユーザーズマニュアル（084542）第2章 2-35～2-37"
+  ],
+  "definition": {
+    "series": [
+      "KV Nano"
+    ],
+    "connection": "端子",
+    "input_common": "P",
+    "pages": [],
+    "note": "RSは通常High。受信できなくなるとLowになる。",
+    "module": {
+      "function": "シリアル通信",
+      "interfaces": [
+        {
+          "name": "RS-232C",
+          "kind": "dsub9",
+          "gender": "male",
+          "pinout": [
+            {
+              "pin": "2",
+              "signal": "RD",
+              "description": "受信"
+            },
+            {
+              "pin": "3",
+              "signal": "SD",
+              "description": "送信"
+            },
+            {
+              "pin": "4",
+              "signal": "ER",
+              "description": "端末レディ"
+            },
+            {
+              "pin": "5",
+              "signal": "SG",
+              "description": "信号グランド"
+            },
+            {
+              "pin": "6",
+              "signal": "DR",
+              "description": "セットレディ"
+            },
+            {
+              "pin": "7",
+              "signal": "RS",
+              "description": "送信要求"
+            },
+            {
+              "pin": "8",
+              "signal": "CS",
+              "description": "送信可"
+            }
+          ],
+          "unused": ["1", "9"]
+        }
+      ],
+      "settings": [
+        ["通信設定", "communication"]
+      ],
+      "note": "RSは通常High。受信できなくなるとLowになる。"
+    }
+  }
+}

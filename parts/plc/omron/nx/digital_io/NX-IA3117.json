@@ -1,0 +1,66 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-IA3117",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N） 付録 A-1 A-44"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "デジタル入力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "IN0",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B1",
+            "signal": "C0",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "A3",
+            "signal": "IN1",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B3",
+            "signal": "C1",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "A5",
+            "signal": "IN2",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B5",
+            "signal": "C2",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "A7",
+            "signal": "IN3",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B7",
+            "signal": "C3",
+            "purpose": "コモン"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  }
+}

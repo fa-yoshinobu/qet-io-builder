@@ -1,0 +1,41 @@
+{
+  "category": "unit_diagram",
+  "model": "NX701-1600",
+  "source": [
+    "NXシリーズ CPUユニット ユーザーズマニュアル ハードウェア編（SBCA-418S）第3章 3-2～3-3、第4章 4-32～4-33"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "CPU",
+    "sections": [
+      {
+        "name": "PORT1 EtherNet/IP",
+        "connector": {
+          "kind": "rj45",
+          "label": "PORT1 EtherNet/IP"
+        },
+        "terminals": []
+      },
+      {
+        "name": "PORT2 EtherNet/IP",
+        "connector": {
+          "kind": "rj45",
+          "label": "PORT2 EtherNet/IP"
+        },
+        "terminals": []
+      },
+      {
+        "name": "PORT3 EtherCAT",
+        "connector": {
+          "kind": "rj45",
+          "label": "PORT3 EtherCAT"
+        },
+        "terminals": []
+      }
+    ],
+    "note": "電源はNX-PA9001またはNX-PD7001から供給。CPU本体への外部給電端子はない。"
+  }
+}

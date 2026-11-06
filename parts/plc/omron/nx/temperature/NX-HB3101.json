@@ -1,0 +1,103 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-HB3101",
+  "source": [
+    "NXシリーズ アナログI/Oユニット ユーザーズマニュアル 温度入力ユニット、ヒータ断線検知ユニット編（SBCA-440F） 付録 A-1 A-24"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "ヒータ断線検知",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "CT1+",
+            "purpose": ""
+          },
+          {
+            "pin": "B1",
+            "signal": "CT2+",
+            "purpose": ""
+          },
+          {
+            "pin": "A2",
+            "signal": "CT1-",
+            "purpose": ""
+          },
+          {
+            "pin": "B2",
+            "signal": "CT2-",
+            "purpose": ""
+          },
+          {
+            "pin": "A3",
+            "signal": "CT3+",
+            "purpose": ""
+          },
+          {
+            "pin": "B3",
+            "signal": "CT4+",
+            "purpose": ""
+          },
+          {
+            "pin": "A4",
+            "signal": "CT3-",
+            "purpose": ""
+          },
+          {
+            "pin": "B4",
+            "signal": "CT4-",
+            "purpose": ""
+          },
+          {
+            "pin": "A5",
+            "signal": "OUT1",
+            "purpose": ""
+          },
+          {
+            "pin": "B5",
+            "signal": "OUT2",
+            "purpose": ""
+          },
+          {
+            "pin": "A6",
+            "signal": "IOV1",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B6",
+            "signal": "IOV2",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A7",
+            "signal": "OUT3",
+            "purpose": ""
+          },
+          {
+            "pin": "B7",
+            "signal": "OUT4",
+            "purpose": ""
+          },
+          {
+            "pin": "A8",
+            "signal": "IOV3",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B8",
+            "signal": "IOV4",
+            "purpose": "I/O電源"
+          }
+        ]
+      }
+    ],
+    "note": "",
+    "output_type": "sink"
+  }
+}

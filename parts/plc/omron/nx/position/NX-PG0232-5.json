@@ -1,0 +1,192 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-PG0232-5",
+  "source": [
+    "NXシリーズ 位置インタフェースユニット ユーザーズマニュアル（SBCE-374L） 第8章 8-29"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "パルス出力",
+    "sections": [
+      {
+        "name": "CN1（CH1・2）",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "POV",
+            "purpose": "パルス出力用電源24V"
+          },
+          {
+            "pin": "2",
+            "signal": "POG",
+            "purpose": "パルス出力用電源0V"
+          },
+          {
+            "pin": "3",
+            "signal": "A+",
+            "purpose": "パルス出力A+/CW+/PLS"
+          },
+          {
+            "pin": "4",
+            "signal": "A-",
+            "purpose": "パルス出力A-/CW-/PLS-"
+          },
+          {
+            "pin": "5",
+            "signal": "B+",
+            "purpose": "パルス出力B+/CCW"
+          },
+          {
+            "pin": "6",
+            "signal": "B-",
+            "purpose": "パルス出力B-/CCW-/DIR-"
+          },
+          {
+            "pin": "7",
+            "signal": "OG",
+            "purpose": "外部出力コモン"
+          },
+          {
+            "pin": "8",
+            "signal": "O0",
+            "purpose": "外部出力0／偏差カウンタリセ"
+          },
+          {
+            "pin": "9",
+            "signal": "O1",
+            "purpose": "外部出力1"
+          },
+          {
+            "pin": "10",
+            "signal": "O2",
+            "purpose": "外部出力2"
+          },
+          {
+            "pin": "11",
+            "signal": "I0+",
+            "purpose": "外部入力0+"
+          },
+          {
+            "pin": "12",
+            "signal": "I0-",
+            "purpose": "外部入力0-"
+          },
+          {
+            "pin": "13",
+            "signal": "I0",
+            "purpose": "外部入力0"
+          },
+          {
+            "pin": "14",
+            "signal": "IV",
+            "purpose": "外部入力0∼4 コモン"
+          },
+          {
+            "pin": "15",
+            "signal": "I1",
+            "purpose": "外部入力1"
+          },
+          {
+            "pin": "16",
+            "signal": "I2",
+            "purpose": "外部入力2"
+          },
+          {
+            "pin": "17",
+            "signal": "I3",
+            "purpose": "外部入力3"
+          },
+          {
+            "pin": "18",
+            "signal": "I4",
+            "purpose": "外部入力4"
+          },
+          {
+            "pin": "19",
+            "signal": "A+",
+            "purpose": "パルス出力A+/CW+/PLS"
+          },
+          {
+            "pin": "20",
+            "signal": "A-",
+            "purpose": "パルス出力A-/CW-/PLS-"
+          },
+          {
+            "pin": "21",
+            "signal": "B+",
+            "purpose": "パルス出力B+/CCW"
+          },
+          {
+            "pin": "22",
+            "signal": "B-",
+            "purpose": "パルス出力B-/CCW-/DIR-"
+          },
+          {
+            "pin": "23",
+            "signal": "OG",
+            "purpose": "外部出力コモン"
+          },
+          {
+            "pin": "24",
+            "signal": "O0",
+            "purpose": "外部出力0／偏差カウンタリセ"
+          },
+          {
+            "pin": "25",
+            "signal": "O1",
+            "purpose": "外部出力1"
+          },
+          {
+            "pin": "26",
+            "signal": "O2",
+            "purpose": "外部出力2"
+          },
+          {
+            "pin": "27",
+            "signal": "I0+",
+            "purpose": "外部入力0+"
+          },
+          {
+            "pin": "28",
+            "signal": "I0-",
+            "purpose": "外部入力0-"
+          },
+          {
+            "pin": "29",
+            "signal": "I0",
+            "purpose": "外部入力0"
+          },
+          {
+            "pin": "30",
+            "signal": "IV",
+            "purpose": "外部入力0∼4 コモン"
+          },
+          {
+            "pin": "31",
+            "signal": "I1",
+            "purpose": "外部入力1"
+          },
+          {
+            "pin": "32",
+            "signal": "I2",
+            "purpose": "外部入力2"
+          },
+          {
+            "pin": "33",
+            "signal": "I3",
+            "purpose": "外部入力3"
+          },
+          {
+            "pin": "34",
+            "signal": "I4",
+            "purpose": "外部入力4"
+          }
+        ]
+      }
+    ],
+    "note": "MILコネクタのPOV・POGに外部DC24Vを接続する。外部入力0は接続機器の出力方式に応じてI0＋・I0－、またはI0と入力コモンを選ぶ。"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-ILM400",
+  "source": [
+    "NXシリーズ IO-Linkマスタユニット ユーザーズマニュアル（SBCD-370J）付録 A-1 A-6"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "IO-Linkマスタ",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "P1_C/Q",
+            "purpose": "IO-Link通信"
+          },
+          {
+            "pin": "B1",
+            "signal": "P2_C/Q",
+            "purpose": "IO-Link通信"
+          },
+          {
+            "pin": "A2",
+            "signal": "P1_DI",
+            "purpose": "デジタル入力"
+          },
+          {
+            "pin": "B2",
+            "signal": "P2_DI",
+            "purpose": "デジタル入力"
+          },
+          {
+            "pin": "A3",
+            "signal": "P1_L＋",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B3",
+            "signal": "P2_L＋",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A4",
+            "signal": "P1_L－",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B4",
+            "signal": "P2_L－",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A5",
+            "signal": "P3_C/Q",
+            "purpose": "IO-Link通信"
+          },
+          {
+            "pin": "B5",
+            "signal": "P4_C/Q",
+            "purpose": "IO-Link通信"
+          },
+          {
+            "pin": "A6",
+            "signal": "P3_DI",
+            "purpose": "デジタル入力"
+          },
+          {
+            "pin": "B6",
+            "signal": "P4_DI",
+            "purpose": "デジタル入力"
+          },
+          {
+            "pin": "A7",
+            "signal": "P3_L＋",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B7",
+            "signal": "P4_L＋",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A8",
+            "signal": "P3_L－",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B8",
+            "signal": "P4_L－",
+            "purpose": "I/O電源"
+          }
+        ]
+      }
+    ],
+    "note": "L＋・L－はNXバスから供給されるI/O電源に接続されている。"
+  }
+}

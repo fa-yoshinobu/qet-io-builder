@@ -1,0 +1,108 @@
+{
+  "category": "kv_io",
+  "model": "KV-EP02",
+  "source": [
+    "EtherNet/IP対応通信ユニット KV-EP02 ユーザーズマニュアル（084485）第1章 1-2、第2章 2-2～2-5、第3章 3-9～3-13、第4章 4-10"
+  ],
+  "definition": {
+    "series": [
+      "KV Nano"
+    ],
+    "connection": "端子",
+    "input_common": "P",
+    "pages": [],
+    "note": "電源は機能別の展開。実端子の極性表示に従って接続。FGはD種接地。2ポートは内蔵スイッチで接続され、IPアドレスは共通。リング接続はしない。",
+    "module": {
+      "function": "EtherNet/IP リモートI/O",
+      "power": [
+        {
+          "signal": "電源＋",
+          "lane": "P"
+        },
+        {
+          "signal": "電源－",
+          "lane": "N"
+        },
+        {
+          "signal": "FG",
+          "lane": ""
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Port1 EtherNet/IP",
+          "kind": "rj45",
+          "connector_label": "10BASE-T／100BASE-TX",
+          "pinout": [
+            {
+              "pin": "1",
+              "signal": "TD＋",
+              "description": "送信＋"
+            },
+            {
+              "pin": "2",
+              "signal": "TD－",
+              "description": "送信－"
+            },
+            {
+              "pin": "3",
+              "signal": "RD＋",
+              "description": "受信＋"
+            },
+            {
+              "pin": "6",
+              "signal": "RD－",
+              "description": "受信－"
+            }
+          ],
+          "unused": [
+            "4",
+            "5",
+            "7",
+            "8"
+          ]
+        },
+        {
+          "name": "Port2 EtherNet/IP",
+          "kind": "rj45",
+          "connector_label": "10BASE-T／100BASE-TX",
+          "pinout": [
+            {
+              "pin": "1",
+              "signal": "TD＋",
+              "description": "送信＋"
+            },
+            {
+              "pin": "2",
+              "signal": "TD－",
+              "description": "送信－"
+            },
+            {
+              "pin": "3",
+              "signal": "RD＋",
+              "description": "受信＋"
+            },
+            {
+              "pin": "6",
+              "signal": "RD－",
+              "description": "受信－"
+            }
+          ],
+          "unused": [
+            "4",
+            "5",
+            "7",
+            "8"
+          ]
+        }
+      ],
+      "settings": [
+        [
+          "IP設定",
+          "ip"
+        ]
+      ],
+      "note": "電源は機能別の展開。実端子の極性表示に従って接続。FGはD種接地。2ポートは内蔵スイッチで接続され、IPアドレスは共通。リング接続はしない。"
+    }
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-TF40",
+  "source": [
+    "KV-TF40 ユーザーズマニュアル（084084）第1章 1-15、第2章 2-7～2-9",
+    "KV-X500シリーズ ユーザーズマニュアル（084914）付録 付-25、KV-7000シリーズ ユーザーズマニュアル（084754）付録 付-38、KV-8000シリーズ ユーザーズマニュアル（084823）付録 付-43"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-7000",
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "温度調節",
+    "sections": [
+      {
+        "name": "CH0",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "0B/＋",
+            "purpose": "熱電対＋／測温抵抗体B"
+          },
+          {
+            "pin": "",
+            "signal": "0b/－",
+            "purpose": "熱電対－／測温抵抗体b"
+          },
+          {
+            "pin": "",
+            "signal": "0A/・",
+            "purpose": "測温抵抗体A"
+          },
+          {
+            "pin": "",
+            "signal": "OUT0",
+            "purpose": "制御出力"
+          },
+          {
+            "pin": "",
+            "signal": "ALM0",
+            "purpose": "警報出力"
+          },
+          {
+            "pin": "",
+            "signal": "C0",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "",
+            "signal": "CT0",
+            "purpose": "CT入力"
+          },
+          {
+            "pin": "",
+            "signal": "CT0G",
+            "purpose": "CTグランド"
+          }
+        ]
+      },
+      {
+        "name": "CH1",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "1B/＋",
+            "purpose": "熱電対＋／測温抵抗体B"
+          },
+          {
+            "pin": "",
+            "signal": "1b/－",
+            "purpose": "熱電対－／測温抵抗体b"
+          },
+          {
+            "pin": "",
+            "signal": "1A/・",
+            "purpose": "測温抵抗体A"
+          },
+          {
+            "pin": "",
+            "signal": "OUT1",
+            "purpose": "制御出力"
+          },
+          {
+            "pin": "",
+            "signal": "ALM1",
+            "purpose": "警報出力"
+          },
+          {
+            "pin": "",
+            "signal": "C1",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "",
+            "signal": "CT1",
+            "purpose": "CT入力"
+          },
+          {
+            "pin": "",
+            "signal": "CT1G",
+            "purpose": "CTグランド"
+          }
+        ]
+      },
+      {
+        "name": "CH2",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "2B/＋",
+            "purpose": "熱電対＋／測温抵抗体B"
+          },
+          {
+            "pin": "",
+            "signal": "2b/－",
+            "purpose": "熱電対－／測温抵抗体b"
+          },
+          {
+            "pin": "",
+            "signal": "2A/・",
+            "purpose": "測温抵抗体A"
+          },
+          {
+            "pin": "",
+            "signal": "OUT2",
+            "purpose": "制御出力"
+          },
+          {
+            "pin": "",
+            "signal": "ALM2",
+            "purpose": "警報出力"
+          },
+          {
+            "pin": "",
+            "signal": "C2",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "",
+            "signal": "CT2",
+            "purpose": "CT入力"
+          },
+          {
+            "pin": "",
+            "signal": "CT2G",
+            "purpose": "CTグランド"
+          }
+        ]
+      },
+      {
+        "name": "CH3",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "3B/＋",
+            "purpose": "熱電対＋／測温抵抗体B"
+          },
+          {
+            "pin": "",
+            "signal": "3b/－",
+            "purpose": "熱電対－／測温抵抗体b"
+          },
+          {
+            "pin": "",
+            "signal": "3A/・",
+            "purpose": "測温抵抗体A"
+          },
+          {
+            "pin": "",
+            "signal": "OUT3",
+            "purpose": "制御出力"
+          },
+          {
+            "pin": "",
+            "signal": "ALM3",
+            "purpose": "警報出力"
+          },
+          {
+            "pin": "",
+            "signal": "C3",
+            "purpose": "コモン"
+          },
+          {
+            "pin": "",
+            "signal": "CT3",
+            "purpose": "CT入力"
+          },
+          {
+            "pin": "",
+            "signal": "CT3G",
+            "purpose": "CTグランド"
+          }
+        ]
+      },
+      {
+        "name": "未接続端子",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          },
+          {
+            "pin": "",
+            "signal": "NC",
+            "purpose": "",
+            "connectable": false
+          }
+        ]
+      }
+    ],
+    "note": "熱電対使用時は冷接点補償抵抗を取り外さない。白金測温抵抗体使用時は冷接点補償抵抗を取り外す。各CHの制御・警報コモンC0～C3は互いに絶縁。 KV-7000Cを介した既存ユニット接続の適用条件に従う。"
+  }
+}

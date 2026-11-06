@@ -1,0 +1,84 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-EC0222",
+  "source": [
+    "NXシリーズ 位置インタフェースユニット ユーザーズマニュアル（SBCE-374L） 第6章 6-23"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "インクリメンタルエンコーダ入力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "A1",
+            "purpose": "カウンタ1 入力A"
+          },
+          {
+            "pin": "B1",
+            "signal": "B1",
+            "purpose": "カウンタ1 入力B"
+          },
+          {
+            "pin": "A2",
+            "signal": "Z1",
+            "purpose": "カウンタ1 入力Z"
+          },
+          {
+            "pin": "B2",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          },
+          {
+            "pin": "A3",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B3",
+            "signal": "IOV",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A4",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B4",
+            "signal": "IOG",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A5",
+            "signal": "A2",
+            "purpose": "カウンタ2 入力A"
+          },
+          {
+            "pin": "B5",
+            "signal": "B2",
+            "purpose": "カウンタ2 入力B"
+          },
+          {
+            "pin": "A6",
+            "signal": "Z2",
+            "purpose": "カウンタ2 入力Z"
+          },
+          {
+            "pin": "B6",
+            "signal": "NC",
+            "purpose": "未使用",
+            "connectable": false
+          }
+        ]
+      }
+    ],
+    "note": "IOV・IOGはNXバスから供給されるI/O電源に接続されている。"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-OD4121",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N） 付録 A-1 A-63"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "デジタル出力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "OUT0",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B1",
+            "signal": "OUT1",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A2",
+            "signal": "IOV0",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B2",
+            "signal": "IOV1",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A3",
+            "signal": "OUT2",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B3",
+            "signal": "OUT3",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A4",
+            "signal": "IOV2",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B4",
+            "signal": "IOV3",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A5",
+            "signal": "OUT4",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B5",
+            "signal": "OUT5",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A6",
+            "signal": "IOV4",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B6",
+            "signal": "IOV5",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A7",
+            "signal": "OUT6",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "B7",
+            "signal": "OUT7",
+            "purpose": "",
+            "io": "output"
+          },
+          {
+            "pin": "A8",
+            "signal": "IOV6",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B8",
+            "signal": "IOV7",
+            "purpose": "I/O電源"
+          }
+        ]
+      }
+    ],
+    "note": "",
+    "output_type": "sink"
+  }
+}

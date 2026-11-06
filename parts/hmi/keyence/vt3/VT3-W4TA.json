@@ -1,0 +1,98 @@
+{
+  "category": "unit_diagram",
+  "model": "VT3-W4TA",
+  "source": [
+    "VT3シリーズ ハードウェアマニュアル（144143） 1-2 1-12、2-1 2-7、2-2 2-15、2-25、2-36～2-37、3-3 3-28"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "VT3"
+    ],
+    "function": "タッチパネル",
+    "sections": [
+      {
+        "name": "電源 DC24V",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "＋",
+            "purpose": "外部電源",
+            "lane": "P"
+          },
+          {
+            "pin": "",
+            "signal": "－",
+            "purpose": "外部電源",
+            "lane": "N"
+          },
+          {
+            "pin": "N.C.",
+            "signal": "NC",
+            "purpose": "未接続",
+            "connectable": false
+          }
+        ]
+      },
+      {
+        "name": "PORT1 USB",
+        "connector": {
+          "kind": "usb_b",
+          "label": "パソコン接続 USB Type-B"
+        },
+        "terminals": []
+      },
+      {
+        "name": "PORT2 RS-422A／RS-485",
+        "terminals": [
+          {
+            "pin": "1",
+            "signal": "TXDA",
+            "purpose": "送信データA"
+          },
+          {
+            "pin": "2",
+            "signal": "TXDB",
+            "purpose": "送信データB"
+          },
+          {
+            "pin": "3",
+            "signal": "RXDA",
+            "purpose": "受信データA"
+          },
+          {
+            "pin": "4",
+            "signal": "RXDB",
+            "purpose": "受信データB"
+          },
+          {
+            "pin": "5",
+            "signal": "S.G.",
+            "purpose": "シグナルグランド"
+          },
+          {
+            "pin": "6",
+            "signal": "RTSA",
+            "purpose": "送信要求A"
+          },
+          {
+            "pin": "7",
+            "signal": "RTSB",
+            "purpose": "送信要求B"
+          },
+          {
+            "pin": "8",
+            "signal": "CTSA",
+            "purpose": "送信可A"
+          },
+          {
+            "pin": "9",
+            "signal": "CTSB",
+            "purpose": "送信可B"
+          }
+        ]
+      }
+    ],
+    "note": "DC24V±10％を供給する。RS-485通信ではTXDAとRXDA、TXDBとRXDBをそれぞれ外部で短絡する。終端抵抗スイッチは配線構成に応じて設定する。"
+  }
+}

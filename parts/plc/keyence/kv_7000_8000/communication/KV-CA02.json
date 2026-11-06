@@ -1,0 +1,34 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-CA02",
+  "source": [
+    "KV-CA02 ユーザーズマニュアル（084612）第2章 2-2、2-7～2-10"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-8000",
+      "KV-X"
+    ],
+    "function": "カメラ入力",
+    "sections": [
+      {
+        "name": "CAMERA1",
+        "terminals": [],
+        "connector": {
+          "kind": "proprietary",
+          "label": "専用カメラ接続"
+        }
+      },
+      {
+        "name": "CAMERA2",
+        "terminals": [],
+        "connector": {
+          "kind": "proprietary",
+          "label": "専用カメラ接続"
+        }
+      }
+    ],
+    "note": "KV-CA02専用カメラ・ケーブルを使用する。"
+  }
+}

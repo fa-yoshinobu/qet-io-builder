@@ -1,0 +1,73 @@
+{
+  "category": "unit_diagram",
+  "model": "KV-X530",
+  "source": [
+    "KV-X500シリーズ ユーザーズマニュアル（084914）第2章 2-2～2-8、第3章 3-10"
+  ],
+  "definition": {
+    "manufacturer": "keyence",
+    "series": [
+      "KV-X"
+    ],
+    "function": "CPU",
+    "sections": [
+      {
+        "name": "DC24V電源入力",
+        "terminals": [
+          {
+            "pin": "",
+            "signal": "24V",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "main"
+          },
+          {
+            "pin": "",
+            "signal": "0V",
+            "purpose": "外部電源",
+            "lane": "N",
+            "power_group": "main"
+          },
+          {
+            "pin": "",
+            "signal": "FG",
+            "purpose": "接地"
+          }
+        ]
+      },
+      {
+        "name": "USB",
+        "terminals": [],
+        "connector": {
+          "kind": "usb_c",
+          "label": "USB Type-C"
+        }
+      },
+      {
+        "name": "PORT1 汎用Ethernet",
+        "terminals": [],
+        "connector": {
+          "kind": "rj45",
+          "label": "100BASE-TX／1000BASE-T"
+        }
+      },
+      {
+        "name": "PORT2 Ethernet／EtherNet/IP",
+        "terminals": [],
+        "connector": {
+          "kind": "rj45",
+          "label": "100BASE-TX／1000BASE-T"
+        }
+      },
+      {
+        "name": "PORT3 EtherCAT",
+        "terminals": [],
+        "connector": {
+          "kind": "rj45",
+          "label": "EtherCAT 100BASE-TX"
+        }
+      }
+    ],
+    "note": "PORT1ではEtherNet/IPを使用しない。KV-PU1使用時はCPUの電源コネクタから重ねて給電しない。電源は機能別に展開。実端子の極性表示に従って接続。"
+  }
+}

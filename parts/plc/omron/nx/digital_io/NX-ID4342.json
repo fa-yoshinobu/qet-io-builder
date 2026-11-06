@@ -1,0 +1,111 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-ID4342",
+  "source": [
+    "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N） 付録 A-1 A-22"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "デジタル入力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "IN0",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B1",
+            "signal": "IN1",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A2",
+            "signal": "IOG0",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B2",
+            "signal": "IOG1",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A3",
+            "signal": "IN2",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B3",
+            "signal": "IN3",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A4",
+            "signal": "IOG2",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B4",
+            "signal": "IOG3",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A5",
+            "signal": "IN4",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B5",
+            "signal": "IN5",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A6",
+            "signal": "IOG4",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B6",
+            "signal": "IOG5",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "A7",
+            "signal": "IN6",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "B7",
+            "signal": "IN7",
+            "purpose": "",
+            "io": "input"
+          },
+          {
+            "pin": "A8",
+            "signal": "IOG6",
+            "purpose": "I/O電源"
+          },
+          {
+            "pin": "B8",
+            "signal": "IOG7",
+            "purpose": "I/O電源"
+          }
+        ]
+      }
+    ],
+    "note": "",
+    "input_type": "npn"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "category": "unit_diagram",
+  "model": "NX-AD4204",
+  "source": [
+    "NXシリーズ アナログI/Oユニット ユーザーズマニュアル アナログ入力ユニット、アナログ出力ユニット編（SBCA-408K） 付録 A-1 A-18"
+  ],
+  "definition": {
+    "manufacturer": "omron",
+    "series": [
+      "NX"
+    ],
+    "function": "アナログ入力",
+    "sections": [
+      {
+        "name": "端子台",
+        "terminals": [
+          {
+            "pin": "A1",
+            "signal": "入力1＋",
+            "purpose": ""
+          },
+          {
+            "pin": "B1",
+            "signal": "入力2＋",
+            "purpose": ""
+          },
+          {
+            "pin": "A2",
+            "signal": "入力1－",
+            "purpose": ""
+          },
+          {
+            "pin": "B2",
+            "signal": "入力2－",
+            "purpose": ""
+          },
+          {
+            "pin": "A3",
+            "signal": "入力3＋",
+            "purpose": ""
+          },
+          {
+            "pin": "B3",
+            "signal": "入力4＋",
+            "purpose": ""
+          },
+          {
+            "pin": "A4",
+            "signal": "入力3－",
+            "purpose": ""
+          },
+          {
+            "pin": "B4",
+            "signal": "入力4－",
+            "purpose": ""
+          },
+          {
+            "pin": "A5",
+            "signal": "入力5＋",
+            "purpose": ""
+          },
+          {
+            "pin": "B5",
+            "signal": "入力6＋",
+            "purpose": ""
+          },
+          {
+            "pin": "A6",
+            "signal": "入力5－",
+            "purpose": ""
+          },
+          {
+            "pin": "B6",
+            "signal": "入力6－",
+            "purpose": ""
+          },
+          {
+            "pin": "A7",
+            "signal": "入力7＋",
+            "purpose": ""
+          },
+          {
+            "pin": "B7",
+            "signal": "入力8＋",
+            "purpose": ""
+          },
+          {
+            "pin": "A8",
+            "signal": "入力7－",
+            "purpose": ""
+          },
+          {
+            "pin": "B8",
+            "signal": "入力8－",
+            "purpose": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  }
+}
