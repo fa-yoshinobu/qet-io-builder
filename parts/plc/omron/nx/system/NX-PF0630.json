@@ -57,6 +57,34 @@
         ]
       }
     ],
-    "note": "外部電源はA1(IOV)、A3(IOG)へ入力。その他の端子は外部機器への電源接続に使用できる。ユニット電源とは別のI/O電源を使用し、電圧は使用機器に合わせて選ぶ。"
+    "note": "外部電源はA1(IOV)、A3(IOG)へ入力。その他の端子は外部機器への電源接続に使用できる。ユニット電源とは別のI/O電源を使用し、電圧は使用機器に合わせて選ぶ。",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "bus": "nx",
+      "compatible": {
+        "nx502": {
+          "min_cpu": "1.13"
+        },
+        "nx102": {
+          "min_cpu": "1.13"
+        },
+        "nx1p2": {
+          "min_cpu": "1.13"
+        },
+        "nx_ecc201": {},
+        "nx_ecc": {},
+        "nx_eic": {}
+      },
+      "source": [
+        "NXシリーズ データリファレンスマニュアル（SBCA-410AB）A-5 A-19～A-25、A-6 A-28～A-44",
+        "NXシリーズ システムユニット ユーザーズマニュアル（SBCA-409K）第4章4-28～4-34、NXシリーズ 形NX102 CPUユニット ユーザーズマニュアル ハードウェア編（SBCA-462N）第4章4-3"
+      ],
+      "provides_io_supply": true,
+      "conditions": [
+        "I/O電源追加供給。NXユニット電源は通過、I/O電源は分離。PF0630=4A/PF0730=10A、NX1P2は双方4A以内。"
+      ]
+    }
   }
 }

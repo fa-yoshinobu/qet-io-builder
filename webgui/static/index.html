@@ -25,6 +25,8 @@
       <span class="sep"></span>
       <button type="button" class="tbtn" data-action="check">構成チェック</button>
       <button type="button" class="tbtn" data-action="differences">構成との比較</button>
+      <button type="button" class="tbtn" data-action="generate-overview" hidden>構成図のみ</button>
+      <button type="button" class="tbtn primary" data-action="generate-bundle" hidden>構成図＋詳細図を生成</button>
       <button type="button" class="tbtn primary" data-action="generate">図面生成（.qet）</button>
     </div>
     <div class="group" id="tools-parts">
@@ -48,16 +50,16 @@
         </section>
         <section class="home-card">
           <h2>キーエンス KV・VT</h2>
-          <p>KVのユニット図、VT3・VT5のタッチパネル図を生成します。</p>
+          <p>KVのCPUとユニットの構成を組み、構成図と詳細図をまとめて生成します。単体のユニット図・VT図も作成できます。</p>
           <div class="home-actions">
-            <button type="button" class="btn solid big" data-action="home-keyence">KV・VTシリーズを選ぶ</button>
+            <button type="button" class="btn solid big" data-action="home-keyence">KV・VTの図面メニュー</button>
           </div>
         </section>
         <section class="home-card">
           <h2>オムロン NX・NA</h2>
-          <p>NXのユニット図、NA5のタッチパネル図を生成します。</p>
+          <p>NXのCPUとユニットの構成を組み、構成図と詳細図をまとめて生成します。単体のユニット図・NA図も作成できます。</p>
           <div class="home-actions">
-            <button type="button" class="btn solid big" data-action="home-omron">NX・NAシリーズを選ぶ</button>
+            <button type="button" class="btn solid big" data-action="home-omron">NX・NAの図面メニュー</button>
           </div>
         </section>
         <section class="home-card">
@@ -80,54 +82,75 @@
 
   <!-- PLC・GOT 図面 -->
   <main class="home" id="view-keyence" hidden>
-    <section class="home-card">
-      <h1>キーエンス KV・VT 図面</h1>
+    <section class="home-card maker-menu">
+      <h1>キーエンス KV・VT</h1>
+      <fieldset class="maker-tasks">
+        <legend>図面の種類</legend>
+        <label><input type="radio" name="kv-task" value="configuration" checked>PLC構成</label>
+        <label><input type="radio" name="kv-task" value="unit">ユニット単体図</label>
+        <label><input type="radio" name="kv-task" value="panel">タッチパネル図</label>
+      </fieldset>
       <label for="kv-series">シリーズ</label>
-      <select id="kv-series">
-        <option>KV Nano</option>
-        <option>KV-8000</option>
-        <option>KV-7000</option>
-        <option>KV-X</option>
-        <option>VT3</option>
-        <option>VT5</option>
-      </select>
-      <label for="kv-model">ユニット形名</label>
-      <select id="kv-model"></select>
-      <div id="kv-mode-field" hidden>
-        <label for="kv-mode">通信方式</label>
-        <select id="kv-mode"></select>
+      <select id="kv-series"></select>
+      <div class="home-actions" id="kv-configuration">
+        <button type="button" class="btn solid big" data-action="kv-config-new" id="kv-config-new">構成を新しく作る</button>
+        <button type="button" class="btn big" data-action="kv-config-open">構成を開く</button>
+        <button type="button" class="btn big" data-action="home-continue" id="kv-config-continue" hidden>作業中の構成に戻る</button>
       </div>
-      <div id="kv-ip-field" hidden>
-        <label for="kv-ip">IP設定</label>
-        <input id="kv-ip" type="text">
+      <div class="maker-form" id="kv-single" hidden>
+        <label for="kv-search">形名・機能で絞り込み</label>
+        <input id="kv-search" type="search">
+        <label for="kv-model">形名</label>
+        <select id="kv-model"></select>
+        <div id="kv-mode-field" hidden>
+          <label for="kv-mode">通信方式</label>
+          <select id="kv-mode"></select>
+        </div>
+        <div id="kv-ip-field" hidden>
+          <label for="kv-ip">IP設定</label>
+          <input id="kv-ip" type="text">
+        </div>
+        <div id="kv-communication-field" hidden>
+          <label for="kv-communication">通信設定</label>
+          <input id="kv-communication" type="text">
+        </div>
+        <label for="kv-unit-no">ユニットNo.</label>
+        <input id="kv-unit-no" type="text">
+        <label for="kv-tag">タグ名</label>
+        <input id="kv-tag" type="text">
+        <p id="kv-wiring-note" hidden>デジタル入出力はDC24V配線例です。入力はプラスコモン、出力は選んだ形名の仕様に合わせます。</p>
+        <button type="button" class="btn solid big" data-action="kv-generate">図面を生成（.qet）</button>
       </div>
-      <div id="kv-communication-field" hidden>
-        <label for="kv-communication">通信設定</label>
-        <input id="kv-communication" type="text">
-      </div>
-      <label for="kv-unit-no">ユニットNo.</label>
-      <input id="kv-unit-no" type="text">
-      <label for="kv-tag">タグ名</label>
-      <input id="kv-tag" type="text">
-      <p id="kv-wiring-note">デジタル入出力はDC24V配線例です。入力はプラスコモン、出力は選んだ形名の仕様に合わせます。</p>
-      <button type="button" class="btn solid big" data-action="kv-generate">ユニット図面を生成（.qet）</button>
     </section>
   </main>
 
   <main class="home" id="view-omron" hidden>
-    <section class="home-card">
-      <h1>オムロン NX・NA 図面</h1>
+    <section class="home-card maker-menu">
+      <h1>オムロン NX・NA</h1>
+      <fieldset class="maker-tasks">
+        <legend>図面の種類</legend>
+        <label><input type="radio" name="nx-task" value="configuration" checked>PLC構成</label>
+        <label><input type="radio" name="nx-task" value="unit">ユニット単体図</label>
+        <label><input type="radio" name="nx-task" value="panel">タッチパネル図</label>
+      </fieldset>
       <label for="nx-series">シリーズ</label>
-      <select id="nx-series"><option>NX</option><option>NA5</option></select>
-      <label for="nx-search">形名・機能で絞り込み</label>
-      <input id="nx-search" type="search">
-      <label for="nx-model">ユニット形名</label>
-      <select id="nx-model"></select>
-      <label for="nx-unit-no">ユニットNo.</label>
-      <input id="nx-unit-no" type="text">
-      <label for="nx-tag">タグ名</label>
-      <input id="nx-tag" type="text">
-      <button type="button" class="btn solid big" data-action="nx-generate">ユニット図面を生成（.qet）</button>
+      <select id="nx-series"></select>
+      <div class="home-actions" id="nx-configuration">
+        <button type="button" class="btn solid big" data-action="nx-config-new" id="nx-config-new">構成を新しく作る</button>
+        <button type="button" class="btn big" data-action="nx-config-open">構成を開く</button>
+        <button type="button" class="btn big" data-action="home-continue" id="nx-config-continue" hidden>作業中の構成に戻る</button>
+      </div>
+      <div class="maker-form" id="nx-single" hidden>
+        <label for="nx-search">形名・機能で絞り込み</label>
+        <input id="nx-search" type="search">
+        <label for="nx-model">形名</label>
+        <select id="nx-model"></select>
+        <label for="nx-unit-no">ユニットNo.</label>
+        <input id="nx-unit-no" type="text">
+        <label for="nx-tag">タグ名</label>
+        <input id="nx-tag" type="text">
+        <button type="button" class="btn solid big" data-action="nx-generate">図面を生成（.qet）</button>
+      </div>
     </section>
   </main>
 

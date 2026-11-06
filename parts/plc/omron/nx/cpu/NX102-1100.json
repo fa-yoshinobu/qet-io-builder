@@ -79,6 +79,33 @@
         "terminals": []
       }
     ],
-    "note": "A1/B1、A3/B3はそれぞれ内部共通。A5/B5（NC）には接続しない。NXユニット用I/O電源は別途供給する。"
+    "note": "A1/B1、A3/B3はそれぞれ内部共通。A5/B5（NC）には接続しない。NXユニット用I/O電源は別途供給する。",
+    "configuration": {
+      "role": "cpu",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "profile": "nx102",
+      "kind": "nxbody",
+      "buses": {
+        "nx": 32,
+        "x": 0,
+        "power": 0
+      },
+      "source": [
+        "NXシリーズ データリファレンスマニュアル（SBCA-410AB）A-5 A-19～A-25、A-6 A-28～A-44",
+        "NXシリーズ 形NX102 CPUユニット ユーザーズマニュアル ハードウェア編（SBCA-462N）第2章2-2～2-5、第4章4-2～4-4",
+        "NJ/NXシリーズ CPUユニット ユーザーズマニュアル ソフトウェア編（SBCA-467AD）NX該当部 A-266～A-268"
+      ],
+      "end_cover": "エンドカバー",
+      "conditions": [
+        "NXユニット電源10W。PD1000以降は別供給ブロック。I/O電源と別系統。",
+        "追加給電しても最大台数は増えない。"
+      ],
+      "warnings": [
+        "各ブロックの消費電力/I/O電流/電圧降下/I/Oデータサイズは別途確認。"
+      ],
+      "min_cpu": "1.30",
+      "min_software": "1.23"
+    }
   }
 }

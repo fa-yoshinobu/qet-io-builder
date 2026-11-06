@@ -36,6 +36,33 @@
         "terminals": []
       }
     ],
-    "note": "電源はNX-PA9001またはNX-PD7001から供給。CPU本体への外部給電端子はない。"
+    "note": "電源はNX-PA9001またはNX-PD7001から供給。CPU本体への外部給電端子はない。",
+    "configuration": {
+      "role": "cpu",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "profile": "nx701",
+      "kind": "nxbody",
+      "buses": {
+        "nx": 0,
+        "x": 0,
+        "power": 1
+      },
+      "source": [
+        "NXシリーズ データリファレンスマニュアル（SBCA-410AB）A-5 A-19～A-25、A-6 A-28～A-44",
+        "NXシリーズ CPUユニット ユーザーズマニュアル ハードウェア編（SBCA-418S）第2章2-2～2-3、第3章3-10～3-12",
+        "NJ/NXシリーズ CPUユニット ユーザーズマニュアル ソフトウェア編（SBCA-467AD）NX該当部 A-266～A-268"
+      ],
+      "end_cover": "エンドカバー",
+      "conditions": [
+        "ローカルNXユニット装着不可。PA9001/PD7001を1台選択。リモートNXは独立カプラ構成。"
+      ],
+      "warnings": [
+        "各ブロックの消費電力/I/O電流/電圧降下/I/Oデータサイズは別途確認。"
+      ],
+      "required_buses": {
+        "power": 1
+      }
+    }
   }
 }

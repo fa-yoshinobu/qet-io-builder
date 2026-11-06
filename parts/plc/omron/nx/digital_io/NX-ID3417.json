@@ -29,22 +29,22 @@
           {
             "pin": "A2",
             "signal": "IOV0",
-            "purpose": "I/O電源"
+            "purpose": "I/O電源＋"
           },
           {
             "pin": "B2",
             "signal": "IOV1",
-            "purpose": "I/O電源"
+            "purpose": "I/O電源＋"
           },
           {
             "pin": "A3",
             "signal": "IOG0",
-            "purpose": "I/O電源"
+            "purpose": "I/O電源－"
           },
           {
             "pin": "B3",
             "signal": "IOG1",
-            "purpose": "I/O電源"
+            "purpose": "I/O電源－"
           },
           {
             "pin": "A4",
@@ -61,27 +61,52 @@
           {
             "pin": "A5",
             "signal": "IOV2",
-            "purpose": "I/O電源"
+            "purpose": "I/O電源＋"
           },
           {
             "pin": "B5",
             "signal": "IOV3",
-            "purpose": "I/O電源"
+            "purpose": "I/O電源＋"
           },
           {
             "pin": "A6",
             "signal": "IOG2",
-            "purpose": "I/O電源"
+            "purpose": "I/O電源－"
           },
           {
             "pin": "B6",
             "signal": "IOG3",
-            "purpose": "I/O電源"
+            "purpose": "I/O電源－"
           }
         ]
       }
     ],
     "note": "",
-    "input_type": "pnp"
+    "input_type": "pnp",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "bus": "nx",
+      "compatible": {
+        "nx502": {
+          "min_cpu": "1.13"
+        },
+        "nx102": {
+          "min_cpu": "1.13"
+        },
+        "nx1p2": {
+          "min_cpu": "1.13"
+        },
+        "nx_ecc201": {},
+        "nx_ecc": {},
+        "nx_eic": {}
+      },
+      "source": [
+        "NXシリーズ データリファレンスマニュアル（SBCA-410AB）A-5 A-19～A-25、A-6 A-28～A-44",
+        "NXシリーズ システムユニット ユーザーズマニュアル（SBCA-409K）第4章4-28～4-34、NXシリーズ 形NX102 CPUユニット ユーザーズマニュアル ハードウェア編（SBCA-462N）第4章4-3"
+      ],
+      "requires_io_supply": true
+    }
   }
 }

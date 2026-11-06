@@ -7,6 +7,7 @@ import csv
 import json
 import re
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -15,10 +16,13 @@ from pathlib import Path
 
 import gen_io_page as gen
 import gui_core as core
+import plc_configuration as plc
 from project_wiring.data import (BOUNDARY_DEFAULTS, CONNECTION_DEFAULTS, CONTENT_FIELDS, POSITION_FIELDS,
                                  normalize as normalize_wiring, terminal_rows)
 
 ROOT = core.ROOT
+BUS_NAMES = {'power': '電源ユニット', 'left': '左側アダプタ', 'front': '前面カセット',
+             'direct': '右側 直接接続', 'legacy': '右側 変換バス', 'nx': '右側 NXバス', 'x': '左側 Xバス'}
 
 
 def production_end_label(spec, today=None):
@@ -28,18 +32,20 @@ def production_end_label(spec, today=None):
     end = date.fromisoformat(value)
     return f'{end.year}年' + ('予定' if end > (today or date.today()) else '')
 
-BODY_KINDS = ('iqrbody', 'qbody', 'fx5body', 'mxbody')
-LINEAR_KINDS = ('fx5body', 'mxbody')
+VENDOR_KINDS = ('kvbody', 'nxbody')
+BODY_KINDS = ('iqrbody', 'qbody', 'fx5body', 'mxbody', *VENDOR_KINDS)
+LINEAR_KINDS = ('fx5body', 'mxbody', *VENDOR_KINDS)
 RACK_KINDS = ('iqrbody', 'qbody')
 MODEL_KEYS = ('model', 'left_model', 'right_model', 'power_model', 'base_model')
 TAG_KEYS = {'model': 'tag', 'left_model': 'left_tag', 'right_model': 'right_tag',
             'power_model': 'power_tag', 'base_model': 'base_tag', 'board_model': 'board_tag'}
 # 画面のユニット構成・配線情報で編集し、「その他の設定」には出さない項目
-MANAGED_KEYS = ('modules', 'module_tags', 'extensions', 'wiring', 'module_starts', 'settings_visibility')
+MANAGED_KEYS = ('modules', 'module_tags', 'module_buses', 'module_modes', 'extensions', 'wiring', 'module_starts', 'settings_visibility')
 PROJECT_FIELDS = [('project_title', 'プロジェクト名'), ('company', '会社名'), ('customer', '顧客名'),
                   ('machine', '装置名'), ('drawing_no', '図番'), ('revision', '改訂'),
                   ('date', '日付（YYYYMMDD）'), ('author', '作成者'), ('checker', '検図者'), ('approver', '承認者')]
 GROUP_NAMES = {
+    'coupler': 'カプラ',
     'digital_io': '入出力', 'analog_io': 'アナログ', 'network': 'ネットワーク', 'serial': 'シリアル',
     'information': '情報', 'counter_pulse': 'カウンタ・パルス', 'motion_positioning': '位置決め',
     'cpu': 'CPU', 'base': 'ベース', 'power_supply': '電源', 'mixed_io': '入出力混合',
@@ -61,9 +67,9 @@ class Cancelled(Exception):
 
 
 EDIT_METHODS = {'set_project', 'add_page', 'duplicate_page', 'delete_page', 'move_page', 'move_page_to',
-                'update_page', 'set_module', 'remove_module', 'set_module_tag', 'set_module_start',
+                'update_page', 'set_module', 'remove_module', 'set_module_tag', 'set_module_start', 'set_module_bus', 'set_module_mode',
                 'set_stage_part', 'add_extension', 'remove_extension', 'create_unit_page',
-                'create_all_unit_pages', 'create_cpu_io_page', 'make_page_csv', 'set_wiring', 'make_sample', 'sync_details', 'set_setting_visibility'}
+                'create_all_unit_pages', 'create_cpu_io_page', 'make_page_csv', 'set_wiring', 'make_sample', 'sync_details', 'set_setting_visibility', 'generate_configuration'}
 
 
 def _safe(method):
@@ -71,12 +77,13 @@ def _safe(method):
         editing = method.__name__ in EDIT_METHODS and not self._editing
         if editing:
             before = (copy.deepcopy(self._data), self._index)
+            dirty_before = self._dirty
             self._editing = True
         try:
             result = method(self, *args)
             if editing and isinstance(result, dict) and result.get('error'):
                 self._data, self._index = before
-                self._touch()
+                self._dirty = dirty_before
             elif editing and self._data != before[0]:
                 self._undo.append(before)
                 self._undo = self._undo[-100:]
@@ -88,12 +95,12 @@ def _safe(method):
         except Cancelled:
             if editing:
                 self._data, self._index = before
-                self._touch()
+                self._dirty = dirty_before
             return {'cancelled': True}
         except (ValueError, OSError, TypeError, KeyError, IndexError, gen.ET.ParseError) as error:
             if editing:
                 self._data, self._index = before
-                self._touch()
+                self._dirty = dirty_before
             return {'error': str(error) or error.__class__.__name__}
         finally:
             if editing:
@@ -229,6 +236,18 @@ class Api:
     # ------------------------------------------------------------ 一覧・プロジェクト
     @_safe
     def meta(self):
+        def kv_function(spec):
+            if spec.get('body'):
+                return 'CPU・内蔵I/O'
+            for section in ('module', 'analog'):
+                if section in spec:
+                    return spec[section]['function']
+            directions = {d for page in spec['pages'] for d in page.get('directions', [])}
+            if len(directions) > 1:
+                return 'デジタル入出力'
+            return 'デジタル出力' if spec.get('output') or 'output' in directions else 'デジタル入力'
+
+        keyence = {m: s for m, s in gen.UNIT_DIAGRAMS.items() if s['manufacturer'] == 'keyence'}
         return {
             'kinds': {k: v for k, v in core.KIND_NAMES.items()},
             'fields': core.FIELDS,
@@ -236,8 +255,9 @@ class Api:
             'series': core.SERIES_NAMES,
             'project_fields': PROJECT_FIELDS,
             'browser_paths': self._dialogs is None,
-            'kv_models': {model: spec['series'] for model, spec in sorted({**gen.KV_IO,
-                          **{m: s for m, s in gen.UNIT_DIAGRAMS.items() if s['manufacturer'] == 'keyence'}}.items())},
+            'kv_models': {model: spec['series'] for model, spec in sorted({**gen.KV_IO, **keyence}.items())},
+            'kv_functions': {**{m: kv_function(s) for m, s in gen.KV_IO.items()},
+                             **{m: s['function'] for m, s in keyence.items()}},
             'nx_models': {model: spec['function'] for model, spec in sorted(gen.UNIT_DIAGRAMS.items())
                           if spec['manufacturer'] == 'omron'},
             'omron_series': {model: spec['series'] for model, spec in gen.UNIT_DIAGRAMS.items()
@@ -260,6 +280,7 @@ class Api:
                           'tag': _text(tag), 'model': _text(model), 'title': _text(page.get('title', '')),
                           'body': kind in BODY_KINDS, 'parent': self._page_parent(i), 'wiring': bool(page.get('wiring'))})
         return {
+            'maker': self._project_maker(),
             'path': str(self._path) if self._path else '',
             'name': self._path.name if self._path else '新しいプロジェクト',
             'dirty': self._dirty,
@@ -276,6 +297,74 @@ class Api:
         self._data = gen.project_config({'pages': [], 'front_pages': False})
         self._reset_history()
         return self.snapshot()
+
+    def _project_maker(self, data=None):
+        data = self._data if data is None else data
+        if data.get('maker') in ('mitsubishi', 'keyence', 'omron'):
+            return data['maker']
+        makers = set()
+        for page in data.get('pages', []):
+            maker = page.get('maker')
+            if not maker:
+                if page.get('kind') in ('kvbody', 'kv_io'):
+                    maker = 'keyence'
+                elif page.get('kind') == 'nxbody':
+                    maker = 'omron'
+                elif page.get('kind') == 'unit_diagram':
+                    maker = gen.UNIT_DIAGRAMS.get(str(page.get('model', '')).upper(), {}).get('manufacturer')
+                else:
+                    maker = 'mitsubishi'
+            if maker:
+                makers.add(maker)
+        return next(iter(makers)) if len(makers) == 1 else 'mitsubishi'
+
+    def _configuration_roots(self, maker, series):
+        if maker not in ('keyence', 'omron'):
+            raise ValueError('キーエンスまたはオムロンを選択してください')
+        candidates = [r for r in plc.roots(maker, definitions()) if not series or series in r['series']]
+        if not candidates:
+            raise ValueError('構成を作成するPLCシリーズを選択してください')
+        return candidates
+
+    @_safe
+    def configuration_roots(self, maker, series):
+        rows = []
+        for root in self._configuration_roots(maker, series):
+            buses = root['spec']['configuration']['buses']
+            rows.append(dict(model=root['model'], group='CPU' if root['role'] == 'cpu' else 'カプラ',
+                             summary=' / '.join(BUS_NAMES[bus] for bus in buses if buses[bus]),
+                             series=series, production_end=''))
+        return {'rows': rows}
+
+    @_safe
+    def new_configuration(self, maker, series='', model=None):
+        candidates = self._configuration_roots(maker, series)
+        if model is None:
+            # 形名を渡さない従来の呼出しはCPUを優先する。
+            model = next((r['model'] for r in candidates if r['role'] == 'cpu'), candidates[0]['model'])
+        elif model not in {r['model'] for r in candidates}:
+            raise ValueError('選択したシリーズのCPU・カプラを指定してください')
+        page = dict(kind='kvbody' if maker == 'keyence' else 'nxbody', maker=maker, model=model)
+        self._path, self._dirty = None, True
+        self._data = gen.project_config(dict(maker=maker, front_pages=False, pages=[page]))
+        self._reset_history()
+        return dict(index=0, **self.snapshot())
+
+    @_safe
+    def open_configuration(self, maker, path=None):
+        if maker not in ('keyence', 'omron'):
+            raise ValueError('キーエンスまたはオムロンを選択してください')
+        path = self._ask('open', '構成プロジェクトを開く', path)
+        with path.open(encoding='utf-8-sig') as stream:
+            data = json.load(stream)
+        if not isinstance(data, dict) or not isinstance(data.get('pages'), list) or any(not isinstance(p, dict) for p in data['pages']):
+            raise ValueError('プロジェクトJSONを選択してください')
+        if self._project_maker(data) != maker:
+            raise ValueError('選択したメーカーのプロジェクトを開いてください')
+        result = self.open_project(str(path))
+        if result.get('error'):
+            return result
+        return dict(index=0, **result)
 
     @_safe
     def open_project(self, path=None):
@@ -360,7 +449,9 @@ class Api:
     def add_page(self, after=None):
         pages = self._data['pages']
         index = len(pages) if after is None else int(after) + 1
-        pages.insert(index, {})
+        maker = self._project_maker()
+        page = {} if maker == 'mitsubishi' else dict(kind='kvbody' if maker == 'keyence' else 'nxbody', maker=maker)
+        pages.insert(index, page)
         self._touch()
         return {'index': index, **self.snapshot()}
 
@@ -404,6 +495,8 @@ class Api:
     def _scope(self, page):
         """ページのメーカー・シリーズ。未指定なら形名から推定する(旧GUIと同じ)。"""
         catalog = part_catalog('series', '')
+        project_maker = self._project_maker()
+        catalog = {project_maker: catalog.get(project_maker, {})}
         maker, series = page.get('maker', ''), page.get('series', '')
         if not maker or not series:
             models = {str(page.get(k, '')).upper() for k in MODEL_KEYS} - {''}
@@ -456,6 +549,7 @@ class Api:
         options['battery_model'] = [''] + (list(spec.get('battery_models', [])) if kind == 'qbody' else [])
         for key in MODEL_KEYS:
             options[key] = sorted(set(part_catalog(key, kind).get(maker, {}).get(series, [])))
+        options['communication_mode'] = list(gen.KV_IO.get(model, {}).get('module', {}).get('modes', {}))
         return options
 
     @_safe
@@ -487,6 +581,8 @@ class Api:
         """フォームの値を反映する。changed は直前に変えた欄(メーカー等を変えたら下位の選択を解除)。"""
         page = self._page(index)
         values = {k: _text(v).strip() for k, v in values.items()}
+        if values.get('maker') and values['maker'] != self._project_maker():
+            raise ValueError('このプロジェクトのメーカーを選択してください')
         if changed == 'maker':
             values['series'] = ''
         if changed in ('maker', 'series'):
@@ -564,8 +660,10 @@ class Api:
         if kind == 'mxbody' and model:
             from renderers.controllers import expansion_items
             expansion_items(result)
+        if kind in VENDOR_KINDS and model:
+            plc.resolve(result, definitions(), complete=False)
         if kind not in BODY_KINDS:
-            for key in ('modules', 'module_tags', 'extensions', 'module_starts'):
+            for key in ('modules', 'module_tags', 'module_buses', 'module_modes', 'extensions', 'module_starts'):
                 result.pop(key, None)
         if result != page:
             self._data['pages'][int(index)] = result
@@ -646,6 +744,8 @@ class Api:
 
     def _rack(self, page):
         kind = page['kind']
+        if kind in VENDOR_KINDS:
+            return self._vendor_rack(page)
         if kind == 'mxbody':
             from renderers.controllers import expansion_items
             items = [{'id': 'cpu', 'type': 'cpu', 'head': '本体', 'model': page.get('model', ''),
@@ -778,16 +878,94 @@ class Api:
         last = -1
         for j, model in enumerate(modules):
             if model:
-                last = max(last, j + gen.slot_definition(model.upper(), is_q).get('slots', 1) - 1)
+                width = 1 if config.get('kind') in VENDOR_KINDS else gen.slot_definition(model.upper(), is_q).get('slots', 1)
+                last = max(last, j + width - 1)
         modules, tags = modules[:last + 1], tags[:last + 1]
         if modules:
             config['modules'] = modules
             config['module_tags'] = tags
+            for key in ('module_buses', 'module_versions', 'module_modes'):
+                if key in config:
+                    config[key] = config[key][:len(modules)]
         else:
             config.pop('modules', None)
             config.pop('module_tags', None)
+            config.pop('module_buses', None)
+            config.pop('module_versions', None)
+            config.pop('module_modes', None)
 
-    def _module_models(self, page, slot=None):
+    def _vendor_rack(self, page):
+        model = str(page.get('model', '')).upper()
+        available = plc.options(model, definitions()) if model else []
+        buses = list(dict.fromkeys(option['bus'] for option in available if option['allowed']))
+        warnings, conditions = [], []
+        try:
+            resolved = plc.resolve(page, definitions(), complete=False) if model else None
+        except ValueError as error:
+            warnings = [str(error)]
+            resolved = None
+        items = []
+        if resolved:
+            records = resolved['modules']
+            conditions = resolved.get('conditions', [])
+            warnings += resolved.get('warnings', [])
+        else:
+            tags, groups = page.get('module_tags', []), page.get('module_buses', [])
+            records = [dict(model=m, tag=tags[i] if i < len(tags) else '', bus=groups[i] if i < len(groups) else '', index=i)
+                       for i, m in enumerate(page.get('modules', [])) if m]
+            for record in records:
+                if not record['bus']:
+                    record['bus'] = next((o['bus'] for o in available if o['model'] == record['model']), '')
+        next_slot = len(page.get('modules', []))
+        order = ('power', 'left', 'x', 'direct', 'legacy', 'nx', 'front')
+        extra_buses = list(dict.fromkeys(record['bus'] for record in records if record['bus'] not in order))
+        front = []
+        for bus in (*order, *extra_buses):
+            group = []
+            adapters = [a for a in resolved.get('adapters', []) if a['bus'] == bus] if resolved else []
+            entries = [(a['before_index'], True, a) for a in adapters]
+            entries += [(r['index'], False, r) for r in records if r['bus'] == bus]
+            for _, automatic, record in sorted(entries, key=lambda entry: (entry[0], not entry[1])):
+                if automatic:
+                    group.append(dict(id=f"adapter:{record['model']}:{record['before_index']}", type='adapter',
+                                      head='自動', model=record['model'], summary='接続に必要な変換器'))
+                    continue
+                slot = record['index']
+                choices = next((option.get('buses', [option['bus']]) for option in available if option['model'] == record['model']), [bus])
+                mode_options = list(gen.KV_IO.get(record['model'], {}).get('module', {}).get('modes', {}))
+                modes = page.get('module_modes', [])
+                mode = modes[slot] if slot < len(modes) else ''
+                group.append(dict(id=f'0:{slot}', type='module', stage=0, slot=slot, head=BUS_NAMES.get(bus, bus) + f' #{slot + 1}',
+                                  model=record['model'], tag=record['tag'], bus=bus,
+                                  bus_options=[[value, BUS_NAMES.get(value, value)] for value in choices],
+                                  mode_options=mode_options, communication_mode=mode,
+                                  summary=BUS_NAMES.get(bus, bus), addr='', group='comm'))
+            if bus in buses:
+                group.append(dict(id='0:new:' + bus, type='add', stage=0, slot=next_slot,
+                                  head=BUS_NAMES.get(bus, bus) + ' 追加', model='', bus=bus))
+            if bus in ('power', 'left', 'x'):
+                items += group
+            elif bus == 'front':
+                front = group
+            else:
+                if not any(item['id'] == 'cpu' for item in items):
+                    items.append(dict(id='cpu', type='cpu', head='本体', model=model or '未選択', tag=page.get('tag', ''), summary='CPU・カプラ'))
+                items += group
+        if not any(item['id'] == 'cpu' for item in items):
+            items.append(dict(id='cpu', type='cpu', head='本体', model=model or '未選択', tag=page.get('tag', ''), summary='CPU・カプラ'))
+        if resolved and resolved.get('end_cover'):
+            items.append(dict(id='adapter:end', type='adapter', head='右端', model=resolved['end_cover'], summary='エンドカバー'))
+        stages = [dict(stage=0, name='本体・接続ユニット', base='', power='', items=items)]
+        if front:
+            stages.append(dict(stage=0, name='前面カセット', base='', power='', items=front))
+        return dict(kind=page['kind'], stages=stages, io_total=None, slots_used=len(records), slots_total=None,
+                    bus_options=[[bus, BUS_NAMES.get(bus, bus)] for bus in buses],
+                    message='\n'.join(dict.fromkeys(conditions)), alarms=warnings)
+
+    def _module_models(self, page, slot=None, bus=''):
+        if page.get('kind') in VENDOR_KINDS:
+            return {option['model'].upper(): option['model'] for option in plc.options(page.get('model', ''), definitions())
+                    if option['allowed'] and (not bus or bus in option.get('buses', [option['bus']]))}
         catalog = part_catalog('modules', page.get('kind', ''))
         maker, series, _ = self._scope(page)
         models = {m.upper(): m for m in catalog.get(maker, {}).get(series, [])}
@@ -801,11 +979,13 @@ class Api:
         return models
 
     @_safe
-    def set_module(self, index, stage, slot, model):
+    def set_module(self, index, stage, slot, model, bus='', communication_mode=None):
         page = self._page(index)
+        if communication_mode is not None and not isinstance(communication_mode, str):
+            raise ValueError('通信方式は機種の選択肢から指定してください')
         if page.get('kind') not in BODY_KINDS:
             raise ValueError('本体・構成ページで使えます')
-        allowed = self._module_models(page, int(slot))
+        allowed = self._module_models(page, int(slot), bus)
         if str(model).upper() not in allowed:
             raise ValueError(f'{model} はこの構成に追加できません')
         model = allowed[str(model).upper()]
@@ -826,11 +1006,69 @@ class Api:
                 raise ValueError(f'{model} は2スロットを使います。右隣のスロットを空けてください')
         if not modules[slot]:
             tags[slot] = ''
+        previous_model = modules[slot]
         modules[slot] = model
+        if page['kind'] in VENDOR_KINDS:
+            option = next(o for o in plc.options(page['model'], definitions()) if o['model'] == model)
+            buses = list(config.get('module_buses', []))
+            buses += [''] * max(0, len(modules) - len(buses))
+            buses[slot] = bus or option['bus']
+            config['module_buses'] = buses
+            versions = config.get('module_versions')
+            if isinstance(versions, list):
+                config['module_versions'] = (versions + [''] * len(modules))[:len(modules)]
+                if previous_model != model:
+                    config['module_versions'][slot] = ''
+            modes = (config.get('module_modes', []) + [''] * len(modules))[:len(modules)]
+            if previous_model != model or communication_mode is not None:
+                default_mode = next(iter(gen.KV_IO.get(model, {}).get('module', {}).get('modes', {})), '')
+                modes[slot] = default_mode if communication_mode in (None, '') else communication_mode
+            if any(modes):
+                config['module_modes'] = modes
+            else:
+                config.pop('module_modes', None)
+        elif communication_mode:
+            raise ValueError('この構成では通信方式を指定できません')
         self._store_units(config, modules, tags, is_q)
+        if page['kind'] in VENDOR_KINDS:
+            plc.resolve(page, definitions(), complete=False)
+            if communication_mode is not None and modes[slot]:
+                for detail in self._existing_pages(model, tags[slot], index, stage, slot):
+                    other = self._page(detail['index'])
+                    if other['kind'] == 'kv_io':
+                        other['communication_mode'] = modes[slot]
         if page['kind'] == 'mxbody':
             from renderers.controllers import expansion_items
             expansion_items(page)
+        self._touch()
+        return {**self.page(index), 'pages': self.snapshot()['pages'], 'dirty': True}
+
+    @_safe
+    def set_module_mode(self, index, stage, slot, communication_mode):
+        page = self._page(index)
+        slot = int(slot)
+        modules = page.get('modules', [])
+        if page.get('kind') != 'kvbody' or int(stage) != 0 or not 0 <= slot < len(modules):
+            raise ValueError('通信方式を設定するユニットを選択してください')
+        model = modules[slot]
+        if not gen.KV_IO.get(model, {}).get('module', {}).get('modes'):
+            raise ValueError(f'{model}には選択できる通信方式がありません')
+        buses = page.get('module_buses', [])
+        return self.set_module(index, stage, slot, model, buses[slot] if buses else '', communication_mode)
+
+    @_safe
+    def set_module_bus(self, index, stage, slot, bus):
+        page = self._page(index)
+        if page.get('kind') not in VENDOR_KINDS:
+            raise ValueError('キーエンス・オムロンの構成で使えます')
+        slot = int(slot)
+        modules, _ = self._unit_list(page, 0)
+        if not 0 <= slot < len(modules) or not modules[slot]:
+            raise ValueError('ユニットがありません')
+        buses = list(page.get('module_buses', [''] * len(modules)))
+        buses[slot] = str(bus)
+        page['module_buses'] = buses
+        plc.resolve(page, definitions(), complete=False)
         self._touch()
         return {**self.page(index), 'pages': self.snapshot()['pages'], 'dirty': True}
 
@@ -845,6 +1083,9 @@ class Api:
         if page.get('kind') in LINEAR_KINDS:
             del modules[slot]
             del tags[slot]
+            for key in ('module_buses', 'module_versions', 'module_modes'):
+                if key in config:
+                    del config[key][slot]
         else:
             modules[slot], tags[slot] = '', ''
         self._store_units(config, modules, tags, page.get('kind') == 'qbody')
@@ -966,7 +1207,7 @@ class Api:
         return kinds
 
     def _slot_number(self, page, stage, slot):
-        if page['kind'] == 'mxbody':
+        if page['kind'] in ('mxbody', *VENDOR_KINDS):
             return int(slot) + 1
         cpus, _, bases = self._tables(page['kind'])
         number = cpus.get(str(page.get('model', '')).upper(), {}).get('network_part', {}).get('slots', 0) if page['kind'] not in LINEAR_KINDS else 0
@@ -985,13 +1226,20 @@ class Api:
 
     def _existing_pages(self, model, tag, index, stage, slot):
         found = []
-        number = str(self._slot_number(self._page(index), stage, slot))
+        body = self._page(index)
+        number = str(self._slot_number(body, stage, slot))
         end = next((i for i in range(int(index) + 1, len(self._data['pages']))
                     if self._data['pages'][i].get('kind') in BODY_KINDS), len(self._data['pages']))
+        vendor = body['kind'] in VENDOR_KINDS
+        shared_tag = vendor and tag and body.get('module_tags', []).count(tag) > 1
         for i, other in enumerate(self._data['pages']):
+            if vendor and not int(index) < i < end:
+                continue
             for prefix in ('', 'left_', 'right_'):
-                matches = (other.get(prefix + 'tag', '') == tag) if tag else (
-                    int(index) < i < end and str(other.get(prefix + 'slot', other.get(prefix + 'unit_no', ''))) == number)
+                local_number = int(index) < i < end and str(other.get(prefix + 'slot', other.get(prefix + 'unit_no', ''))) == number
+                matches = local_number
+                if tag:
+                    matches = other.get(prefix + 'tag', '') == tag and (not shared_tag or local_number)
                 if str(other.get(prefix + 'model', '')).upper() == model.upper() and matches:
                     found.append({'index': i, 'label': f"{i + 1}. {core.KIND_NAMES.get(other.get('kind'), other.get('kind', ''))} {other.get(prefix + 'tag', '')}".strip()})
                     break
@@ -1023,6 +1271,14 @@ class Api:
         new = {'kind': kind, side + 'model': model}
         if maker and series:
             new.update(maker=maker, series=series)
+        if page['kind'] in VENDOR_KINDS:
+            for child_series, models in part_catalog('model', kind).get(maker, {}).items():
+                if model in models:
+                    new['series'] = child_series
+                    break
+            modes = page.get('module_modes', [])
+            if slot < len(modes) and modes[slot]:
+                new['communication_mode'] = modes[slot]
         if tag:
             new[side + 'tag'] = tag
         visible = property_fields(kind, model)
@@ -1055,6 +1311,10 @@ class Api:
     @_safe
     def create_cpu_io_page(self, index):
         page = self._page(index)
+        if page.get('kind') in VENDOR_KINDS:
+            target, _ = self._vendor_cpu_page(index)
+            return dict(index=target, **self.snapshot())
+        page = self._page(index)
         if page.get('kind') != 'mxbody':
             raise ValueError('MX-F本体で使えます')
         end = next((i for i in range(int(index) + 1, len(self._data['pages']))
@@ -1071,6 +1331,23 @@ class Api:
         self._touch()
         return dict(index=target, **self.snapshot())
 
+    def _vendor_cpu_page(self, index):
+        page = self._page(index)
+        if not page.get('model'):
+            raise ValueError('先にCPU・カプラを選択してください')
+        end = next((i for i in range(int(index) + 1, len(self._data['pages']))
+                    if self._data['pages'][i].get('kind') in BODY_KINDS), len(self._data['pages']))
+        model = page['model'].upper()
+        kind = 'kv_io' if model in gen.KV_IO else 'unit_diagram'
+        for i in range(int(index) + 1, end):
+            other = self._data['pages'][i]
+            if other.get('kind') == kind and other.get('model') == model and other.get('tag', '') == page.get('tag', ''):
+                return i, False
+        new = dict(kind=kind, model=model, maker=self._project_maker(), tag=page.get('tag', ''), unit_no=page.get('unit_no', ''))
+        self._data['pages'].insert(int(index) + 1, new)
+        self._touch()
+        return int(index) + 1, True
+
     @_safe
     def create_all_unit_pages(self, index, with_csv=False):
         """構成のユニットのうち、図面ページがまだ無いものを全部作る(1ユニット1ページ、構成図だけのユニットは除く)。"""
@@ -1080,6 +1357,11 @@ class Api:
         if with_csv and not self._path:
             return {'need_save_as': True}
         created, skipped = [], []
+        if page['kind'] in VENDOR_KINDS:
+            plc.validate(page, definitions())
+            target, added = self._vendor_cpu_page(index)
+            if added:
+                created.append(target)
         for stage, config in enumerate([page] + list(page.get('extensions', []))):
             modules, tags = self._unit_list(config, 0)
             for slot, model in enumerate(modules):
@@ -1095,6 +1377,8 @@ class Api:
         messages = []
         if with_csv:
             for target in created:
+                if self._data['pages'][target].get('kind') not in self.CSV_KINDS:
+                    continue
                 result = self.make_page_csv(target)
                 if result.get('error'):
                     messages.append(f'{target + 1}ページ目: ' + result['error'])
@@ -1116,14 +1400,20 @@ class Api:
         for index, page in enumerate(pages):
             if page.get('kind') not in BODY_KINDS:
                 continue
+            if page['kind'] in VENDOR_KINDS:
+                slots.append(dict(body=index, model=page.get('model', ''), tag=page.get('tag', ''),
+                                  number=page.get('unit_no', ''), start=None,
+                                  kinds=self._unit_page_kinds(page.get('model', ''))))
             if page['kind'] == 'mxbody':
                 slots.append(dict(body=index, model=page['model'], tag=page.get('tag', ''),
                                   number=page.get('unit_no', ''), start=None, kinds=['mxio'], x_start='0', y_start='0'))
             for stage in self._rack(page)['stages']:
                 for item in stage['items']:
                     if item['type'] == 'module' and item.get('model'):
+                        modes = page.get('module_modes', [])
                         slots.append(dict(body=index, model=item['model'], tag=item.get('tag', ''),
                                           number=str(self._slot_number(page, item['stage'], item['slot'])),
+                                          mode=modes[item['slot']] if item['slot'] < len(modes) else '',
                                           start=item.get('start'), kinds=self._unit_page_kinds(item['model']),
                                           x_start=item.get('x_start'), y_start=item.get('y_start')))
         rows = []
@@ -1159,6 +1449,8 @@ class Api:
                     continue
                 slot = candidates[0]
                 expected = {prefix + 'model': slot['model'], prefix + 'tag': slot['tag']}
+                if kind == 'kv_io' and (slot.get('mode') or model != slot['model'] and page.get('communication_mode')):
+                    expected['communication_mode'] = slot.get('mode', '')
                 if kind == 'mxio':
                     expected.update({key: slot[key] for key in ('x_start', 'y_start') if slot.get(key) is not None})
                 number_key = prefix + ('slot' if gen.is_slot_unit(kind, slot['model']) else 'unit_no')
@@ -1176,7 +1468,7 @@ class Api:
                     except ValueError:
                         pass
                 labels = {prefix + 'model': '形名', prefix + 'tag': 'タグ', number_key: '番号', 'start': '先頭XY',
-                          'x_start': '入力開始', 'y_start': '出力開始'}
+                          'x_start': '入力開始', 'y_start': '出力開始', 'communication_mode': '通信方式'}
                 changes = [dict(key=key, label=labels[key], before=actual[key], after=value)
                            for key, value in expected.items() if actual[key] != value and key not in same_starts]
                 if not changes and kind in slot['kinds']:
@@ -1355,11 +1647,23 @@ class Api:
         return self._parts
 
     @_safe
-    def catalog(self, key, index=None, stage=0):
+    def catalog(self, key, index=None, stage=0, bus=''):
         """選定ダイアログの一覧。key: modules / model / power_model / base_model / extension_base_model /
         left_model / right_model / standard_model。ページの種類・メーカー・シリーズで絞る。"""
         page = self._page(index) if index is not None and key != 'standard_model' else {}
         kind = page.get('kind', '')
+        if key == 'modules' and kind in VENDOR_KINDS:
+            maker = 'keyence' if kind == 'kvbody' else 'omron'
+            rows = []
+            for option in plc.options(page.get('model', ''), definitions()):
+                if not option['allowed'] or (bus and bus not in option.get('buses', [option['bus']])):
+                    continue
+                rows.append(dict(model=option['model'], maker=core.MAKER_NAMES[maker],
+                                 series=BUS_NAMES.get(option['bus'], option['bus']),
+                                 group=BUS_NAMES.get(option['bus'], option['bus']), bus=option['bus'],
+                                 summary=' / '.join(option.get('conditions', [])), production_end='',
+                                 slots=1, points='', pages='・'.join(core.KIND_NAMES[k] for k in self._unit_page_kinds(option['model']))))
+            return {'key': key, 'rows': rows}
         catalog = part_catalog(key, kind)
         if key != 'standard_model' and page:
             maker, series, _ = self._scope(page)
@@ -1474,6 +1778,74 @@ class Api:
     def _run(self, *args):
         return subprocess.run([sys.executable, *map(str, args)], capture_output=True, text=True, encoding='utf-8',
                               errors='replace', env={**os.environ, 'PYTHONIOENCODING': 'utf-8'})
+
+    @_safe
+    def generate_configuration(self, include_details=True, out=None, confirmed=False):
+        pages = self._data['pages']
+        bodies = [i for i, p in enumerate(pages) if p.get('kind') in VENDOR_KINDS]
+        if not bodies:
+            raise ValueError('キーエンスまたはオムロンのPLC構成を選んでください')
+        stem = self._path.stem if self._path else pages[bodies[0]]['model']
+        name = stem + ('' if include_details else '_構成') + '.qet'
+        target = self._ask('save', '図面の保存先', out, name, ('QET図面 (*.qet)',)).with_suffix('.qet')
+        selected = pages[self._index] if self._index is not None and self._index < len(pages) else None
+        config = gen.project_config(self._data)
+        if not include_details:
+            config.update(pages=[pages[i] for i in bodies], front_pages=False)
+        outputs = [target, target.with_name(target.stem + '_iolist.csv')]
+        if terminal_rows([(p, None) for p in config['pages']]):
+            outputs.append(target.with_name(target.stem + '_terminals.csv'))
+        existing = [str(path) for path in outputs if path.exists()]
+        if existing and not confirmed:
+            return {'confirm': '次のファイルを上書きします。\n' + '\n'.join(existing), 'out': str(target)}
+
+        before_count = len(pages)
+        if include_details:
+            # 後ろの本体から展開し、詳細ページ挿入で他の本体の参照位置をずらさない。
+            for i in reversed(bodies):
+                result = self.create_all_unit_pages(i)
+                if result.get('error'):
+                    raise ValueError(result['error'])
+        # 生成元JSONと同じ場所で相対CSVを解決し、QET・付属帳票は全て完成後に公開する。
+        folder = self._path.parent if self._path else ROOT
+        with tempfile.TemporaryDirectory(dir=target.parent) as work:
+            stage = Path(work)
+            with tempfile.NamedTemporaryFile('w', encoding='utf-8', dir=folder, suffix='.json', delete=False) as stream:
+                source = Path(stream.name)
+            try:
+                source.write_text(json.dumps(config, ensure_ascii=False), encoding='utf-8')
+                result = self._run(ROOT / 'gen_io_page.py', source, stage / target.name)
+                if result.returncode:
+                    raise ValueError((result.stdout + result.stderr).strip())
+            finally:
+                source.unlink(missing_ok=True)
+            backups = {}
+            for path in outputs:
+                if not (stage / path.name).is_file():
+                    raise ValueError(f'生成されなかったファイル: {path.name}')
+                if path.exists():
+                    backups[path] = stage / (path.name + '.bak')
+                    shutil.copy2(path, backups[path])
+            published = []
+            try:
+                for path in outputs:
+                    os.replace(stage / path.name, path)
+                    published.append(path)
+            except OSError:
+                for path in reversed(published):
+                    if path in backups:
+                        os.replace(backups[path], path)
+                    else:
+                        path.unlink()
+                raise
+        self._index = next((i for i, p in enumerate(pages) if p is selected), None)
+        added = len(pages) - before_count
+        message = result.stdout.strip()
+        for path in outputs:
+            message = message.replace(str(stage / path.name), str(path))
+        if added:
+            message = f'プロジェクトに不足していた詳細ページを{added}件追加しました。\n' + message
+        return {'ok': True, 'index': self._index, 'out': str(target), 'message': message, **self.snapshot()}
 
     @_safe
     def generate(self, out=None, confirmed=False):

@@ -97,6 +97,29 @@
         ]
       }
     ],
-    "note": ""
+    "note": "",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "bus": "nx",
+      "compatible": {
+        "nx502": {
+          "min_cpu": "1.13"
+        },
+        "nx102": {
+          "min_cpu": "1.13"
+        },
+        "nx1p2": {
+          "min_cpu": "1.13"
+        },
+        "nx_ecc201": {},
+        "nx_ecc": {},
+        "nx_eic": {}
+      },
+      "source": [
+        "NXシリーズ データリファレンスマニュアル（SBCA-410AB）A-5 A-19～A-25、A-6 A-28～A-44"
+      ]
+    }
   }
 }

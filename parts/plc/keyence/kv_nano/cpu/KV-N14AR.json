@@ -71,6 +71,47 @@
           ]
         ]
       }
-    ]
+    ],
+    "configuration": {
+      "role": "cpu",
+      "manufacturer": "keyence",
+      "category": "kv_io",
+      "profile": "nano_terminal14",
+      "kind": "kvbody",
+      "buses": {
+        "direct": 3,
+        "legacy": 3,
+        "left": 0,
+        "front": 1
+      },
+      "source": [
+        "KV Nanoシリーズ 基本ユニット（端子台タイプ）ユーザーズマニュアル（084490）第1章1-2～1-7、第2章2-67",
+        "KV Nanoシリーズ 基本ユニット（コネクタタイプ）ユーザーズマニュアル（084846）第1章1-2～1-9、第2章2-43"
+      ],
+      "max_modules": 3,
+      "max_io": 128,
+      "count_buses": [
+        "direct",
+        "legacy"
+      ],
+      "conditions": [
+        "変換器/前面/左側ユニットを右側拡張台数に数えない。内蔵I/Oは追加点数に含めない。",
+        "N1/NC1は各1台、右端エンドユニット不要。"
+      ],
+      "warnings": [
+        "拡張給電枠はAC基本0.6A（サービス込み）、DC基本2A、NC32Tは1.5A。最大消費電流から別途確認。",
+        "アナログ占有リレーの点数換算は未評価。デジタル点数だけを自動計数。"
+      ],
+      "native_bus": "legacy",
+      "transition_buses": [
+        "direct",
+        "legacy"
+      ],
+      "transitions": {
+        "legacy>direct": "KV-N1",
+        "direct>legacy": "KV-NC1"
+      },
+      "adapter_limit": 1
+    }
   }
 }

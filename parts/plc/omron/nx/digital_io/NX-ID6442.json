@@ -215,6 +215,38 @@
       }
     ],
     "note": "",
-    "input_type": "pnp"
+    "input_type": "pnp",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "bus": "nx",
+      "compatible": {
+        "nx502": {
+          "min_cpu": "1.13",
+          "min_software": "1.54"
+        },
+        "nx102": {
+          "min_cpu": "1.13",
+          "min_software": "1.54"
+        },
+        "nx1p2": {
+          "min_cpu": "1.13",
+          "min_software": "1.54"
+        },
+        "nx_ecc201": {
+          "min_software": "1.54"
+        },
+        "nx_ecc": {
+          "min_software": "1.54"
+        },
+        "nx_eic": {
+          "min_software": "1.54"
+        }
+      },
+      "source": [
+        "NXシリーズ データリファレンスマニュアル（SBCA-410AB）A-5 A-19～A-25、A-6 A-28～A-44"
+      ]
+    }
   }
 }

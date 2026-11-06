@@ -65,6 +65,41 @@
           "purpose": "コモン"
         }
       ]
+    },
+    "configuration": {
+      "role": "module",
+      "manufacturer": "keyence",
+      "category": "kv_io",
+      "bus": "legacy",
+      "compatible": {
+        "nano_terminal14": {
+          "min_software": "7.0"
+        },
+        "nano_terminal": {
+          "min_software": "7.0"
+        },
+        "nano_connector": {
+          "min_software": "7.0"
+        },
+        "nano_ec": {
+          "min_software": "7.0"
+        },
+        "nano_ep": {
+          "slots": 2,
+          "min_software": "7.0"
+        }
+      },
+      "source": [
+        "KV Nanoシリーズ 基本ユニット（端子台タイプ）ユーザーズマニュアル（084490）第1章1-2～1-7、第2章2-67",
+        "KV Nanoシリーズ 基本ユニット（コネクタタイプ）ユーザーズマニュアル（084846）第1章1-2～1-9、第2章2-43",
+        "KV Nanoシリーズ用アナログ・温度ユニット ユーザーズマニュアル（084272）1-4～1-5、2-5～2-8",
+        "KV-EP02 ユーザーズマニュアル（084485）第3章3-3",
+        "KV-EC01 ユーザーズマニュアル（084845）第3章3-3",
+        "KV Nanoシリーズ用アナログ・温度ユニット ユーザーズマニュアル（084272）ユニットエディタ 3-19"
+      ],
+      "conditions": [
+        "上位ソフト/ユニット対応版を確認。EP02配下2スロット、EC01配下1スロット。"
+      ]
     }
   }
 }

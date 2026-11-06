@@ -77,6 +77,20 @@
         ["通信設定", "communication"]
       ],
       "note": "SGは基本ユニットの内部GNDと絶縁。"
+    },
+    "configuration": {
+      "role": "module",
+      "manufacturer": "keyence",
+      "category": "kv_io",
+      "bus": "front",
+      "compatible": {
+        "nano_terminal14": {},
+        "nano_terminal": {}
+      },
+      "source": [
+        "KV Nanoシリーズ 基本ユニット（端子台タイプ）ユーザーズマニュアル（084490）第1章1-2～1-7、第2章2-67",
+        "KV Nanoシリーズ 基本ユニット（コネクタタイプ）ユーザーズマニュアル（084846）第1章1-2～1-9、第2章2-43"
+      ]
     }
   }
 }

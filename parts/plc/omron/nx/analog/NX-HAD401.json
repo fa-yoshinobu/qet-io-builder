@@ -181,6 +181,38 @@
         ]
       }
     ],
-    "note": "電流入力時は対象CHのSHT＋とSHT－を長さ4cm以下のケーブルで短絡する。入力配線はシールド線を使用し、標準配線例ではシールドを接地しない。ノイズ対策として接地する場合はユニット側のみとし、両端接地しない。"
+    "note": "電流入力時は対象CHのSHT＋とSHT－を長さ4cm以下のケーブルで短絡する。入力配線はシールド線を使用し、標準配線例ではシールドを接地しない。ノイズ対策として接地する場合はユニット側のみとし、両端接地しない。",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "bus": "nx",
+      "compatible": {
+        "nx502": {
+          "min_cpu": "1.18",
+          "min_software": "1.23"
+        },
+        "nx102": {
+          "min_cpu": "1.18",
+          "min_software": "1.23"
+        },
+        "nx1p2": {
+          "min_cpu": "1.18",
+          "min_software": "1.23"
+        },
+        "nx_ecc201": {
+          "min_software": "1.23"
+        },
+        "nx_ecc": {
+          "min_software": "1.23"
+        }
+      },
+      "source": [
+        "NXシリーズ データリファレンスマニュアル（SBCA-410AB）A-5 A-19～A-25、A-6 A-28～A-44"
+      ],
+      "conditions": [
+        "ECC配下HADはNX CPUマスタで対応。他社マスタへ流用しない。"
+      ]
+    }
   }
 }

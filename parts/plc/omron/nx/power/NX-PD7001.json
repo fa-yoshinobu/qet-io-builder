@@ -51,6 +51,19 @@
         ]
       }
     ],
-    "note": "電源はDC24V。RUN OUTPUTはCPUが運転モード時ON、プログラムモードまたは全停止フォールト時OFF。端子番号のない接続点は機能名で識別。"
+    "note": "電源はDC24V。RUN OUTPUTはCPUが運転モード時ON、プログラムモードまたは全停止フォールト時OFF。端子番号のない接続点は機能名で識別。",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "bus": "power",
+      "compatible": {
+        "nx701": {}
+      },
+      "source": [
+        "NXシリーズ CPUユニット ユーザーズマニュアル ハードウェア編（SBCA-418S）第2章2-2～2-3、第3章3-10～3-12"
+      ],
+      "max_count": 1
+    }
   }
 }

@@ -25,6 +25,32 @@
         ["IP設定", "ip"]
       ],
       "note": "KV-N14シリーズには接続できない。端子台タイプの基本ユニットにはKV-N1を介して接続。"
+    },
+    "configuration": {
+      "role": "module",
+      "manufacturer": "keyence",
+      "category": "kv_io",
+      "bus": "direct",
+      "compatible": {
+        "nano_terminal": {
+          "min_cpu": "2.0",
+          "min_software": "7.1"
+        },
+        "nano_connector": {
+          "min_cpu": "2.0",
+          "min_software": "7.1"
+        },
+        "nano_terminal14": {
+          "blocked": "KV-N14系はKV-NC1EPの対応CPUに含まれません。"
+        }
+      },
+      "source": [
+        "EtherNet/IP機能 ユーザーズマニュアル（084825）対応CPU p.21、1-9、2-6～2-8"
+      ],
+      "conditions": [
+        "固有の複数装着上限が未確定のため、本構成は1台まで。"
+      ],
+      "max_count": 1
     }
   }
 }

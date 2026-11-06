@@ -3127,6 +3127,9 @@ def build_project(cfg, pages_rows):
                 title = pg.get("title", pg["model"] + " アナログ端子")
                 if count > 1: title += f" ({part + 1}/{count})"
                 body.append((title, build_fx_analog_page(pg, cfg, symbols, rows, part * page_channels)))
+        elif pg["kind"] in ("kvbody", "nxbody"):
+            from renderers.plc_configuration import build_pages
+            body.extend(build_pages(pg, symbols))
         elif pg["kind"] == "unit_diagram":
             from renderers.unit_diagrams import build_pages
             body.extend(build_pages(pg, UNIT_DIAGRAMS[pg["model"].upper()], symbols))
@@ -3360,7 +3363,7 @@ def write_iolist(path, pages_rows):
                 for row in terminal_rows(pg, spec, rows):
                     w.writerow([pg['model'], row['signal'], row.get('description', ''), '', row.get('pin', ''), '', ''])
                 continue
-            if pg["kind"] in ("power", "fx5body", "iqrbody", "qbody", "qcomm", "iqrcomm", "fxcomm", "remotebody", "remoteiolink", "gotbody", "gotoption"):
+            if pg["kind"] in ("kvbody", "nxbody", "power", "fx5body", "iqrbody", "qbody", "qcomm", "iqrcomm", "fxcomm", "remotebody", "remoteiolink", "gotbody", "gotoption"):
                 continue
             if pg["kind"] in ("fx5analog", "iqranalog", "qanalog", "remoteanalog"):
                 for r in rows:
@@ -3433,6 +3436,15 @@ def main(cfg_path, out_path):
                 raise ValueError('通信・機器設定欄は文字列で指定してください')
         except ValueError as error:
             errs.append(str(error))
+            continue
+        if pg['kind'] in ('kvbody', 'nxbody'):
+            from plc_configuration import validate as validate_configuration
+            try:
+                validate_configuration(pg, {'kv_io': KV_IO, 'unit_diagram': UNIT_DIAGRAMS})
+            except ValueError as error:
+                errs.append(str(error))
+            else:
+                pages_rows.append((pg, None))
             continue
         if pg['kind'] == 'unit_diagram':
             model = str(pg.get('model', '')).upper()

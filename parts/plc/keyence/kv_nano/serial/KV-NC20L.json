@@ -230,6 +230,19 @@
         ["通信設定", "communication"]
       ],
       "note": "Port2は選択した通信方式の端子を表示。SGは基本ユニットの内部GNDと絶縁。"
+    },
+    "configuration": {
+      "role": "module",
+      "manufacturer": "keyence",
+      "category": "kv_io",
+      "bus": "left",
+      "compatible": {
+        "nano_connector": {}
+      },
+      "source": [
+        "KV Nanoシリーズ 基本ユニット（端子台タイプ）ユーザーズマニュアル（084490）第1章1-2～1-7、第2章2-67",
+        "KV Nanoシリーズ 基本ユニット（コネクタタイプ）ユーザーズマニュアル（084846）第1章1-2～1-9、第2章2-43"
+      ]
     }
   }
 }

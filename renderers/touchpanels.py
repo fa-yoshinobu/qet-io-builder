@@ -26,7 +26,11 @@ def build_pages(pg, spec, symbols):
     from .analog import readonly_symbol
     left, right = [], []
     expanded = []
+    cables = []
     for section in spec['sections']:
+        if section.get('cable_cores'):
+            cables.append(section)
+            continue
         if section.get('connector') and (section.get('expand') or len(section.get('terminals', [])) > 12):
             expanded.append(section)
         (right if _right(section) else left).append(_block(section))
@@ -101,4 +105,7 @@ def build_pages(pg, spec, symbols):
         pages.append((pg['model'] + ' タッチパネル', page))
         pending = [blocks[count:] for blocks, count in zip(pending, used)]
     pages += _terminal_pages(pg, spec, expanded, symbols) if expanded else []
+    if cables:
+        cable_spec = dict(spec, function='専用ケーブル芯線図')
+        pages += _terminal_pages(pg, cable_spec, cables, symbols, cable_cores=True)
     return pages

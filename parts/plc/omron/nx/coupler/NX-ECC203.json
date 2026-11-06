@@ -94,6 +94,31 @@
         "terminals": []
       }
     ],
-    "note": "UV/UGのユニット電源とIOV/IOGのI/O電源は必ず別々の外部電源を使用する。UV同士、UG同士は内部共通。I/O電源は使用機器に合わせてDC5～24Vを選ぶ。"
+    "note": "UV/UGのユニット電源とIOV/IOGのI/O電源は必ず別々の外部電源を使用する。UV同士、UG同士は内部共通。I/O電源は使用機器に合わせてDC5～24Vを選ぶ。",
+    "configuration": {
+      "role": "coupler",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "profile": "nx_ecc",
+      "kind": "nxbody",
+      "buses": {
+        "nx": 63
+      },
+      "source": [
+        "NXシリーズ データリファレンスマニュアル（SBCA-410AB）A-5 A-19～A-25、A-6 A-28～A-44",
+        "NXシリーズ EtherCATカプラユニット ユーザーズマニュアル（SBCD-361S）第3章3-2～3-4、第7章7-9～7-10"
+      ],
+      "end_cover": "エンドカバー",
+      "io_supply": true,
+      "min_cpu": "1.3",
+      "conditions": [
+        "独立リモート構成。CPU横や別カプラ配下へ装着しない。",
+        "ユニット供給10Wは温度/姿勢で低下。",
+        "PDO入出力各1024B以下。I/O電源ECC201=4A、ECC202/203=10A以内。"
+      ],
+      "warnings": [
+        "上位CPU/ソフト/カプラ版とI/O容量を別途確認。"
+      ]
+    }
   }
 }

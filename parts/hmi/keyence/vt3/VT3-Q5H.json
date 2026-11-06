@@ -2,7 +2,7 @@
   "category": "unit_diagram",
   "model": "VT3-Q5H",
   "source": [
-    "VT3シリーズ ハードウェアマニュアル（144143） 1-2 1-12、2-1 2-5～2-6、2-2 2-13、2-31～2-34、3-2 3-11～3-15、3-4 3-31"
+    "VT3シリーズ ハードウェアマニュアル（144143） 1-2 1-12、1-16、2-1 2-5～2-6、2-2 2-13、2-31～2-34、3-2 3-11～3-15、3-4 3-31"
   ],
   "definition": {
     "manufacturer": "keyence",
@@ -50,8 +50,185 @@
           "label": "Ethernet／RS-485／ファンクションスイッチ／電源"
         },
         "terminals": []
+      },
+      {
+        "name": "CN1 押しボタン・キースイッチ（オプション）",
+        "cable_cores": true,
+        "terminals": [
+          {
+            "wire": "赤 黒1",
+            "signal": "PB1A",
+            "purpose": "押しボタン1A（b接点）"
+          },
+          {
+            "wire": "赤 黒2",
+            "signal": "PB1B",
+            "purpose": "押しボタン1B（b接点）"
+          },
+          {
+            "wire": "赤 黒3",
+            "signal": "PB2A",
+            "purpose": "押しボタン2A（b接点）"
+          },
+          {
+            "wire": "赤 黒4",
+            "signal": "PB2B",
+            "purpose": "押しボタン2B（b接点）"
+          },
+          {
+            "wire": "桃 黒1",
+            "signal": "PBAM/TPAM",
+            "purpose": "モニタA（a接点）"
+          },
+          {
+            "wire": "桃 黒2",
+            "signal": "PBBM/TPBM",
+            "purpose": "モニタB（a接点）"
+          },
+          {
+            "wire": "黄 赤1",
+            "signal": "KSW1",
+            "purpose": "キースイッチ左"
+          },
+          {
+            "wire": "黄 赤2",
+            "signal": "KSW2",
+            "purpose": "キースイッチ右"
+          },
+          {
+            "wire": "黄 赤3",
+            "signal": "KSWC",
+            "purpose": "キースイッチコモン"
+          }
+        ]
+      },
+      {
+        "name": "CN2A（RS-232C）／CN2B（RS-422）",
+        "cable_cores": true,
+        "terminals": [
+          {
+            "wire": "橙 黒1",
+            "signal": "TXD/TXDA",
+            "purpose": "送信出力"
+          },
+          {
+            "wire": "橙 黒2",
+            "signal": "NC/TXDB",
+            "purpose": "422のみ 送信出力"
+          },
+          {
+            "wire": "橙 黒3",
+            "signal": "RXD/RXDA",
+            "purpose": "受信入力"
+          },
+          {
+            "wire": "橙 黒4",
+            "signal": "NC/RXDB",
+            "purpose": "422のみ 受信入力"
+          },
+          {
+            "wire": "橙 赤1",
+            "signal": "RTS/RTSA",
+            "purpose": "送信要求出力"
+          },
+          {
+            "wire": "橙 赤2",
+            "signal": "DTR/RTSB",
+            "purpose": "制御信号出力"
+          },
+          {
+            "wire": "橙 赤3",
+            "signal": "CTS/CTSA",
+            "purpose": "送信許可入力"
+          },
+          {
+            "wire": "橙 赤4",
+            "signal": "DSR/CTSB",
+            "purpose": "制御信号入力"
+          },
+          {
+            "wire": "橙",
+            "signal": "SG",
+            "purpose": "信号グランド"
+          }
+        ]
+      },
+      {
+        "name": "CN3 RS-485",
+        "cable_cores": true,
+        "terminals": [
+          {
+            "wire": "桃 赤1",
+            "signal": "A",
+            "purpose": "RS-485 通信A"
+          },
+          {
+            "wire": "桃 赤2",
+            "signal": "B",
+            "purpose": "RS-485 通信B"
+          },
+          {
+            "wire": "桃 赤3",
+            "signal": "G",
+            "purpose": "RS-485 通信G"
+          }
+        ]
+      },
+      {
+        "name": "CN3 ファンクションスイッチ",
+        "cable_cores": true,
+        "terminals": [
+          {
+            "wire": "黄",
+            "signal": "FSWC",
+            "purpose": "スイッチコモン"
+          },
+          {
+            "wire": "黄 黒1",
+            "signal": "FSW1",
+            "purpose": "スイッチ1出力"
+          },
+          {
+            "wire": "黄 黒2",
+            "signal": "FSW2",
+            "purpose": "スイッチ2出力"
+          },
+          {
+            "wire": "黄 黒3",
+            "signal": "FSW5",
+            "purpose": "スイッチ5出力"
+          },
+          {
+            "wire": "黄 黒4",
+            "signal": "FSW6",
+            "purpose": "スイッチ6出力"
+          }
+        ]
+      },
+      {
+        "name": "CN3 電源・接地",
+        "cable_cores": true,
+        "terminals": [
+          {
+            "wire": "茶 黒4",
+            "signal": "+24V",
+            "purpose": "DC24V電源入力",
+            "lane": "P"
+          },
+          {
+            "wire": "青 黒4",
+            "signal": "0V",
+            "purpose": "電源0V",
+            "lane": "N"
+          },
+          {
+            "wire": "緑",
+            "signal": "FG",
+            "purpose": "フレームグランド"
+          }
+        ]
       }
     ],
-    "note": "DC24V±10％は専用接続ケーブルを経由してCN3へ供給する（＋24V・0V・FG）。CN2AとCN2Bは使用する通信方式に合わせて接続する。押しボタン・キースイッチはオプション装着時のみ使用できる。ケーブルのFGをD種接地し、FG1・FG2がある場合は両方を接地する。"
+    "note": "DC24V±10％は専用接続ケーブルを経由してCN3へ供給する（＋24V・0V・FG）。CN2AとCN2Bは使用する通信方式に合わせて接続する。押しボタン・キースイッチはオプション装着時のみ使用する（非常停止用押しボタンはOP-87171）。ケーブルのFGをD種接地し、FG1・FG2がある場合は両方を接地する。 芯線図はOP-87191／87192／87193のばら線側。芯線欄は上段が線色、下段がドット色と個数。線色のみはドットなし。"
   }
 }

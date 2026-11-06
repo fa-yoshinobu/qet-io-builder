@@ -291,8 +291,8 @@ class App(tk.Tk):
                            if page['kind'] in series_kinds(m, s, self.page_catalog)]
             if len(matches) == 1:
                 maker, series = matches[0]
-        if index is not None and not maker and len(self.page_catalog) == 1:
-            maker = next(iter(self.page_catalog))
+        if index is not None and not maker:
+            maker = 'mitsubishi' if 'mitsubishi' in self.page_catalog else next(iter(self.page_catalog), '')
         self.vars['maker'].set(maker); self.vars['series'].set(series)
         self.settings_visibility = dict(page.get('settings_visibility', {}))
         for key, _ in FIELDS: self.vars[key].set(str(page.get(key, '')))

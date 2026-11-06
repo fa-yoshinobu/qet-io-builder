@@ -28,6 +28,33 @@
         "terminals": []
       }
     ],
-    "note": "電源はCPUのXバスから供給。外部給電端子はない。通信ポートは10BASE-T/100BASE-TX/1000BASE-Tに対応。"
+    "note": "電源はCPUのXバスから供給。外部給電端子はない。通信ポートは10BASE-T/100BASE-TX/1000BASE-Tに対応。",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "bus": "x",
+      "compatible": {
+        "nx502": {
+          "min_cpu": "1.60",
+          "min_unit": "1.0",
+          "min_software": "1.54",
+          "conditions": [
+            "EIP201 1.01仕様ではCPU1.66/ソフト1.58以上。"
+          ],
+          "version_rules": [
+            {
+              "unit_at_least": "1.01",
+              "min_cpu": "1.66",
+              "min_software": "1.58"
+            }
+          ]
+        }
+      },
+      "source": [
+        "NXシリーズ データリファレンスマニュアル（SBCA-410AB）A-5 A-19～A-25、A-6 A-28～A-44",
+        "NXシリーズ EtherNet/IPユニット ユーザーズマニュアル（SBCD-382E）A-55"
+      ]
+    }
   }
 }

@@ -80,6 +80,33 @@
         ]
       }
     ],
-    "note": "電源はNXバスから供給。INは上位マスタ側、OUTは次のスレーブへ接続。終端スレーブのOUTは未接続。LANピン4/5/7/8に信号割付はない。シールドは両端のコネクタフードへ接続。"
+    "note": "電源はNXバスから供給。INは上位マスタ側、OUTは次のスレーブへ接続。終端スレーブのOUTは未接続。LANピン4/5/7/8に信号割付はない。シールドは両端のコネクタフードへ接続。",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "bus": "nx",
+      "compatible": {
+        "nx502": {
+          "min_cpu": "1.13",
+          "min_software": "1.50"
+        },
+        "nx102": {
+          "min_cpu": "1.13",
+          "min_software": "1.50"
+        },
+        "nx1p2": {
+          "min_cpu": "1.13",
+          "min_software": "1.50"
+        }
+      },
+      "source": [
+        "NXシリーズ データリファレンスマニュアル（SBCA-410AB）A-5 A-19～A-25、A-6 A-28～A-44"
+      ],
+      "conditions": [
+        "NX502対応は更新共通表とCPU構成による。カプラ配下不可。",
+        "タスク周期優先リフレッシュはECC203条件等を対応表で確認。"
+      ]
+    }
   }
 }

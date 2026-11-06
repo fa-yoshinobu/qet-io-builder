@@ -62,6 +62,22 @@
       }
     ],
     "output_type": "sink",
-    "input_common": "P"
+    "input_common": "P",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "keyence",
+      "category": "kv_io",
+      "bus": "legacy",
+      "compatible": {
+        "kv7000": {},
+        "kv8000": {},
+        "kvx": {}
+      },
+      "source": [
+        "KV-7000シリーズ ユーザーズマニュアル（084754）第1章1-3～1-4、第3章3-2、付録9 付-38～付-40",
+        "KV-8000シリーズ ユーザーズマニュアル（084823）第1章1-3～1-4、第3章3-2、付録10 付-43～付-45",
+        "KV-X500シリーズ ユーザーズマニュアル（084914）第1章1-3～1-4、第3章3-2、付録6 付-25～付-26"
+      ]
+    }
   }
 }

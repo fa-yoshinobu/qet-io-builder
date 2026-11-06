@@ -58,6 +58,18 @@ class TouchpanelTest(unittest.TestCase):
             pages = build_pages({'model': model}, spec, gen.build_symbols())
             self.assertTrue(any(text.get('text') == 'IP設定' for _, page in pages for text in page.texts), model)
 
+    def test_handy_cable_uses_wire_marks_and_one_shared_serial_bundle(self):
+        for model in ('VT3-Q5H', 'VT3-Q5HG', 'VT3-V6H', 'VT3-V6HG'):
+            with self.subTest(model=model):
+                pages = build_pages({'model': model}, gen.UNIT_DIAGRAMS[model], gen.build_symbols())
+                wires = [(element.findtext("elementInformations/elementInformation[@name='label']"),
+                          element.findtext("elementInformations/elementInformation[@name='auxiliary1']"))
+                         for _, page in pages for key, element, _, _ in page.placed if key == 'plc_in_unit']
+                self.assertEqual(len({mark for _, mark in wires}), len(wires))
+                self.assertIn(('NC/TXDB', '橙\n黒2'), wires)
+                self.assertIn(('+24V', '茶\n黒4'), wires)
+                self.assertEqual(('EN1A', '紫\n黒1') in wires, model.endswith('G'))
+
     def test_gui_api_generates_both_panel_families(self):
         api = Api()
         with tempfile.TemporaryDirectory() as folder:

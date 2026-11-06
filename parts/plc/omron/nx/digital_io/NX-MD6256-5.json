@@ -257,6 +257,29 @@
       }
     ],
     "note": "CN1の3と4(COM0(+V))は、必ず両端子とも配線してください。CN1の1と2(0V0)は、必ず両端子とも配線してください。CN2の入力電源の極性は＋、－どちらでも構いません。CN2の3と4(COM1)は、必ず両端子とも配線してください。CN2の同名COM両端子には同じ極性で配線する。",
-    "output_type": "source"
+    "output_type": "source",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "bus": "nx",
+      "compatible": {
+        "nx502": {
+          "min_cpu": "1.13"
+        },
+        "nx102": {
+          "min_cpu": "1.13"
+        },
+        "nx1p2": {
+          "min_cpu": "1.13"
+        },
+        "nx_ecc201": {},
+        "nx_ecc": {},
+        "nx_eic": {}
+      },
+      "source": [
+        "NXシリーズ データリファレンスマニュアル（SBCA-410AB）A-5 A-19～A-25、A-6 A-28～A-44"
+      ]
+    }
   }
 }

@@ -215,6 +215,13 @@ table.list .muted { color: var(--muted); font-size: 12px; }
 .home-card h2 { font-size: 17px; margin: 0; }
 .home-card p { margin: 0; color: var(--sub); line-height: 1.7; flex: 1 1 auto; }
 .home-actions { display: flex; flex-direction: column; gap: 8px; }
+.maker-menu { width: min(100%, 580px); }
+.maker-menu h1 { margin: 0; }
+.maker-tasks { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0 0 6px; border: 0; }
+.maker-tasks legend { color: var(--sub); margin-bottom: 6px; }
+.maker-tasks label { display: flex; align-items: center; gap: 5px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 4px; cursor: pointer; }
+.maker-tasks label:has(:checked) { border-color: var(--accent); font-weight: 700; }
+.maker-form, .maker-form > div { display: grid; gap: 8px; }
 .btn.big { height: 42px; font-size: 14px; }
 [hidden] { display: none !important; }
 /* 制御部品の書出し */

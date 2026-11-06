@@ -30,6 +30,40 @@
         "terminals": []
       }
     ],
-    "note": "ユニット電源とアンプ駆動用I/O電源はNXバスから供給。アンテナは直接接続せず、アンプV680-HA63□、延長ケーブルV700-A4□または専用ケーブルV700-A40-Wで接続する。"
+    "note": "ユニット電源とアンプ駆動用I/O電源はNXバスから供給。アンテナは直接接続せず、アンプV680-HA63□、延長ケーブルV700-A4□または専用ケーブルV700-A40-Wで接続する。",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "bus": "nx",
+      "compatible": {
+        "nx502": {
+          "min_cpu": "1.13",
+          "min_software": "1.25"
+        },
+        "nx102": {
+          "min_cpu": "1.13",
+          "min_software": "1.25"
+        },
+        "nx1p2": {
+          "min_cpu": "1.13",
+          "min_software": "1.25"
+        },
+        "nx_ecc201": {
+          "min_software": "1.25"
+        },
+        "nx_ecc": {
+          "min_software": "1.25"
+        },
+        "nx_eic": {
+          "min_software": "1.25"
+        }
+      },
+      "source": [
+        "NXシリーズ データリファレンスマニュアル（SBCA-410AB）A-5 A-19～A-25、A-6 A-28～A-44",
+        "NXシリーズ システムユニット ユーザーズマニュアル（SBCA-409K）第4章4-28～4-34、NXシリーズ 形NX102 CPUユニット ユーザーズマニュアル ハードウェア編（SBCA-462N）第4章4-3"
+      ],
+      "requires_io_supply": true
+    }
   }
 }

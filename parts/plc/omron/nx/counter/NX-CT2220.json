@@ -182,6 +182,38 @@
         ]
       }
     ],
-    "note": "2チャネルモード用。6チャネルモードでは端子機能が異なるため、この図を使用しない。エンコーダ用電源出力はDC5V。24Vエンコーダには使用しない。カウンタ入力はシールドケーブルを使用し、シールドをD種接地する。"
+    "note": "2チャネルモード用。6チャネルモードでは端子機能が異なるため、この図を使用しない。エンコーダ用電源出力はDC5V。24Vエンコーダには使用しない。カウンタ入力はシールドケーブルを使用し、シールドをD種接地する。",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "bus": "nx",
+      "compatible": {
+        "nx502": {
+          "min_cpu": "1.13",
+          "min_software": "1.65"
+        },
+        "nx102": {
+          "min_cpu": "1.13",
+          "min_software": "1.65"
+        },
+        "nx1p2": {
+          "min_cpu": "1.13",
+          "min_software": "1.65"
+        },
+        "nx_ecc201": {
+          "min_software": "1.65"
+        },
+        "nx_ecc": {
+          "min_software": "1.65"
+        },
+        "nx_eic": {
+          "min_software": "1.65"
+        }
+      },
+      "source": [
+        "NXシリーズ 高速カウンタユニット ユーザーズマニュアル（SBCA-509B）A-6～A-7 A-71～A-74"
+      ]
+    }
   }
 }

@@ -58,6 +58,16 @@ const POWER_KEYS = ['power_model', 'power_tag'];
 const BASE_KEYS = ['base_model', 'base_tag'];
 const FREE_SELECT = ['sd_card_model'];   // 候補から選ぶか自由に入力
 const GROUP_LABEL = { in: '入力', out: '出力', analog: 'アナログ', comm: '通信・インテリ', mixed: '入出力混合' };
+const LINEAR_KINDS = ['fx5body', 'mxbody', 'kvbody', 'nxbody'];
+const VENDOR_BODY_KINDS = ['kvbody', 'nxbody'];
+const KV_CONFIGURATION_SERIES = ['KV Nano', 'KV-8000', 'KV-7000', 'KV-X'];
+
+function isLinearRack(rack = S.page && S.page.rack) { return !!rack && LINEAR_KINDS.includes(rack.kind); }
+function isVendorRack(rack = S.page && S.page.rack) { return !!rack && VENDOR_BODY_KINDS.includes(rack.kind); }
+function projectMaker() { return (S.snap && S.snap.maker) || 'mitsubishi'; }
+function drawingTitle() {
+  return { keyence: 'キーエンス KV 構成・図面', omron: 'オムロン NX 構成・図面' }[projectMaker()] || TITLES.drawing;
+}
 
 function fieldLabel(key) {
   if (key === 'maker') return 'メーカー';
@@ -105,11 +115,12 @@ function setMode(mode) {
   $('#tools-drawing').hidden = mode !== 'drawing';
   $('#tools-parts').hidden = mode !== 'parts';
   document.querySelector('.home-btn').hidden = mode === 'home';
-  $('#app-title').textContent = TITLES[mode];
+  $('#app-title').textContent = mode === 'drawing' ? drawingTitle() : TITLES[mode];
   if (mode === 'drawing') render();
   else if (mode === 'parts') renderParts();
   else if (mode === 'home') renderHome();
   else {
+    renderConfigurationMenu();
     document.title = TITLES[mode];
     setStatus('');
   }
@@ -120,8 +131,33 @@ function renderHome() {
   $('#dirty').textContent = '';
   document.title = 'PLC・GOT 図面生成';
   const working = S.snap && (S.snap.pages.length || S.snap.path);
-  $('#home-continue').hidden = !working;
+  $('#home-continue').hidden = !working || projectMaker() !== 'mitsubishi';
   if (working) $('#home-continue').textContent = `作業中に戻る（${S.snap.name}${S.snap.dirty ? '・未保存' : ''}）`;
+}
+
+function renderConfigurationMenu() {
+  const prefix = S.mode === 'keyence' ? 'kv' : 'nx';
+  const task = $('input[name="' + prefix + '-task"]:checked').value;
+  const config = task === 'configuration';
+  const select = $('#' + prefix + '-series');
+  if (select.dataset.task !== task) {
+    const series = prefix === 'kv'
+      ? (task === 'panel' ? ['VT3', 'VT5'] : KV_CONFIGURATION_SERIES)
+      : (task === 'panel' ? ['NA5'] : ['NX']);
+    const choices = series.map((s) => new Option(s, s));
+    if (!config && series.length > 1) choices.unshift(new Option('すべてのシリーズ', ''));
+    select.replaceChildren(...choices);
+    select.dataset.task = task;
+    $('#' + prefix + '-search').value = '';
+    for (const input of $('#' + prefix + '-single').querySelectorAll('input[type="text"]')) input.value = '';
+  }
+  $('#' + prefix + '-configuration').hidden = !config;
+  $('#' + prefix + '-single').hidden = config;
+  if (!config) showMakerModels(prefix);
+  const working = S.snap && (S.snap.pages.length || S.snap.path);
+  const button = $('#' + prefix + '-config-continue');
+  button.hidden = !working || projectMaker() !== S.mode;
+  if (!button.hidden) button.textContent = `作業中の構成に戻る（${S.snap.name}${S.snap.dirty ? '・未保存' : ''}）`;
 }
 
 function render() {
@@ -143,6 +179,11 @@ function render() {
 }
 
 function renderHeader() {
+  const vendor = S.snap.pages.some((page) => VENDOR_BODY_KINDS.includes(page.kind));
+  $('[data-action="generate"]').hidden = vendor;
+  $('[data-action="generate-bundle"]').hidden = !vendor;
+  $('[data-action="generate-overview"]').hidden = !vendor;
+  $('#app-title').textContent = drawingTitle();
   $('#undo').disabled = !S.snap.can_undo;
   $('#redo').disabled = !S.snap.can_redo;
   $('#file').textContent = S.snap.name;
@@ -189,7 +230,7 @@ function renderMain() {
       <div class="lead" style="margin:0">${esc([info.tag, info.model, info.title].filter(Boolean).join('　')) || 'メーカー・シリーズ・種類を選んでください'}</div></div>
       <div class="actions">
         ${page.rack ? '<button type="button" class="btn solid" data-action="all-pages" title="構成のユニットのうち、まだページが無いものを作ります">詳細ページを一括作成</button>' : ''}
-        <button type="button" class="btn" data-action="wiring">配線情報${page.wiring_count ? `（${page.wiring_count}）` : ''}</button>
+        ${!isVendorRack(page.rack) ? `<button type="button" class="btn" data-action="wiring">配線情報${page.wiring_count ? `（${page.wiring_count}）` : ''}</button>` : ''}
         ${page.can_csv ? '<button type="button" class="btn" data-action="page-csv">CSVを作成</button>' : page.can_sample ? '<button type="button" class="btn" data-action="sample">CSV雛形</button>' : ''}
         ${CSV_KEYS.some((key) => page.values[key]) ? '<button type="button" class="btn" data-action="csv-recheck">CSV再チェック</button>' : ''}
         <button type="button" class="btn icon-btn" data-action="move-up" aria-label="上へ" title="上へ">↑</button>
@@ -221,26 +262,26 @@ function projectView() {
 function rackView(rack) {
   const stats = [];
   if (rack.io_total !== null && rack.io_total !== undefined) {
-    stats.push(`<div class="stat"><div class="l">入出力占有点数（空きを除く）</div><div class="v">${rack.io_total}${rack.io_limit ? `<small> / ${rack.io_limit}</small>` : ''}</div></div>`);
+    stats.push(`<div class="stat"><div class="l">${isVendorRack(rack) ? '入出力点数' : '入出力占有点数（空きを除く）'}</div><div class="v">${rack.io_total}${rack.io_limit ? `<small> / ${rack.io_limit}</small>` : ''}</div></div>`);
   }
-  stats.push(`<div class="stat"><div class="l">${rack.slots_total ? 'スロット使用' : 'ユニット数'}</div><div class="v">${rack.slots_used}${rack.slots_total ? `<small> / ${rack.slots_total}</small>` : ''}</div></div>`);
+  stats.push(`<div class="stat"><div class="l">${rack.slots_total && !isVendorRack(rack) ? 'スロット使用' : 'ユニット数'}</div><div class="v">${rack.slots_used}${rack.slots_total ? `<small> / ${rack.slots_total}</small>` : ''}</div></div>`);
   let html = `<div class="card"><div class="stats">${stats.join('')}</div>`;
   if (rack.message) html += `<div class="notice">${esc(rack.message)}</div>`;
   if (rack.alarms && rack.alarms.length) {
-    html += `<div class="alarm" role="alert"><b>XY割付の警告</b><ul>${(rack.alarm_targets || rack.alarms.map((text) => ({ text, targets: [] }))).map((a) =>
+    html += `<div class="alarm" role="alert"><b>${isVendorRack(rack) ? '接続条件の警告' : 'XY割付の警告'}</b><ul>${(rack.alarm_targets || rack.alarms.map((text) => ({ text, targets: [] }))).map((a) =>
       `<li>${esc(a.text)} ${(a.targets || []).map((t) => `<button type="button" class="alarm-link" data-action="goto-alarm" data-id="${esc(t.id)}" data-field="${esc(t.field)}">${esc(t.label)}へ</button>`).join(' ')}</li>`).join('')}</ul></div>`;
   }
   for (const stage of rack.stages) {
     const baseId = 'base:' + (stage.stage ?? 0);
     html += `<div class="stage"><div class="stage-head">
       <span class="name">${esc(stage.name)}</span>
-      ${['fx5body', 'mxbody'].includes(rack.kind) ? '' : `<button type="button" class="base${S.sel === baseId ? ' sel' : ''}" data-action="select-item" data-id="${baseId}" title="ベースを選択">${esc(stage.base || 'ベース未選択')}</button>`}
+      ${isLinearRack(rack) ? '' : `<button type="button" class="base${S.sel === baseId ? ' sel' : ''}" data-action="select-item" data-id="${baseId}" title="ベースを選択">${esc(stage.base || 'ベース未選択')}</button>`}
       </div><div class="rack-scroll"><div class="rack">`;
-    for (const item of stage.items) html += slotView(item);
+    for (const item of stage.items) html += slotView(item, rack);
     html += '</div></div></div>';
-    if (!['fx5body', 'mxbody'].includes(rack.kind)) html += slotTable(stage);
+    if (!isLinearRack(rack)) html += slotTable(stage);
   }
-  if (!['fx5body', 'mxbody'].includes(rack.kind)) {
+  if (!isLinearRack(rack)) {
     html += `<div class="legend"><button type="button" class="btn blue" data-action="add-extension">＋ 増設ベース追加</button>
       <span><i style="background:var(--in)"></i>入力</span><span><i style="background:var(--out)"></i>出力</span>
       <span><i style="background:var(--analog)"></i>アナログ</span><span><i style="background:var(--comm)"></i>通信・インテリ</span>
@@ -260,7 +301,7 @@ function slotTable(stage) {
       <td class="mono">${esc(i.addr || '')}</td></tr>`).join('')}</tbody></table></div>`;
 }
 
-function slotView(item) {
+function slotView(item, rack) {
   const classes = ['unit', 't-' + item.type];
   if (item.group) classes.push('g-' + item.group);
   if (S.sel === item.id) classes.push('sel');
@@ -268,7 +309,7 @@ function slotView(item) {
   if (item.type === 'module' && !item.model) label = '空き';
   if (item.type === 'add') label = '＋ 追加';
   const aria = `${item.head} ${label}`;
-  return `<div class="slot${item.alarm ? ' alarmed' : ''}"><div class="h">${esc(item.head)}</div><div class="a${item.manual ? ' manual' : ''}" title="${item.manual ? '先頭XYを指定' : '自動割付'}">${esc(item.addr || '')}</div>
+  return `<div class="slot${item.alarm ? ' alarmed' : ''}"><div class="h">${esc(item.head)}</div>${!isVendorRack(rack) ? `<div class="a${item.manual ? ' manual' : ''}" title="${item.manual ? '先頭XYを指定' : '自動割付'}">${esc(item.addr || '')}</div>` : ''}
     <button type="button" class="${classes.join(' ')}" data-action="select-item" data-id="${esc(item.id)}" aria-label="${esc(aria)}">
       <span class="vm">${esc(label)}</span>
       ${item.summary ? `<span class="sm">${esc(item.summary)}</span>` : ''}
@@ -312,13 +353,13 @@ function fieldControl(key, value, options, id, attrs = '') {
 }
 
 function formView(page) {
-  const owned = page.rack && !['fx5body', 'mxbody'].includes(page.rack.kind) ? [...CPU_KEYS, ...POWER_KEYS, ...BASE_KEYS] : page.rack ? CPU_KEYS : [];
+  const owned = page.rack && (!isLinearRack(page.rack) || isVendorRack(page.rack)) ? [...CPU_KEYS, ...POWER_KEYS, ...BASE_KEYS] : page.rack ? CPU_KEYS : [];
   const settings = page.settings || [];
   const keys = ['maker', 'series', ...page.visible.filter((k) => !owned.includes(k) && !settings.some((s) => s.key === k))];
   const rows = keys.map((key) => `<label for="f-${key}">${esc(fieldLabel(key))}</label>${fieldControl(key, page.values[key] || '', page.options, 'f-' + key)}`).join('');
   const settingRows = settings.map((s) => `<div class="setting-row"><label class="setting-check"><input type="checkbox" data-setting-visible="${esc(s.key)}"${s.visible ? ' checked' : ''}>${esc(s.label)}</label>
     ${s.visible ? fieldControl(s.key, page.values[s.key] || '', page.options, 'f-' + s.key, `aria-label="${esc(s.label)}"`) : '<span class="muted">非表示（入力値を保持）</span>'}</div>`).join('');
-  const note = owned.length ? `<p class="lead">${['fx5body', 'mxbody'].includes(page.rack.kind) ? '本体の形名・ボード・SDは' : 'CPU・電源・ベースは'}上の図をクリックして右側で設定します。</p>` : '';
+  const note = owned.length ? `<p class="lead">${isVendorRack(page.rack) ? 'CPU・電源・ユニットは' : isLinearRack(page.rack) ? '本体の形名・ボード・SDは' : 'CPU・電源・ベースは'}上の図をクリックして右側で設定します。</p>` : '';
   return `<div class="card"><h2>ページ設定</h2>${note}
     ${page.summary ? `<div class="summary-box">${esc(page.summary)}</div>` : ''}
     <div class="form">${rows}</div>
@@ -360,7 +401,7 @@ function renderDrawer() {
   const el = $('#drawer');
   if (S.index === null || !S.page) {
     el.innerHTML = `<div class="where">はじめに</div><div class="model" style="font-size:16px;font-family:inherit">使い方</div>
-      <div class="hint">1. 左の「ページ追加」でページを作ります。<br>2. メーカー・シリーズ・種類を選びます。<br>3. iQ-R・Q・FX5 の本体ページは、ベースの図でスロットを選んでユニットを追加します。<br>4. 「図面生成」で .qet を作ります。</div>`;
+      <div class="hint">1. 左の「ページ追加」でページを作ります。<br>2. シリーズ・種類を選びます。<br>3. ${projectMaker() === 'mitsubishi' ? '本体ページの構成図でスロットを選び、ユニットを追加します。' : '構成図でCPUと接続位置を選び、ユニットを追加します。'}<br>4. 「詳細ページを一括作成」で各ユニットの図面を作り、「図面生成」で .qet を出力します。</div>`;
     return;
   }
   const page = S.page;
@@ -381,20 +422,24 @@ function renderDrawer() {
     return;
   }
   if (!found) {
-    el.innerHTML = `<div class="where">ユニット構成</div><div class="model" style="font-size:16px;font-family:inherit">スロットを選んでください</div>
-      <div class="hint">図の電源・CPU・スロットをクリックすると、ここに設定と操作が出ます。空きスロットを選ぶとユニットを追加できます。</div>`;
+    el.innerHTML = `<div class="where">ユニット構成</div><div class="model" style="font-size:16px;font-family:inherit">${isVendorRack() ? 'CPU・ユニットを選んでください' : 'スロットを選んでください'}</div>
+      <div class="hint">${isVendorRack() ? '構成図のCPU・電源・ユニットをクリックして設定します。各接続位置の「追加」からユニットを選べます。' : '図の電源・CPU・スロットをクリックすると、ここに設定と操作が出ます。空きスロットを選ぶとユニットを追加できます。'}</div>`;
     return;
   }
   const { item, stage } = found;
   if (item.type === 'cpu') {
-    el.innerHTML = `<div class="where">${['fx5body', 'mxbody'].includes(page.rack.kind) ? '本体' : 'CPU'}</div><div class="model">${esc(item.model)}</div>
+    el.innerHTML = `<div class="where">${isLinearRack(page.rack) && !isVendorRack(page.rack) ? '本体' : 'CPU'}</div><div class="model">${esc(item.model)}</div>
       ${page.summary ? `<div class="desc">${esc(page.summary)}</div>` : ''}
       <button type="button" class="dbtn" data-action="pick-field" data-key="model">${page.values.model ? '変更' : '選択'}</button>
       <div class="divider"></div>${cpuFields()}
-      ${page.rack.kind === 'mxbody' ? '<button type="button" class="dbtn" data-action="create-cpu-io">内蔵IOページを開く・作成</button>' : ''}`;
+      ${page.rack.kind === 'mxbody' || isVendorRack() ? `<button type="button" class="dbtn" data-action="create-cpu-io">${isVendorRack() ? '本体の詳細ページを開く・作成' : '内蔵IOページを開く・作成'}</button>` : ''}`;
+  } else if (item.type === 'adapter') {
+    el.innerHTML = `<div class="where">必要な接続変換器</div><div class="model">${esc(item.model)}</div>
+      <div class="desc">${esc(item.summary || '')}</div>
+      <div class="hint">選んだCPU・ユニットの接続に必要なため、構成に合わせて表示します。</div>`;
   } else if (item.type === 'power') {
     if (stage.stage === 0) {
-      el.innerHTML = `<div class="where">電源（基本ベース）</div><div class="model">${esc(item.model)}</div><div class="desc">${esc(item.summary)}</div>
+      el.innerHTML = `<div class="where">${isVendorRack() ? '電源' : '電源（基本ベース）'}</div><div class="model">${esc(item.model)}</div><div class="desc">${esc(item.summary)}</div>
         <button type="button" class="dbtn" data-action="pick-field" data-key="power_model">${page.values.power_model ? '変更' : '選択'}</button>
         <div class="divider"></div>${drawerFields(['power_tag'])}`;
     } else {
@@ -410,10 +455,10 @@ function renderDrawer() {
     el.innerHTML = `<div class="where">スロット${esc(item.head)}</div><div class="model">占有</div>
       <div class="hint">左隣の2スロットユニットが使っています。</div>`;
   } else if (item.type === 'add' || !item.model) {
-    el.innerHTML = `<div class="where">${item.type === 'add' ? '増設ユニット' : 'スロット' + esc(item.head)}</div><div class="model">空き</div>
+    el.innerHTML = `<div class="where">${isVendorRack() ? esc(stage.name) : item.type === 'add' ? '増設ユニット' : 'スロット' + esc(item.head)}</div><div class="model">空き</div>
       <div class="desc">${item.addr ? '空きスロットも ' + esc(item.points) + '点を使います' : ''}</div>
       <div class="divider"></div>
-      <button type="button" class="dbtn" data-action="add-module" data-stage="${item.stage}" data-slot="${item.slot}">ユニットを追加</button>`;
+      <button type="button" class="dbtn" data-action="add-module" data-stage="${item.stage}" data-slot="${item.slot}" data-bus="${esc(item.bus || '')}">ユニットを追加</button>`;
   } else {
     el.innerHTML = moduleDrawer(item, stage);
     loadUnitPages(item);
@@ -436,16 +481,26 @@ function baseDrawer(stage) {
 }
 
 function moduleDrawer(item, stage) {
-  return `<div class="where">${['fx5body', 'mxbody'].includes(S.page.rack.kind) ? '増設 ' + esc(item.head) : 'スロット' + esc(item.head)}${item.group ? '・' + esc(GROUP_LABEL[item.group] || '') : ''}</div>
+  return `<div class="where">${isVendorRack() ? esc(stage.name) + '・' + esc(item.head) : isLinearRack() ? '増設 ' + esc(item.head) : 'スロット' + esc(item.head)}${item.group ? '・' + esc(GROUP_LABEL[item.group] || '') : ''}</div>
     <div class="model">${esc(item.model)}</div><div class="desc">${esc(item.summary || '')}</div>
     ${item.addr ? `<div class="kv"><span>アドレス</span><span class="mono">${esc(item.addr)}</span><span>占有点数</span><span>${esc(item.points)}点</span></div>` : ''}
     <label class="field">タグ名（管理番号）<input type="text" data-module-tag data-stage="${item.stage}" data-slot="${item.slot}" value="${esc(item.tag)}" placeholder="例: DI1"></label>
-    ${!['fx5body', 'mxbody'].includes(S.page.rack.kind) ? `<label class="field">先頭XY（16進・空欄は自動）<input type="text" class="mono" data-module-start data-stage="${item.stage}" data-slot="${item.slot}" value="${esc(item.given || '')}" placeholder="自動: ${esc(item.auto || '')}"></label>` : ''}
+    ${moduleBusField(item)}
+    ${item.mode_options?.length ? `<label class="field">通信方式<select data-module-mode data-stage="${item.stage}" data-slot="${item.slot}">${!item.communication_mode ? '<option value="" selected disabled>未指定（詳細図の設定を使用）</option>' : ''}${item.mode_options.map((mode) =>
+      `<option${mode === item.communication_mode ? ' selected' : ''}>${esc(mode)}</option>`).join('')}</select></label>` : ''}
+    ${!isLinearRack() ? `<label class="field">先頭XY（16進・空欄は自動）<input type="text" class="mono" data-module-start data-stage="${item.stage}" data-slot="${item.slot}" value="${esc(item.given || '')}" placeholder="自動: ${esc(item.auto || '')}"></label>` : ''}
     <div class="divider"></div>
     <div class="where">図面ページ</div><div id="unit-pages" class="hint">読み込み中…</div>
     <div class="divider"></div>
-    <button type="button" class="dbtn" data-action="add-module" data-stage="${item.stage}" data-slot="${item.slot}">ユニット変更</button>
+    <button type="button" class="dbtn" data-action="add-module" data-stage="${item.stage}" data-slot="${item.slot}" data-bus="${esc(item.bus || '')}">ユニット変更</button>
     <button type="button" class="dbtn ghost" data-action="remove-module" data-stage="${item.stage}" data-slot="${item.slot}">取り外す</button>`;
+}
+
+function moduleBusField(item) {
+  const options = item.bus_options || [];
+  if (!isVendorRack() || options.length < 2) return '';
+  return `<label class="field">接続位置<select data-module-bus data-stage="${item.stage}" data-slot="${item.slot}">${options.map(([value, label]) =>
+    `<option value="${esc(value)}"${value === item.bus ? ' selected' : ''}>${esc(label)}</option>`).join('')}</select></label>`;
 }
 
 async function loadUnitPages(item) {
@@ -567,10 +622,13 @@ async function showDifferences() {
 }
 
 // 部品の選定ダイアログ
-async function pickPart({ title, key, index = null, hint = '' }) {
-  const result = await run('catalog', key, index);
+async function pickPart({ title, key, index = null, hint = '', stage = 0, bus = '' }) {
+  const result = await run('catalog', key, index, stage, bus);
   if (!result) return null;
-  const rows = result.rows;
+  return choosePart(title, key, result.rows, hint);
+}
+
+async function choosePart(title, key, rows, hint = '') {
   if (!rows.length) {
     await showMessage(title, 'この欄で選べる部品がありません。先にメーカー・シリーズ・種類を選んでください。');
     return null;
@@ -607,6 +665,8 @@ async function pickPart({ title, key, index = null, hint = '' }) {
     };
     const drawTable = () => {
       const list = filtered();
+      if (P.sel && !list.some((r) => r.model === P.sel)) P.sel = null;
+      $('[data-ok]', host).disabled = !P.sel;
       const cols = isModule ? ['形名', '種類', '仕様', '占有', '図面ページ'] : showMaker ? ['形名', 'メーカー', 'シリーズ', '種類', '仕様'] : ['形名', '種類', '仕様'];
       if (showLifecycle) cols.push('生産終了');
       let html = `<table class="list"><thead><tr><th style="width:36px"></th>${cols.map((c) => `<th>${c}</th>`).join('')}</tr></thead><tbody>`;
@@ -824,52 +884,66 @@ async function save() {
   return true;
 }
 
-async function generate() {
-  if (!S.snap.path || S.snap.dirty) {
-    if (!S.snap.path && !(await saveAs())) return;
-  }
-  const out = await pathFor('図面の保存先（.qet）', S.snap.path.replace(/\.json$/i, '.qet'));
+async function generate(includeDetails = null) {
+  const vendor = includeDetails !== null;
+  if (!vendor && !S.snap.path && !(await saveAs())) return;
+  const stem = S.snap.path ? S.snap.path.replace(/\.json$/i, '') : S.snap.pages.find((page) => VENDOR_BODY_KINDS.includes(page.kind))?.model || 'project';
+  const out = await pathFor('図面の保存先（.qet）', stem + (includeDetails === false ? '_構成.qet' : '.qet'));
   if (out === null) return;
   setStatus('図面を生成しています…');
-  let result = await run('generate', out);
+  const method = vendor ? ['generate_configuration', includeDetails] : ['generate'];
+  let result = await run(...method, out);
   if (result && result.confirm) {
     if (!(await confirmBox(result.confirm, '上書きする'))) { setStatus(''); return; }
-    result = await run('generate', result.out, true);
+    result = await run(...method, result.out, true);
   }
-  if (!result) { setStatus('図面を生成できませんでした', true); return; }
+  if (!result) { setStatus(''); return; }
   if (result.need_save_as) return;
-  applySnapshot(result.snapshot);
-  render();
+  if (vendor) await refreshAll(result, S.index === null ? null : result.index);
+  else { applySnapshot(result.snapshot); render(); }
   setStatus('図面を生成しました: ' + result.out);
   const buttons = S.meta.browser_paths ? [['ok', 'OK', true]] : [['close', '閉じる', false], ['open', 'QETで開く', true]];
   if ((await showMessage('生成完了', result.message, { buttons })) === 'open') await run('open_file', result.out);
 }
 
-function showKvModels() {
-  const models = Object.entries(S.meta.kv_models)
-    .filter(([, series]) => series.includes($('#kv-series').value));
-  $('#kv-model').replaceChildren(...models.map(([model]) => new Option(model, model)));
-  showKvSettings();
+function showMakerModels(prefix) {
+  const series = $('#' + prefix + '-series');
+  if (series.dataset.task === 'configuration') return;
+  const select = $('#' + prefix + '-model');
+  const previous = select.value;
+  const query = $('#' + prefix + '-search').value.normalize('NFKC').trim().toUpperCase();
+  const kv = prefix === 'kv';
+  const seriesByModel = kv ? S.meta.kv_models : S.meta.omron_series;
+  const functions = kv ? S.meta.kv_functions : S.meta.nx_models;
+  const choices = Object.entries(seriesByModel).filter(([model, families]) => {
+    const role = functions[model];
+    const keywords = role === 'パルス出力' ? 'パルス出力 位置決め' : role;
+    return (role === 'タッチパネル') === (series.dataset.task === 'panel')
+      && (!series.value || families.includes(series.value))
+      && (model + ' ' + keywords).normalize('NFKC').toUpperCase().includes(query);
+  }).map(([model]) => new Option(model + '　' + functions[model], model));
+  select.replaceChildren(...(choices.length ? choices : [new Option('該当する形名がありません', '')]));
+  if (choices.some((option) => option.value === previous)) select.value = previous;
+  select.disabled = !choices.length;
+  $('[data-action="' + prefix + '-generate"]').disabled = !choices.length;
+  if (kv) showKvSettings();
 }
 
 function showKvSettings() {
   const model = $('#kv-model').value;
-  $('#kv-wiring-note').hidden = $('#kv-series').value.startsWith('VT');
+  const role = S.meta.kv_functions[model] || '';
+  $('#kv-wiring-note').hidden = !(role.startsWith('デジタル') || role === 'CPU・内蔵I/O');
   const modes = S.meta.kv_modes[model] || [];
   $('#kv-mode-field').hidden = modes.length === 0;
-  $('#kv-mode').replaceChildren(...modes.map((mode) => new Option(mode, mode)));
+  const select = $('#kv-mode');
+  if (select.dataset.model !== model) {
+    select.replaceChildren(...modes.map((mode) => new Option(mode, mode)));
+    select.dataset.model = model;
+  }
   const settings = S.meta.kv_settings[model] || [];
   for (const key of ['ip', 'communication']) {
     $('#kv-' + key + '-field').hidden = !settings.includes(key);
   }
-}
-
-function showNxModels() {
-  const query = $('#nx-search').value.trim().toUpperCase();
-  const models = Object.entries(S.meta.nx_models || {}).filter(([model, role]) =>
-    (S.meta.omron_series[model] || []).includes($('#nx-series').value) &&
-    (model + ' ' + role).toUpperCase().includes(query));
-  $('#nx-model').replaceChildren(...models.map(([model, role]) => new Option(model + '　' + role, model)));
 }
 
 // ------------------------------------------------------------ 制御部品の書出し・ユーザーコレクション登録画面
@@ -1027,7 +1101,7 @@ async function makeSample() {
 async function pickField(key) {
   const rack = ['qbody', 'iqrbody'].includes(S.page.values.kind);
   if (key === 'model' && rack && !S.page.values.base_model && !await pickField('base_model')) return;
-  const titles = { model: rack ? 'CPUを選択' : '形名を選択', left_model: '左側の通信ユニットを選択', right_model: '右側の通信ユニットを選択', power_model: '電源ユニットを選択', base_model: 'ベースを選択' };
+  const titles = { model: rack || isVendorRack() ? 'CPUを選択' : '形名を選択', left_model: '左側の通信ユニットを選択', right_model: '右側の通信ユニットを選択', power_model: '電源ユニットを選択', base_model: 'ベースを選択' };
   const row = await pickPart({ title: titles[key] || '部品を選択', key, index: S.index });
   if (!row) return;
   S.page.values[key] = row.model;
@@ -1039,17 +1113,80 @@ async function setupRack() {
   if (!S.page.values.base_model) await pickField('base_model');
 }
 
-async function addModule(stage, slot) {
-  const row = await pickPart({ title: `ユニットを選択（${['fx5body', 'mxbody'].includes(S.page.rack.kind) ? '増設' : 'スロット'}）`, key: 'modules', index: S.index,
-    hint: '選んだユニットは構成図に入ります。端子図などの図面ページは右側のボタンで作成します。' });
+async function addModule(stage, slot, bus = '') {
+  const native = isVendorRack();
+  const options = S.page.rack.bus_options || [];
+  const existing = S.page.rack.stages.flatMap((s) => s.items).find((i) => i.type === 'module' && i.stage === stage && i.slot === slot);
+  if (native && !bus) {
+    bus = (existing && existing.bus) || '';
+    if (!bus && options.length === 1) bus = options[0][0];
+    if (!bus && options.length > 1) {
+      const choice = await showMessage('接続位置を選択', 'ユニットを追加する位置を選んでください。',
+        { buttons: [['cancel', 'キャンセル', false], ...options.map(([value, label]) => [value, label, false])] });
+      if (!choice || choice === 'cancel') return;
+      bus = choice;
+    }
+  }
+  const busLabel = options.find(([value]) => value === bus);
+  const row = await pickPart({ title: `ユニットを選択（${native ? (busLabel ? busLabel[1] : '接続位置') : isLinearRack() ? '増設' : 'スロット'}）`, key: 'modules', index: S.index, stage, bus,
+    hint: native ? '選んだユニットを構成へ追加します。「詳細ページを一括作成」で各ユニットの図面をまとめて作れます。' : '選んだユニットは構成図に入ります。端子図などの図面ページは右側のボタンで作成します。' });
   if (!row) return;
-  const result = await run('set_module', S.index, stage, slot, row.model);
+  const extra = native ? [bus] : [];
+  const modes = native && S.meta.kv_modes[row.model];
+  if (modes?.length) {
+    const current = existing?.model === row.model ? existing.communication_mode : modes[0];
+    const chosen = await askFields(row.model, [{ key: 'mode', label: '通信方式', value: current, options: modes.map((mode) => [mode, mode]) }],
+      existing ? '変更' : '追加');
+    if (!chosen) return;
+    extra.push(chosen.mode);
+  }
+  const result = await run('set_module', S.index, stage, slot, row.model, ...extra);
   if (result) {
     applyPage(result);
-    if (['fx5body', 'mxbody'].includes(S.page.rack.kind)) S.sel = `${stage}:${slot}`;
+    if (isLinearRack()) {
+      const selected = S.page.rack.stages.flatMap((s) => s.items).find((i) => i.type === 'module' && i.stage === stage && i.slot === slot);
+      S.sel = selected ? selected.id : `${stage}:${slot}`;
+    }
     render();
     setStatus(`${row.model} を追加しました`);
   }
+}
+
+function currentConfigurationSeries(maker) {
+  if (maker === 'omron') return 'NX';
+  const series = S.page && S.page.values.series;
+  const label = S.meta.series[series] || series;
+  return KV_CONFIGURATION_SERIES.includes(label) ? label : KV_CONFIGURATION_SERIES.includes($('#kv-series').value) ? $('#kv-series').value : 'KV Nano';
+}
+
+async function newConfiguration(maker, series) {
+  if (maker === 'keyence' ? !KV_CONFIGURATION_SERIES.includes(series) : series !== 'NX') return;
+  const roots = await run('configuration_roots', maker, series);
+  if (!roots) return;
+  const root = roots.rows.length === 1 ? roots.rows[0]
+    : await choosePart(series + ' のCPU・カプラを選択', 'configuration_root', roots.rows);
+  if (!root || !(await confirmDiscard())) return;
+  const snap = await run('new_configuration', maker, series, root.model);
+  if (!snap) return;
+  S.index = null; S.page = null; S.sel = null;
+  applySnapshot(snap);
+  setMode('drawing');
+  await refreshAll(snap, snap.index ?? 0);
+  S.sel = 'cpu'; renderDrawer();
+  setStatus(root.model + ' の構成を作成しました。接続位置の「追加」からユニットを選んでください。');
+}
+
+async function openConfiguration(maker) {
+  if (!(await confirmDiscard())) return;
+  const path = await pathFor('構成プロジェクト（.json）を開く');
+  if (path === null) return;
+  const snap = await run('open_configuration', maker, path);
+  if (!snap) return;
+  S.index = null; S.page = null; S.sel = null;
+  applySnapshot(snap);
+  setMode('drawing');
+  await refreshAll(snap, snap.index ?? (snap.pages.length ? 0 : null));
+  setStatus('開きました: ' + snap.path);
 }
 
 async function addExtension() {
@@ -1095,6 +1232,7 @@ const actions = {
   async redo() { const r = await run('redo'); if (r) { S.sel = null; await refreshAll(r, r.index); setStatus('やり直しました'); } },
   'toggle-group'(el) { const i = Number(el.dataset.index); if (S.collapsed.has(i)) S.collapsed.delete(i); else S.collapsed.add(i); renderPages(); },
   async new() {
+    if (projectMaker() !== 'mitsubishi') return newConfiguration(projectMaker(), currentConfigurationSeries(projectMaker()));
     if (!(await confirmDiscard())) return;
     const snap = await run('new_project');
     if (snap) { S.sel = null; await refreshAll(snap, null); setStatus('新しいプロジェクト'); }
@@ -1106,7 +1244,8 @@ const actions = {
     const snap = await run('open_project', path);
     if (snap) { S.sel = null; S.mode = 'drawing'; setMode('drawing'); await refreshAll(snap, snap.pages.length ? 0 : null); setStatus('開きました: ' + snap.path); }
   },
-  save, 'save-as': saveAs, generate, xrefs: updateXrefs,
+  save, 'save-as': saveAs, generate: () => generate(), xrefs: updateXrefs,
+  'generate-bundle': () => generate(true), 'generate-overview': () => generate(false),
   async home() { setMode('home'); },
   async 'home-new'() {
     if ((S.snap.pages.length || S.snap.path) && !(await confirmDiscard())) return;
@@ -1123,21 +1262,27 @@ const actions = {
   },
   async 'home-continue'() { setMode('drawing'); },
   async 'home-parts'() { setMode('parts'); },
-  async 'home-keyence'() { showKvModels(); setMode('keyence'); },
-  async 'home-omron'() { showNxModels(); setMode('omron'); },
+  async 'home-keyence'() { setMode('keyence'); },
+  async 'home-omron'() { setMode('omron'); },
+  async 'kv-config-new'() { await newConfiguration('keyence', $('#kv-series').value); },
+  async 'nx-config-new'() { await newConfiguration('omron', $('#nx-series').value); },
+  async 'kv-config-open'() { await openConfiguration('keyence'); },
+  async 'nx-config-open'() { await openConfiguration('omron'); },
   async 'nx-generate'() {
     const model = $('#nx-model').value;
-    const path = await pathFor($('#nx-series').value === 'NA5' ? 'NAタッチパネル図面の保存先（.qet）' : 'NXユニット図面の保存先（.qet）', model + '.qet');
+    const panel = $('#nx-series').dataset.task === 'panel';
+    const path = await pathFor(panel ? 'NAタッチパネル図面の保存先（.qet）' : 'NXユニット図面の保存先（.qet）', model + '.qet');
     if (path === null) return;
     const result = await run('generate_nx', model, $('#nx-unit-no').value, $('#nx-tag').value, path);
     if (result) setStatus('図面を生成しました: ' + result.out);
   },
   async 'kv-generate'() {
     const model = $('#kv-model').value;
-    const path = await pathFor($('#kv-series').value.startsWith('VT') ? 'VTタッチパネル図面の保存先（.qet）' : 'KVユニット図面の保存先（.qet）', model + '.qet');
+    const series = $('#kv-series').value || S.meta.kv_models[model][0];
+    const path = await pathFor(series.startsWith('VT') ? 'VTタッチパネル図面の保存先（.qet）' : 'KVユニット図面の保存先（.qet）', model + '.qet');
     if (path === null) return;
     const settings = Object.fromEntries((S.meta.kv_settings[model] || []).map((key) => [key, $('#kv-' + key).value]));
-    const result = await run('generate_kv', $('#kv-series').value, model, $('#kv-unit-no').value, $('#kv-tag').value, path, $('#kv-mode').value, settings);
+    const result = await run('generate_kv', series, model, $('#kv-unit-no').value, $('#kv-tag').value, path, $('#kv-mode').value, settings);
     if (result) setStatus('図面を生成しました: ' + result.out);
   },
   async 'pv-export'() { await exportSelectedPart(); },
@@ -1175,7 +1320,7 @@ const actions = {
   async 'select-item'(el) {
     S.sel = el.dataset.id;
     const found = findItem(S.sel);
-    if (found && found.item.type === 'add') { await addModule(found.item.stage, found.item.slot); return; }
+    if (found && found.item.type === 'add') { await addModule(found.item.stage, found.item.slot, found.item.bus || ''); return; }
     renderMain();
     renderDrawer();
   },
@@ -1187,7 +1332,7 @@ const actions = {
     const result = await run('pick_csv', path);
     if (result) { S.page.values[el.dataset.key] = result.path; await updatePage(el.dataset.key); }
   },
-  async 'add-module'(el) { await addModule(Number(el.dataset.stage), Number(el.dataset.slot)); },
+  async 'add-module'(el) { await addModule(Number(el.dataset.stage), Number(el.dataset.slot), el.dataset.bus || ''); },
   async 'remove-module'(el) {
     const result = await run('remove_module', S.index, Number(el.dataset.stage), Number(el.dataset.slot));
     if (result) { applyPage(result); render(); setStatus('ユニットを取り外しました'); }
@@ -1208,6 +1353,17 @@ const actions = {
   },
   async 'stage-pick'(el) { await stagePick(Number(el.dataset.stage), el.dataset.key); },
   async 'all-pages'() {
+    if (isVendorRack()) {
+      const choice = await showMessage('詳細ページを一括作成', '構成のCPU・電源・ユニットのうち、まだ詳細ページがないものをまとめて作成します。',
+        { buttons: [['cancel', 'キャンセル', false], ['pages', '詳細ページを作成', true]] });
+      if (choice !== 'pages') return;
+      const result = await run('create_all_unit_pages', S.index, false);
+      if (!result) return;
+      await refreshAll(result, S.index);
+      setStatus(result.message.split('\n')[0]);
+      await showMessage('詳細ページを一括作成', result.message);
+      return;
+    }
     const choice = await showMessage('詳細ページを一括作成',
       '構成のユニットのうち、まだページが無いものに図面ページを作ります（形名・タグ・スロット番号・先頭アドレス入り。通信ユニットは接続図）。\n入出力・アナログのページには、アドレスを入れたCSV（信号名は空欄）も作れます。CSVはプロジェクトと同じフォルダに作り、既にあるファイルは上書きしません。\nCSVが無くても図面は作れます（用途欄が空欄の図面）。',
       { buttons: [['cancel', 'キャンセル', false], ['pages', 'ページだけ作成', false], ['csv', 'ページとCSVを作成', true]] });
@@ -1261,13 +1417,12 @@ document.addEventListener('change', (e) => {
 
 document.addEventListener('input', (e) => {
   if (e.target.id === 'pv-q') { PV.q = e.target.value; renderPartsTable(); }
-  if (e.target.id === 'nx-search') showNxModels();
+  if (e.target.id === 'nx-search' || e.target.id === 'kv-search') showMakerModels(e.target.id.slice(0, 2));
 });
 
 async function onChange(el) {
-  if (el.id === 'nx-search') { showNxModels(); return; }
-  if (el.id === 'nx-series') { $('#nx-search').value = ''; showNxModels(); return; }
-  if (el.id === 'kv-series') { showKvModels(); return; }
+  if (el.name === 'kv-task' || el.name === 'nx-task') { renderConfigurationMenu(); return; }
+  if (el.id === 'nx-series' || el.id === 'kv-series') { showMakerModels(el.id.slice(0, 2)); return; }
   if (el.id === 'kv-model') { showKvSettings(); return; }
   if (el.dataset.settingVisible) {
     const result = await run('set_setting_visibility', S.index, el.dataset.settingVisible, el.checked);
@@ -1314,6 +1469,18 @@ async function onChange(el) {
   if (el.dataset.moduleTag !== undefined) {
     const result = await run('set_module_tag', S.index, Number(el.dataset.stage), Number(el.dataset.slot), el.value);
     if (result) { applyPage(result); render(); }
+    return;
+  }
+  if (el.dataset.moduleMode !== undefined) {
+    const result = await run('set_module_mode', S.index, Number(el.dataset.stage), Number(el.dataset.slot), el.value);
+    if (result) { applyPage(result); render(); setStatus('通信方式を変更しました'); }
+    else await loadPage(S.index, true);
+    return;
+  }
+  if (el.dataset.moduleBus !== undefined) {
+    const result = await run('set_module_bus', S.index, Number(el.dataset.stage), Number(el.dataset.slot), el.value);
+    if (result) { applyPage(result); render(); setStatus('接続位置を変更しました'); }
+    else await loadPage(S.index, true);
     return;
   }
   if (el.dataset.stageTag) {

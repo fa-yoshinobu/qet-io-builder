@@ -27,7 +27,7 @@
           {
             "pin": "3",
             "signal": "A+",
-            "purpose": "パルス出力A+/CW+/PLS"
+            "purpose": "パルス出力A+/CW+/PLS+"
           },
           {
             "pin": "4",
@@ -37,7 +37,7 @@
           {
             "pin": "5",
             "signal": "B+",
-            "purpose": "パルス出力B+/CCW"
+            "purpose": "パルス出力B+/CCW+/DIR+"
           },
           {
             "pin": "6",
@@ -52,7 +52,7 @@
           {
             "pin": "8",
             "signal": "O0",
-            "purpose": "外部出力0／偏差カウンタリセ"
+            "purpose": "外部出力0／偏差カウンタリセット出力"
           },
           {
             "pin": "9",
@@ -107,7 +107,7 @@
           {
             "pin": "19",
             "signal": "A+",
-            "purpose": "パルス出力A+/CW+/PLS"
+            "purpose": "パルス出力A+/CW+/PLS+"
           },
           {
             "pin": "20",
@@ -117,7 +117,7 @@
           {
             "pin": "21",
             "signal": "B+",
-            "purpose": "パルス出力B+/CCW"
+            "purpose": "パルス出力B+/CCW+/DIR+"
           },
           {
             "pin": "22",
@@ -132,7 +132,7 @@
           {
             "pin": "24",
             "signal": "O0",
-            "purpose": "外部出力0／偏差カウンタリセ"
+            "purpose": "外部出力0／偏差カウンタリセット出力"
           },
           {
             "pin": "25",
@@ -187,6 +187,31 @@
         ]
       }
     ],
-    "note": "MILコネクタのPOV・POGに外部DC24Vを接続する。外部入力0は接続機器の出力方式に応じてI0＋・I0－、またはI0と入力コモンを選ぶ。"
+    "note": "MILコネクタのPOV・POGに外部DC24Vを接続する。外部入力0は接続機器の出力方式に応じてI0＋・I0－、またはI0と入力コモンを選ぶ。",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "omron",
+      "category": "unit_diagram",
+      "bus": "nx",
+      "compatible": {
+        "nx502": {
+          "min_cpu": "1.13"
+        },
+        "nx102": {
+          "min_cpu": "1.13"
+        },
+        "nx1p2": {
+          "min_cpu": "1.13"
+        },
+        "nx_ecc201": {},
+        "nx_ecc": {}
+      },
+      "source": [
+        "NXシリーズ データリファレンスマニュアル（SBCA-410AB）A-5 A-19～A-25、A-6 A-28～A-44"
+      ],
+      "conditions": [
+        "タスク周期優先リフレッシュはECC203条件等を対応表で確認。"
+      ]
+    }
   }
 }

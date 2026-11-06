@@ -19,12 +19,15 @@ def validate(model, spec):
         if section.get('connector'):
             resolve(section['connector']['kind'], section['connector'].get('gender', ''))
         pins = set()
+        identifier = 'wire' if section.get('cable_cores') else 'pin'
         for row in section.get('terminals', []):
-            if not all(isinstance(row.get(key, ''), str) for key in ('pin', 'signal', 'purpose', 'power_group')) or not row.get('signal'):
+            if not all(isinstance(row.get(key, ''), str) for key in (identifier, 'signal', 'purpose', 'power_group')) or not row.get('signal'):
                 raise ValueError(f'{model}: 端子情報が不正です')
-            pin = row.get('pin', '').strip()
+            pin = row.get(identifier, '').strip()
+            if identifier == 'wire' and not pin:
+                raise ValueError(f'{model}: {section["name"]}の芯線識別がありません')
             if pin and pin in pins:
-                raise ValueError(f'{model}: {section["name"]}の端子番号が重複しています: {pin}')
+                raise ValueError(f'{model}: {section["name"]}の端子・芯線識別が重複しています: {pin}')
             pins.add(pin)
             if row.get('lane') not in (None, '', 'P', 'N'):
                 raise ValueError(f'{model}: 電源極性が不正です')
@@ -134,7 +137,7 @@ def fit_cell(value, width):
     return '\n'.join(wrap(value, width, 7)[:3]), 7
 
 
-def _terminal_pages(pg, spec, sections, symbols):
+def _terminal_pages(pg, spec, sections, symbols, *, cable_cores=False):
     from gen_io_page import Page, IN_X, ROW_PITCH, io_table_header, wrap2, vcenter
     from .communication import draw_notes
     records = [(section, row) for section in sections for row in section.get('terminals', [])
@@ -169,7 +172,7 @@ def _terminal_pages(pg, spec, sections, symbols):
         for side, column in enumerate(columns[start:start + 2]):
             rows = [(section, row) for section, part in column for row in part]
             x = IN_X['plc'] + side * 620
-            io_table_header(page, pg, x + 4, 250, (45, 150), ('端子', '信号', '用途'))
+            io_table_header(page, pg, x + 4, 250, (45, 150), ('芯線' if cable_cores else '端子', '信号', '用途'))
             rails = _rails(page, rows, side * 620)
             top = 70
             for section, part in column:
@@ -177,10 +180,10 @@ def _terminal_pages(pg, spec, sections, symbols):
                 page.text(x + 12, top + 3, wrap2(section['name'], 230, 7), 7, True)
                 top += 22
                 for row in part:
-                    pin = row.get('pin', '')
+                    pin = row['wire'].replace(' ', '\n') if cable_cores else row.get('pin', '')
                     purpose, purpose_size = fit_cell(row.get('purpose', ''), 94)
                     label, label_size = fit_cell(row['signal'], 96)
-                    texts = [('auxiliary1', 10, vcenter(8), 8, False),
+                    texts = [('auxiliary1', 10, vcenter(8, pin.count('\n') + 1), 8, False),
                              ('label', 56, vcenter(label_size, label.count('\n') + 1), label_size, True, 98),
                              ('comment', 160, vcenter(purpose_size, purpose.count('\n') + 1), purpose_size, False, 94)]
                     from .analog import readonly_symbol

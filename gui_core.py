@@ -41,6 +41,8 @@ SERIES_NAMES['nac'] = 'NAC ノイズフィルタ'
 MAKER_NAMES['watanabe'] = '渡辺電機工業'
 SERIES_NAMES['al'] = 'AL プロセス表示器'
 KIND_NAMES = {
+    'kvbody': 'キーエンス PLC・リモートI/O構成', 'nxbody': 'オムロン NX・リモートI/O構成',
+    'kv_io': 'KV 本体・入出力・特殊ユニット', 'unit_diagram': 'ユニット・タッチパネル接続図',
     'inverter': 'インバータ',
     'fx5body': 'FX5 本体・拡張ボード',
     'mxbody': 'MX-F 本体', 'mxio': 'MX-F 入出力', 'remotepulse': 'CC-Link パルス・位置決め',
@@ -56,6 +58,8 @@ KIND_NAMES = {
 }
 SERIES_NAMES.update({'e800': 'FREQROL-E800', 'd800': 'FREQROL-D800', 'mx_r': 'MELSEC MX-R', 'mx_f': 'MELSEC MX-F', 's8as2': 'S8AS2 DC24V分岐電源', 's8fs_g': 'S8FS-G DC24V電源', 's8vk_g': 'S8VK-G DC24V電源', 's8vk_s': 'S8VK-S DC24V電源', 's8vk_x': 'S8VK-X DC24V電源'})
 PAGE_CATEGORIES = {
+    'kvbody': {'kv_io', 'unit_diagram'}, 'nxbody': {'unit_diagram'},
+    'kv_io': {'kv_io'}, 'unit_diagram': {'unit_diagram'},
     'inverter': {'inverter'},
     'power': {'fx5_cpu'}, 'input': {'iqr_q', 'remote_io'}, 'output': {'iqr_q', 'remote_io'},
     'gotbody': {'got_body'}, 'gotoption': {'got_option'}, 'qcomm': {'q_comm'}, 'iqrcomm': {'iqr_comm'}, 'fxcomm': {'fx5_comm'},
@@ -66,6 +70,7 @@ PAGE_CATEGORIES = {
     'iqranalog': {'iqr_analog'}, 'qanalog': {'q_analog'}, 'qmixed': {'q_mixed'}, 'iqrmixed': {'iqr_mixed'},
     'iqrbody': {'iqr_cpu'}, 'qbody': {'q_cpu'},
 }
+SERIES_NAMES.update({'kv_nano': 'KV Nano', 'vt3': 'VT3', 'vt5': 'VT5', 'na5': 'NA5'})
 
 
 def part_catalog(key, kind, root=PARTS_ROOT):
@@ -80,6 +85,8 @@ def part_catalog(key, kind, root=PARTS_ROOT):
         categories = set().union(*kinds.values())
     if key == 'modules':
         categories = {'iqr_q', 'iqr_analog', 'iqr_comm', 'iqr_mixed'} if kind == 'iqrbody' else {'iqr_q', 'q_analog', 'q_comm', 'q_mixed'} if kind == 'qbody' else {'fx5_comm'} if kind == 'fx5body' else {'mx_io', 'fx5_analog', 'fx5_comm'} if kind == 'mxbody' else set()
+        if kind in ('kvbody', 'nxbody'):
+            categories = PAGE_CATEGORIES[kind]
     definitions = gen.read_unit_definitions()
     catalog = {}
     for path in root.rglob('*.json'):
@@ -88,6 +95,15 @@ def part_catalog(key, kind, root=PARTS_ROOT):
         category, model = item.get('category'), item.get('model', '')
         if not isinstance(model, str) or category not in definitions or model.upper() not in definitions[category]:
             continue
+        if kind in ('kvbody', 'nxbody'):
+            maker = 'keyence' if kind == 'kvbody' else 'omron'
+            config = item['definition'].get('configuration', {})
+            if item['definition'].get('manufacturer', path.relative_to(root).parts[1]) != maker:
+                continue
+            if key == 'model' and config.get('role') not in ('cpu', 'coupler'):
+                continue
+            if key == 'modules' and config.get('role') not in ('module', 'adapter'):
+                continue
         cpu_head = kind == 'iqrbody' and item['definition'].get('mount_position') == 'cpu_slot'
         if key == 'modules' and cpu_head:
             continue
@@ -125,8 +141,13 @@ def series_kinds(maker, series, catalog):
     for kind in KIND_NAMES:
         if kind == 'power':
             continue  # 既存ファイルは読み込めるが、新規ページの選択肢には出さない。
+        if kind in ('kvbody', 'nxbody') and maker != ('keyence' if kind == 'kvbody' else 'omron'):
+            continue
         for category in PAGE_CATEGORIES[kind]:
             candidates = definitions[category]
+            if kind in ('kvbody', 'nxbody'):
+                candidates = {model: spec for model, spec in candidates.items()
+                              if spec.get('configuration', {}).get('role') in ('cpu', 'coupler')}
             if any(model in candidates and (kind not in ('input', 'output') or
                    candidates[model].get('io') == ('in' if kind == 'input' else 'out')) for model in models):
                 result.append(kind)
@@ -151,6 +172,8 @@ def export_part(model, folder, auxiliary=None, configuration=None, *, definition
     return [target]
 
 FIELDS = [('kind', '種類'), ('model', '形名'), ('tag', 'タグ名（管理番号）'), ('slot', 'スロット番号'), ('unit_no','ユニット番号'),
+          ('communication_mode', '通信方式'),
+          ('cpu_version', 'CPU機能バージョン'), ('software_version', '設定ソフトバージョン'),
           ('left_model', '左側通信ユニット'), ('left_tag', '左側 タグ名'), ('left_slot','左側 スロット番号'), ('left_unit_no','左側 ユニット番号'),
           ('right_model', '右側通信ユニット'), ('right_tag', '右側 タグ名'), ('right_slot','右側 スロット番号'), ('right_unit_no','右側 ユニット番号'),
           ('power_model', '電源ユニット'), ('power_tag', '電源 タグ名'), ('base_model', 'ベース'), ('base_tag', 'ベース タグ名'), ('title', 'ページ名'), ('csv', 'CSV'),
@@ -173,6 +196,8 @@ def page_property_fields(page):
     kind = page.get('kind', '')
     model = page.get('model') or page.get('left_model') or page.get('right_model') or ''
     visible = property_fields(kind, model)
+    if kind in ('kvbody', 'nxbody', 'kv_io', 'unit_diagram'):
+        return visible
     setting_keys = {prefix + key for prefix in ('', 'left_', 'right_') for key in communication_settings.LABELS}
     return [key for key in visible if key not in setting_keys] + [c['key'] for c in setting_controls(page) if c['visible']]
 
@@ -184,6 +209,17 @@ def cpu_options(kind, model):
 
 def property_fields(kind, model='', root=PARTS_ROOT):
     """部品フォルダの設定からページごとの表示項目を読む。"""
+    if kind in ('kvbody', 'nxbody'):
+        return ['kind', 'model', 'tag', 'unit_no', 'cpu_version', 'software_version']
+    if kind in ('kv_io', 'unit_diagram'):
+        fields = ['kind', 'model', 'tag', 'unit_no']
+        spec = gen.KV_IO.get(model.upper(), {}) if kind == 'kv_io' else gen.UNIT_DIAGRAMS.get(model.upper(), {})
+        if spec.get('module', {}).get('modes'):
+            fields.append('communication_mode')
+        fields += [key for _, key in spec.get('module', {}).get('settings', [])]
+        if any(s.get('connector', {}).get('kind') == 'rj45' for s in spec.get('sections', [])):
+            fields.append('ip')
+        return fields
     candidates = []
     for path in sorted(root.rglob('gui_properties.toml')):
         with path.open('rb') as f:

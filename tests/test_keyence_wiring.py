@@ -106,6 +106,7 @@ class KeyenceWiringTest(unittest.TestCase):
         self.assertTrue(all(e.get('uuid') in wired for e in power[:2]))
         self.assertNotIn(power[2].get('uuid'), wired)
         self.assertEqual(sum(key == 'conn_rj45' for key, _, _, _ in page.placed), 2)
+        self.assertFalse(any('ピン' in t.get('text', '') for t in page.texts))
         self.assertEqual({c.get('num') for c in page.conductors if c.get('num')}, {'P24', 'N24'})
         setting = next(t for t in page.texts if t.get('text') == 'IP設定')
         self.assertGreater(float(setting.get('x')), gen.FX_IN_X['inner'])

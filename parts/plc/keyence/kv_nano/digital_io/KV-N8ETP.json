@@ -36,6 +36,25 @@
       }
     ],
     "output_type": "source",
-    "input_common": "P"
+    "input_common": "P",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "keyence",
+      "category": "kv_io",
+      "bus": "legacy",
+      "compatible": {
+        "nano_terminal14": {},
+        "nano_terminal": {},
+        "nano_connector": {},
+        "nano_ec": {},
+        "nano_ep": {}
+      },
+      "source": [
+        "KV Nanoシリーズ 基本ユニット（端子台タイプ）ユーザーズマニュアル（084490）第1章1-2～1-7、第2章2-67",
+        "KV Nanoシリーズ 基本ユニット（コネクタタイプ）ユーザーズマニュアル（084846）第1章1-2～1-9、第2章2-43",
+        "KV-EP02 ユーザーズマニュアル（084485）第3章3-3",
+        "KV-EC01 ユーザーズマニュアル（084845）第3章3-3"
+      ]
+    }
   }
 }

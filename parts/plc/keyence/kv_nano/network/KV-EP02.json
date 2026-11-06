@@ -32,68 +32,12 @@
         {
           "name": "Port1 EtherNet/IP",
           "kind": "rj45",
-          "connector_label": "10BASE-T／100BASE-TX",
-          "pinout": [
-            {
-              "pin": "1",
-              "signal": "TD＋",
-              "description": "送信＋"
-            },
-            {
-              "pin": "2",
-              "signal": "TD－",
-              "description": "送信－"
-            },
-            {
-              "pin": "3",
-              "signal": "RD＋",
-              "description": "受信＋"
-            },
-            {
-              "pin": "6",
-              "signal": "RD－",
-              "description": "受信－"
-            }
-          ],
-          "unused": [
-            "4",
-            "5",
-            "7",
-            "8"
-          ]
+          "connector_label": "10BASE-T／100BASE-TX"
         },
         {
           "name": "Port2 EtherNet/IP",
           "kind": "rj45",
-          "connector_label": "10BASE-T／100BASE-TX",
-          "pinout": [
-            {
-              "pin": "1",
-              "signal": "TD＋",
-              "description": "送信＋"
-            },
-            {
-              "pin": "2",
-              "signal": "TD－",
-              "description": "送信－"
-            },
-            {
-              "pin": "3",
-              "signal": "RD＋",
-              "description": "受信＋"
-            },
-            {
-              "pin": "6",
-              "signal": "RD－",
-              "description": "受信－"
-            }
-          ],
-          "unused": [
-            "4",
-            "5",
-            "7",
-            "8"
-          ]
+          "connector_label": "10BASE-T／100BASE-TX"
         }
       ],
       "settings": [
@@ -103,6 +47,43 @@
         ]
       ],
       "note": "電源は機能別の展開。実端子の極性表示に従って接続。FGはD種接地。2ポートは内蔵スイッチで接続され、IPアドレスは共通。リング接続はしない。"
+    },
+    "configuration": {
+      "role": "coupler",
+      "manufacturer": "keyence",
+      "category": "kv_io",
+      "profile": "nano_ep",
+      "kind": "kvbody",
+      "buses": {
+        "direct": 8,
+        "legacy": 8
+      },
+      "source": [
+        "KV-EP02 ユーザーズマニュアル（084485）第2章2-2、第3章3-2～3-5"
+      ],
+      "max_modules": 8,
+      "count_buses": [
+        "direct",
+        "legacy"
+      ],
+      "conditions": [
+        "独立EtherNet/IPステーション。CPU横へ直装しない。",
+        "デジタル1スロット、アナログ/温度2スロット、変換器0。",
+        "自身120mAを含む合計1.8A以内。"
+      ],
+      "warnings": [
+        "上位NC1EP/他社区分の8スロット上限。上位KV7000/5000/3000の15区分は未指定。KV8000/X区分は資料未確定。"
+      ],
+      "native_bus": "direct",
+      "transition_buses": [
+        "direct",
+        "legacy"
+      ],
+      "transitions": {
+        "legacy>direct": "KV-N1",
+        "direct>legacy": "KV-NC1"
+      },
+      "adapter_limit": 1
     }
   }
 }

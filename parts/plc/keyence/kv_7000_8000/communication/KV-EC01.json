@@ -15,14 +15,12 @@
     "function": "EtherCATリモートI/O",
     "sections": [
       {
-        "name": "DC24V電源入力",
+        "name": "DC24V電源入力（ユニット正面からの順）",
         "terminals": [
           {
             "pin": "",
-            "signal": "24V",
-            "purpose": "外部電源",
-            "lane": "P",
-            "power_group": "main"
+            "signal": "FG",
+            "purpose": "接地"
           },
           {
             "pin": "",
@@ -33,8 +31,10 @@
           },
           {
             "pin": "",
-            "signal": "FG",
-            "purpose": "接地"
+            "signal": "24V",
+            "purpose": "外部電源",
+            "lane": "P",
+            "power_group": "main"
           }
         ]
       },
@@ -55,6 +55,42 @@
         }
       }
     ],
-    "note": "KV Nano拡張ユニットへの給電は本ユニットから供給。電源は機能別に展開。実端子の極性表示に従って接続。"
+    "note": "KV Nano拡張ユニットへの電力は本ユニットから供給。",
+    "configuration": {
+      "role": "coupler",
+      "manufacturer": "keyence",
+      "category": "unit_diagram",
+      "profile": "nano_ec",
+      "kind": "kvbody",
+      "buses": {
+        "direct": 15,
+        "legacy": 15
+      },
+      "source": [
+        "KV-EC01 ユーザーズマニュアル（084845）第1章1-2～1-3、第2章2-2、第3章3-2～3-5"
+      ],
+      "max_modules": 15,
+      "count_buses": [
+        "direct",
+        "legacy"
+      ],
+      "conditions": [
+        "独立EtherCATステーション。CPU横へ直接装着しない。",
+        "DC24V +10/-15%、自身と拡張の合計1.8A以内。"
+      ],
+      "warnings": [
+        "上位EtherCATマスタの台数・PDO容量・周期を別途確認。"
+      ],
+      "native_bus": "direct",
+      "transition_buses": [
+        "direct",
+        "legacy"
+      ],
+      "transitions": {
+        "legacy>direct": "KV-N1",
+        "direct>legacy": "KV-NC1"
+      },
+      "adapter_limit": 1
+    }
   }
 }

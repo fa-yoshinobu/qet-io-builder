@@ -111,6 +111,89 @@
         }
       }
     ],
-    "note": "2ポートには異なるネットワークのIPアドレスを設定する。"
+    "note": "2ポートには異なるネットワークのIPアドレスを設定する。",
+    "configuration": {
+      "role": "module",
+      "manufacturer": "keyence",
+      "category": "unit_diagram",
+      "bus": "direct",
+      "compatible": {
+        "kv8000": {
+          "min_cpu": "2.2",
+          "version_rules": [
+            {
+              "unit_at_least": "1.0",
+              "unit_below": "1.1",
+              "max_cpu": "2.2"
+            },
+            {
+              "unit_at_least": "1.1",
+              "unit_below": "1.2",
+              "max_cpu": "2.3"
+            },
+            {
+              "unit_at_least": "1.2",
+              "unit_below": "1.4",
+              "max_cpu": "2.4"
+            },
+            {
+              "unit_at_least": "1.4",
+              "unit_below": "1.5",
+              "max_cpu": "2.5"
+            },
+            {
+              "unit_at_least": "1.5",
+              "unit_below": "1.6",
+              "max_cpu": "2.6"
+            },
+            {
+              "unit_at_least": "1.6",
+              "unit_below": "1.8",
+              "max_cpu": "2.7"
+            },
+            {
+              "unit_at_least": "1.8",
+              "unit_below": "2.1",
+              "max_cpu": "2.8"
+            }
+          ]
+        },
+        "kvx": {
+          "min_unit": "1.7",
+          "conditions": [
+            "ユニット1.7は「いつもと違う分析」不可。CPU/ユニット版の対応範囲を個別UMで確認。"
+          ],
+          "version_rules": [
+            {
+              "unit_at_least": "1.7",
+              "unit_below": "1.8",
+              "max_cpu": "1.1"
+            },
+            {
+              "unit_at_least": "1.8",
+              "unit_below": "1.9",
+              "max_cpu": "1.2"
+            },
+            {
+              "unit_at_least": "1.9",
+              "unit_below": "2.0",
+              "max_cpu": "1.4"
+            },
+            {
+              "unit_at_least": "2.0",
+              "unit_below": "2.1",
+              "max_cpu": "1.4"
+            }
+          ]
+        }
+      },
+      "source": [
+        "KV-7000シリーズ ユーザーズマニュアル（084754）第1章1-3～1-4、第3章3-2、付録9 付-38～付-40",
+        "KV-8000シリーズ ユーザーズマニュアル（084823）第1章1-3～1-4、第3章3-2、付録10 付-43～付-45",
+        "KV-X500シリーズ ユーザーズマニュアル（084914）第1章1-3～1-4、第3章3-2、付録6 付-25～付-26",
+        "データ活用ユニット KV-XD02 ユーザーズマニュアル（084957）機能版差分、第1章1-5、第2章2-2"
+      ],
+      "max_count": 1
+    }
   }
 }

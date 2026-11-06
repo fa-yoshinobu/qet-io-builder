@@ -85,6 +85,48 @@
         }
       }
     ],
-    "note": "KV-PU1を接続する場合、CPUのDC電源入力端子から重ねて給電しない。"
+    "note": "KV-PU1を接続する場合、CPUのDC電源入力端子から重ねて給電しない。",
+    "configuration": {
+      "role": "cpu",
+      "manufacturer": "keyence",
+      "category": "unit_diagram",
+      "profile": "kv7000",
+      "kind": "kvbody",
+      "buses": {
+        "direct": 16,
+        "legacy": 48,
+        "power": 1
+      },
+      "source": [
+        "KV-7000シリーズ ユーザーズマニュアル（084754）第1章1-3～1-4、第3章3-2、付録9 付-38～付-40",
+        "KV-8000シリーズ ユーザーズマニュアル（084823）第1章1-3～1-4、第3章3-2、付録10 付-43～付-45",
+        "KV-X500シリーズ ユーザーズマニュアル（084914）第1章1-3～1-4、第3章3-2、付録6 付-25～付-26"
+      ],
+      "max_modules": 48,
+      "count_buses": [
+        "direct",
+        "legacy"
+      ],
+      "ordered_buses": [
+        "direct",
+        "legacy"
+      ],
+      "adapters": {
+        "legacy": "KV-7000C"
+      },
+      "end_cover": "エンドユニット",
+      "end_on_bus": "legacy",
+      "conditions": [
+        "CPU横の第1段は高速/旧型合計16台まで。17台以上はKV-EB1S/EB1Rによる増設が必要。",
+        "高速ユニットは第1段のみ。旧型混在時はDC24V±10%、0～50℃。",
+        "PU1使用時はサービス電源込み1.8A以内。外部DC入力との重複給電不可。"
+      ],
+      "warnings": [
+        "各ユニット最大消費電流と増設段ごとの電源容量を別途確認。"
+      ],
+      "unsegmented_limit": 16,
+      "min_cpu": "1.0",
+      "min_software": "8.0"
+    }
   }
 }
