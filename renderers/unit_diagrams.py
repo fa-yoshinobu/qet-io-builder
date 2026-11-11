@@ -1,4 +1,5 @@
 """メーカー資料の実端子・ポートから単体接続図を作る。"""
+from .typography import _clean_split, cell_wrap, fit_cell
 import copy
 import math
 
@@ -84,57 +85,6 @@ def _power_wire(page, rails, row, terminal):
     page.conductors[-1].set('userx', str(round(endpoint - 12 - text_w(label, 8) - 2 * TEXT_MARGIN, 1)))
     page.conductors[-1].set('usery', str(round(y - 8 * PX_PER_PT - 2 * TEXT_MARGIN - 2, 1)))
     rails[(group, row['lane'])][1] = node
-
-
-def _clean_split(value, width, size):
-    """語の区切り(空白・「／」の後・「（」の前)で2段に分ける。両段が収まらなければ None。"""
-    from gen_io_page import text_w
-    best = None
-    for index in range(1, len(value)):
-        c = value[index]
-        if c in '／/':
-            head, tail, rank = value[:index + 1], value[index + 1:], 0
-        elif c in '（(':
-            head, tail, rank = value[:index], value[index:], 1
-        elif c == ' ':
-            head, tail, rank = value[:index], value[index + 1:], 2
-        else:
-            continue
-        head, tail = head.rstrip(), tail.lstrip()
-        if head and tail and text_w(head, size) <= width and text_w(tail, size) <= width:
-            key = (rank, abs(text_w(head, size) - text_w(tail, size)))
-            if best is None or key < best[0]:
-                best = (key, head + '\n' + tail)
-    return best[1] if best else None
-
-
-def cell_wrap(value, width, size):
-    """欄内の折返し。語の区切りを優先し、無ければ禁則付きの文字単位で2段まで。"""
-    from gen_io_page import text_w, wrap2
-    from .communication import wrap
-    if '\n' in value or text_w(value, size) <= width:
-        return wrap2(value, width, size)
-    split = _clean_split(value, width, size)
-    if split:
-        return split
-    lines = wrap(value, width, size)
-    return '\n'.join(lines) if len(lines) <= 2 else wrap2(value, width, size)
-
-
-def fit_cell(value, width):
-    """欄に入る表記と文字サイズ。8ptで語の区切りで収まらなければ7ptを試し、最後は7ptの3段まで。"""
-    from gen_io_page import text_w
-    from .communication import wrap
-    if '\n' in value or text_w(value, 8) <= width:
-        return value, 8
-    for size in (8, 7):
-        split = _clean_split(value, width, size)
-        if split:
-            return split, size
-    lines = wrap(value, width, 8)
-    if len(lines) <= 2 and all(text_w(line, 8) <= width for line in lines):
-        return '\n'.join(lines), 8
-    return '\n'.join(wrap(value, width, 7)[:3]), 7
 
 
 def _terminal_pages(pg, spec, sections, symbols, *, cable_cores=False):

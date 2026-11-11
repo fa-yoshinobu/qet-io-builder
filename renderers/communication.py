@@ -1,4 +1,5 @@
 """異種コネクタを備えた通信・情報連携ユニットの正面図。"""
+from .typography import text_width, wrap, NO_LINE_START, NO_LINE_END
 
 
 def connector(symbols, kind, Symbol):
@@ -16,79 +17,6 @@ def connector_label_x(kind):
     """コネクタの右に書く名前の x(絵の幅 + 余白)"""
     from . import connectors
     return 5 + connectors.width(kind) + 12
-
-
-def text_width(text, pt):
-    """文字幅の目安(px)。全角は 1pt = 96/72 px、半角はその 0.55 倍"""
-    px = pt * 96 / 72
-    return sum(px if ord(c) > 255 else px * 0.55 for c in str(text))
-
-
-# 行頭に置かない文字(句読点・閉じ括弧・長音など)と、行末に置かない文字(開き括弧)
-NO_LINE_START = set('、。，．,.)）]］}｝」』】〕〉》〙！？!?・：:;；ー〜～%％ゃゅょっぁぃぅぇぉャュョッァィゥェォ')
-NO_LINE_END = set('(（[［{｛「『【〔〈《〘')
-
-
-def _tokens(text):
-    """英数字・記号の続き(型式・CH1 など)は1語、全角文字は1文字ずつ、空白は区切り。"""
-    tokens, word = [], ''
-    for c in text:
-        if c == ' ':
-            if word:
-                tokens.append(word); word = ''
-            tokens.append(' ')
-        elif ord(c) < 0x2000 and c not in '()[]{},.;:!?':
-            word += c
-        else:
-            if word:
-                tokens.append(word); word = ''
-            tokens.append(c)
-    if word:
-        tokens.append(word)
-    return tokens
-
-
-def wrap(text, width, pt, measure=text_width):
-    """幅 width に収まるように折り返す。英数字の語は分けず、句読点・閉じ括弧は行頭に、
-    開き括弧は行末に置かない。最後の行が1〜2文字だけになるときは前の行から送る。"""
-    lines = []
-    for paragraph in str(text).split('\n'):
-        rows, line = [], []
-        for token in _tokens(paragraph):
-            if token == ' ' and not line:
-                continue
-            if line and measure(''.join(line) + token, pt) > width:
-                carry = []
-                if token in NO_LINE_START and len(line) > 1:
-                    carry = [line.pop()]                    # 句読点の前の1文字ごと次の行へ
-                while len(line) > 1 and line[-1] in NO_LINE_END:
-                    carry.insert(0, line.pop())
-                while line and line[-1] == ' ':
-                    line.pop()
-                rows.append(line)
-                line = carry
-                if token == ' ':
-                    continue
-            if measure(token, pt) > width and len(token) > 1:
-                for c in token:                             # 1語が欄より長いときだけ文字で区切る
-                    if line and measure(''.join(line) + c, pt) > width:
-                        rows.append(line); line = []
-                    line.append(c)
-                continue
-            line.append(token)
-        if line:
-            rows.append(line)
-        if len(rows) > 1 and len(''.join(rows[-1]).strip()) <= 2:
-            # 1〜2文字だけの行を作らない
-            while len(rows[-2]) > 1 and len(''.join(rows[-1]).strip()) <= 2:
-                moved = rows[-2].pop()
-                if moved != ' ':
-                    rows[-1].insert(0, moved)
-                if measure(''.join(rows[-1]), pt) > width:
-                    rows[-1].pop(0); rows[-2].append(moved)
-                    break
-        lines += [''.join(row).strip() for row in rows]
-    return [line for line in lines if line] or ([] if not str(text).strip() else [str(text)])
 
 
 def draw_notes(p, x, width, notes):

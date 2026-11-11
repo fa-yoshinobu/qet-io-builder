@@ -27,6 +27,7 @@ import uuid
 from datetime import date
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
+from renderers.typography import PX_PER_PT, TEXT_MARGIN, text_w, wrap2, fit_font_size
 
 # 図面の文字は MS ゴシック(Windows 標準・等幅: 半角 = 全角の半分)。
 # 図枠・線番・参照表示の文字は QElectroTech 本体の設定(図面のフォント)で決まる
@@ -815,11 +816,9 @@ def xref_devices(pages_rows, cfg):
 
 
 # ------------------------------------------------------------ IOコメント(2段)
-PX_PER_PT = 96 / 72   # QElectroTech は 96dpi 換算でポイントを図面の単位にする
 
 
 VCENTER_SYMBOLS = {"plc_in", "plc_out", "fx_in", "fx_out", "fx_in_dual", "fx_out_dual"}   # 文字を上下中央ぞろえにする部品
-TEXT_MARGIN = 4      # QElectroTech の文字枠の余白(上下それぞれ)
 
 
 def vcenter(size, lines=1):
@@ -827,34 +826,9 @@ def vcenter(size, lines=1):
     return round(-(2 * TEXT_MARGIN + lines * size * PX_PER_PT) / 2, 1)
 
 
-def text_w(t, size):
-    """MS ゴシックの文字幅(全角 = 1em、半角 = 0.5em)。半角カナも 0.5em"""
-    em = size * PX_PER_PT
-    return sum(em * (0.5 if (ord(c) < 0x2000 or 0xFF61 <= ord(c) <= 0xFF9F) else 1.0) for c in t)
-
-
 def comment_value(r):
     """CSVの信号名。「|」で改行を指定できる(指定がなければ欄の幅で自動改行)"""
     return r["信号名"].strip().replace("|", "\n")
-
-
-def wrap2(value, width, size):
-    """欄の幅を超える行を折り返す(最大2段)"""
-    if "\n" not in value and text_w(value, size) <= width:
-        return value
-    out = []
-    for line in value.split("\n"):
-        cur = ""
-        for c in line:
-            if cur and text_w(cur + c, size) > width:
-                out.append(cur)
-                cur = c
-            else:
-                cur += c
-        out.append(cur)
-    if len(out) > 2:
-        out = out[:1] + ["".join(out[1:])]
-    return "\n".join(out)
 
 
 def comment_text(value, x, width, size, row_h):
@@ -927,21 +901,9 @@ class Page:
             if cell:
                 tx,tw = cell
                 value = str({'label':label,'comment':comment,**(infos or {})}.get(info,''))
-                max_size = size
-                for size in dict.fromkeys((max_size,9,8,7,6)):
-                    if size>max_size:
-                        continue
-                    # Qtの等幅フォントのピクセル丸めを考慮し、実際の折返し行数に合わせる。
-                    pixel_ratio=math.ceil(size*PX_PER_PT/2)/(size*PX_PER_PT/2)
-                    lines=sum(max(1,math.ceil(text_w(line,size)*pixel_ratio/(tw-2*TEXT_MARGIN))) for line in value.split('\n'))
-                    row_height=32 if key.startswith('fx_') else ROW_PITCH
-                    # 折り返せる位置(空白・「/」の後)の無い記号(24VDC_1 など)は、途中で切れないよう1行に収まる大きさにする
-                    single='\n' not in value and not re.search(r'\s|/(?=\D)',value.strip())
-                    if single and lines>1 and size>6:
-                        continue
-                    if lines<=2 and lines*size*PX_PER_PT+2*TEXT_MARGIN<=row_height:
-                        break
-                ty = vcenter(size,min(lines,2))
+                row_height = 32 if key.startswith('fx_') else ROW_PITCH
+                size, lines = fit_font_size(value, tw, row_height, size)
+                ty = vcenter(size, lines)
             t = ET.SubElement(dyn, "dynamic_elmt_text", uuid=u(), x=str(tx), y=str(ty),
                               text_from="ElementInfo", Halignment="AlignHCenter" if cell else "AlignLeft", Valignment=valign,
                               rotation="0", text_width=str(tw), keep_visual_rotation="false",
