@@ -109,7 +109,7 @@ width = 40
 height = 60
 notes = "標準の固定文字1/2/3/4を含む。極数と定格は型式で指定する。"
 terminal_roles = { line1 = [-10, -20], load1 = [-10, 20], line2 = [10, -20], load2 = [10, 20] }
-text_roles = { line1 = [-12, -39], load1 = [-12, 11], line2 = [8, -39], load2 = [8, 11] }
+text_roles = { line1 = [-30, -39], load1 = [-30, 22], line2 = [-10, -55], load2 = [-10, 38] }
 kind = { type = "protection" }
 
 [symbols.pushbutton_no]
@@ -317,7 +317,7 @@ width = 40
 height = 60
 notes = "主回路3極のみ。トリップNC/NOは別の標準接点を使う。"
 terminal_roles = { line1 = [0, -21], load1 = [0, 21], line2 = [10, -21], load2 = [10, 21], line3 = [20, -21], load3 = [20, 21] }
-text_roles = { line1 = [-2, -30], load1 = [-2, 12], line2 = [8, -30], load2 = [8, 12], line3 = [18, -30], load3 = [18, 12] }
+text_roles = { line1 = [-20, -39], load1 = [-20, 22], line2 = [-4, -55], load2 = [-4, 38], line3 = [12, -39], load3 = [12, 22] }
 kind = { type = "protection" }
 
 [symbols.terminal_3way]
@@ -564,6 +564,6 @@ link_type = "master"
 width = 60
 height = 60
 terminal_roles = { line1 = [-20, -20], load1 = [-20, 20], line2 = [0, -20], load2 = [0, 20], line3 = [20, -20], load3 = [20, 20] }
-text_roles = { line1 = [-22, -39], load1 = [-22, 11], line2 = [-2, -39], load2 = [-2, 11], line3 = [18, -39], load3 = [18, 11] }
+text_roles = { line1 = [-40, -39], load1 = [-40, 22], line2 = [-20, -55], load2 = [-20, 38], line3 = [0, -39], load3 = [0, 22] }
 terminal_texts = ["1", "2", "3", "4", "5", "6"]
 kind = { type = "protection" }

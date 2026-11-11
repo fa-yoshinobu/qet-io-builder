@@ -12,6 +12,25 @@ from renderers import standard
 
 class StandardPartsExportTest(unittest.TestCase):
     @requires_qet
+    def test_multipole_terminal_labels_keep_full_names_at_readable_size(self):
+        devices = g.read_unit_definitions()['standard_device']
+        for model in ('CP30FM-2P001', 'CP30-BA 3P 1-M 1A', 'TR65X3H-044', 'TH-T18KP 0.9A'):
+            with self.subTest(model=model):
+                spec = devices[model]
+                part, template, labels = next(standard.bindings(spec))
+                xml = standard.bind_definition(model, spec, part, template, labels)
+                texts = {n.findtext('text'): n for n in xml.findall('./description/dynamic_text')
+                         if n.get('text_from') == 'UserText'}
+                for values in labels.values():
+                    name = '/'.join(values)
+                    self.assertIn(name, texts)
+                    self.assertEqual(float(texts[name].get('font').split(',')[1]), 7)
+                upper = [texts['/'.join(values)] for role, values in labels.items() if role.startswith('line')]
+                lower = [texts['/'.join(values)] for role, values in labels.items() if role.startswith('load')]
+                self.assertLess(float(upper[1].get('y')), float(upper[0].get('y')))
+                self.assertGreater(float(lower[1].get('y')), float(lower[0].get('y')))
+
+    @requires_qet
     def test_all_catalog_symbols_match_the_installed_collection(self):
         root = standard.collection_root()
         self.assertTrue({'coil', 'contact_no', 'contact_nc', 'contact_changeover', 'lamp'} <= set(standard.catalog()))

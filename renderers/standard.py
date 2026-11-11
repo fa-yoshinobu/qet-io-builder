@@ -144,6 +144,7 @@ def bind_definition(model, spec, part, template, labels, elements=None):
     if spec.get('configuration_id'):
         identity += '/configuration/' + spec['configuration_id']
     text_right = 30
+    staggered = template in ('breaker_2p', 'breaker_3p', 'thermal_relay_3p')
     for terminal in terminals:
         role = role_by_position[(float(terminal.get('x')), float(terminal.get('y')))]
         text = '/'.join(labels[role])
@@ -153,9 +154,9 @@ def bind_definition(model, spec, part, template, labels, elements=None):
             polarity = spec.get('lamp' if template == 'lamp' else 'coil', {}).get('polarity_by_terminal', {}).get(labels[role][0])
             if polarity:
                 text += ' (' + polarity + ')' if polarity in ('+', '-') else ' ' + polarity
-        elif template in ('main_contact_3p', 'thermal_relay_3p'):
+        elif template == 'main_contact_3p':
             text = text.replace('/', '\n')
-        elif record['category'] == 'breaker':
+        elif record['category'] == 'breaker' and not staggered:
             text = text.replace(' ', '\n')
         x, y = record.get('text_roles', {}).get(role, [float(terminal.get('x')) + 4, float(terminal.get('y')) - 9])
         if terminal.get('orientation') == 'w' and role not in record.get('text_roles', {}):
@@ -165,7 +166,7 @@ def bind_definition(model, spec, part, template, labels, elements=None):
                              x=str(x), y=str(y), z='5', text_from='UserText',
                              Halignment='AlignLeft', Valignment='AlignTop', rotation='0',
                              text_width='-1', keep_visual_rotation='false', frame='false',
-                             font='MS Gothic,5,-1,5,50,0,0,0,0,0' if template == 'thermal_relay_3p' else 'MS Gothic,6,-1,5,50,0,0,0,0,0')
+                             font='MS Gothic,7,-1,5,50,0,0,0,0,0' if staggered else 'MS Gothic,6,-1,5,50,0,0,0,0,0')
         ET.SubElement(node, 'text').text = text
         if template == 'transformer_1p_tapped':
             node.set('rotation', '270')
