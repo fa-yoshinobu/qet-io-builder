@@ -14,6 +14,29 @@ def info(element, name):
 
 
 class UnitDiagramsTest(unittest.TestCase):
+    def test_long_nx_purposes_keep_readable_size_without_losing_terminal_meaning(self):
+        model = 'NX-HTC3510-5'
+        spec = gen.UNIT_DIAGRAMS[model]
+        pages = build_pages({'model': model}, spec, gen.build_symbols())
+        actual = []
+        for _, page in pages:
+            for key, element, x, _ in page.placed:
+                if not key.startswith('plc_in_unit'):
+                    continue
+                purpose = info(element, 'comment') or ''
+                actual.append(tuple(''.join((info(element, name) or '').split())
+                                    for name in ('auxiliary1', 'label', 'comment')))
+                text = next(t for t in element.findall('dynamic_texts/dynamic_elmt_text')
+                            if t.findtext('info_name') == 'comment')
+                self.assertEqual(float(text.get('font').split(',')[1]), 8)
+                self.assertLessEqual(len(purpose.splitlines()), 2)
+                self.assertLessEqual(x + 4 + 330, 1260)
+        expected = [tuple(''.join(row.get(name, '').split())
+                          for name in ('pin', 'signal', 'purpose'))
+                    for section in spec['sections'] for row in section.get('terminals', [])
+                    if row['signal'].upper() != 'NC']
+        self.assertCountEqual(actual, expected)
+
     def test_terminal_expansion_preserves_every_real_terminal(self):
         for model, spec in gen.UNIT_DIAGRAMS.items():
             with self.subTest(model=model):

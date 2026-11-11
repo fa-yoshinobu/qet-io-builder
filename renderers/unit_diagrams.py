@@ -69,6 +69,19 @@ def _terminal_pages(pg, spec, sections, symbols, *, cable_cores=False):
                if row['signal'].upper() != 'NC']
     if not records:
         return []
+    # 長い用途は半ページ内の余白を使い、縮小する前に読める欄幅を確保する。
+    wide = spec.get('manufacturer') == 'omron' and any(
+        fit_cell(row.get('purpose', ''), 94)[1] < 8 for _, row in records)
+    table_width, purpose_width, purpose_text_width = (330, 160, 174) if wide else (250, 94, 94)
+    row_symbol = 'plc_in_unit_wide' if wide else 'plc_in_unit'
+    if wide and row_symbol not in symbols:
+        symbol = copy.deepcopy(symbols['plc_in_unit'])
+        symbol.name = row_symbol
+        symbol.width += table_width - 250
+        for kind, attributes in symbol.parts:
+            if kind == 'rect':
+                attributes['width'] = table_width
+        symbols[row_symbol] = symbol
     notes = _notes(spec, sections)
     footer_top = draw_notes(Page(symbols), 30, 1200, notes)
     available = footer_top - 8 - 70
@@ -96,23 +109,23 @@ def _terminal_pages(pg, spec, sections, symbols, *, cable_cores=False):
         draw_notes(page, 30, 1200, notes)
         for side, column in enumerate(columns[start:start + 2]):
             rows = [(section, row) for section, part in column for row in part]
-            x = IN_X['plc'] + side * 620
-            io_table_header(page, pg, x + 4, 250, (45, 150), ('芯線' if cable_cores else '端子', '信号', '用途'))
+            x = IN_X['plc'] + side * 620 - (50 if wide else 0)
+            io_table_header(page, pg, x + 4, table_width, (45, 150), ('芯線' if cable_cores else '端子', '信号', '用途'))
             rails = _rails(page, rows, side * 620)
             top = 70
             for section, part in column:
-                page.rect(x + 4, top, x + 254, top + 22, dash=False, width=1)
-                page.text(x + 12, top + 3, wrap2(section['name'], 230, 7), 7, True)
+                page.rect(x + 4, top, x + 4 + table_width, top + 22, dash=False, width=1)
+                page.text(x + 12, top + 3, wrap2(section['name'], table_width - 20, 7), 7, True)
                 top += 22
                 for row in part:
                     pin = row['wire'].replace(' ', '\n') if cable_cores else row.get('pin', '')
-                    purpose, purpose_size = fit_cell(row.get('purpose', ''), 94)
+                    purpose, purpose_size = fit_cell(row.get('purpose', ''), purpose_width)
                     label, label_size = fit_cell(row['signal'], 96)
                     texts = [('auxiliary1', 10, vcenter(8, pin.count('\n') + 1), 8, False),
                              ('label', 56, vcenter(label_size, label.count('\n') + 1), label_size, True, 98),
-                             ('comment', 160, vcenter(purpose_size, purpose.count('\n') + 1), purpose_size, False, 94)]
+                             ('comment', 160, vcenter(purpose_size, purpose.count('\n') + 1), purpose_size, False, purpose_text_width)]
                     from .analog import readonly_symbol
-                    key = 'plc_in_unit' if row.get('connectable', True) else readonly_symbol(symbols, 'plc_in_unit')
+                    key = row_symbol if row.get('connectable', True) else readonly_symbol(symbols, row_symbol)
                     terminal = page.place(key, x, top + ROW_PITCH / 2,
                                           label=label, comment=purpose,
                                           infos={'auxiliary1': pin}, texts=texts)
