@@ -2522,7 +2522,8 @@ def build_fx_analog_page(pg, cfg, symbols, rows, start=0):
                     connector_name = spec['channel_connectors'][idx]['name']
                     if not comment.startswith(connector_name):
                         comment = connector_name + ' ' + comment
-                comment = wrap2(comment, 140, 8)
+                # Qtの整数pixel文字送りと左右余白を含めて用途欄へ収める。
+                comment = wrap2(comment, 116, 8)
                 key = 'plc_in' if row['connectable'] else readonly_symbol(p.sym, 'plc_in')
                 h = p.place(key, x, y, label=name, comment=comment, infos={'auxiliary1': pin},
                             texts=[text for text in IN_TEXTS if text[0] != 'comment'] +
@@ -2549,7 +2550,7 @@ def build_fx_analog_page(pg, cfg, symbols, rows, start=0):
             if terminal.get('connectable') is False:
                 key = readonly_symbol(p.sym, 'plc_in')
             description = terminal.get('description', terminal.get('group', '')) + ('（外部配線不可）' if terminal.get('connectable') is False and terminal['signal'] != 'NC' else '')
-            description = wrap2(description, 140, 8)
+            description = wrap2(description, 116, 8)
             p.place(key, IN_X['plc'], y, label=terminal['signal'], comment=description,
                     infos={'auxiliary1': str(terminal['pin'])},
                     texts=[text for text in IN_TEXTS if text[0] != 'comment'] + [comment_text(description, 110, 140, 8, ROW_PITCH)])

@@ -1,5 +1,6 @@
 """多分岐電子機器の接続可能な箱型部品。"""
 from xml.etree import ElementTree as ET
+import math
 
 
 def unit_header(symbol, model, width):
@@ -15,8 +16,11 @@ def unit_header(symbol, model, width):
     number_x = 6 + text_w('ユニットNo.', 7)
     symbol.dynamic('auxiliary1', number_x, -9+vcenter(7), 7)
     symbol.dynamic('label', first, -9+vcenter(7), 7, True)
-    size = next((s for s in (8,7,6) if text_w(model,s) <= width-second-8),6)
-    symbol.label(second+(width-second-text_w(model,size))/2, -9+size*PX_PER_PT/2, model, size, True)
+    # Qtは半角文字送りを整数pixelへ丸めるため、連続値のem幅では長い形名が枠を越える。
+    def model_width(size):
+        return len(model) * math.ceil(size * PX_PER_PT / 2)
+    size = next((s for s in (8,7,6) if model_width(s) <= width-second-8),6)
+    symbol.label(second+(width-second-model_width(size))/2, -9+size*PX_PER_PT/2, model, size, True)
 
 
 def align_unit_header(xml, width):

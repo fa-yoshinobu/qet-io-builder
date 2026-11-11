@@ -97,6 +97,7 @@ width = 30
 height = 100
 notes = "接地端子の図記号。link_type=simpleで、端子管理の自動設定は含まない。"
 terminal_roles = { first = [0, -40], second = [0, 40] }
+text_roles = { first = [12, -49], second = [12, 31] }
 
 [symbols.breaker_2p]
 terminal_texts = ["1", "2", "3", "4"]
@@ -108,6 +109,7 @@ width = 40
 height = 60
 notes = "標準の固定文字1/2/3/4を含む。極数と定格は型式で指定する。"
 terminal_roles = { line1 = [-10, -20], load1 = [-10, 20], line2 = [10, -20], load2 = [10, 20] }
+text_roles = { line1 = [-12, -39], load1 = [-12, 11], line2 = [8, -39], load2 = [8, 11] }
 kind = { type = "protection" }
 
 [symbols.pushbutton_no]
@@ -216,7 +218,7 @@ width = 60
 height = 70
 terminal_roles = { line1 = [-10, -25], line2 = [10, -25], load1 = [-10, 25], load2 = [10, 25], earth = [25, 0] }
 terminal_texts = ["L", "N", "L'", "N'", "PE"]
-text_roles = { line1 = [-19, -19], line2 = [2, -19], load1 = [-19, 10], load2 = [2, 10], earth = [26, -19] }
+text_roles = { line1 = [-19, -19], line2 = [2, -19], load1 = [-19, 4], load2 = [2, 4], earth = [26, -19] }
 notes = "標準コレクションのフィルタ機能記号。実機の素子構成を描いた等価回路ではない。同電位のFG端子は併記する。"
 
 [symbols.ammeter]
@@ -315,6 +317,7 @@ width = 40
 height = 60
 notes = "主回路3極のみ。トリップNC/NOは別の標準接点を使う。"
 terminal_roles = { line1 = [0, -21], load1 = [0, 21], line2 = [10, -21], load2 = [10, 21], line3 = [20, -21], load3 = [20, 21] }
+text_roles = { line1 = [-2, -30], load1 = [-2, 12], line2 = [8, -30], load2 = [8, 12], line3 = [18, -30], load3 = [18, 12] }
 kind = { type = "protection" }
 
 [symbols.terminal_3way]
@@ -561,5 +564,6 @@ link_type = "master"
 width = 60
 height = 60
 terminal_roles = { line1 = [-20, -20], load1 = [-20, 20], line2 = [0, -20], load2 = [0, 20], line3 = [20, -20], load3 = [20, 20] }
+text_roles = { line1 = [-22, -39], load1 = [-22, 11], line2 = [-2, -39], load2 = [-2, 11], line3 = [18, -39], load3 = [18, 11] }
 terminal_texts = ["1", "2", "3", "4", "5", "6"]
 kind = { type = "protection" }

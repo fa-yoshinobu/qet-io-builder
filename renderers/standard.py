@@ -254,6 +254,13 @@ def bind_definition(model, spec, part, template, labels, elements=None):
                                font='MS Gothic,7,-1,5,50,0,0,0,0,0')
         ET.SubElement(rating, 'text')
         ET.SubElement(rating, 'info_name').text = 'comment'
+    for node in desc.findall('dynamic_text'):
+        if node.findtext('info_name') == 'designation':
+            # 標準記号の用途欄も形名・定格の情報列に置き、代替フォントの幅に依存させない。
+            node.set('font', 'MS Gothic,' + node.get('font').split(',', 1)[1])
+            node.set('x', str(x))
+            node.set('y', str(y + (30 if spec.get('display_ratings') else 15)))
+            node.set('Valignment', 'AlignTop')
     original = definition.find('informations')
     if spec.get('coil'):
         note = ('コイル電圧・ソケットは別途選択。基本形式から注文SKUを推定しない。'
