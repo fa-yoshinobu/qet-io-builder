@@ -118,7 +118,8 @@ def render(path, outdir, pages=None, s=1.0, *, draw_factory=None):
             x = 20 + i * cs; dr.line([P(x, 0), P(x, 20)], fill="black"); dr.text(P(x + cs / 2 - 4, 4), str(i + 1), fill="black", font=fnt(7, s=s))
         for i in range(rows):
             y = 20 + i * rs; dr.line([P(0, y), P(20, y)], fill="black"); dr.text(P(6, y + rs / 2 - 6), "ABCDEFGHIJ"[i], fill="black", font=fnt(7, s=s))
-        dr.text(P(700, 20 + rows * rs + 10), dg.get("title", ""), fill="black", font=fnt(10, s=s))
+        draw_text(im, dr, P(700, 20 + rows * rs + 10), dg.get("title", ""),
+                  10, s=s, margin=0, save_image=outdir is not None)
         if draw_factory is not None:
             dr = draw_factory(dr, dg, pi)
         terms = {}

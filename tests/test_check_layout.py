@@ -12,6 +12,20 @@ from tools import check_layout, preview_qet
 
 
 class LayoutCheckTest(unittest.TestCase):
+    def test_preview_title_uses_outline_text_without_changing_hyphens(self):
+        title = 'NX-HTC3510-5 高機能温度調節 (1/2)'
+        root = ET.Element('project')
+        ET.SubElement(root, 'diagram', title=title, cols='20', colsize='62',
+                      rows='10', rowsize='80')
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'title.qet'
+            ET.ElementTree(root).write(path, encoding='utf-8')
+            with patch.object(preview_qet, 'draw_text', wraps=preview_qet.draw_text) as draw:
+                outputs = preview_qet.render(path, folder, s=0.8)
+            self.assertEqual(len(outputs), 1)
+            self.assertEqual(draw.call_args.args[3], title)
+            self.assertEqual(draw.call_args.kwargs['s'], 0.8)
+
     def test_white_ellipse_hides_only_covered_line_segments(self):
         draw = check_layout.RecordingDraw(ImageDraw.Draw(Image.new('RGB', (100, 100))), (0, 0, 100, 100))
         draw.line([(0, 50), (100, 50)])
