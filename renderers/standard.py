@@ -162,6 +162,9 @@ def bind_definition(model, spec, part, template, labels, elements=None):
         if terminal.get('orientation') == 'w' and role not in record.get('text_roles', {}):
             width = max(sum(4 if ord(c) < 128 else 8 for c in line) for line in text.split('\n'))
             x = float(terminal.get('x')) - width - 4
+        if template == 'cabinet_outlet' and role == 'line':
+            from .typography import text_w, TEXT_MARGIN
+            x = float(terminal.get('x')) - text_w(text, 6) - TEXT_MARGIN - 6
         node = ET.SubElement(desc, 'dynamic_text', uuid=stable_id(identity + '/text/' + role),
                              x=str(x), y=str(y), z='5', text_from='UserText',
                              Halignment='AlignLeft', Valignment='AlignTop', rotation='0',

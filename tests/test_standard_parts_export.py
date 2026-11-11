@@ -12,6 +12,23 @@ from renderers import standard
 
 class StandardPartsExportTest(unittest.TestCase):
     @requires_qet
+    def test_outlet_line_label_stays_next_to_its_terminal_at_either_length(self):
+        from renderers.typography import text_w, TEXT_MARGIN
+        devices = g.read_unit_definitions()['standard_device']
+        for model in ('WK3001W', 'WK3004W'):
+            with self.subTest(model=model):
+                part, template, labels = next(standard.bindings(devices[model]))
+                xml = standard.bind_definition(model, devices[model], part, template, labels)
+                expected = '/'.join(labels['line'])
+                text = next(t for t in xml.findall('./description/dynamic_text') if t.findtext('text') == expected)
+                self.assertEqual(float(text.get('font').split(',')[1]), 6)
+                terminal = next(t for t in xml.findall('./description/terminal') if t.get('name') == expected)
+                right = float(text.get('x')) + TEXT_MARGIN + text_w(expected, 6)
+                self.assertEqual(float(terminal.get('x')) - right, 6)
+                self.assertEqual((float(terminal.get('x')), float(terminal.get('y'))),
+                                 tuple(standard.catalog()[template]['terminal_roles']['line']))
+
+    @requires_qet
     def test_multipole_terminal_labels_keep_full_names_at_readable_size(self):
         devices = g.read_unit_definitions()['standard_device']
         for model in ('CP30FM-2P001', 'CP30-BA 3P 1-M 1A', 'TR65X3H-044', 'TH-T18KP 0.9A'):
