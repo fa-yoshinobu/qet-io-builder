@@ -1,153 +1,163 @@
-"""QElectroTech の画面を自動で操作して .qet を PDF に書き出し、A3 横にそろえる(Windows 専用)。
-QET にはコマンドラインの書き出し機能がないため、画面操作(UI オートメーション)で「PDFにエクスポート」を行う。
+"""JSON/QET またはメーカーの全機種を native QET CLI で A3 PDF に出力する。
 
-使い方: python tools/qet_export_pdf.py 図面.qet [出力.pdf]
-  出力を省略すると .qet と同じ場所・同じ名前の .pdf。実行中の数十秒は QET が画面に出るので操作しないこと。
-  書き出した図面は QET に開いたまま残す。
-必要: pywinauto・pypdf(PDF出力.bat が足りなければ入れる)。QET は既定の場所か、環境変数 QET_EXE で指定。
+python tools/qet_export_pdf.py project.json [output.pdf] [--qet-exe PATH]
+python tools/qet_export_pdf.py --manufacturer keyence --output-dir PDF
+python tools/qet_export_pdf.py --list-manufacturers
 """
+import argparse
 import os
+from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
-import time
 import xml.etree.ElementTree as ET
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, HERE)
-from pdf_to_a3 import to_a3   # noqa: E402
-
-QET_CANDIDATES = [
-    os.environ.get("QET_EXE", ""),
-    r"C:\Program Files\QElectroTech\bin\qelectrotech.exe",
-    r"C:\Program Files (x86)\QElectroTech\bin\qelectrotech.exe",
-]
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from pypdf import PdfReader, PdfWriter
+from pypdf.errors import PdfReadError
+from tools.pdf_to_a3 import to_a3
 
 
-def log(msg):
-    print(time.strftime("%H:%M:%S"), msg, flush=True)
+def find_qet(explicit=None):
+    requested = explicit or os.environ.get('QET_EXE')
+    if requested:
+        found = shutil.which(str(requested))
+        if found:
+            return found
+        raise FileNotFoundError(f'指定したQETが見つかりません: {requested}')
+    found = shutil.which('qelectrotech') or shutil.which('qelectrotech.exe')
+    if found:
+        return found
+    for directory in (os.environ.get('ProgramFiles'), os.environ.get('ProgramFiles(x86)'),
+                      '/Applications/qelectrotech.app/Contents/MacOS'):
+        if not directory:
+            continue
+        candidate = Path(directory) / ('qelectrotech' if directory.endswith('MacOS') else 'QElectroTech/bin/qelectrotech.exe')
+        if candidate.is_file():
+            return str(candidate)
+    raise FileNotFoundError('QETが見つかりません。--qet-exe または環境変数 QET_EXE を指定してください。')
 
 
-def drawing_size(qet_path):
-    """図面の幅・高さ(区画帯 + 図枠 + 表題欄)。A3 化で図面の位置を計算するのに使う"""
-    root = ET.parse(qet_path).getroot()
-    d = root.find("diagram")
-    w = int(d.get("cols")) * float(d.get("colsize")) + 20
-    h = int(d.get("rows")) * float(d.get("rowsize")) + 20
-    grid = root.find(".//titleblocktemplate//grid")
-    if grid is not None:
-        h += sum(float(v) for v in grid.get("rows", "").split(";") if v.strip())
-    return w, h
+def export(qet_path, pdf_path, qet_exe=None, timeout=600):
+    """PDFを検証・A3化した後だけ置換する。既存のQET画面/設定を触らない。"""
+    source, destination = Path(qet_path).resolve(), Path(pdf_path).resolve()
+    if destination.suffix.lower() != '.pdf':
+        raise ValueError('出力先は .pdf を指定してください')
+    expected = len(ET.parse(source).getroot().findall('diagram'))
+    if not expected:
+        raise ValueError('図面ページがありません')
+    executable = find_qet(qet_exe)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(dir=destination.parent, prefix='qet_pdf_') as folder:
+        folder = Path(folder)
+        temporary = folder / 'native.pdf'
+        settings = folder / 'settings'
+        settings.mkdir()
+        env = dict(os.environ, QET_SETTINGS_DIR=str(settings))
+        result = subprocess.run([executable, '--export-pdf', str(source), str(temporary)],
+                                env=env, capture_output=True, text=True, errors='replace', timeout=timeout)
+        if result.returncode:
+            raise RuntimeError('QETのPDF出力に失敗しました。--export-pdf対応版が必要です。\n'
+                               + result.stdout + result.stderr)
+        with temporary.open('rb') as handle:
+            actual = len(PdfReader(handle).pages)
+        if actual != expected:
+            raise ValueError(f'PDFページ数が一致しません: QET {expected}, PDF {actual}')
+        to_a3(str(temporary), native=True)
+        with temporary.open('rb') as handle:
+            if len(PdfReader(handle).pages) != expected:
+                raise ValueError('A3変換後のページ数が一致しません')
+        os.replace(temporary, destination)
+    return expected
 
 
-def wait(cond, timeout, step=0.3, what=""):
-    end = time.time() + timeout
-    while time.time() < end:
-        r = cond()
-        if r:
-            return r
-        time.sleep(step)
-    raise SystemExit(f"時間切れ: {what}")
+def export_input(source, destination, qet_exe=None, timeout=600):
+    source, destination = Path(source).resolve(), Path(destination).resolve()
+    if source.suffix.lower() == '.qet':
+        return export(source, destination, qet_exe, timeout)
+    if source.suffix.lower() != '.json':
+        raise ValueError('入力は .json または .qet を指定してください')
+    import gen_io_page
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(dir=destination.parent, prefix='qet_build_') as folder:
+        qet = Path(folder) / destination.with_suffix('.qet').name
+        gen_io_page.main(str(source), str(qet))
+        pages = export(qet, destination, qet_exe, timeout)
+        # 作成したQETも再編集できるようPDFと同じ場所へ残す。
+        os.replace(qet, destination.with_suffix('.qet'))
+    return pages
 
 
-def find(desktop, **kw):
+def export_catalog(manufacturer, output_dir, qet_exe=None, timeout=600):
+    from tools.catalog_qet import manufacturers, build_category
+    catalog = manufacturers()
+    chosen = sorted(catalog) if manufacturer == 'all' else [manufacturer]
+    if any(maker not in catalog for maker in chosen):
+        raise ValueError('未登録のメーカーです。--list-manufacturers で確認してください')
+    executable = find_qet(qet_exe)
+    output_dir = Path(output_dir).resolve()
+    output_dir.mkdir(parents=True, exist_ok=True)
+    results = []
+    for maker in chosen:
+        with tempfile.TemporaryDirectory(dir=output_dir, prefix='qet_catalog_') as folder:
+            folder = Path(folder)
+            writer = PdfWriter()
+            expected = 0
+            try:
+                for category, models in catalog[maker].items():
+                    qet = build_category(category, models, folder / category)
+                    pdf = qet.with_suffix('.pdf')
+                    pages = export(qet, pdf, executable, timeout)
+                    expected += pages
+                    writer.append(str(pdf))
+                    print(f'{maker}/{category}: {len(models)}機種 / {pages}ページ', flush=True)
+                merged = folder / (maker + '.pdf')
+                with merged.open('wb') as handle:
+                    writer.write(handle)
+            finally:
+                writer.close()
+            with merged.open('rb') as handle:
+                if len(PdfReader(handle).pages) != expected:
+                    raise ValueError('結合後のPDFページ数が一致しません')
+            destination = output_dir / merged.name
+            os.replace(merged, destination)
+            results.append((destination, expected))
+            print(f'完了: {destination} ({expected}ページ)', flush=True)
+    return results
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('source', nargs='?')
+    parser.add_argument('output', nargs='?')
+    parser.add_argument('--qet-exe')
+    parser.add_argument('--timeout', type=float, default=600, help='QET処理1回の上限秒数（既定600）')
+    parser.add_argument('--manufacturer', help='メーカー名、または all')
+    parser.add_argument('--output-dir', default='PDF')
+    parser.add_argument('--list-manufacturers', action='store_true')
+    args = parser.parse_args(argv)
+    if args.timeout <= 0:
+        parser.error('--timeout は正の秒数を指定してください')
     try:
-        w = desktop.window(**kw)
-        return w if w.exists(timeout=0) else None
-    except Exception:
-        return None
+        if args.list_manufacturers:
+            from tools.catalog_qet import manufacturers
+            for maker, categories in manufacturers().items():
+                print(maker, sum(len(models) for models in categories.values()))
+        elif args.manufacturer:
+            if args.source or args.output:
+                parser.error('--manufacturer と入力ファイルは同時指定できません')
+            export_catalog(args.manufacturer, args.output_dir, args.qet_exe, args.timeout)
+        elif args.source:
+            output = args.output or str(Path(args.source).with_suffix('.pdf'))
+            pages = export_input(args.source, output, args.qet_exe, args.timeout)
+            print(f'完了: {Path(output).resolve()} ({pages}ページ)')
+        else:
+            parser.error('入力ファイルまたは --manufacturer を指定してください')
+    except (OSError, ValueError, RuntimeError, PdfReadError, subprocess.TimeoutExpired) as error:
+        parser.exit(1, f'PDF出力エラー: {error}\n')
 
 
-def _export_pdf(qet_path, pdf_path):
-    from pywinauto import Desktop
-    from pywinauto.keyboard import send_keys
-
-    exe = next((p for p in QET_CANDIDATES if p and os.path.exists(p)), None)
-    if not exe:
-        raise SystemExit("qelectrotech.exe が見つかりません。環境変数 QET_EXE に場所を指定してください。")
-    desk = Desktop(backend="uia")
-    name = os.path.basename(qet_path)
-
-    log("QET を起動")
-    subprocess.Popen([exe, qet_path])
-    # 「バックアップを作成しますか?」が出たら いいえ。メイン画面にファイル名が出たら開けた
-    def opened():
-        for w in desk.windows():
-            t = w.window_text()
-            window = desk.window(handle=w.handle)
-            btn = find(window, title_re="いいえ.*|No", control_type="Button") if "QElectroTech" not in t else None
-            if btn:
-                btn.click_input()
-            if "QElectroTech" in t and name in t:
-                return window
-        return None
-    main = wait(opened, 60, what="図面を開く")
-    main.set_focus()
-    time.sleep(2)
-
-    log("ファイル > PDFにエクスポート")
-    main.child_window(title_re="ファイル.*|File.*", control_type="MenuItem").click_input()
-    item = wait(lambda: find(desk, title_re=".*PDF.*", control_type="MenuItem") or
-                next((m for w in desk.windows() for m in w.descendants(control_type="MenuItem")
-                      if "PDF" in m.window_text()), None), 10, what="PDF のメニュー")
-    item.click_input()
-
-    # 書き出しの確認画面(ページ一覧と「PDF にエクスポート」ボタン)
-    def export_button():
-        dialog = find(desk, process=main.process_id(),
-                      auto_id="SingleApplication.ProjectPrintWindow", control_type="Window", top_level_only=False)
-        if dialog:
-            return find(dialog, auto_id="SingleApplication.ProjectPrintWindow.centralwidget.m_button_box.QPushButton",
-                        title_re=".*PDF.*", control_type="Button")
-        return None
-    wait(export_button, 20, what="書き出し画面").click_input()
-
-    # 保存先を入れる(Windows のファイル保存画面)
-    def save_dialog():
-        for w in desk.windows():
-            if w.process_id() != main.process_id():
-                continue
-            window = desk.window(handle=w.handle)
-            edit = find(window, auto_id="1001", control_type="Edit")
-            if edit:
-                return window, edit
-        return None
-    dlg, edit = wait(save_dialog, 20, what="保存画面")
-    edit.set_edit_text(pdf_path)
-    time.sleep(0.5)
-    save = find(dlg, auto_id="1", control_type="Button")
-    (save.click_input() if save else send_keys("{ENTER}"))
-
-    log("書き出し中")
-    last = [-1]
-    def written():
-        if not os.path.exists(pdf_path):
-            return False
-        size = os.path.getsize(pdf_path)
-        done = size > 0 and size == last[0]
-        last[0] = size
-        return done
-    wait(written, 120, step=1.0, what="PDF の書き出し")
-
-
-def export(qet_path, pdf_path):
-    pdf_path = os.path.abspath(pdf_path)
-    with tempfile.TemporaryDirectory(dir=os.path.dirname(pdf_path), prefix="qet_pdf_") as folder:
-        temporary = os.path.join(folder, "export.pdf")
-        _export_pdf(qet_path, temporary)
-        log("A3 横にそろえる")
-        to_a3(temporary, drawing_size(qet_path))
-        os.replace(temporary, pdf_path)
-
-
-def main():
-    if len(sys.argv) < 2:
-        print(__doc__); sys.exit(2)
-    qet = os.path.abspath(sys.argv[1])
-    pdf = os.path.abspath(sys.argv[2]) if len(sys.argv) > 2 else os.path.splitext(qet)[0] + ".pdf"
-    export(qet, pdf)
-    log(f"完了: {pdf}")
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

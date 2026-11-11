@@ -26,9 +26,10 @@ def calc_bbox(page, drawing):
     return (QET_MARGIN, H - QET_MARGIN - s * dh, QET_MARGIN + s * dw, H - QET_MARGIN)
 
 
-def to_a3(path, drawing=None):
+def to_a3(path, drawing=None, *, native=False):
     rd = PdfReader(path); wr = PdfWriter()
-    bb = gs_bboxes(path)
+    # native --export-pdfは図枠をMediaBoxへ直接出す（旧GUI出力の10mm余白はない）。
+    bb = [tuple(map(float, p.mediabox)) for p in rd.pages] if native else gs_bboxes(path)
     if bb is None:
         if not drawing:
             raise SystemExit("Ghostscript が見つかりません。--drawing 幅x高さ を指定してください(例 --drawing 1260x870)")
@@ -37,6 +38,8 @@ def to_a3(path, drawing=None):
         raise SystemExit(f"PDF の余白を全ページで測定できません: {path}")
     for page, (x0, y0, x1, y1) in zip(rd.pages, bb):
         w, h = x1 - x0, y1 - y0
+        if w <= 0 or h <= 0:
+            raise ValueError("PDFの図面サイズが不正です")
         s = (A3[0] - A3[1]) / (w - h) if w > h else 0      # 上下左右の余白が同じになる倍率
         if s <= 0 or (A3[1] - s * h) / 2 < MIN_MARGIN:     # 余白が狭すぎるときは最小余白で収める
             s = min((A3[0] - 2 * MIN_MARGIN) / w, (A3[1] - 2 * MIN_MARGIN) / h)

@@ -1,13 +1,13 @@
 import contextlib
 import io
-import sys
+import subprocess
 import tempfile
-import types
 import unittest
 from pathlib import Path
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 try:
+    from pypdf import PdfReader, PdfWriter
     from tools import qet_export_pdf as pdf_export
 except ModuleNotFoundError as error:
     if error.name != 'pypdf':
@@ -22,139 +22,80 @@ class PdfExportSafetyTest(unittest.TestCase):
         self.addCleanup(folder.cleanup)
         self.folder = Path(folder.name)
         self.source = self.folder / 'drawing.qet'
-        self.source.write_text('<project><diagram cols="20" colsize="62" rows="10" rowsize="80"/></project>', encoding='utf-8')
+        self.source.write_text('<project><diagram/></project>', encoding='utf-8')
         self.output = self.folder / 'drawing.pdf'
         self.output.write_bytes(b'previous PDF')
-        self.exe = self.folder / 'qelectrotech.exe'
-        self.exe.touch()
-        self.ui = MagicMock()
-        pywinauto = types.ModuleType('pywinauto')
-        pywinauto.Desktop = MagicMock(return_value=self.ui)
-        keyboard = types.ModuleType('pywinauto.keyboard')
-        keyboard.send_keys = MagicMock()
-        self.enterContext(patch.dict(sys.modules, {'pywinauto': pywinauto, 'pywinauto.keyboard': keyboard}))
-        self.enterContext(patch.object(pdf_export, 'QET_CANDIDATES', [str(self.exe)]))
-        self.enterContext(patch.object(pdf_export.time, 'sleep'))
-        self.real_find, self.real_wait = pdf_export.find, pdf_export.wait
-        self.enterContext(patch.object(pdf_export, 'find', return_value=self.ui))
-        self.enterContext(patch.object(pdf_export, 'wait', side_effect=self.wait))
-        self.launch = self.enterContext(patch.object(pdf_export.subprocess, 'Popen'))
-        self.run = self.enterContext(patch.object(pdf_export.subprocess, 'run'))
+        self.enterContext(patch.object(pdf_export, 'find_qet', return_value='qelectrotech'))
+        self.run = self.enterContext(patch.object(pdf_export.subprocess, 'run', side_effect=self.native))
         self.enterContext(contextlib.redirect_stdout(io.StringIO()))
 
-    def wait(self, condition, timeout, step=0.3, what=''):
-        if what == '保存画面':
-            return self.ui, self.ui
-        if what == 'PDF の書き出し':
-            temporary = Path(self.ui.set_edit_text.call_args.args[0])
-            self.assertNotEqual(temporary, self.output)
-            self.assertEqual(self.output.read_bytes(), b'previous PDF')
-            temporary.write_bytes(b'new PDF')
-            self.assertFalse(condition())
-            self.assertTrue(condition())
-        return self.ui
-
-    def assert_cleaned(self):
-        self.assertEqual(list(self.folder.glob('qet_pdf_*')), [])
-        self.run.assert_not_called()
-
-    def test_replaces_pdf_only_after_conversion_and_leaves_qet_open(self):
-        def convert(path, drawing):
-            self.assertEqual(self.output.read_bytes(), b'previous PDF')
-            self.assertEqual(drawing, (1260, 820))
-            Path(path).write_bytes(b'A3 PDF')
-
-        with patch.object(pdf_export, 'to_a3', side_effect=convert) as conversion:
-            pdf_export.export(str(self.source), str(self.output))
-        self.assertEqual(self.output.read_bytes(), b'A3 PDF')
-        conversion.assert_called_once()
-        self.assert_cleaned()
-
-    def test_start_failure_keeps_existing_pdf(self):
-        self.launch.side_effect = OSError('QET could not start')
-        with patch.object(pdf_export, 'to_a3') as conversion:
-            with self.assertRaisesRegex(OSError, 'could not start'):
-                pdf_export.export(str(self.source), str(self.output))
+    def native(self, args, **kwargs):
+        self.assertEqual(args[1], '--export-pdf')
+        self.assertNotEqual(Path(args[3]), self.output)
         self.assertEqual(self.output.read_bytes(), b'previous PDF')
-        conversion.assert_not_called()
-        self.assert_cleaned()
+        self.assertTrue(Path(kwargs['env']['QET_SETTINGS_DIR']).is_dir())
+        writer = PdfWriter()
+        writer.add_blank_page(width=946, height=653)
+        with open(args[3], 'wb') as handle:
+            writer.write(handle)
+        return subprocess.CompletedProcess(args, 0, '', '')
+
+    def assert_preserved(self):
+        self.assertEqual(self.output.read_bytes(), b'previous PDF')
+        self.assertEqual(list(self.folder.glob('qet_pdf_*')), [])
+
+    def test_native_output_replaced_only_after_a3_conversion(self):
+        pdf_export.export(self.source, self.output)
+        with self.output.open('rb') as handle:
+            pages = PdfReader(handle).pages
+            self.assertEqual(len(pages), 1)
+            self.assertAlmostEqual(float(pages[0].mediabox.width), 1190.55)
+            self.assertAlmostEqual(float(pages[0].mediabox.height), 841.89)
+        self.assertEqual(list(self.folder.glob('qet_pdf_*')), [])
+
+    def test_native_failure_timeout_and_missing_file_keep_existing_pdf(self):
+        for failure in (OSError('not found'), subprocess.TimeoutExpired('QET', 1)):
+            with self.subTest(failure=failure):
+                self.run.side_effect = failure
+                with self.assertRaises(type(failure)):
+                    pdf_export.export(self.source, self.output)
+                self.assert_preserved()
+        self.run.side_effect = None
+        self.run.return_value = subprocess.CompletedProcess([], 2, '', 'unsupported option')
+        with self.assertRaisesRegex(RuntimeError, 'unsupported option'):
+            pdf_export.export(self.source, self.output)
+        self.assert_preserved()
+
+    def test_page_mismatch_keeps_existing_pdf(self):
+        self.source.write_text('<project><diagram/><diagram/></project>', encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'PDF 1'):
+            pdf_export.export(self.source, self.output)
+        self.assert_preserved()
 
     def test_conversion_failure_keeps_existing_pdf(self):
         with patch.object(pdf_export, 'to_a3', side_effect=ValueError('invalid PDF')):
             with self.assertRaisesRegex(ValueError, 'invalid PDF'):
-                pdf_export.export(str(self.source), str(self.output))
-        self.assertEqual(self.output.read_bytes(), b'previous PDF')
-        self.assert_cleaned()
+                pdf_export.export(self.source, self.output)
+        self.assert_preserved()
 
-    def test_ui_timeout_keeps_existing_pdf(self):
-        pdf_export.wait.side_effect = SystemExit('UI timeout')
-        with patch.object(pdf_export, 'to_a3') as conversion:
-            with self.assertRaisesRegex(SystemExit, 'UI timeout'):
-                pdf_export.export(str(self.source), str(self.output))
-        self.assertEqual(self.output.read_bytes(), b'previous PDF')
-        conversion.assert_not_called()
-        self.assert_cleaned()
+    def test_requested_qet_path_is_not_silently_replaced_by_auto_detection(self):
+        with patch.object(pdf_export, 'find_qet', self.find_qet), patch.object(pdf_export.shutil, 'which', return_value=None):
+            with self.assertRaises(FileNotFoundError):
+                pdf_export.find_qet('missing-explicit-qet')
 
-    def test_cli_keeps_default_and_explicit_output_paths(self):
-        for args, output in (([str(self.source)], self.output),
-                             ([str(self.source), str(self.folder / 'other.pdf')], self.folder / 'other.pdf')):
-            with self.subTest(args=args), patch.object(sys, 'argv', ['qet_export_pdf.py', *args]), \
-                    patch.object(pdf_export, 'export') as export, patch.object(pdf_export, 'to_a3') as conversion:
-                pdf_export.main()
-                export.assert_called_once_with(str(self.source), str(output))
-                conversion.assert_not_called()
+    find_qet = staticmethod(pdf_export.find_qet if pdf_export else lambda: None)
 
-    def test_uses_window_specs_and_confirmation_dialog_not_toolbar(self):
-        self.enterContext(patch.object(pdf_export, 'find', self.real_find))
-        self.enterContext(patch.object(pdf_export, 'wait', self.real_wait))
-        missing = MagicMock()
-        missing.exists.return_value = False
-        specs = [MagicMock() for _ in range(4)]
-        main, unrelated, confirmation, save = specs
-        wrappers = []
-        for handle, process, title in ((1, 10, 'QElectroTech drawing.qet'),
-                                       (2, 20, 'Other Save As'),
-                                       (3, 10, 'Export'), (4, 10, 'Save As')):
-            wrapper = MagicMock(spec=['handle', 'window_text', 'process_id', 'descendants'])
-            wrapper.handle = handle
-            wrapper.window_text.return_value = title
-            wrapper.process_id.return_value = process
-            wrappers.append(wrapper)
-        main.process_id.return_value = 10
-        self.ui.windows.return_value = wrappers
-        toolbar = MagicMock()
-        toolbar.window_text.return_value = 'PDF にエクスポート'
-        toolbar.click_input.side_effect = AssertionError('toolbar must not be clicked')
-        wrappers[0].descendants.return_value = [toolbar]
-        menu, confirm_button, edit, save_button = (MagicMock() for _ in range(4))
-        for spec in specs:
-            spec.window.return_value = missing
-        confirmation.window.side_effect = lambda **kw: (
-            confirm_button if kw.get('auto_id') ==
-            'SingleApplication.ProjectPrintWindow.centralwidget.m_button_box.QPushButton'
-            and kw.get('title_re') == '.*PDF.*' else missing)
-        save.window.side_effect = lambda **kw: {'1001': edit, '1': save_button}.get(kw.get('auto_id'), missing)
-
-        def window(**kw):
-            if 'handle' in kw:
-                return specs[kw['handle'] - 1]
-            if kw.get('auto_id') == 'SingleApplication.ProjectPrintWindow' and kw.get('process') == 10:
-                self.assertFalse(kw['top_level_only'])
-                return confirmation
-            if kw.get('control_type') == 'MenuItem':
-                return menu
-            return missing
-
-        self.ui.window.side_effect = window
-        temporary = self.folder / 'native.pdf'
-        save_button.click_input.side_effect = lambda: temporary.write_bytes(b'native PDF')
-        pdf_export._export_pdf(str(self.source), str(temporary))
-        main.child_window.assert_called_once()
-        confirm_button.click_input.assert_called_once()
-        toolbar.click_input.assert_not_called()
-        unrelated.window.assert_not_called()
-        edit.set_edit_text.assert_called_once_with(str(temporary))
-        self.assertEqual(temporary.read_bytes(), b'native PDF')
+    def test_catalog_failure_keeps_existing_manufacturer_pdf(self):
+        from tools import catalog_qet
+        destination = self.folder / 'keyence.pdf'
+        destination.write_bytes(b'catalog old')
+        with patch.object(catalog_qet, 'manufacturers', return_value={'keyence': {'unit_diagram': {'KV': {}}}}), \
+             patch.object(catalog_qet, 'build_category', return_value=self.source), \
+             patch.object(pdf_export, 'export', side_effect=RuntimeError('export failed')):
+            with self.assertRaisesRegex(RuntimeError, 'export failed'):
+                pdf_export.export_catalog('keyence', self.folder)
+        self.assertEqual(destination.read_bytes(), b'catalog old')
+        self.assertEqual(list(self.folder.glob('qet_catalog_*')), [])
 
 
 if __name__ == '__main__':
