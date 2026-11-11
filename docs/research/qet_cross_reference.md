@@ -21,14 +21,6 @@ QET標準設定で上下2行・極ごとの列へ変更する方法は確認で�
 表の部品情報に所有コイルの固有IDを保存し、QETで保存し直しても重複せず更新できる。表を手動で移動した位置も維持する。
 自動更新のタイミングは外部ツール実行時。QET内で移動した瞬間に更新する機能ではない。既存PLCのIO図の生成処理は変更していない。
 
-## 試験ファイル（ローカルのみ）
-
-- `_review/xref_trial/xref_before.qet`: 移動前。
-- `_review/xref_trial/xref_edit.qet`: QETで接点を移動して保存したもの。
-- `_review/xref_trial/build.py`: 試験ファイルを生成するスクリプト。再実行すると上記ファイルを初期状態へ戻す。
-
-PDFは作成していない。
-
 ## 参照資料
 
 - [QET公式マニュアル](https://qelectrotech.org/test/lang-en/manual): Cross references / View cross。
