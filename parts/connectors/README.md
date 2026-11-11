@@ -50,7 +50,7 @@
 極数つきの `terminal_N`(ねじ端子台)・`mil_N`・`fcn_N`・`power_N`・`one_touch_N` は、定義の `connector_type` に書けば自動で作ります。別名: `usb`・`usb_mini_b` → `usb_minib`、`coax` → `coax_f`、`dsub9_male` → `dsub9`(オス)、`dsub9_neutral` → `dsub9`(性別なし)。
 
 ## QET の部品として使う
-`python tools/export_connector_elements.py` で `parts/connectors/elements/` に .elmt を書き出します。フォルダごと QET のユーザーコレクションにコピーすると、図面に手で置けます。性別で絵が変わるものはオス・メスの2つを書き出します。
+`python tools/export_connector_elements.py parts/connectors/elements` で `parts/connectors/elements/` に .elmt を書き出します。フォルダごと QET のユーザーコレクションにコピーすると、図面に手で置けます。性別で絵が変わるものはオス・メスの2つを書き出します。
 
 ## 新しいコネクタを足すとき
 `renderers/connectors.py` に絵の関数を書き、`CONNECTORS` に登録します。上の決まりに合わせてください。図面生成と .elmt の書き出しの両方に反映されます。

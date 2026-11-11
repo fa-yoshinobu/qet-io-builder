@@ -1,6 +1,7 @@
 """コネクタの絵(renderers/connectors.py の共通部品)を、QET に置ける単体 .elmt 部品として書き出す。
-使い方: python tools/export_connector_elements.py   → parts/connectors/elements/*.elmt
+使い方: python tools/export_connector_elements.py parts/connectors/elements
 QET の「ユーザーコレクション」にフォルダごとコピーすると、図面に手で置ける。"""
+import argparse
 import sys
 import uuid
 from pathlib import Path
@@ -47,5 +48,12 @@ def export(target=ROOT / 'parts/connectors/elements'):
     return outputs
 
 
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('output_dir', type=Path, help='出力先フォルダー（従来の出力先: parts/connectors/elements）')
+    args = parser.parse_args(argv)
+    print('Exported', len(export(args.output_dir)), 'connector parts')
+
+
 if __name__ == '__main__':
-    print('Exported', len(export()), 'connector parts')
+    main()

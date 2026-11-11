@@ -1,4 +1,5 @@
 """電源の機種JSONから、QETに配置できる単体.elmt部品を生成する。"""
+import argparse
 import json
 import sys
 import uuid
@@ -110,5 +111,12 @@ def export(root=ROOT / 'parts/power_supply/omron'):
     return outputs
 
 
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('root', type=Path, help='定義ルート（従来の対象: parts/power_supply/omron）。各シリーズの elements へ出力')
+    args = parser.parse_args(argv)
+    print('Exported', len(export(args.root)), 'QET parts')
+
+
 if __name__ == '__main__':
-    print('Exported', len(export()), 'QET parts')
+    main()

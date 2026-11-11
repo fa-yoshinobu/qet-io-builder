@@ -2,6 +2,8 @@
 使い方: python tools/pdf_to_a3.py [--drawing 1260x870] pdf/*.pdf   (ファイルを上書き。pypdf が必要)
 図面の範囲は Ghostscript で測る。Ghostscript がなければ --drawing(図面の幅x高さ)から計算する
 (QET の書き出しは 10mm の余白で図面を左上に寄せて縮小するので、図面の大きさから位置が決まる)。"""
+import argparse
+import math
 import re, shutil, subprocess, sys
 from pypdf import PdfReader, PdfWriter, Transformation
 A3 = (1190.55, 841.89)
@@ -54,9 +56,24 @@ def to_a3(path, drawing=None, *, native=False):
     print(path, len(rd.pages), "pages")
 
 
-if __name__ == "__main__":
-    args, drawing = sys.argv[1:], None
-    if args[:1] == ["--drawing"]:
-        drawing = tuple(float(v) for v in args[1].lower().split("x")); args = args[2:]
-    for p in args:
-        to_a3(p, drawing)
+def drawing_size(value):
+    try:
+        dimensions = tuple(float(v) for v in value.lower().split('x'))
+        if len(dimensions) == 2 and all(math.isfinite(v) and v > 0 for v in dimensions):
+            return dimensions
+    except ValueError:
+        pass
+    raise argparse.ArgumentTypeError('図面サイズは正の幅x高さで指定してください（例: 1260x870）')
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--drawing', type=drawing_size, metavar='幅x高さ', help='Ghostscript がない場合に使用する図面サイズ')
+    parser.add_argument('pdf', nargs='+', help='A3 横へ調整する PDF（上書き）')
+    args = parser.parse_args(argv)
+    for path in args.pdf:
+        to_a3(path, args.drawing)
+
+
+if __name__ == '__main__':
+    main()

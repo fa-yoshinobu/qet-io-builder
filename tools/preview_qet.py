@@ -2,6 +2,7 @@
 QET の自動配線は L 字で近似し、表題欄は名称だけを描く。正式な確認は QET の「PDFにエクスポート」で行う。
 使い方: python tools/preview_qet.py 図面.qet 出力フォルダ [ページ(例 1,2,5-7 / all)] [倍率(既定0.8)]
 必要: Pillow。日本語フォントは Noto Sans CJK(Linux)か MS ゴシック(Windows)を使う。"""
+import argparse
 import sys, os, re, math
 import xml.etree.ElementTree as ET
 from PIL import Image, ImageDraw, ImageFont
@@ -194,7 +195,22 @@ def parse_pages(t):
         if "-" in part: a, b = part.split("-"); r |= set(range(int(a), int(b) + 1))
         elif part: r.add(int(part))
     return r
-if __name__ == "__main__":
-    pages = parse_pages(sys.argv[3]) if len(sys.argv) > 3 and sys.argv[3] != "all" else None
-    s = float(sys.argv[4]) if len(sys.argv) > 4 else 0.8
-    for o in render(sys.argv[1], sys.argv[2], pages, s): print(o)
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('qet', help='入力 QET ファイル')
+    parser.add_argument('output_dir', help='PNG の出力先フォルダー')
+    parser.add_argument('pages', nargs='?', default=None,
+                        type=lambda value: None if value == 'all' else parse_pages(value),
+                        help='ページ指定（例: 1,2,5-7 / all、既定: all）')
+    parser.add_argument('scale', nargs='?', type=float, default=0.8, help='描画倍率（既定: 0.8）')
+    args = parser.parse_args(argv)
+    if not math.isfinite(args.scale) or args.scale <= 0:
+        parser.error('描画倍率は正の数で指定してください')
+    for output in render(args.qet, args.output_dir, args.pages, args.scale):
+        print(output)
+
+
+if __name__ == '__main__':
+    main()

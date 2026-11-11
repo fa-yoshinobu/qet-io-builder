@@ -17,7 +17,7 @@ GUIの「制御部品の書出し・ユーザーコレクション登録」か�
 各シリーズの `power_supply/` に機種JSON、`elements/` にQET用部品を置きます。機種定義から部品を再生成する場合は、リポジトリのフォルダで次を実行します。
 
 ```console
-python tools/export_power_supply_elements.py
+python tools/export_power_supply_elements.py parts/power_supply/omron
 ```
 
 ## 図の扱い
