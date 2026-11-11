@@ -11,7 +11,9 @@ class RackSetupTest(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         script = r"""
 const fs = require('fs'), vm = require('vm'), assert = require('assert/strict');
-const source = fs.readFileSync('webgui/static/app.js', 'utf8');
+const scripts = [...fs.readFileSync('webgui/static/index.html', 'utf8').matchAll(/<script src="([^"]+)"/g)];
+// mode.jsは起動サーバーが返す設定で、画面処理の定義を含まない。
+const source = scripts.filter(match => match[1] !== 'mode.js').map(match => fs.readFileSync('webgui/static/' + match[1], 'utf8')).join('\n');
 const functions = source.slice(source.indexOf('async function pickField('), source.indexOf('async function addModule('));
 async function check(kind, initial, cancel, action, expected) {
   const calls = [];

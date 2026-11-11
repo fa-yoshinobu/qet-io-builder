@@ -14,7 +14,7 @@ CONNECTION_DEFAULTS = dict.fromkeys((
     'section', 'shield', 'peer_tag', 'peer_terminal', 'destination', 'purpose',
     'jumper', 'reference', 'link_id'), '')
 CONNECTION_DEFAULTS.update(part=1, x=95, y=110)
-# 画面の入力欄(キー, 表示名)。tkinter版・Web版で共用する
+# 画面の入力欄(キー, 表示名)
 CONTENT_FIELDS = {
     'boundaries': (('left', '左側の表記'), ('right', '右側の表記')),
     'connections': (('unit_tag', '対象機器タグ'), ('unit_terminal', '端子 / アドレス'),

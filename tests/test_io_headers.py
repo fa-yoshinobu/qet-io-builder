@@ -1,7 +1,6 @@
 import unittest
 
 import gen_io_page as gen
-import gui
 
 
 class IoHeadersTest(unittest.TestCase):
@@ -35,17 +34,6 @@ class IoHeadersTest(unittest.TestCase):
             text=next(t for t in p.texts if t.get('text')==label)
             self.assertAlmostEqual(float(text.get('x'))+(gen.text_w(label,7)+2*gen.TEXT_MARGIN)/2,center,delta=0.1)
             self.assertAlmostEqual(float(text.get('y'))+(7*gen.PX_PER_PT+2*gen.TEXT_MARGIN)/2,61,delta=0.1)
-
-    def test_slot_is_visible_and_saved_in_gui(self):
-        app=gui.App()
-        try:
-            app.data={'pages':[{'kind':'input','model':'QX40','csv':'input.csv'}]}
-            app.show_project(); app.show_page(0); app.update()
-            self.assertIn('slot',gui.property_fields('input','QX40'))
-            app.vars['slot'].set('3'); app.vars['tag'].set('DI1')
-            self.assertEqual(app.collect()['pages'][0]['slot'],'3')
-        finally:
-            app.destroy()
 
 
 if __name__=='__main__':

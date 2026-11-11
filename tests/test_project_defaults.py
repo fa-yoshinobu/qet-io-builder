@@ -8,7 +8,6 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 import gen_io_page as gen
-import gui
 
 
 class ProjectDefaultsTest(unittest.TestCase):
@@ -39,20 +38,6 @@ class ProjectDefaultsTest(unittest.TestCase):
             self.assertIn('aaaa', [d.get('title') for d in root.findall('diagram')])
             self.assertEqual(root.find('diagram').get('date'), date.today().strftime('%Y%m%d'))
             self.assertTrue(output.with_name('output_iolist.csv').exists())
-
-    def test_new_gui_project_can_generate_without_editing_project_json(self):
-        app = gui.App()
-        try:
-            self.assertIn('date', app.data)
-            app.add_page()
-            app.series_display.set(gui.SERIES_NAMES['iq_f']); app.select_page_series()
-            app.kind_display.set(gui.KIND_NAMES['fx5body']); app.select_kind()
-            app.vars['model'].set('FX5S-30MT/DS')
-            config = app.collect()
-            project, _ = gen.build_project(config, [(config['pages'][0], None)])
-            self.assertEqual(len(project.findall('diagram')), 1)
-        finally:
-            app.destroy()
 
 
 if __name__ == '__main__':

@@ -8,7 +8,7 @@ from pathlib import Path
 class RuntimeCheckTest(unittest.TestCase):
     def test_unsupported_python_stops_before_gui_and_tomllib_imports(self):
         root = Path(__file__).resolve().parents[1]
-        for entry in ('gui_web.py', 'gui.py', 'gen_io_page.py'):
+        for entry in ('gui_web.py', 'gen_io_page.py'):
             with self.subTest(entry=entry):
                 command = ('import runpy, sys; sys.version_info = (3, 10, 0); '
                            f'runpy.run_path({entry!r}, run_name="__main__")')

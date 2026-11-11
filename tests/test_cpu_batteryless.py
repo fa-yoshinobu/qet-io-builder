@@ -55,22 +55,6 @@ class CpuBatterylessTest(unittest.TestCase):
         self.assertNotIn('batteryless', result['visible'])
         self.assertNotIn('batteryless', api._data['pages'][0])
 
-    def test_tk_field_is_selectable_and_saved(self):
-        import gui
-        app = gui.App()
-        try:
-            app.data = self.api()._data
-            app.show_project(); app.show_page(0); app.update()
-            widget = app.field_widgets['batteryless'][1]
-            self.assertTrue(widget.winfo_ismapped())
-            self.assertEqual(tuple(widget['values']), ('有', '無', '要確認'))
-            app.vars['batteryless'].set('有')
-            self.assertEqual(app.collect()['pages'][0]['batteryless'], '有')
-            app.vars['model'].set('R01CPU'); app.update()
-            self.assertFalse(widget.winfo_ismapped())
-            self.assertNotIn('batteryless', app.collect()['pages'][0])
-        finally:
-            app.destroy()
 
     def test_cli_validation_rejects_unsupported_conflicting_and_invalid_states(self):
         for model, options in [('R00CPU', {'batteryless': '有'}),

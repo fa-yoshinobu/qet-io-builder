@@ -76,23 +76,6 @@ class SettingVisibilityTest(unittest.TestCase):
         self.assertNotIn('station', settings.profile('IESH-MB205G-R')['available'])
         self.assertEqual(settings.profile('IESH-MB205G-R')['available'], [])
 
-    def test_tk_visibility_preserves_value(self):
-        import gui
-        app = gui.App()
-        try:
-            app.data = self.api()._data
-            app.show_project(); app.show_page(0); app.update()
-            app.toggle_setting('right_ip', False); app.update()
-            self.assertFalse(app.field_widgets['right_ip'][1].winfo_ismapped())
-            self.assertTrue(app.setting_checks['right_ip'][1].winfo_ismapped())
-            app.collect_page()
-            self.assertEqual(app.data['pages'][0]['right_ip'], '192.168.1.10')
-            self.assertFalse(app.data['pages'][0]['settings_visibility']['right_ip'])
-            app.toggle_setting('right_ip', True); app.update()
-            self.assertTrue(app.field_widgets['right_ip'][1].winfo_ismapped())
-            self.assertEqual(app.vars['right_ip'].get(), '192.168.1.10')
-        finally:
-            app.destroy()
 
     def test_cpu_got_and_remote_drawings_follow_visibility(self):
         pages = [dict(kind='iqrbody', model='R04CPU', base_model='R35B', power_model='R61P'),

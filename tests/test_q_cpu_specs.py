@@ -4,10 +4,8 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
 
 import gen_io_page as gen
-import gui
 
 
 class QCpuSpecsTest(unittest.TestCase):
@@ -21,44 +19,6 @@ class QCpuSpecsTest(unittest.TestCase):
             self.assertEqual(spec['io_device_points'],8192)
             self.assertIn('Q8BAT',spec['battery_models'])
 
-    def test_gui_properties_and_options_follow_the_cpu(self):
-        app=gui.App()
-        try:
-            app.data={'pages':[{'kind':'qbody','model':'Q03UDVCPU','base_model':'Q33B','power_model':'Q61P'}]}
-            app.show_project();app.show_page(0);app.update()
-            self.assertIn('30Kステップ',app.cpu_spec.cget('text'))
-            self.assertTrue(app.field_widgets['sd_card'][1].winfo_ismapped())
-            self.assertTrue(app.field_widgets['memory_cassette_model'][1].winfo_ismapped())
-            self.assertFalse(app.field_widgets['memory_card'][1].winfo_ismapped())
-            self.assertIn('Q4MCA-8MBS',app.field_widgets['memory_cassette_model'][1]['values'])
-            self.assertNotIn('搭載不可',app.field_widgets['battery'][1]['values'])
-            app.vars['sd_card'].set('有');app.vars['memory_cassette_model'].set('Q4MCA-2MBS')
-            app.vars['model'].set('Q02UCPU');app.update()
-            self.assertIn('20Kステップ',app.cpu_spec.cget('text'))
-            self.assertFalse(app.field_widgets['sd_card'][1].winfo_ismapped())
-            self.assertTrue(app.field_widgets['memory_card_model'][1].winfo_ismapped())
-            self.assertIn('Q3MEM-8MBS',app.field_widgets['memory_card_model'][1]['values'])
-            saved=app.collect()['pages'][0]
-            self.assertNotIn('sd_card',saved)
-            self.assertNotIn('memory_cassette_model',saved)
-        finally:
-            app.destroy()
-
-    def test_gui_extension_choices_respect_remaining_slots(self):
-        app=gui.App()
-        try:
-            app.data={'pages':[{'kind':'qbody','model':'Q00UCPU','base_model':'Q312B','power_model':'Q61P',
-                               'extensions':[{'base_model':'Q68B','power_model':'Q61P','modules':[]}]}]}
-            app.show_project();app.show_page(0)
-            choices=app.catalog_for_page('extension_base_model')['mitsubishi']['q']
-            self.assertIn('Q63B',choices)
-            self.assertNotIn('Q65B',choices)
-            with patch.object(app,'report') as error:
-                app.add_extension('Q65B','Q61P')
-                self.assertIn('24',str(error.call_args[0][0]))
-            self.assertEqual(len(app.collect()['pages'][0]['extensions']),1)
-        finally:
-            app.destroy()
 
     def test_cli_rejects_cpu_limit_and_option_mismatches(self):
         base={'kind':'qbody','model':'Q00UCPU','base_model':'Q33B','power_model':'Q61P'}

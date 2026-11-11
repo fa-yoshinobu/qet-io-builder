@@ -7,24 +7,12 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 import gen_io_page as gen
-import gui
 
 
 MODELS = ['Q61P','Q62P','Q63P','Q64P','Q64PN','Q61P-D']
 
 
 class QPowerTest(unittest.TestCase):
-    def test_power_choices_are_visible_and_save(self):
-        app=gui.App()
-        try:
-            app.data={'pages':[{'kind':'qbody','model':'Q03UDVCPU','base_model':'Q33B','power_model':'Q61P'}]}
-            app.show_project();app.show_page(0);app.update()
-            self.assertTrue(set(MODELS)<=set(app.field_widgets['power_model'][1]['values']))
-            for model in MODELS:
-                app.vars['power_model'].set(model)
-                self.assertEqual(app.collect()['pages'][0]['power_model'],model)
-        finally:
-            app.destroy()
 
     def test_special_terminal_counts_and_names(self):
         for model in MODELS:

@@ -1,8 +1,6 @@
 import unittest
-from unittest.mock import patch
 
 import gen_io_page as gen
-import gui
 from tools.export_power_supply_elements import definition
 
 
@@ -38,25 +36,6 @@ class UnitTagsTest(unittest.TestCase):
         spec = gen.read_unit_definitions()['power_supply']['S8VK-G01524']
         xml = definition('S8VK-G01524',spec)
         self.assertIsNotNone(xml.find("./description/dynamic_text[info_name='label']"))
-
-    def test_gui_tags_save_and_follow_module_deletion(self):
-        app=gui.App()
-        try:
-            app.data={'pages':[{'kind':'qbody','model':'Q03UDVCPU','power_model':'Q61P','base_model':'Q35B',
-                                'modules':['QX40','QY10'],'module_tags':['DI1','DO1']}]}
-            app.show_project(); app.show_page(0)
-            app.vars['tag'].set('PLC1'); app.vars['power_tag'].set('AVR1')
-            app.modules.selection_set(1)
-            with patch('gui.simpledialog.askstring',return_value='UNIT-出力'):
-                app.edit_module_tag()
-            self.assertEqual(app.collect()['pages'][0]['module_tags'],['DI1','UNIT-出力'])
-            app.modules.selection_clear(0,'end'); app.modules.selection_set(0); app.delete_module()
-            page=app.collect()['pages'][0]
-            self.assertEqual(page['module_tags'],['UNIT-出力'])
-            self.assertEqual(page['tag'],'PLC1')
-            self.assertEqual(page['power_tag'],'AVR1')
-        finally:
-            app.destroy()
 
 
 if __name__=='__main__':

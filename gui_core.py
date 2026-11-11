@@ -1,4 +1,4 @@
-"""GUIの画面に依存しない部品・ページ設定の処理。tkinter版とWeb版で共用する。"""
+"""GUIの画面に依存しない部品・ページ設定の処理。"""
 import json
 import re
 import tomllib
