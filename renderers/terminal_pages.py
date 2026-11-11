@@ -33,6 +33,7 @@ def build_pages(pg, spec, symbols, annotations=None):
     from renderers.typography import wrap2
     from .analog import readonly_symbol
     rows = terminal_rows(pg, spec, annotations)
+    combined = pg['kind'] == 'mxio' and all(row['terminal'] == row['signal'] for row in rows)
     if pg['kind'] == 'mxio' and 'plc_in_mx' not in symbols:
         symbol = copy.deepcopy(symbols['plc_in'])
         symbol.name, symbol.height, symbol.hy = 'plc_in_mx', 38, 19
@@ -41,6 +42,12 @@ def build_pages(pg, spec, symbols, annotations=None):
                 if key in attrs:
                     attrs[key] = float(attrs[key]) * 38 / 40
         symbols[symbol.name] = symbol
+    if combined and 'plc_in_mx_combined' not in symbols:
+        symbol = copy.deepcopy(symbols['plc_in_mx'])
+        symbol.name = 'plc_in_mx_combined'
+        symbol.parts = [(kind, attrs) for kind, attrs in symbol.parts
+                        if not (kind == 'line' and attrs.get('x1') == attrs.get('x2') == 49)]
+        symbols[symbol.name] = symbol
     pages = []
     for start in range(0, len(rows), 36):
         part = rows[start:start + 36]
@@ -48,8 +55,11 @@ def build_pages(pg, spec, symbols, annotations=None):
         p = Page(symbols)
         for side in range(2 if len(part) > 1 else 1):
             x = 275 + side * 620
-            io_table_header(p, pg, x + 4, 250, (45, 100),
-                            ('端子記号' if pg['kind'] == 'mxio' else '端子', 'アドレス' if pg['kind'] == 'mxio' else '信号', '用途'))
+            if combined:
+                io_table_header(p, pg, x + 4, 250, (100,), ('端子記号／アドレス', '用途'))
+            else:
+                io_table_header(p, pg, x + 4, 250, (45, 100),
+                                ('端子記号' if pg['kind'] == 'mxio' else '端子', 'アドレス' if pg['kind'] == 'mxio' else '信号', '用途'))
             if pg['kind'] == 'mxio':
                 section = part[side * half:(side + 1) * half]
                 output = any(r.get('address_prefix') == 'Y' for r in section)
@@ -60,9 +70,11 @@ def build_pages(pg, spec, symbols, annotations=None):
             side, position = divmod(index, half)
             purpose = wrap2(row.get('description', ''), 140, 8)
             base = 'plc_in_mx' if pg['kind'] == 'mxio' else 'plc_in'
+            if combined:
+                base = 'plc_in_mx_combined'
             key = base if row.get('connectable', True) else readonly_symbol(symbols, base)
             texts = [('label', 56, 0, 8, True) if t[0] == 'label' else t
-                     for t in IN_TEXTS if t[0] != 'comment']
+                     for t in IN_TEXTS if t[0] != 'comment' and not (combined and t[0] == 'label')]
             mxf = pg['kind'] == 'mxio'
             p.place(key, 275 + side * 620, (89 + position * 38) if mxf else (90 + position * 40),
                     label=row['signal'] if not mxf or row.get('address_prefix') else '', comment=purpose,

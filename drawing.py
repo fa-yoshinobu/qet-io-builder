@@ -216,6 +216,8 @@ def comment_text(value, x, width, size, row_h):
 ORIENT_NUM = dict(n=0, e=1, s=2, w=3)
 
 def io_text_cell(key, info):
+    if key.startswith('plc_in_mx_combined'):
+        return {'auxiliary1': (4, 100), 'comment': (104, 150)}.get(info)
     if key.startswith('plc_in_unit_wide'):
         return {'auxiliary1':(4,45), 'label':(49,105), 'comment':(154,180)}.get(info)
     if key.startswith('plc_in_unit'):

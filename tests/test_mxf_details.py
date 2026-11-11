@@ -13,6 +13,25 @@ from webgui.api import Api
 
 
 class MxfDetailsTest(unittest.TestCase):
+    def test_identical_terminal_addresses_share_one_display_column(self):
+        spec = gen.MX_IO['MXF100-H32P']
+        for start, combined in (('0', True), ('30', False)):
+            with self.subTest(start=start):
+                pg = dict(kind='mxio', model='MXF100-H32P', x_start=start)
+                page = build_pages(pg, spec, gen.build_symbols())[0][1]
+                headings = [t.get('text') for t in page.texts]
+                self.assertEqual('端子記号／アドレス' in headings, combined)
+                elements = [e for key, e, _, _ in page.placed if key.startswith('plc_in_mx')]
+                rows = terminal_rows(pg, spec)
+                self.assertEqual(len(elements), len(rows))
+                for element, row in zip(elements, rows):
+                    info = {i.get('name'): i.text or '' for i in element.findall('./elementInformations/elementInformation')}
+                    self.assertEqual(info['auxiliary1'], row['terminal'])
+                    if row.get('address_prefix'):
+                        self.assertEqual(info['label'], row['signal'])
+                    displayed = [t.findtext('info_name') for t in element.findall('./dynamic_texts/dynamic_elmt_text')]
+                    self.assertEqual('label' in displayed, not combined)
+
     def api(self):
         api = Api()
         api._data['pages'] = [dict(kind='mxbody', model='MXF100-16-P32', tag='PLC1', unit_no='1')]
