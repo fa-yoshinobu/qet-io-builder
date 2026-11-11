@@ -29,7 +29,7 @@ def plc_signals(pg, spec):
 
 def build_pages(pg, spec, symbols):
     from drawing import Page, HALF_W, IN_X, OUT_X, IN_TEXTS, OUT_TEXTS, io_table_header
-    from .communication import wrap
+    from .communication import draw_notes
 
     page = Page(symbols)
     rows = _connector_rows(pg, spec)
@@ -74,6 +74,5 @@ def build_pages(pg, spec, symbols):
     note = spec['note'] if 'sections' in spec else ''
     if unused:
         note += ' 本体側の空きピン：' + '・'.join(unused) + '。'
-    for i, line in enumerate(reversed(wrap(note.strip(), 1180, 8))):
-        page.text(30, 748 - i * 16, line, 8)
+    draw_notes(page, 30, 1200, [note], bottom=748)
     return [(pg.get('title') or pg['model'] + ' I/Oコネクタ', page)]

@@ -19,18 +19,22 @@ def connector_label_x(kind):
     return 5 + connectors.width(kind) + 12
 
 
-def draw_notes(p, x, width, notes):
-    """重複する注記を除き、ページ最下部へ左右のユニット別に並べる。"""
+def draw_notes(p, x, width, notes, *, bottom=800):
+    """頁全体の注記を左端へ集約し、配線記入の定型案内を最後に置く。"""
     from .notes import drawing_text
-    unique = dict.fromkeys(value for note in notes if (value := drawing_text(note)))
-    lines = [line for note in unique for line in wrap(note, width - 24, 8)]
-    if not lines:
-        p.communication_footer_top = getattr(p, 'communication_footer_top', 800)
-        return 800
-    top = 800 - (len(lines) - 1) * 16
-    p.communication_footer_top = min(getattr(p, 'communication_footer_top', 800), top)
+    unique = dict.fromkeys([*getattr(p, '_footer_notes', []),
+                           *(value for note in notes if (value := drawing_text(note)))])
+    p._footer_notes = sorted(unique, key=lambda note: 'QET' in note and '記入' in note)
+    p._footer_bottom = min(getattr(p, '_footer_bottom', bottom), bottom)
+    previous = set(map(id, getattr(p, '_footer_texts', [])))
+    p.texts[:] = [text for text in p.texts if id(text) not in previous]
+    lines = [line for note in p._footer_notes for line in wrap(note, 1176, 8)]
+    top = p._footer_bottom - max(0, len(lines) - 1) * 16
+    p.communication_footer_top = top
+    start = len(p.texts)
     for index, line in enumerate(lines):
-        p.text(x + 12, top + index * 16, line, 8)
+        p.text(30, top + index * 16, line, 8)
+    p._footer_texts = p.texts[start:]
     return top
 
 

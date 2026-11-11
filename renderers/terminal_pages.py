@@ -32,6 +32,7 @@ def build_pages(pg, spec, symbols, annotations=None):
     from drawing import Page, io_table_header, IN_TEXTS, comment_text
     from renderers.typography import wrap2
     from .analog import readonly_symbol
+    from .communication import draw_notes
     rows = terminal_rows(pg, spec, annotations)
     combined = pg['kind'] == 'mxio' and all(row['terminal'] == row['signal'] for row in rows)
     if pg['kind'] == 'mxio' and 'plc_in_mx' not in symbols:
@@ -65,7 +66,7 @@ def build_pages(pg, spec, symbols, annotations=None):
                 output = any(r.get('address_prefix') == 'Y' for r in section)
                 label = (f"出力{spec['outputs']}点 " + spec['output_type'] + ' ' + spec['output_voltage']
                          if output else f"入力{spec['inputs']}点 DC24V シンク/ソース")
-                p.text(30 + side * 620, 782, label, 8)
+                draw_notes(p, 30, 1200, [label])
         for index, row in enumerate(part):
             side, position = divmod(index, half)
             purpose = wrap2(row.get('description', ''), 140, 8)
@@ -86,7 +87,7 @@ def build_pages(pg, spec, symbols, annotations=None):
                 note += ' ' + spec['terminal_type']
                 if spec.get('output_current'):
                     note += ' / 出力定格 ' + spec['output_current']
-            p.text(30, 800, note, 7 if pg['kind'] == 'mxio' else 8)
+            draw_notes(p, 30, 1200, [note])
         title = pg.get('title') or pg['model'] + (' 入出力' if pg['kind'] == 'mxio' else ' パルス端子')
         if len(rows) > 36:
             title += f' ({start // 36 + 1}/{math.ceil(len(rows) / 36)})'

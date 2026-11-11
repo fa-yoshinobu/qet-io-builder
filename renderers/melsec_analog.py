@@ -106,6 +106,7 @@ def build_fx_analog_page(pg, cfg, symbols, rows, start=0):
     descriptions = {int(r["CH"]): r.get("用途", "").strip() for r in rows}
     row_by_ch = {int(r["CH"]): r for r in rows}
     p = Page(symbols)
+    from .communication import draw_notes
     ch_pins = {}                                   # チャンネル → {端子名: (部品, 端子キー)}
 
     def wire_channels(pitch):
@@ -120,9 +121,9 @@ def build_fx_analog_page(pg, cfg, symbols, rows, start=0):
             note |= draw_analog_wiring(p, model, spec['channels'][idx], method, pins, first[2] - 95, pitch,
                                        r.get("機器番号", "").strip())
         if note:
-            p.text(HEAD_X+layout_offset, 782 if spec.get('diagram_note') else 800, "※電流入力で V+ と I+ を短絡するかはメーカーの配線図で確認", 8)
+            draw_notes(p, 30, 1200, ['※電流入力で V+ と I+ を短絡するかはメーカーの配線図で確認'])
     if spec.get('diagram_note'):
-        p.text(HEAD_X+layout_offset, 800, spec['diagram_note'], 8)
+        draw_notes(p, 30, 1200, [spec['diagram_note']])
     n = min(analog_page_channels(pg['kind'],spec), len(spec['channels']) - start)
     per = analog_split(n)
     if right_only:
@@ -196,7 +197,7 @@ def build_fx_analog_page(pg, cfg, symbols, rows, start=0):
         use_lanes = spec.get('auto_wiring', True) and any(t in LANE_POWER for _, t in power)
         for side in range(1 if right_only else 2 if n > 1 else 1):
             unit_identity_header(p,pg,275+layout_offset+side*HALF_W,235)
-        p.text(HEAD_X+layout_offset,782 if spec.get('diagram_note') else 800,note,8)
+        draw_notes(p, 30, 1200, [note])
         next_y = [82, 82]
         lane_tops = {}
         if use_lanes:
@@ -243,7 +244,7 @@ def build_fx_analog_page(pg, cfg, symbols, rows, start=0):
         wire_channels(32)
         return p
     page_heading(p, f"{model} アナログ端子")
-    p.text(HEAD_X,782 if spec.get('diagram_note') else 800,note,8)
+    draw_notes(p, 30, 1200, [note])
     for idx in range(start, start + n):
         direction = spec["channels"][idx]
         side, slot = divmod(idx - start, per)

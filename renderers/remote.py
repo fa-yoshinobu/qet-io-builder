@@ -138,7 +138,13 @@ def connector_pages(pg, symbols, spec, Page, Symbol, heading):
     for start in range(0, len(blocks), 8):
         p = Page(symbols)
         heading(p, pg.get('title', pg['model']) + ' I/Oコネクタ端子')
-        p.text(30, 800, '※NC・アキには配線しない', 8)
+        from .communication import draw_notes
+        owners = {}
+        for item, _, _ in blocks[start:start + 8]:
+            for note in item.get('notes', []):
+                owners.setdefault(note, []).append(item['name'])
+        notes = ['・'.join(dict.fromkeys(names)) + '：' + note for note, names in owners.items()]
+        draw_notes(p, 30, 1200, [*notes, '※NC・アキには配線しない'])
         for i, (item, pins, offset) in enumerate(blocks[start:start + 8]):
             side, slot = divmod(i, 4)
             x, y = 275 + side * 620, 82 + slot * 174
@@ -146,12 +152,6 @@ def connector_pages(pg, symbols, spec, Page, Symbol, heading):
             p.place(compact_connector(symbols, Symbol, item.get('connector_type', 'terminal_3'), item.get('gender', '')), x + 26, y + 25)
             p.text(x + 62, y + 6, item['name'] + (f'（続き {offset + 1}～）' if offset else ''), 8, True)
             p.text(x + 62, y + 23, connector_label(item), 7)
-            if item.get('notes'):
-                # 注記は箱の中の右側へ(左は端子からの配線範囲なので空ける)
-                from .communication import wrap
-                lines = [part for note in item['notes'] for part in wrap(note, 92, 7)]
-                for line, part in enumerate(lines[:9]):
-                    p.text(x + 160, y + 40 + line * 12, part, 7)
             blocked = set(item.get('no_connect_pins', []) + item.get('non_connectable_pins', []))
             for j, (pin, signal) in enumerate(pins):
                 py = y + 48 + j * 18

@@ -382,10 +382,21 @@ class Page:
             last = (e.get("uuid"), self.sym["junction"], x, y)
             end = self.place("junction", x, bottom)
             self.wire(last, "s", end, "n")
+            if not hasattr(self, '_lane_extensions'):
+                self._lane_extensions = []
+            self._lane_extensions.append((self.elements[-1], y))
 
     def finish(self):
         """3本以上の線がつながる所だけ点を打つ(線の端や曲がり角は点なし)"""
         self._remove_unused_power_lanes()
+        # 左右の注記を集約した後に、実端子より下の延長線だけを注記手前で止める。
+        limit = self.communication_footer_top - 16 if getattr(self, '_footer_notes', []) else float('inf')
+        for element, last_y in getattr(self, '_lane_extensions', []):
+            y = float(element.get('y'))
+            if y > max(last_y, limit):
+                element.set('y', str(max(last_y, limit)))
+        self.placed[:] = [(key, element, x, float(element.get('y')))
+                          for key, element, x, y in self.placed]
         deg = {}
         for c in self.conductors:
             for k in ("element1", "element2"):

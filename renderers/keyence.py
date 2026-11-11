@@ -137,8 +137,8 @@ def build_nano_body(pg, spec, symbols):
     note = '+5V出力はKV-D30への給電専用。'
     if body['power'] == 'A':
         note += 'サービス電源出力は外部P24／N24へ接続しない。'
-    page.text(30, 772, note, 8)
-    page.text(30, 800, '内蔵I/Oは同じユニットNo.・タグ名の入出力配線図を参照。SG・GNDは電源入力0Vと非絶縁。', 8)
+    from .communication import draw_notes
+    draw_notes(page, 30, 1200, [note, '内蔵I/Oは同じユニットNo.・タグ名の入出力配線図を参照。SG・GNDは電源入力0Vと非絶縁。'])
     return page
 
 
@@ -261,7 +261,8 @@ def build_pages(pg, spec, symbols):
         note = ('' if pg.get('cable_layout') else 'DC24V配線例。') + spec['note']
         if nc_pins:
             note += ' NCピン' + '・'.join(sorted(nc_pins, key=int)) + 'は接続しない。'
-        page.text(30, 750 if pg.get('cable_layout') else 800, note, 8)
+        from .communication import draw_notes
+        draw_notes(page, 30, 1200, [note], bottom=748 if pg.get('cable_layout') else 800)
         title = ' '.join(filter(None, (pg['model'], section['section'], section.get('bank'), '入出力配線図')))
         pages.append((title, page))
     return pages

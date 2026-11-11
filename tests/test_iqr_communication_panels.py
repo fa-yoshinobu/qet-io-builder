@@ -48,23 +48,40 @@ class CommunicationPanelsTest(unittest.TestCase):
                 self.assertEqual(len(function),1)
                 self.assertEqual(float(function[0].get('y')),60)
                 self.assertGreater(min(y for _,_,_,y in page.placed),84)
-                notes=[line for note in spec['diagram_notes'] for line in communication.wrap(note,g.UNIT_BOX_W-24,8)]
+                notes=[line for note in spec['diagram_notes'] for line in communication.wrap(note,1176,8)]
                 for note in notes:
                     text=next(t for t in page.texts if t.get('text')==note)
                     self.assertGreaterEqual(float(text.get('y')),768)
-                    self.assertEqual(float(text.get('x')),x+12)
+                    self.assertEqual(float(text.get('x')),30)
                 self.assertEqual(page.communication_footer_top,768)
                 self.assertEqual([t.get('text') for t in page.texts].count('※接続先・配線方式はQETで記入'),1)
 
-    def test_footer_notes_deduplicate_wrap_and_keep_each_panel_column(self):
+    def test_footer_notes_merge_panels_without_duplicate_text_and_keep_guide_last(self):
         page=g.Page(g.build_symbols())
         note='注意書き'*30
-        expected=communication.wrap(note,g.UNIT_BOX_W-24,8)
-        top=communication.draw_notes(page,895,g.UNIT_BOX_W,[note,note])
+        expected=communication.wrap(note,1176,8)
+        guide='※接続先・配線方式はQETで記入'
+        communication.draw_notes(page,275,g.UNIT_BOX_W,[guide,note])
+        old=list(page.texts)
+        top=communication.draw_notes(page,895,g.UNIT_BOX_W,[note,'右機器の注意',guide])
+        expected += ['右機器の注意',guide]
         self.assertEqual([t.get('text') for t in page.texts],expected)
+        self.assertFalse(set(map(id,old)) & set(map(id,page.texts)))
         self.assertEqual(float(page.texts[-1].get('y')),800)
         self.assertEqual(top,800-(len(expected)-1)*16)
-        self.assertTrue(all(float(t.get('x'))==907 for t in page.texts))
+        self.assertTrue(all(float(t.get('x'))==30 for t in page.texts))
+
+    def test_cable_footer_reserves_connection_rows_and_lane_extension_stops_above_notes(self):
+        page=g.Page(g.build_symbols())
+        page.place('junction',45,200)
+        page.extend_lanes([45],bottom=812)
+        communication.draw_notes(page,30,1200,['機器固有の注意'],bottom=748)
+        communication.draw_notes(page,895,310,['追加注意'])
+        page.finish()
+        self.assertEqual(page.communication_footer_top,732)
+        self.assertEqual(max(float(t.get('y')) for t in page.texts),748)
+        self.assertEqual(max(y for _,_,_,y in page.placed),716)
+        self.assertEqual(float(page.elements[-1].get('y')),716)
 
     def test_long_function_wraps_before_interfaces(self):
         symbols=g.build_symbols(); page=g.Page(symbols)

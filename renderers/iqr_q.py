@@ -99,7 +99,8 @@ def iqr_input_half(p, off, uc, rows, h, base):
 
     if unit.get("manual_input_power"):
         if not unit.get('extra_terminals'):
-            p.text(X["plc"] + 5, COM_Y + 12, unit.get("manual_input_note", "入力電源は構成ページを参照"), 8)
+            from .communication import draw_notes
+            draw_notes(p, 30, 1200, [unit.get('manual_input_note', '入力電源は構成ページを参照')])
         p.extend_lanes([X["P"], X["N"]])
         return
     # 一つの端子しかない32点機種は、同一端子を左右に重複して描かない。
@@ -201,7 +202,8 @@ def iqr_output_half(p, off, uc, rows, h, base):
     elif unit.get('paired_com_pins'):
         com_rows = unit.get('paired_power_terminals', [('DC24V', vplus, 'P'), ('DC24G', com, 'N')])
     if unit.get("manual_output_note"):
-        p.text(X["plc"] - 230, COM_Y + 12, unit["manual_output_note"], 8)
+        from .communication import draw_notes
+        draw_notes(p, 30, 1200, [unit['manual_output_note']])
     if sum(len(pin.split('/')) for _, pin, _ in com_rows) <= 2:
         com_rows = [(lab, part, lane) for lab, pin, lane in com_rows for part in pin.split('/') if part]
     for k, (lab, pin, lane) in enumerate(com_rows):
@@ -485,11 +487,12 @@ def build_iqr_body_page(pg, symbols):
             if cpus[cpu].get('memory_card_supported'):
                 info_rows.append(['メモリカード',option_value('memory_card',True)])
             info_rows.append(['メモリカセット',option_value('memory_cassette',cpus[cpu].get('memory_cassette_supported',False))])
-            ty = 790 - (len(info_rows) + 1) * TABLE_ROW          # 図枠の左下に置く
+            from .communication import draw_notes
+            note = f"※先頭アドレスは空きスロット{empty_points}点・アナログ16点・通信ユニット32点として自動で割り付けた値"
+            footer = draw_notes(p, 30, 1200, [note])
+            ty = min(790, footer - 8) - (len(info_rows) + 1) * TABLE_ROW
             p.text(RX, ty - 24, "CPUの設定/オプション", 9, True)
             table(p, RX, ty, [("項目", 140), ("内容", 180)], info_rows)
-            note = f"※先頭アドレスは空きスロット{empty_points}点・アナログ16点・通信ユニット32点として自動で割り付けた値"
-            p.text(RX + 360, 790 - 16, note, 8)
 
         def post(pages_rows, page_of, p=p, slot_boxes=slot_boxes):
             """タグがあれば形名と組で照合し、未指定時は同形名の登場順に対応させる。"""

@@ -66,7 +66,8 @@ def _build_relay_page(pg, spec, symbols):
                    infos={'auxiliary1': load[1], 'auxiliary2': load[0]},
                    texts=[('auxiliary1', -117, -9 + vcenter(8), 8, True),
                           ('auxiliary2', -117, 9 + vcenter(8), 8, True)])
-    page.text(30, 744, '負荷側は16点独立のa接点。各接点の端子番号に続く（　）は記名板裏面の負荷番号。', 8)
+    from .communication import draw_notes
+    draw_notes(page, 30, 1200, ['負荷側は16点独立のa接点。各接点の端子番号に続く（　）は記名板裏面の負荷番号。'], bottom=748)
     title = pg.get('title') or (spec['model'] + ' リレー端子台')
     return [(title, page)]
 
@@ -89,7 +90,9 @@ def build_pages(pg, spec, symbols):
     top, pitch = 85, 30
     bottom = top + pitch * max(map(len, banks.values()))
     notes = spec.get('notes', [])
-    if bottom > 772 - len(notes) * 17:
+    from .communication import draw_notes
+    footer = draw_notes(page, 30, 1200, notes, bottom=748)
+    if bottom > footer - 8:
         raise ValueError(f"{spec['model']}: 中継端子台の端子が1枚に収まりません")
     unit_identity_header(page, {**pg, 'model': spec['model']}, left, width)
     page.rect(left, 52, left + width, bottom, dash=False, width=1)
@@ -150,6 +153,4 @@ def build_pages(pg, spec, symbols):
                 page.line(min(divider, inner) + 3, y - 3, max(divider, inner) - 3, start + 3, width=0.5)
             page.line(divider, y, inner, y, width=0.5)
 
-    for i, note in enumerate(notes):
-        page.text(30, 768 - (len(notes) - i) * 17, note, 8)
     return [(pg.get('title') or (spec['model'] + ' 中継端子台'), page)]

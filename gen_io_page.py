@@ -143,7 +143,7 @@ def build_remote_body_page(pg, symbols):
         y_next += 20 + 2 * 65
     notes = (['配線・終端抵抗はネットワーク構成に従って接続']
              if spec['network'] == 'CC-Link' else spec.get('power_notes', []))
-    # 注記は箱の幅で折り返す(箱は中身に合わせた幅 300)
+    # ページ共通の注記領域へまとめる。
     from renderers.communication import draw_notes
     draw_notes(p,x,UNIT_BOX_W,['※通信・電源の接続先はQETで記入']+list(notes))
     from renderers import settings
@@ -158,7 +158,8 @@ def build_sensor_connector_page(uc, symbols, start):
     spec = configured_unit(uc)
     p = Page(symbols)
     page_heading(p, f"{uc['model']} センサコネクタ端子")
-    p.text(HEAD_X, 800, '※配線はQETで記入', 8)
+    from renderers.communication import draw_notes
+    draw_notes(p, 30, 1200, ['※配線はQETで記入'])
     for position in range(8):
         index = start + position
         if index >= spec['points']:

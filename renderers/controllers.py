@@ -133,5 +133,6 @@ def build_body(pg, spec, symbols):
     from .box_layout import finish_box
     finish_box(p, x, right, y + 192, settings.fields(model=pg['model'], values=pg), pg,
                settings_x=680, settings_width=410, obstacles_bottom=obstacles_bottom)
-    p.text(275, 800, '出力定格 ' + spec['output_current'], 7)
+    from .communication import draw_notes
+    draw_notes(p, 30, 1200, ['出力定格 ' + spec['output_current']])
     return p
