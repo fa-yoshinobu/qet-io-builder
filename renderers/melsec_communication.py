@@ -13,7 +13,12 @@ def comm_settings(p, pg, spec, x, prefix):
     """通信ユニットの機種別記入欄。非表示項目の値は保持する。"""
     from renderers import settings
     model = pg.get(prefix + "_model", "")
-    settings.draw(p, settings.fields(model=model, values=pg, prefix=prefix), settings.values(pg, prefix), x - 245, x - 15)
+    from .box_layout import finish_box
+    frame = next(shape for shape in reversed(p.shapes) if shape.get('type') == 'Rectangle'
+                 and float(shape.get('x1')) == x and float(shape.get('y1')) == 52)
+    finish_box(p, x, x + UNIT_BOX_W, float(frame.get('y2')),
+               settings.fields(model=model, values=pg, prefix=prefix), settings.values(pg, prefix),
+               limit=min(790, getattr(p, 'communication_footer_top', 800) - 8))
 
 def build_q_comm_page(pg, symbols):
     from renderers.communication import draw_notes, interface_rows
@@ -115,5 +120,4 @@ def build_q_comm_page(pg, symbols):
             notes.append('SLD・FG 内部接続')
         draw_notes(p,x,UNIT_BOX_W,notes)
         comm_settings(p, pg, spec, x, "left" if side == 0 else "right")
-    p.stretch_boxes(bottom=min(UNIT_BOX_BOTTOM,getattr(p,'communication_footer_top',UNIT_BOX_BOTTOM+8)-8))
     return p

@@ -67,12 +67,16 @@ def values(page, prefix=''):
     return {key: page.get((prefix + '_' if prefix else '') + key, '') for key in LABELS}
 
 
-def draw(p, rows, values, x0=30, x1=260, bottom=SETTINGS_BOTTOM):
+def layout(rows, values, width):
     from .communication import wrap
-    entries = [(label, wrap(values.get(key, '') or '（記入）', x1 - x0 - 120, 8)) for label, key in rows]
-    heights = [max(ROW_H, 14 + len(lines) * 12) for _, lines in entries]
-    y = bottom - sum(heights)
-    for (label, lines), height in zip(entries, heights):
+    entries = [(label, wrap(values.get(key, '') or '（記入）', width - 120, 8)) for label, key in rows]
+    return [(label, lines, max(ROW_H, 14 + len(lines) * 12)) for label, lines in entries]
+
+
+def draw(p, rows, values, x0=30, x1=260, bottom=SETTINGS_BOTTOM):
+    entries = layout(rows, values, x1 - x0)
+    y = bottom - sum(height for _, _, height in entries)
+    for label, lines, height in entries:
         p.rect(x0, y, x1, y + height, dash=False, width=0.5)
         p.text(x0 + 7, y + 8, label, 8, True)
         for index, line in enumerate(lines):

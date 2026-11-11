@@ -297,11 +297,6 @@ def build_fx5_body_page(pg, symbols):
                    ("auxiliary8", 227 if sd_in_board else 135, 144 if sd_in_board else sym.status_y + 76, 7 if sd_in_board else 8, False)] +
                   ([] if board not in FX5_BOARDS else
                    [("auxiliary11", 183, 100, 8, True), ("auxiliary10", 183, 80, 8, False)]))
-    # 入出力ページと同じ位置に P24/N24 のレーンを置く(電源・センサ電源などを QET で配線するため)
-    for name, lx in (("P", FX_IN_X["outer"]), ("N", FX_IN_X["inner"])):
-        ctext(p, lx, 44, LANE[name], 8, True)
-        p.place("junction", lx, LANE_TOP_Y)
-    p.extend_lanes([FX_IN_X["outer"], FX_IN_X["inner"]])
     # 端子は QET でそのまま配線できるので、行き先の決まらない線は引き出さない
     # 右側にユニット構成の表(本体の入出力・増設・アナログ・通信と、そのページ番号)を置く
     adapters = [(m, module_tags[i] if i<len(module_tags) else '') for i,m in enumerate(pg.get('modules', []))
@@ -340,6 +335,12 @@ def build_fx5_body_page(pg, symbols):
         table(p, TX, TY, cols,
               [[m, w, str(n) if n else ""] for m, w, n in rows])
     from renderers import settings
-    settings.draw(p, settings.fields(model=pg['model'], values=pg), pg, 900, 1220, bottom=430)
+    from renderers.box_layout import finish_box
+    frame_bottom = 52 + max(float(a['y']) + float(a['height']) for tag, a in sym.parts if tag == 'rect')
+    # 外枠は本体記号に含まれるため、設定欄の基準だけ共通処理へ渡す。
+    finish_box(p, BX - 20, BX + 330, frame_bottom,
+               settings.fields(model=pg['model'], values=pg), pg, settings_x=650, settings_width=230,
+               draw_frame=False)
+
     p.post = post
     return p

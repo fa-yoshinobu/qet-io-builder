@@ -110,8 +110,8 @@ class BodyStatusTest(unittest.TestCase):
             diagram = root.find('.//diagram')
             unit = gen.FX5U_SPECS[model]
             symbol = gen.fx5_body_symbol('test', gen.model_power(model) == 'AC', unit['analog'], unit['rs485'], unit['service'])
-            # 行き先の決まらない線は引き出さない(線は P24/N24 レーンの2本だけ)
-            self.assertEqual(len(diagram.findall('./conductors/conductor')), 2)
+            # 給電先がないレーン・行き先の決まらない線を描かず、実端子は保持する
+            self.assertEqual(len(diagram.findall('./conductors/conductor')), 0)
             self.assertEqual(len(next(e for e in diagram.iter('element') if 'fx5_body_' in (e.get('type') or '')).findall('./terminals/terminal')), len(symbol.terminals))
 
     def test_fx5s_battery_unavailable_and_usb_present(self):
@@ -125,7 +125,7 @@ class BodyStatusTest(unittest.TestCase):
         full = gen.fx5_body_symbol('full', True, True, True, True, 2)
         self.assertTrue({'24V', '0V', '24V_2', '0V_2'} <= full.terminals.keys())
         root = self.run_body(None, 'FX5U-80MR/ES')
-        self.assertEqual(len(root.findall('.//diagram/conductors/conductor')), 2)
+        self.assertEqual(len(root.findall('.//diagram/conductors/conductor')), 0)
         self.assertEqual(len(next(e for e in root.iter('element') if 'fx5_body_' in (e.get('type') or '')).findall('./terminals/terminal')), len(full.terminals))
 
     def test_fx5uc_power_connector_uses_numbered_pins(self):
@@ -173,7 +173,7 @@ class BodyStatusTest(unittest.TestCase):
             self.assertFalse(any(kind=='line' and a['y1']==a['y2']==port[3] and
                                  max(a['x1'],a['x2'])>edge for port in ports for kind,a in sym.parts))
             root = self.run_body(None, cpu, board_model=model)
-            self.assertEqual(len(root.findall('.//diagram/conductors/conductor')), 2)
+            self.assertEqual(len(root.findall('.//diagram/conductors/conductor')), 0)
             self.assertEqual(len(next(e for e in root.iter('element') if 'fx5_body_' in (e.get('type') or '')).findall('./terminals/terminal')), len(sym.terminals))
 
     def test_rs485_board_signal_labels_match_terminals(self):

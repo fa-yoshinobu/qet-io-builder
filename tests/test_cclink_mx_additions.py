@@ -137,8 +137,12 @@ class CclinkMxAdditionsTest(unittest.TestCase):
             self.assertIn('right_ip', page['visible'])
             self.assertIn('right_station', page['visible'])
             self.assertNotIn('right_dip', page['visible'])
-            drawing = gen.build_q_comm_page(api._data['pages'][0], gen.build_symbols())
-            self.assertEqual(sum(k == 'module_rj45' for k, *_ in drawing.placed), 1)
+            project, _ = gen.build_project(gen.project_config({'front_pages': False}),
+                                           [(api._data['pages'][0], None)])
+            drawings = project.findall('diagram')
+            self.assertEqual(len(drawings), 1)
+            self.assertEqual(sum(e.get('type', '').endswith('/module_rj45.elmt')
+                                 for e in drawings[0].findall('./elements/element')), 1)
 
 
 if __name__ == '__main__':

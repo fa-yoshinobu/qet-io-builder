@@ -17,7 +17,8 @@ class SettingVisibilityTest(unittest.TestCase):
         return api
 
     def texts(self, page):
-        return [t.get('text') for t in gen.build_q_comm_page(page, gen.build_symbols()).texts]
+        root, _ = gen.build_project({'front_pages': False}, [(page, None)])
+        return [t.get('text') for t in root.findall('./diagram/inputs/input')]
 
     def test_sides_use_their_own_model_and_optional_fields_start_hidden(self):
         page = self.api().page(0)

@@ -12,28 +12,32 @@ def definition(model):
 
 
 class GotOptionsTest(unittest.TestCase):
-    def test_options_use_half_or_full_height_including_module_variants(self):
+    def test_options_keep_ports_inside_content_frames_on_separate_pages(self):
         import gen_io_page as gen
-
         for model, spec in gen.GOT_OPTION.items():
             for module in ['', *spec.get('module_interfaces', {})]:
                 with self.subTest(model=model, module=module):
                     page = {'kind': 'gotoption', 'left_model': model, 'left_module': module,
                             'right_model': 'GT15-QBUS'}
-                    root, _ = gen.build_project(gen.project_config({'front_pages': False}), [(page, None)])
-                    boxes = {float(s.get('x1')): float(s.get('y2'))
-                             for s in root.findall('./diagram/shapes/shape')
-                             if s.get('type') == 'Rectangle' and float(s.get('y1')) == 52}
-                    self.assertEqual(boxes[895], 422)
-                    if model in ('GT01-RS4-M', 'GT10-9PT5S'):
-                        self.assertGreater(boxes[275], 700)
-                        self.assertLessEqual(boxes[275], 790)
-                    else:
-                        self.assertEqual(boxes[275], 422)
-                    for element in root.findall('./diagram/elements/element'):
-                        x, y = float(element.get('x')), float(element.get('y'))
-                        if 275 <= x <= 585:
-                            self.assertLess(y, boxes[275])
+                    root, _ = gen.build_project({'front_pages': False}, [(page, None)])
+                    diagrams = root.findall('diagram')
+                    self.assertEqual(len(diagrams), 2)
+                    definitions = {e.get('name'): e.find('definition') for e in root.iter('element')
+                                   if e.get('name') and e.find('definition') is not None}
+                    for diagram in diagrams:
+                        boxes = [s for s in diagram.findall('./shapes/shape') if s.get('type') == 'Rectangle'
+                                 and float(s.get('x1')) == 275 and float(s.get('y1')) == 52]
+                        self.assertEqual(len(boxes), 1)
+                        bottom = float(boxes[0].get('y2'))
+                        for element in diagram.findall('./elements/element'):
+                            definition = definitions[element.get('type').split('/')[-1]]
+                            for terminal in definition.findall('./description/terminal'):
+                                y = float(element.get('y')) + float(terminal.get('y'))
+                                self.assertLessEqual(y, bottom)
+                        fields = [s for s in diagram.findall('./shapes/shape') if s.get('type') == 'Rectangle'
+                                  and float(s.get('x1')) == 650]
+                        if fields:
+                            self.assertEqual(max(float(f.get('y2')) for f in fields), bottom)
 
     def test_twenty_four_models_keep_option_roles(self):
         models = list(ROOT.glob('*.json'))

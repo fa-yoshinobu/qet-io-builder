@@ -94,14 +94,10 @@ def build_body(pg, symbols, spec, Page, Symbol, heading, lanes=None):
     p.text(x + 12, ly, '電源入力  ' + power.get('voltage', power['supply']), 9, True)
     ports = power.get('ports', [])
     grounds = ground_names(ports)
-    lane_info = lanes
-    lanes = bool(lanes) and 'DC24V' in (power.get('voltage', '') + power['supply']).replace(' ', '') and any(sig in POWER_LANE for sig in ports)
-    lane_tops, ground_pins = {}, []
-    if lanes:
-        LANE, LANE_TOP_Y, ctext = lane_info
-        for name, lx in LANE_X.items():
-            ctext(p, lx, 44, LANE[name], 8, True)
-            lane_tops[name] = p.place('junction', lx, LANE_TOP_Y)
+    from .box_layout import PowerRails, finish_box
+    wired_power = bool(lanes) and 'DC24V' in (power.get('voltage', '') + power['supply']).replace(' ', '')
+    rails = PowerRails(p, [(None, {'lane': POWER_LANE[sig]}) for sig in ports if sig in POWER_LANE])
+    ground_pins = []
     for index, signal in enumerate(ports):
         y = ly + 40 + index * 24
         name = next(grounds) if signal == '⏚' else signal
@@ -114,12 +110,8 @@ def build_body(pg, symbols, spec, Page, Symbol, heading, lanes=None):
             p.line(292 + 20, y + 1, 306 + 20, y + 1)
             p.line(295 + 20, y + 4, 303 + 20, y + 4)
             p.line(297 + 20, y + 7, 301 + 20, y + 7)
-        elif lanes and signal in POWER_LANE:
-            lane = POWER_LANE[signal]
-            j = p.place('junction', LANE_X[lane], y)
-            p.wire(lane_tops[lane], 's', j, 'n')
-            lane_tops[lane] = j
-            p.wire(j, 'e', pin, 't', num=LANE[lane], show=True)
+        elif wired_power and signal in POWER_LANE:
+            rails.connect({'lane': POWER_LANE[signal]}, pin)
     if len(ground_pins) == 2:
         # LG と FG は短絡してから接地する(SH-081194ENG-AW 5.2「Short-circuit the LG terminal and the FG terminal」)
         p.wire(ground_pins[0], 't', ground_pins[1], 't')
@@ -127,8 +119,6 @@ def build_body(pg, symbols, spec, Page, Symbol, heading, lanes=None):
     if not ports:
         p.text(x + 12, ly + 40, '給電: ' + power.get('connection', power['supply']), 8)
     ly += 40 + max(1, len(ports)) * 24 + 10
-    if lanes:
-        p.extend_lanes([LANE_X['P'], LANE_X['N']])
 
     serial, ethernet, accessories = [], [], []
     for item in spec['interfaces']:
@@ -185,12 +175,10 @@ def build_body(pg, symbols, spec, Page, Symbol, heading, lanes=None):
         checkbox(p, right + 100, ry + 15, True, '装着不可')
     ry += 65
 
-    bottom = max(ly, ry) + 5
-    p.rect(x, 52, right + 250, bottom, dash=False, width=1)
-    # 左下の記入欄(x95～325)と離した注記領域。
-    draw_notes(p,335,440,notes)
-    # 機種別の記入欄をP24/N24レーンの右に置く。
-    settings.draw(p, settings.fields(model=pg['model'], values=pg), pg, 95, 325)
+    footer = draw_notes(p, 30, 1200, notes)
+    rails.finish(min(790, footer - 16))
+    finish_box(p, x, right + 250, max(ly, ry) + 5,
+               settings.fields(model=pg['model'], values=pg), pg, limit=footer - 8)
     return p
 
 
@@ -198,7 +186,6 @@ def build_options(pg, symbols, definitions, Page, Symbol, heading):
     from drawing import unit_identity_header
     from .settings import UNIT_BOX_W, SETTINGS_BOTTOM
     p = Page(symbols)
-    box_bottoms = {}
     for side, key in enumerate(('left_model', 'right_model')):
         model = pg.get(key, '').upper()
         if not model:
@@ -227,15 +214,11 @@ def build_options(pg, symbols, definitions, Page, Symbol, heading):
         unit_identity_header(p,{'model':model,'kind':'gotoption','tag':pg.get(prefix+'_tag',''),
                                 'unit_no':pg.get(prefix+'_unit_no','')},x,UNIT_BOX_W)
         draw_panel(p, symbols, spec, x, Symbol, pg, prefix)
-        box_bottoms[x] = None if model in ('GT01-RS4-M', 'GT10-9PT5S') else 422
-        # 機種別の表示指定に従い、オプションの左下へ詰めて配置する。
         from . import settings
+        from .box_layout import finish_box
         rows = settings.fields(model=model, values=pg, prefix=prefix)
-        settings.draw(p, rows, settings.values(pg, prefix), x - 245, x - 15)
-    full_bottom = min(SETTINGS_BOTTOM, getattr(p, 'communication_footer_top', 800) - 8)
-    for shape in p.shapes:
-        if shape.get('type') == 'Rectangle' and float(shape.get('y1')) == 52:
-            x = float(shape.get('x1'))
-            if x in box_bottoms:
-                shape.set('y2', str(box_bottoms[x] or full_bottom))
+        frame = next(shape for shape in reversed(p.shapes) if shape.get('type') == 'Rectangle'
+                     and float(shape.get('x1')) == x and float(shape.get('y1')) == 52)
+        finish_box(p, x, x + UNIT_BOX_W, float(frame.get('y2')), rows, settings.values(pg, prefix),
+                   limit=min(790, getattr(p, 'communication_footer_top', 800) - 8))
     return p

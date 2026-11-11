@@ -4,6 +4,16 @@ from xml.etree import ElementTree as ET
 import gen_io_page as gen
 
 class IqrBodyTest(unittest.TestCase):
+    def communication_pages(self, page):
+        root, _ = gen.build_project(gen.project_config({'front_pages': False}), [(page, None)])
+        diagrams = root.findall('diagram')
+        self.assertEqual(len(diagrams), sum(bool(page.get(side + '_model')) for side in ('left', 'right')))
+        return diagrams
+
+    def elements(self, page, kind):
+        return [element for element in page.findall('./elements/element')
+                if element.get('type', '').endswith('/' + kind + '.elmt')]
+
     def build(self, **updates):
         cfg=json.loads((Path(__file__).parent / 'fixtures' / 'project.json').read_text(encoding='utf-8'))
         pg={'kind':'iqrbody','model':'R04CPU','power_model':'R61P','base_model':'R35B','modules':['RX41C4','RY41NT2P'],'battery':'非装着'}
@@ -60,22 +70,28 @@ class IqrBodyTest(unittest.TestCase):
             (p/'p.json').write_text(json.dumps(cfg,ensure_ascii=False),encoding='utf-8')
             with contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit): gen.main(str(p/'p.json'),str(p/'p.qet'))
 
-    def test_communication_page_places_modules_on_selected_halves(self):
+    def test_communication_pages_keep_each_unit_and_its_settings_together(self):
         pg={'kind':'qcomm','left_model':'QJ61BT11N','right_model':'QJ71GF11-T2',
             'left_station':'局 3', 'right_station':'局 5', 'right_ip':'192.168.1.5', 'left_dip':'SW1 ON',
             'settings_visibility': {'right_ip': True, 'left_dip': True}}
-        page=gen.build_q_comm_page(pg,gen.build_symbols())
-        elements=[(e,x) for k,e,x,y in page.placed if k=='module_pin']
-        self.assertEqual([x for e,x in elements], [275]*5)
-        self.assertEqual([x for k,e,x,y in page.placed if k=='module_rj45'], [895]*2)
-        labels=[next(v.text for v in e.findall('./elementInformations/elementInformation') if v.get('name')=='label') for e,x in elements]
+        left, right = self.communication_pages(pg)
+        elements = self.elements(left, 'module_pin')
+        self.assertEqual([float(e.get('x')) for e in elements], [275]*5)
+        self.assertEqual([float(e.get('x')) for e in self.elements(right, 'module_rj45')], [275]*2)
+        labels=[next(v.text for v in e.findall('./elementInformations/elementInformation') if v.get('name')=='label') for e in elements]
         self.assertEqual(labels[:5],['DA','DB','DG','SLD','FG'])
-        self.assertTrue(all(e.find('./dynamic_texts/dynamic_elmt_text/info_name').text == 'label' for e,x in elements))
-        self.assertEqual(sum(k.startswith('module_') for k,_,_,_ in page.placed),7)
-        self.assertEqual(len(page.conductors),0)
-        texts=[t.get('text') for t in page.texts]
+        self.assertTrue(all(e.find('./dynamic_texts/dynamic_elmt_text/info_name').text == 'label' for e in elements))
+        self.assertEqual(sum('/module_' in e.get('type') for d in (left, right) for e in d.findall('./elements/element')),7)
+        self.assertTrue(all(not d.findall('./conductors/conductor') for d in (left, right)))
+        texts=[t.get('text') for d in (left, right) for t in d.findall('./inputs/input')]
         for value in ('局番・NW No.','IP設定','機器設定','通信設定','局 3','局 5','192.168.1.5','SW1 ON','（記入）'):
             self.assertIn(value,texts)
+        left_texts = [t.get('text') for t in left.findall('./inputs/input')]
+        right_texts = [t.get('text') for t in right.findall('./inputs/input')]
+        self.assertIn('SW1 ON', left_texts)
+        self.assertNotIn('SW1 ON', right_texts)
+        self.assertIn('192.168.1.5', right_texts)
+        self.assertNotIn('192.168.1.5', left_texts)
 
     def test_q_network_connectors_and_external_power(self):
         cases = [('QJ71BR11', 'module_coax', 1, 0), ('QJ71E71-100', 'module_rj45', 1, 0),
@@ -83,12 +99,12 @@ class IqrBodyTest(unittest.TestCase):
                  ('QJ71LP21S-25', 'module_optical', 2, 3)]
         for model, kind, count, power_count in cases:
             with self.subTest(model=model):
-                page=gen.build_q_comm_page({'kind':'qcomm','right_model':model}, gen.build_symbols())
-                self.assertEqual(sum(k == kind for k, _, _, _ in page.placed), count)
-                self.assertEqual(sum(k == 'module_pin' for k, _, _, _ in page.placed), power_count)
-                self.assertTrue(all(e.find('./dynamic_texts/dynamic_elmt_text/info_name').text == 'label' for k,e,_,_ in page.placed if k == 'module_pin'))
-                self.assertEqual(sum(k.startswith('module_') for k,_,_,_ in page.placed), count + power_count)
-                self.assertEqual(len(page.conductors), 0)
+                page, = self.communication_pages({'kind':'qcomm','right_model':model})
+                self.assertEqual(len(self.elements(page, kind)), count)
+                self.assertEqual(len(self.elements(page, 'module_pin')), power_count)
+                self.assertTrue(all(e.find('./dynamic_texts/dynamic_elmt_text/info_name').text == 'label' for e in self.elements(page, 'module_pin')))
+                self.assertEqual(sum('/module_' in e.get('type') for e in page.findall('./elements/element')), count + power_count)
+                self.assertFalse(page.findall('./conductors/conductor'))
 
     def test_iqr_communication_connector_types_and_terminals(self):
         cases = [('RJ61BT11', 'module_pin', 5), ('RJ71BR11', 'module_coax', 1),
@@ -96,11 +112,11 @@ class IqrBodyTest(unittest.TestCase):
                  ('RJ71C24', 'module_dsub', 1), ('RJ71C24-R4', 'module_pin', 14)]
         for model, kind, count in cases:
             with self.subTest(model=model):
-                page=gen.build_q_comm_page({'kind':'iqrcomm','right_model':model}, gen.build_symbols())
-                self.assertEqual(sum(k == kind for k, _, _, _ in page.placed), count)
-                self.assertTrue(all(x == 895 for k, _, x, _ in page.placed if k == kind))
+                page, = self.communication_pages({'kind':'iqrcomm','right_model':model})
+                self.assertEqual(len(self.elements(page, kind)), count)
+                self.assertTrue(all(float(e.get('x')) == 275 for e in self.elements(page, kind)))
                 if model == 'RJ71C24-R4':
-                    labels=[next(v.text for v in e.findall('./elementInformations/elementInformation') if v.get('name') == 'label') for k,e,_,_ in page.placed if k == 'module_pin']
+                    labels=[next(v.text for v in e.findall('./elementInformations/elementInformation') if v.get('name') == 'label') for e in self.elements(page, 'module_pin')]
                     self.assertEqual(labels, ['SDA','SDB','RDA','RDB','SG','SLD','FG'] * 2)
 
     def test_communication_page_requires_valid_model(self):
@@ -111,22 +127,22 @@ class IqrBodyTest(unittest.TestCase):
                 p=Path(d); (p/'p.json').write_text(json.dumps(cfg,ensure_ascii=False),encoding='utf-8')
                 with contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit): gen.main(str(p/'p.json'),str(p/'p.qet'))
 
-    def test_fx_communication_units_support_both_page_halves(self):
+    def test_fx_communication_units_from_both_sides_generate_separate_pages(self):
         pg = {'kind':'fxcomm', 'left_model':'FX5-232ADP', 'right_model':'FX5-485ADP'}
-        page = gen.build_q_comm_page(pg, gen.build_symbols())
-        self.assertEqual([x for kind, _, x, _ in page.placed if kind == 'module_dsub'], [275])
-        self.assertEqual([x for kind, _, x, _ in page.placed if kind == 'module_pin'], [895] * 5)
-        self.assertEqual(sum(k.startswith('module_') for k,_,_,_ in page.placed), 6)
-        self.assertEqual(len(page.conductors), 0)
+        left, right = self.communication_pages(pg)
+        self.assertEqual([float(e.get('x')) for e in self.elements(left, 'module_dsub')], [275])
+        self.assertEqual([float(e.get('x')) for e in self.elements(right, 'module_pin')], [275] * 5)
+        self.assertEqual(sum('/module_' in e.get('type') for d in (left, right) for e in d.findall('./elements/element')), 6)
+        self.assertTrue(all(not d.findall('./conductors/conductor') for d in (left, right)))
 
     def test_q_serial_interfaces_and_duplicate_fg_terminals(self):
         for model, dsub_count, terminal_count in [('QJ71C24N', 1, 7), ('QJ71C24N-R2', 2, 0), ('QJ71C24N-R4', 0, 12)]:
             with self.subTest(model=model):
-                page = gen.build_q_comm_page({'kind':'qcomm', 'right_model':model}, gen.build_symbols())
-                self.assertEqual(sum(kind == 'module_dsub' for kind, _, _, _ in page.placed), dsub_count)
-                pins = [e for kind, e, _, _ in page.placed if kind == 'module_pin']
+                page, = self.communication_pages({'kind':'qcomm', 'right_model':model})
+                self.assertEqual(len(self.elements(page, 'module_dsub')), dsub_count)
+                pins = self.elements(page, 'module_pin')
                 self.assertEqual(len(pins), terminal_count)
-                self.assertTrue(all(x == 895 for kind, _, x, _ in page.placed if kind in ('module_pin','module_dsub')))
+                self.assertTrue(all(float(e.get('x')) == 275 for e in pins + self.elements(page, 'module_dsub')))
                 self.assertEqual(sum(next((v.text for v in e.findall('./elementInformations/elementInformation') if v.get('name') == 'label'), '') == 'FG' for e in pins), 2 if terminal_count else 0)
 
     def test_fx_communication_modules_and_board_compatibility(self):

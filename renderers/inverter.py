@@ -10,10 +10,9 @@ def build_body(pg, spec, symbols):
     terminals = {}
     left, right, middle = 400, 840, 620
     unit_identity_header(p, pg, left, right - left)
-    p.rect(left, 52, right, 748, dash=False, width=1)
     p.text(left + 12, 60, spec['function'], 9, True)
     p.text(left + 12, 78, spec['supply'] + ' / ND ' + str(spec['capacity_kw']) + 'kW', 8)
-    p.line(middle, 96, middle, 748, width=0.5)
+    ends = []
     if 'inverter_pin_right' not in symbols:
         symbol = Symbol('inverter_pin_right', 'インバータ右端子', 20, 20, 10, 10)
         symbol.circle(-8, -4, 8)
@@ -61,6 +60,7 @@ def build_body(pg, spec, symbols):
                 raise ValueError('インバータの端子・コネクタが枠内に収まりません: ' + pg['model'])
         elif y > 610:
             raise ValueError('インバータの入力端子が設定欄に重なります: ' + pg['model'])
+        ends.append(y)
     jumper_labels = {}
     for jumper in spec.get('factory_jumpers', []):
         side, group = jumper['side'], jumper['group']
@@ -77,7 +77,9 @@ def build_body(pg, spec, symbols):
                    if side == 'left' else min(ys) - 8 * PX_PER_PT - 2 * TEXT_MARGIN - 2)
         wire.set('usery', str(label_y))
         wire.set('rotation', '0')
-    settings.draw(p, settings.fields(model=pg['model'], values=pg), pg,
-                  x0=left + 12, x1=middle - 12, bottom=735)
-    draw_notes(p, 30, 1180, spec['diagram_notes'])
+    footer = draw_notes(p, 30, 1180, spec['diagram_notes'])
+    from .box_layout import finish_box
+    bottom = finish_box(p, left, right, max(ends) + 12,
+                        settings.fields(model=pg['model'], values=pg), pg, limit=min(790, footer - 8))
+    p.line(middle, 96, middle, bottom, width=0.5)
     return p

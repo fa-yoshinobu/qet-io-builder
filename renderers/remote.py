@@ -120,12 +120,11 @@ def build_body(pg, symbols, spec, Page, Symbol, heading):
         notes.append(spec['network_condition'])
     if extension:
         notes.append('主ユニットの増設コネクタに接続（独立通信ポートなし）')
-    p.rect(x, 52, right, max(y + 30, 220), dash=False, width=1)
-    draw_notes(p,x,right-x,notes)
-    if not extension:
-        from . import settings
-        settings.draw(p, settings.fields(model=pg['model'], values=pg), pg)
-    p.stretch_boxes(bottom=min(SETTINGS_BOTTOM,getattr(p,'communication_footer_top',800)-8))
+    footer = draw_notes(p, x, right - x, notes)
+    from . import settings
+    from .box_layout import finish_box
+    rows = [] if extension else settings.fields(model=pg['model'], values=pg)
+    finish_box(p, x, right, y + 30, rows, pg, minimum=220, limit=min(790, footer - 8))
     return p
 
 

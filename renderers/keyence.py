@@ -128,15 +128,12 @@ def build_nano_body(pg, spec, symbols):
         values = (pin, signal, '用途' if not i else purposes[signal])
         for value, left, right in zip(values, (380, 415, 475), (415, 475, 610)):
             ctext(page, (left + right) / 2, y + 11, value, 8)
+    from .box_layout import PowerRails
+    rails = PowerRails(page, [(None, {'lane': name}) for name in ('P', 'N')])
     if body['power'] == 'D':
-        for name, px in (('P', FX_IN_X['outer']), ('N', FX_IN_X['inner'])):
-            ctext(page, px, 44, LANE[name], 8, True)
-            start = page.place('junction', px, LANE_TOP_Y)
-            y = 147 if name == 'P' else 179
-            junction = page.place('junction', px, y)
-            page.wire(start, 's', junction, 'n')
-            page.wire(junction, 'e', cpu, '24V' if name == 'P' else '0V', num=LANE[name], show=True)
-        page.extend_lanes([FX_IN_X['outer'], FX_IN_X['inner']], bottom=755)
+        for name, terminal in (('P', '24V'), ('N', '0V')):
+            rails.connect({'lane': name}, cpu, terminal)
+    rails.finish(755)
     note = '+5V出力はKV-D30への給電専用。'
     if body['power'] == 'A':
         note += 'サービス電源出力は外部P24／N24へ接続しない。'
@@ -166,24 +163,16 @@ def build_module(pg, spec, symbols):
     unit_identity_header(page, pg, x, width)
     ctext(page, x + width / 2, 68, module['function'], 9, True)
     top = 88
+    from .box_layout import PowerRails, finish_box
+    rails = PowerRails(page, [(None, row) for row in module.get('power', [])])
     if module.get('power'):
         page.text(x + 12, top, '電源入力 DC24V', 8, True)
-        previous = {}
-        for name, lx in (('P', FX_IN_X['outer']), ('N', FX_IN_X['inner'])):
-            ctext(page, lx, 44, LANE[name], 8, True)
-            previous[name] = page.place('junction', lx, LANE_TOP_Y)
         for index, power in enumerate(module['power']):
             y = top + 42 + index * 32
             terminal = page.place('module_pin', x, y, label=power['signal'], texts=[('label', 14, -7, 8, False)])
-            lane = power['lane']
-            if lane:
-                lx = FX_IN_X['outer' if lane == 'P' else 'inner']
-                node = page.place('junction', lx, y)
-                page.wire(previous[lane], 's', node, 'n')
-                previous[lane] = node
-                page.wire(node, 'e', terminal, 't', num=LANE[lane], show=True)
+            rails.connect(power, terminal)
         top += 142
-        page.extend_lanes([FX_IN_X['outer'], FX_IN_X['inner']], bottom=bottom)
+        rails.finish(bottom)
     for port in interfaces:
         page.text(x + 12, top, port['name'], 8, True)
         rows = [dict(row, connectable=True) for row in port.get('pinout', [])]
@@ -224,11 +213,7 @@ def build_module(pg, spec, symbols):
             page.rect(left, 242, left + 58, 272, dash=False, width=0.7)
             ctext(page, left + 29, 257, label, 8)
         end = max(end, 290)
-    box_bottom = min(bottom, max(end, 160))
-    page.rect(x, 52, x + width, box_bottom, dash=False, width=1)
-    rows = module.get('settings', [])
-    settings_bottom = box_bottom if box_bottom - 36 * len(rows) >= 52 else notes_top - 12
-    settings.draw(page, rows, pg, 650, 960, bottom=settings_bottom)
+    finish_box(page, x, x + width, end, module.get('settings', []), pg, limit=bottom)
     return pg['model'] + ' ' + module['function'], page
 
 

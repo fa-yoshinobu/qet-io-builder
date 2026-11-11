@@ -49,14 +49,14 @@ def build_pages(pg, spec, symbols):
         page.text(597, 60, spec.get('display', ''), 9, True)
         records = [(s, r) for blocks in pending for s, _, _ in blocks
                    if not s.get('connector') for r in s.get('terminals', [])]
-        rails = _rails(page, records) if any(r.get('lane') for _, r in records) else {}
+        rails = _rails(page, records)
         used = [0, 0]
         ends = [90, 90]
         for side in range(2):
             x = 275 + 310 * side
             top = 90
             for section, table, height in pending[side]:
-                if top + height > limit:
+                if top + height > limit - (12 if side else 0):
                     break
                 page.line(x + 10, top, x + 300, top, width=0.5)
                 for index, line in enumerate(wrap(section['name'], 286, 8)):
@@ -93,16 +93,10 @@ def build_pages(pg, spec, symbols):
             ends[side] = top
         if not any(used):
             raise ValueError(pg['model'] + ': タッチパネルの端子群が1ページに収まりません')
-        page.rect(275, 52, 895, max(ends), dash=False, width=1)
-        if rails:
-            page.extend_lanes([item[0] for item in rails.values()], bottom=limit)
+        rails.finish(limit)
         ethernet = [s for s in spec['sections'] if s.get('connector', {}).get('kind') == 'rj45']
-        # 通信設定欄は機器の引出し領域より下、電源レーンの右へ配置する。
-        bottom = footer - 8
-        last_left = max((y + terminal[3] for key, _, x, y in page.placed if 275 <= x < 585
-                         for terminal in page.sym[key].terminals.values() if terminal[1] == 'w'), default=90)
-        if ethernet and last_left + 16 <= bottom - 30:
-            settings.draw(page, [('IP設定', 'ip')], pg, 95, 260, bottom=bottom)
+        from .box_layout import finish_box
+        finish_box(page, 275, 895, max(ends), [('IP設定', 'ip')] if ethernet else [], pg, limit=limit)
         pages.append((pg['model'] + ' タッチパネル', page))
         pending = [blocks[count:] for blocks, count in zip(pending, used)]
     pages += _terminal_pages(pg, spec, expanded, symbols) if expanded else []

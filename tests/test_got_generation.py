@@ -55,13 +55,15 @@ class GotGenerationTest(unittest.TestCase):
             self.assertIn(value,texts)
         note=next(t for t in page.texts if t.get('text')=='※コネクタはケーブル単位。接続先・結線は手動で記入')
         self.assertGreaterEqual(float(note.get('y')),page.communication_footer_top)
-        self.assertGreater(float(note.get('x')),325)
-        page=hmi.build_options({'left_model':'GT15-RS4-TE','left_tag':'UNIT1','left_unit_no':'3',
-                                'right_model':'GT15-RS2-9P','right_tag':'UNIT2','right_unit_no':'4'},
-                               g.build_symbols(),g.GOT_OPTION,g.Page,g.Symbol,g.page_heading)
-        texts=[t.get('text','') for t in page.texts]
+        from renderers.box_layout import single_units
+        options = {'left_model':'GT15-RS4-TE','left_tag':'UNIT1','left_unit_no':'3',
+                   'right_model':'GT15-RS2-9P','right_tag':'UNIT2','right_unit_no':'4'}
+        texts = []
+        for option in single_units(options):
+            page = hmi.build_options(option, g.build_symbols(), g.GOT_OPTION, g.Page, g.Symbol, g.page_heading)
+            texts.extend(t.get('text', '') for t in page.texts)
         for value in ('ユニットNo. 3','UNIT1','GT15-RS4-TE','ユニットNo. 4','UNIT2','GT15-RS2-9P'):
-            self.assertIn(value,texts)
+            self.assertIn(value, texts)
         self.assertFalse(any(text.endswith(' GOTオプション') for text in texts))
 
     def test_all_models_are_selectable_and_generate(self):

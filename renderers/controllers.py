@@ -79,7 +79,6 @@ def build_body(pg, spec, symbols):
     p = Page(symbols)
     x, right = 275, 585
     unit_identity_header(p, pg, x, right - x)
-    p.rect(x, 52, right, 790, dash=False, width=1)
     p.text(x + 12, 62, f"MX-F {spec['max_axes']}軸 / {spec['program_memory_mb']}MB", 9, True)
     p.text(x + 12, 84, '入力16点 DC24V シンク/ソース', 8)
     p.text(x + 12, 102, '出力16点 ' + spec['output_type'] + ' ' + spec['output_voltage'], 8)
@@ -115,6 +114,7 @@ def build_body(pg, spec, symbols):
     p.text(x + 12, y + 147, '内蔵I/O X00～X0F / Y00～Y0F', 8)
     p.text(x + 12, y + 169, 'ネットワーク 0400H / モーション 0420H', 8)
     items = expansion_items(pg)
+    obstacles_bottom = 52
     for side, bx, width, title in [('left', 30, 230, '左側 拡張アダプタ'), ('right', 680, 410, '右側 増設ユニット')]:
         selected = [item for item in items if item['side'] == side]
         if not selected:
@@ -126,8 +126,12 @@ def build_body(pg, spec, symbols):
             unit_identity_header(p, dict(kind='mxio', model=item['model'], tag=item['tag'], unit_no=str(item['slot'] + 1)), bx, width, top, top + 18)
             p.rect(bx, top + 18, bx + width, top + 39, dash=False, width=0.5)
             p.text(bx + 10, top + 24, item['summary'], 8)
+            if side == 'right':
+                obstacles_bottom = max(obstacles_bottom, top + 39)
             if item['addr']:
                 p.text(bx + 210, top + 24, item['addr'], 8)
-    settings.draw(p, settings.fields(model=pg['model'], values=pg), pg, x0=680, x1=1090)
+    from .box_layout import finish_box
+    finish_box(p, x, right, y + 192, settings.fields(model=pg['model'], values=pg), pg,
+               settings_x=680, settings_width=410, obstacles_bottom=obstacles_bottom)
     p.text(275, 800, '出力定格 ' + spec['output_current'], 7)
     return p

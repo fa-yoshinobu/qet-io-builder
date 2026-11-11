@@ -19,16 +19,19 @@ class BoxHeadersTest(unittest.TestCase):
         for pg in cases:
             with self.subTest(page=pg):
                 root,_=gen.build_project(gen.project_config({'front_pages':False}),[(pg,None)])
-                diagram=root.find('diagram')
-                rectangles=diagram.findall('./shapes/shape')
-                headers=[r for r in rectangles if r.get('type')=='Rectangle' and r.get('y1')=='34' and r.get('y2')=='52']
-                self.assertEqual(len(headers),2 if pg.get('right_model') else 1)
-                self.assertFalse(any(r.get('y1')=='52' and r.get('y2')=='80' for r in rectangles))
-                if pg['kind']=='fx5body':
-                    cpu=next(e for e in diagram.findall('./elements/element') if 'fx5_body_' in e.get('type',''))
-                    self.assertEqual(float(cpu.get('y')),52)
-                else:
-                    self.assertTrue(any(r.get('y1')=='52' and float(r.get('y2'))>52 for r in rectangles))
+                diagrams = root.findall('diagram')
+                self.assertEqual(len(diagrams), 2 if pg.get('right_model') else 1)
+                for diagram in diagrams:
+                    rectangles=diagram.findall('./shapes/shape')
+                    headers=[r for r in rectangles if r.get('type')=='Rectangle' and r.get('y1')=='34' and r.get('y2')=='52']
+                    self.assertEqual(len(headers),1)
+                    self.assertFalse(any(r.get('y1')=='52' and r.get('y2')=='80' for r in rectangles))
+                    if pg['kind']=='fx5body':
+                        cpu=next(e for e in diagram.findall('./elements/element') if 'fx5_body_' in e.get('type',''))
+                        self.assertEqual(float(cpu.get('y')),52)
+                    else:
+                        self.assertTrue(any(r.get('y1')=='52' and float(r.get('y2'))>52 for r in rectangles))
+
 
     def test_communication_headers_keep_number_tag_and_model_separate(self):
         for kind,model,field,caption in [('iqrcomm','RJ71CN91','slot','スロットNo. 2'),

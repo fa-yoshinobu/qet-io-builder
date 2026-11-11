@@ -146,13 +146,11 @@ def build_remote_body_page(pg, symbols):
     # 注記は箱の幅で折り返す(箱は中身に合わせた幅 300)
     from renderers.communication import draw_notes
     draw_notes(p,x,UNIT_BOX_W,['※通信・電源の接続先はQETで記入']+list(notes))
-    y_next += 10
-    p.rect(x, 52, x + UNIT_BOX_W, max(y_next, 200), dash=False, width=1)
-    # 設定欄は左下に表として並べる(端子の左は配線用に空ける)。CC-Link(イーサネットなし)は IP 欄を出さない
     from renderers import settings
+    from renderers.box_layout import finish_box
     rows = settings.fields(model=pg['model'], values=pg)
-    settings.draw(p, rows, pg)
-    p.stretch_boxes(bottom=min(UNIT_BOX_BOTTOM,getattr(p,'communication_footer_top',UNIT_BOX_BOTTOM+8)-8))
+    finish_box(p, x, x + UNIT_BOX_W, y + (24 if spec['network'] == 'CC-Link' else 40), rows, pg,
+               minimum=200, limit=min(790, getattr(p, 'communication_footer_top', 800) - 8))
     return p
 
 
@@ -446,11 +444,14 @@ def build_project(cfg, pages_rows):
     LANE["N"] = cfg.get("power", {}).get("N_name", "N24")
     xref_reset(xref_devices(pages_rows, cfg))
     body = []
+    post_rows = []
     pages_of = {}          # id(pg) → その設定から作ったページ(構成ページの参照に使う)
     cable_sheets = []
     cable_ids = set()
     shared = None          # 右半分が空いている増設ユニットのページ(body の番号)
     for pg, rows in pages_rows:
+        if pg["kind"] not in ("gotoption", "qcomm", "iqrcomm", "fxcomm"):
+            post_rows.append((pg, rows))
         first = len(body)
         single = fx_single_half(pg, rows["in"], rows["out"]) if pg["kind"] == "fx5ext" else None
         if single and shared is not None:
@@ -504,11 +505,15 @@ def build_project(cfg, pages_rows):
         elif pg["kind"] == "gotbody":
             from renderers.hmi import build_body
             body.append((pg.get('title', pg['model'] + ' 接続図'), build_body(pg, symbols, GOT_BODY[pg['model'].upper()], Page, Symbol, page_heading, (LANE, LANE_TOP_Y, ctext))))
-        elif pg["kind"] == "gotoption":
+        elif pg["kind"] in ("gotoption", "qcomm", "iqrcomm", "fxcomm"):
+            from renderers.box_layout import single_units
             from renderers.hmi import build_options
-            body.append((pg.get('title', 'GOT通信オプション'), build_options(pg, symbols, GOT_OPTION, Page, Symbol, page_heading)))
-        elif pg["kind"] in ("qcomm", "iqrcomm", "fxcomm"):
-            body.append((pg.get("title", "通信ユニット"), build_q_comm_page(pg, symbols)))
+            for unit in single_units(pg):
+                page = (build_options(unit, symbols, GOT_OPTION, Page, Symbol, page_heading)
+                        if pg['kind'] == 'gotoption' else build_q_comm_page(unit, symbols))
+                body.append((pg.get('title', unit['left_model'] + ' 接続図'), page))
+                pages_of[id(unit)] = [page]
+                post_rows.append((unit, rows))
         elif pg["kind"] in ("remotebody", "remoteiolink"):
             body.append((pg.get("title", pg["model"] + " 通信・電源"), build_remote_body_page(pg, symbols)))
             if pg["kind"] == "remoteiolink":
@@ -605,7 +610,7 @@ def build_project(cfg, pages_rows):
         return nums[id(got[0])] if got else None
     for _, page in body:
         if hasattr(page, "post"):
-            page.post(pages_rows, page_of)
+            page.post(post_rows, page_of)
     ref_errs = write_references(lambda pg_: nums[id(pg_)])
     if ref_errs:
         raise SystemExit("参照エラー:\n  " + "\n  ".join(ref_errs))

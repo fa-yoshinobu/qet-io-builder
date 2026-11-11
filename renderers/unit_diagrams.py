@@ -52,39 +52,13 @@ def _notes(spec, sections):
     return notes
 
 
-def _groups(records):
-    return list(dict.fromkeys(row.get('power_group', 'main') for _, row in records if row.get('lane')))
-
-
 def _rails(page, records, offset=0):
-    from drawing import FX_IN_X, ctext, LANE_TOP_Y
-    groups = _groups(records)
-    result = {}
-    for index, group in enumerate(groups):
-        for name, base in (('P', FX_IN_X['outer']), ('N', FX_IN_X['inner'])):
-            x = base + index * 90 + offset
-            suffix = '' if len(groups) == 1 else ('U' if group == 'unit' else 'I' if group == 'io' else str(index + 1))
-            label = name + '24' + suffix
-            ctext(page, x, 44, label, 8, True)
-            result[(group, name)] = [x, page.place('junction', x, LANE_TOP_Y), label]
-    return result
+    from .box_layout import PowerRails
+    return PowerRails(page, records, offset)
 
 
 def _power_wire(page, rails, row, terminal):
-    if not row.get('lane') or row.get('connectable', True) is False:
-        return
-    group = row.get('power_group', 'main')
-    x, previous, label = rails[(group, row['lane'])]
-    y = terminal[3]
-    node = page.place('junction', x, y)
-    page.wire(previous, 's', node, 'n')
-    page.wire(node, 'e', terminal, 't', num=label, show=True)
-    # 系統識別のU/Iを付けた線番も、端子手前の同じ位置にそろえる。
-    from renderers.typography import text_w, TEXT_MARGIN, PX_PER_PT
-    endpoint = terminal[2] + terminal[1].terminals['t'][2]
-    page.conductors[-1].set('userx', str(round(endpoint - 12 - text_w(label, 8) - 2 * TEXT_MARGIN, 1)))
-    page.conductors[-1].set('usery', str(round(y - 8 * PX_PER_PT - 2 * TEXT_MARGIN - 2, 1)))
-    rails[(group, row['lane'])][1] = node
+    rails.connect(row, terminal)
 
 
 def _terminal_pages(pg, spec, sections, symbols, *, cable_cores=False):
@@ -177,7 +151,7 @@ def _connector_pages(pg, spec, sections, symbols):
         top = 94
         used = 0
         records = [(s, r) for s in sections if not s.get('connector') for r in s.get('terminals', [])]
-        rails = _rails(page, records) if any(r.get('lane') for _, r in records) else {}
+        rails = _rails(page, records)
         for section, layout, height in pending:
             if top + height > bottom:
                 break
@@ -216,7 +190,8 @@ def _connector_pages(pg, spec, sections, symbols):
             used += 1
         if not used:
             raise ValueError(pg['model'] + ': コネクタ表が1ページに収まりません')
-        page.rect(275, 52, 585, min(bottom, max(top, 160)), dash=False, width=1)
+        from .box_layout import finish_box
+        finish_box(page, 275, 585, top, limit=bottom)
         if rails:
             page.extend_lanes([r[0] for r in rails.values()], bottom=bottom)
         pages.append((pg['model'] + ' ' + spec['function'] + ' ポート', page))
