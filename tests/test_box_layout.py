@@ -5,6 +5,30 @@ from renderers.box_layout import PowerRails, finish_box, single_units
 
 
 class BoxLayoutTest(unittest.TestCase):
+    def test_rack_settings_align_with_cpu_options_table(self):
+        for model, base, power in (('R04ENCPU', 'R35B', 'R61P'), ('Q03UDVCPU', 'Q35B', 'Q61P')):
+            with self.subTest(model=model):
+                pg = dict(kind='iqrbody' if model.startswith('R') else 'qbody', model=model,
+                          base_model=base, power_model=power, modules=[])
+                root, _ = g.build_project({'front_pages': False}, [(pg, None)])
+                page = root.find('diagram')
+                heading = next(t for t in page.findall('./inputs/input') if t.get('text') == 'CPUの設定/オプション')
+                x = float(heading.get('x'))
+                rectangles = [s for s in page.findall('./shapes/shape') if s.get('type') == 'Rectangle']
+                options_bottom = max(float(s.get('y1')) for s in page.findall('./shapes/shape')
+                                     if s.get('type') == 'Line' and float(s.get('x1')) == x
+                                     and float(s.get('x2')) == x + 320 and s.get('y1') == s.get('y2'))
+                settings = [s for s in rectangles if float(s.get('x1')) == x + 360]
+                self.assertTrue(settings)
+                self.assertEqual(max(float(s.get('y2')) for s in settings), options_bottom)
+
+    def test_fx5_settings_cannot_extend_below_fixed_body_frame(self):
+        pg = dict(kind='fx5body', model='FX5U-32MR/ES',
+                  settings_visibility={'ip': True, 'communication': True, 'dip': True})
+        pg.update({key: '\n'.join(['設定内容'] * 18) for key in ('ip', 'communication', 'dip')})
+        with self.assertRaisesRegex(ValueError, '収まりません'):
+            g.build_project({'front_pages': False}, [(pg, None)])
+
     def test_only_connected_power_poles_are_drawn(self):
         page = g.Page(g.build_symbols())
         records = [(None, {'lane': 'P'}), (None, {'lane': 'N'})]

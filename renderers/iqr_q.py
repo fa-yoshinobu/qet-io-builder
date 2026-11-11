@@ -517,7 +517,8 @@ def build_iqr_body_page(pg, symbols):
                     break
         if start == 0:
             from renderers import settings
-            settings.draw(p, settings.fields(model=cpu, values=pg), pg, RX + 360, RX + 680, bottom=750)
+            settings.draw(p, settings.fields(model=cpu, values=pg), pg, RX + 360, RX + 680,
+                          bottom=ty + (len(info_rows) + 1) * TABLE_ROW)
         p.post = post
         pages.append((pg.get("title", title), p))
     return pages

@@ -340,7 +340,7 @@ def build_fx5_body_page(pg, symbols):
     # 外枠は本体記号に含まれるため、設定欄の基準だけ共通処理へ渡す。
     finish_box(p, BX - 20, BX + 330, frame_bottom,
                settings.fields(model=pg['model'], values=pg), pg, settings_x=650, settings_width=230,
-               draw_frame=False)
+               draw_frame=False, limit=frame_bottom)
 
     p.post = post
     return p
