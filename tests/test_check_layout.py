@@ -75,6 +75,31 @@ class LayoutCheckTest(unittest.TestCase):
         draw.line([(left - 1, (top + bottom) / 2), (right + 1, (top + bottom) / 2)])
         self.assertTrue(any(issue.kind == '線横切り' for issue in draw.issues()))
 
+    def test_inverse_text_rotation_stays_upright_in_rotated_element(self):
+        root = ET.Element('project')
+        definition = ET.SubElement(ET.SubElement(root, 'element', name='rotated.elmt'), 'definition')
+        desc = ET.SubElement(definition, 'description')
+        ET.SubElement(desc, 'text', x='-25', y='30', rotation='90', text='static')
+        diagram = ET.SubElement(root, 'diagram', cols='10', colsize='100', rows='5', rowsize='100')
+        element = ET.SubElement(ET.SubElement(diagram, 'elements'), 'element',
+                                type='rotated.elmt', uuid='test', x='100', y='100', orientation='3')
+        text = ET.SubElement(ET.SubElement(element, 'dynamic_texts'), 'dynamic_elmt_text',
+                            x='-25', y='30', rotation='90', text_from='UserText')
+        ET.SubElement(text, 'text').text = 'dynamic'
+        drawings = []
+        def recorder(draw, page, number):
+            result = check_layout.RecordingDraw(draw, (0, 0, 1020, 520))
+            drawings.append(result)
+            return result
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'rotated.qet'
+            ET.ElementTree(root).write(path)
+            preview_qet.render(path, None, draw_factory=recorder)
+        for value, (left, top, right, bottom) in drawings[0].texts:
+            with self.subTest(text=value):
+                self.assertGreaterEqual(left, 130)
+                self.assertGreater(right - left, bottom - top)
+
     def test_cli_reports_problem_pages_and_checks_every_input(self):
         root = ET.Element('project')
         for number in range(2):

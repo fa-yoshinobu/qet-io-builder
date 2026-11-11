@@ -228,13 +228,18 @@ def bind_definition(model, spec, part, template, labels, elements=None):
         # 左右に出るNO/NC配線の延長上へ機器情報を置かない。
         label.set('y', '-80')
     if label is not None:
-        label.set('x', str(max(float(label.get('x')), text_right + 12)))
+        label.set('x', str(max(50, float(label.get('x')), text_right + 12)))
     x, y = (max(50, float(label.get('x'))), float(label.get('y')) + 17) if label is not None else (max(50, text_right + 12), 10)
-    if label is not None and (template in ('coil', 'timer_on_delay') or record['category'] == 'switch' and definition.get('link_type') == 'master'):
-        # QETがタグ下に表示する接点参照と、形名・定格が重ならないようにする。
-        y = float(label.get('y')) - 34
+    information_z = str(float(label.get('z', '5')) + 1) if label is not None else '5'
+    if label is not None and definition.get('link_type') == 'master':
+        # ラベル矩形を情報列の下まで確保し、QETの自動接点参照をその下へ置く。
+        height = 50 if spec.get('display_ratings') else 35
+        if any(n.findtext('info_name') == 'designation' for n in desc.findall('dynamic_text')):
+            height += 15
+        label.set('text_height', str(height))
+        label.set('Valignment', 'AlignTop')
     node = ET.SubElement(desc, 'dynamic_text', uuid=stable_id(identity + '/model'),
-                         x=str(x), y=str(y), z='5', text_from='ElementInfo',
+                         x=str(x), y=str(y), z=information_z, text_from='ElementInfo',
                          Halignment='AlignLeft', Valignment='AlignTop', rotation='0',
                          text_width='-1', keep_visual_rotation='false', frame='false',
                          font='MS Gothic,7,-1,5,50,0,0,0,0,0')
@@ -248,7 +253,7 @@ def bind_definition(model, spec, part, template, labels, elements=None):
             if old.findtext('info_name') == 'comment':
                 desc.remove(old)
         rating = ET.SubElement(desc, 'dynamic_text', uuid=stable_id(identity + '/rating'),
-                               x=str(x), y=str(y + 15), z='5', text_from='ElementInfo',
+                               x=str(x), y=str(y + 15), z=information_z, text_from='ElementInfo',
                                Halignment='AlignLeft', Valignment='AlignTop', rotation='0',
                                text_width='-1', keep_visual_rotation='false', frame='false',
                                font='MS Gothic,7,-1,5,50,0,0,0,0,0')
@@ -261,6 +266,7 @@ def bind_definition(model, spec, part, template, labels, elements=None):
             node.set('x', str(x))
             node.set('y', str(y + (30 if spec.get('display_ratings') else 15)))
             node.set('Valignment', 'AlignTop')
+            node.set('z', information_z)
     original = definition.find('informations')
     if spec.get('coil'):
         note = ('コイル電圧・ソケットは別途選択。基本形式から注文SKUを推定しない。'

@@ -148,7 +148,7 @@ def render(path, outdir, pages=None, s=1.0, *, draw_factory=None):
                 elif g.tag == "text":
                     sz, bd = parse_font(g.get("font")); x, y = Q(g.get("x"), g.get("y"))
                     draw_text(im, dr, (x, y), g.get('text', ''), sz, bd, s,
-                              rotation=float(g.get('rotation', '0')) - o * 90, margin=0,
+                              rotation=float(g.get('rotation', '0')) + o * 90, margin=0,
                               save_image=outdir is not None, baseline_anchor=True)
                 elif g.tag == "polygon":
                     pts, i = [], 1
@@ -171,7 +171,7 @@ def render(path, outdir, pages=None, s=1.0, *, draw_factory=None):
                 sz, bd = parse_font(t.get("font")); x, y = Q(t.get("x"), t.get("y"))
                 width = float(t.get('text_width', '-1'))
                 draw_text(im, dr, (x, y), txt, sz, bd, s, width, t.get('Halignment'),
-                          float(t.get('rotation', '0')) - o * 90, save_image=outdir is not None)
+                          float(t.get('rotation', '0')) + o * 90, save_image=outdir is not None)
         for c in dg.find("conductors") or []:
             a = terms.get((c.get("element1"), c.get("terminal1"))); b = terms.get((c.get("element2"), c.get("terminal2")))
             if not a or not b: continue

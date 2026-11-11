@@ -51,6 +51,29 @@ class StandardPartsExportTest(unittest.TestCase):
                         self.assertEqual(xml.findtext("./elementInformations/elementInformation[@name='manufacturer_reference']"), model)
 
     @requires_qet
+    def test_exported_master_information_leaves_room_for_automatic_contact_references(self):
+        for model in ('MY4ZN-CBG', 'PLC-RSC-24DC/21', 'H3Y-2', 'HW1B-M110G', 'TR65X3H-044'):
+            with self.subTest(model=model), tempfile.TemporaryDirectory() as folder:
+                paths = standard.export_model(model, g.STANDARD_DEVICES[model], folder)
+                for path in paths:
+                    definition = ET.parse(path).getroot()
+                    fields = {n.findtext('info_name'): n for n in definition.findall('./description/dynamic_text')}
+                    label, model_text = fields['label'], fields['manufacturer_reference']
+                    self.assertEqual(label.get('x'), model_text.get('x'))
+                    self.assertAlmostEqual(float(model_text.get('y')) - float(label.get('y')), 17)
+                    last = model_text
+                    if 'comment' in fields:
+                        last = fields['comment']
+                        self.assertEqual(label.get('x'), last.get('x'))
+                        self.assertAlmostEqual(float(last.get('y')) - float(model_text.get('y')), 15)
+                    if definition.get('link_type') == 'master':
+                        self.assertGreaterEqual(float(label.get('text_height')), float(last.get('y')) - float(label.get('y')) + 17)
+                        self.assertEqual(label.get('Valignment'), 'AlignTop')
+                        self.assertGreater(float(last.get('z')), float(label.get('z')))
+                    for field in ('label', 'manufacturer_reference'):
+                        self.assertEqual(fields[field].get('text_from'), 'ElementInfo')
+
+    @requires_qet
     def test_physical_relay_pins_replace_generic_coil_numbers(self):
         spec = g.STANDARD_DEVICES['MY4N']
         xml = standard.bind_definition('MY4N', spec, 'coil', 'coil', {'a1': ['13'], 'a2': ['14']})

@@ -51,7 +51,7 @@ def make(output, horizontal_coils=False):
 
     def position(x, y):
         if horizontal_coils:
-            return ({120: 45, 210: 110, 230: 140, 280: 150, 360: 210, 460: 270, 590: 300, 700: 360}[y],
+            return (3 * {120: 45, 210: 110, 230: 140, 280: 150, 360: 210, 460: 270, 590: 300, 700: 360}[y],
                     {150: 220, 350: 340, 650: 480, 1010: 650}[x])
         return x, y
 
@@ -76,10 +76,10 @@ def make(output, horizontal_coils=False):
         for text in definition.findall('./description/dynamic_text'):
             text = copy.deepcopy(text)
             text.tag = 'dynamic_elmt_text'
-            # 参照表はラベル下に自動配置される。情報列を端子から離し、型式・定格は上に置く。
+            # 情報列を端子から離し、タグ・形名・定格の順と参照用の高さを保つ。
             if name.endswith('_coil') and text.findtext('info_name') in ('label', 'manufacturer_reference', 'comment'):
                 text.set('x', '90')
-                text.set('y', {'label': '-10', 'manufacturer_reference': '-60', 'comment': '-35'}[text.findtext('info_name')])
+                text.set('y', {'label': '-10', 'manufacturer_reference': '7', 'comment': '22'}[text.findtext('info_name')])
                 text.set('rotation', '0')
             element.find('dynamic_texts').append(text)
         if horizontal_coils:
@@ -87,20 +87,16 @@ def make(output, horizontal_coils=False):
             terminals = definition.findall('./description/terminal')
             for text in element.findall('./dynamic_texts/dynamic_elmt_text'):
                 field = text.findtext('info_name')
-                tx, ty = (-8, -60) if field == 'label' else (-38, -38)
+                tx, ty = 30, {'label': 25, 'manufacturer_reference': 42, 'comment': 57}.get(field, 72)
                 if text.get('text_from') == 'UserText':
                     value = text.findtext('text', '').split()[0]
                     terminal = next((t for t in terminals if t.get('name') == value), None)
                     if terminal is not None:
                         tx = float(terminal.get('y')) - 5
-                        ty = -float(terminal.get('x')) - 18
+                        ty = -float(terminal.get('x')) - (30 if name.endswith('_coil') else 18)
                 # 記号を270度回し、文字を逆回転して読める向きを保つ。
                 text.set('x', str(-ty)); text.set('y', str(tx))
                 text.set('rotation', '90')
-                if field == 'comment' or name.endswith('_coil') and field == 'manufacturer_reference':
-                    text.set('text_from', 'UserText')
-                    for info_name in text.findall('info_name'): text.remove(info_name)
-                    text.find('text').text = ''
             if name.endswith('_coil'):
                 ET.SubElement(infos, 'elementInformation', name='qet_io_xref_dx', show='0').text = '82'
                 ET.SubElement(infos, 'elementInformation', name='qet_io_xref_dy', show='0').text = '-16'
@@ -123,8 +119,8 @@ def make(output, horizontal_coils=False):
     else:
         page.text(70, 22, '国産メーカー部品による自己保持・接触器駆動回路', 13, True)
         page.text(70, 53, 'DC24V / 標準記号・実端子番号・メーカー型式・コイルと接点の関連付けを確認', 9)
-    page.text(24 if horizontal_coils else 80, 60 if horizontal_coils else 95, 'P24 (+24V)', 9, True)
-    page.text(330 if horizontal_coils else 80, 60 if horizontal_coils else 707, 'N24 (0V)', 9, True)
+    page.text(114 if horizontal_coils else 80, 60 if horizontal_coils else 95, 'P24 (+24V)', 9, True)
+    page.text(1050 if horizontal_coils else 80, 60 if horizontal_coils else 707, 'N24 (0V)', 9, True)
     tops = [node(x, 120) for x in (150, 650, 1010)]
     bottoms = [node(x, 700) for x in (150, 650, 1010)]
     for rail, number in ((tops, 'P24'), (bottoms, 'N24')):
@@ -160,9 +156,9 @@ def make(output, horizontal_coils=False):
     link(relay, hold, drive)
     link(contactor, running)
     if horizontal_coils:
-        page.text(382, 700, '起動: S1 / 停止: S0', 8)
-        page.text(382, 720, '保存後に参照表を更新', 8)
-        page.text(382, 740, '作図用サンプル', 8)
+        page.text(1100, 700, '起動: S1 / 停止: S0', 8)
+        page.text(1100, 720, '保存後に参照表を更新', 8)
+        page.text(1100, 740, '作図用サンプル', 8)
     else:
         page.text(70, 745, '操作: S1でK1励磁 → 9–5で自己保持 → 12–8でKM1励磁 → 13–14でH1点灯。S0で解除。', 9)
         page.text(70, 772, '作図確認用。主回路・保護協調・サーマル/モータ容量の選定は含まない。リレー番号は本体ピン番号。', 8)

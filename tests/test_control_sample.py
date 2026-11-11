@@ -34,7 +34,22 @@ class ControlSampleTest(unittest.TestCase):
         self.assertEqual(set(terminals[parts['contactor_aux_1']]), {'13', '14'})
         if horizontal:
             self.assertEqual(elements[parts['relay_coil']].get('orientation'), '3')
-            self.assertEqual(elements[parts['relay_coil']].get('x'), '300')
+            self.assertEqual(elements[parts['relay_coil']].get('x'), '900')
+        if not horizontal:
+            for part in ('relay_coil', 'contactor_coil'):
+                fields = {n.findtext('info_name'): n for n in elements[parts[part]].findall('./dynamic_texts/dynamic_elmt_text')}
+                self.assertLess(float(fields['label'].get('y')), float(fields['manufacturer_reference'].get('y')))
+                self.assertLess(float(fields['manufacturer_reference'].get('y')), float(fields['comment'].get('y')))
+                self.assertGreaterEqual(float(fields['label'].get('text_height')), 50)
+        if horizontal:
+            for uid in parts.values():
+                fields = {n.findtext('info_name'): n for n in elements[uid].findall('./dynamic_texts/dynamic_elmt_text')}
+                label, model = fields['label'], fields['manufacturer_reference']
+                self.assertEqual(label.get('y'), model.get('y'))
+                self.assertLess(float(model.get('x')), float(label.get('x')))
+                if 'comment' in fields:
+                    self.assertEqual(fields['comment'].get('text_from'), 'ElementInfo')
+                    self.assertLess(float(fields['comment'].get('x')), float(model.get('x')))
         wires = []
         for conductor in root.findall('./diagram/conductors/conductor'):
             endpoints = [(conductor.get('element' + n), conductor.get('terminal' + n)) for n in ('1', '2')]
