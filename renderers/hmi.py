@@ -24,7 +24,7 @@ def interface(p, symbols, item, x, top, Symbol, mode='', notes=None, right_edge=
         if right_edge is not None:
             from . import connectors
             from .communication import wrap
-            from gen_io_page import text_w
+            from renderers.typography import text_w
             key = connectors.symbol(symbols, Symbol, item['kind'], terminal_side='right')
             p.place(key, right_edge - 10, top + 48)
             lines = wrap(item.get('connector_label', item['kind']),
@@ -79,7 +79,7 @@ def build_body(pg, symbols, spec, Page, Symbol, heading, lanes=None):
     """lanes: (レーン名 {'P','N'}, レーン上端の y, 中央ぞろえの文字関数)。DC24V の機種は P24/N24 レーンへ配線する"""
     from . import settings
     from .communication import draw_notes
-    from gen_io_page import unit_identity_header
+    from drawing import unit_identity_header
     p = Page(symbols)
     model = pg['model'].upper()
     x, right = 275, 275 + 250             # 左の列(電源・シリアル・Ethernet)と右の列(表示器・USB・SD・電池)
@@ -195,7 +195,7 @@ def build_body(pg, symbols, spec, Page, Symbol, heading, lanes=None):
 
 
 def build_options(pg, symbols, definitions, Page, Symbol, heading):
-    from gen_io_page import unit_identity_header
+    from drawing import unit_identity_header
     from .settings import UNIT_BOX_W, SETTINGS_BOTTOM
     p = Page(symbols)
     box_bottoms = {}

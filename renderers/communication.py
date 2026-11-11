@@ -60,7 +60,7 @@ def interface_rows(interface):
 
 def pin_table_layout(rows, width, compact=False):
     """定義済みのピン情報だけを、折返しを含む3列の小表にする。"""
-    from gen_io_page import text_w
+    from renderers.typography import text_w
     columns = (48, round((width - 48) * 0.56, 1))
     columns += (width - sum(columns),)
     values = [('ピンNo.', '信号', '用途')]
@@ -78,7 +78,8 @@ def pin_table_layout(rows, width, compact=False):
 
 
 def draw_pin_table(p, x, y, columns, cells):
-    from gen_io_page import TEXT_MARGIN, text_w, vcenter
+    from renderers.typography import TEXT_MARGIN, text_w
+    from drawing import vcenter
     width = sum(columns)
     bottom = y + sum(height for _, height in cells)
     p.rect(x, y, x + width, bottom, dash=False, width=0.7)

@@ -7,7 +7,8 @@ from .terminal_box import unit_header, align_unit_header
 
 
 def definition(model, spec, elements=None):
-    from gen_io_page import Symbol, text_w
+    from drawing import Symbol
+    from renderers.typography import text_w
 
     primary, secondary = spec['external_terminals']['primary'], spec['external_terminals']['secondary']
     if not 3 <= len(primary) <= 5 or not 0 <= len(secondary) <= 5:

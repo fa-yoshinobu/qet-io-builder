@@ -54,7 +54,7 @@ def draw_connector(p, symbols, Symbol, item, x, y, wired=True):
 
 
 def build_body(pg, symbols, spec, Page, Symbol, heading):
-    from gen_io_page import unit_identity_header
+    from drawing import unit_identity_header
     from .communication import draw_notes, text_width, wrap
     from .settings import UNIT_BOX_W, SETTINGS_BOTTOM
     p = Page(symbols)

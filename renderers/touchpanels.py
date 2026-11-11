@@ -22,7 +22,8 @@ def _block(section):
 
 
 def build_pages(pg, spec, symbols):
-    from gen_io_page import Page, Symbol, unit_identity_header, vcenter, wrap2
+    from drawing import Page, Symbol, unit_identity_header, vcenter
+    from renderers.typography import wrap2
     from .analog import readonly_symbol
     left, right = [], []
     expanded = []

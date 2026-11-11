@@ -57,7 +57,7 @@ def _groups(records):
 
 
 def _rails(page, records, offset=0):
-    from gen_io_page import FX_IN_X, ctext, LANE_TOP_Y
+    from drawing import FX_IN_X, ctext, LANE_TOP_Y
     groups = _groups(records)
     result = {}
     for index, group in enumerate(groups):
@@ -80,7 +80,7 @@ def _power_wire(page, rails, row, terminal):
     page.wire(previous, 's', node, 'n')
     page.wire(node, 'e', terminal, 't', num=label, show=True)
     # 系統識別のU/Iを付けた線番も、端子手前の同じ位置にそろえる。
-    from gen_io_page import text_w, TEXT_MARGIN, PX_PER_PT
+    from renderers.typography import text_w, TEXT_MARGIN, PX_PER_PT
     endpoint = terminal[2] + terminal[1].terminals['t'][2]
     page.conductors[-1].set('userx', str(round(endpoint - 12 - text_w(label, 8) - 2 * TEXT_MARGIN, 1)))
     page.conductors[-1].set('usery', str(round(y - 8 * PX_PER_PT - 2 * TEXT_MARGIN - 2, 1)))
@@ -88,7 +88,8 @@ def _power_wire(page, rails, row, terminal):
 
 
 def _terminal_pages(pg, spec, sections, symbols, *, cable_cores=False):
-    from gen_io_page import Page, IN_X, ROW_PITCH, io_table_header, wrap2, vcenter
+    from drawing import Page, IN_X, ROW_PITCH, io_table_header, vcenter
+    from renderers.typography import wrap2
     from .communication import draw_notes
     records = [(section, row) for section in sections for row in section.get('terminals', [])
                if row['signal'].upper() != 'NC']
@@ -150,7 +151,7 @@ def _terminal_pages(pg, spec, sections, symbols, *, cable_cores=False):
 
 
 def _connector_pages(pg, spec, sections, symbols):
-    from gen_io_page import Page, Symbol, unit_identity_header, ctext
+    from drawing import Page, Symbol, unit_identity_header, ctext
     from . import connectors
     from .communication import draw_notes, pin_table_layout, draw_pin_table, wrap
     blocks = []
@@ -188,7 +189,8 @@ def _connector_pages(pg, spec, sections, symbols):
                 for index, row in enumerate(rows):
                     y = top + 34 + index * 32
                     key = 'module_pin' if row.get('connectable', True) else readonly_symbol(symbols, 'module_pin')
-                    from gen_io_page import wrap2, vcenter
+                    from renderers.typography import wrap2
+                    from drawing import vcenter
                     label = wrap2(row['signal'], 108, 8)
                     purpose = wrap2(row.get('purpose', ''), 76, 8)
                     terminal = page.place(key, 275, y, label=label, comment=purpose,

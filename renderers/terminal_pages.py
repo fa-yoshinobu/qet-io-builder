@@ -29,7 +29,8 @@ def terminal_rows(pg, spec, annotations=None):
 
 
 def build_pages(pg, spec, symbols, annotations=None):
-    from gen_io_page import Page, io_table_header, IN_TEXTS, comment_text, wrap2
+    from drawing import Page, io_table_header, IN_TEXTS, comment_text
+    from renderers.typography import wrap2
     from .analog import readonly_symbol
     rows = terminal_rows(pg, spec, annotations)
     if pg['kind'] == 'mxio' and 'plc_in_mx' not in symbols:

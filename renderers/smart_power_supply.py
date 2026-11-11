@@ -6,7 +6,7 @@ from .terminal_box import unit_header, align_unit_header
 
 
 def definition(model, spec):
-    from gen_io_page import Symbol
+    from drawing import Symbol
 
     channels = spec['output']['branches']
     groups = {g['role']: g['terminals'] for g in spec['terminal_groups']}

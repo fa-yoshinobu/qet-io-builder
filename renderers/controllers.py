@@ -2,7 +2,7 @@
 
 
 def mxr_symbol(key, height):
-    from gen_io_page import Symbol, draw_rj45, rotate90
+    from drawing import Symbol, draw_rj45, rotate90
     from .connectors import usb_c
     symbol = Symbol(key, 'MX-R CPU', 80, height, 10, 5)
     # TSN・モーション部と一体なので、内部境界は構成ページ側で描く。
@@ -21,14 +21,14 @@ def mxr_symbol(key, height):
 
 
 def expansion_specs():
-    from gen_io_page import read_unit_definitions
+    from unit_catalog import read_unit_definitions
     definitions = read_unit_definitions()
     return {model: dict(spec, category=category) for category in ('mx_io', 'fx5_analog', 'fx5_comm')
             for model, spec in definitions[category].items()}
 
 
 def expansion_items(pg):
-    from gen_io_page import MX_CPU
+    from unit_catalog import MX_CPU
     definitions = expansion_specs()
     allowed = MX_CPU.get(str(pg.get('model', '')).upper(), {}).get('compatible_modules', [])
     modules, tags = pg.get('modules', []), pg.get('module_tags', [])
@@ -72,7 +72,7 @@ def expansion_items(pg):
 
 
 def build_body(pg, spec, symbols):
-    from gen_io_page import Page, Symbol, unit_identity_header
+    from drawing import Page, Symbol, unit_identity_header
     from .connectors import symbol as connector
     from .hmi import checkbox
     from . import settings

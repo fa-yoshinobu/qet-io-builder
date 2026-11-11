@@ -18,7 +18,7 @@ def _lines(text, width):
 
 
 def definition(model, spec):
-    from gen_io_page import Symbol, draw_rj45
+    from drawing import Symbol, draw_rj45
     from .standard import stable_id
 
     ports = spec.get('ports', [])

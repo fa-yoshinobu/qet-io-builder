@@ -51,7 +51,7 @@ def _bus_label(item):
 
 
 def _card(page, item, x, top):
-    from gen_io_page import unit_identity_header
+    from drawing import unit_identity_header
     from .communication import wrap
     unit_identity_header(page, item, x, CARD_WIDTH, top, top + 18)
     bottom = top + CARD_HEIGHT
@@ -68,7 +68,8 @@ def build_pages(pg, symbols):
     """接続判定済みの物理順を保持し、長い列を番号付きで継続する。"""
     import math
     import plc_configuration
-    from gen_io_page import Page, KV_IO, UNIT_DIAGRAMS
+    from drawing import Page
+    from unit_catalog import KV_IO, UNIT_DIAGRAMS
     from .communication import draw_notes, wrap
     configuration = plc_configuration.resolve(pg, {'kv_io': KV_IO, 'unit_diagram': UNIT_DIAGRAMS})
     chains = _items(configuration, pg)

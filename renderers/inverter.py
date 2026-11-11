@@ -2,7 +2,8 @@
 
 
 def build_body(pg, spec, symbols):
-    from gen_io_page import Page, Symbol, unit_identity_header, text_w, TEXT_MARGIN, PX_PER_PT
+    from drawing import Page, Symbol, unit_identity_header
+    from renderers.typography import text_w, TEXT_MARGIN, PX_PER_PT
     from .communication import draw_notes, wrap
     from . import connectors, settings
     p = Page(symbols)

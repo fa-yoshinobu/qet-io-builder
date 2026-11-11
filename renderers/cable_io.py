@@ -3,7 +3,7 @@ from copy import deepcopy
 
 
 def _connector_rows(pg, spec):
-    from gen_io_page import unit_addrs
+    from unit_catalog import unit_addrs
 
     if 'sections' in spec:
         section, = spec['sections']
@@ -28,8 +28,7 @@ def plc_signals(pg, spec):
 
 
 def build_pages(pg, spec, symbols):
-    from gen_io_page import (Page, HALF_W, IN_X, OUT_X, IN_TEXTS, OUT_TEXTS,
-                             io_table_header)
+    from drawing import Page, HALF_W, IN_X, OUT_X, IN_TEXTS, OUT_TEXTS, io_table_header
     from .communication import wrap
 
     page = Page(symbols)

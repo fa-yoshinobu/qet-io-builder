@@ -9,7 +9,8 @@ def relay_branch_pins(spec, branch):
 
 
 def _build_relay_page(pg, spec, symbols):
-    from gen_io_page import KV_IO, Page, Symbol, ctext, unit_identity_header, vcenter
+    from unit_catalog import KV_IO
+    from drawing import Page, Symbol, ctext, unit_identity_header, vcenter
     from .unit_diagrams import _power_wire, _rails
 
     branch = pg['branch']
@@ -71,7 +72,8 @@ def _build_relay_page(pg, spec, symbols):
 
 
 def build_pages(pg, spec, symbols):
-    from gen_io_page import Page, Symbol, ctext, text_w, unit_identity_header, vcenter
+    from drawing import Page, Symbol, ctext, unit_identity_header, vcenter
+    from renderers.typography import text_w
 
     if 'relay_contacts' in spec:
         return _build_relay_page(pg, spec, symbols)

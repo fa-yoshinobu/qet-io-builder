@@ -11,7 +11,7 @@ def select_cable(spec, model, cable):
 
 
 def check_page(pg, spec):
-    from gen_io_page import text_w
+    from renderers.typography import text_w
 
     choice = select_cable(spec, pg.get('plc_model'), pg.get('cable'))
     fields = {'plc_tag': 'PLC側タグ', 'tag': '端子台タグ', 'cable_tag': 'ケーブル番号'}
@@ -68,7 +68,7 @@ def circuits(pg, spec, choice):
 
 
 def plc_definition(pg, port):
-    from gen_io_page import KV_IO, UNIT_DIAGRAMS, io_unit
+    from unit_catalog import KV_IO, UNIT_DIAGRAMS, io_unit
     from . import cable_io
 
     model = pg['plc_model']
@@ -107,7 +107,7 @@ def build_sheets(pg, spec, choice, symbols, cable_ids):
 
 
 def label_sheets(reference, nums):
-    from gen_io_page import text_w
+    from renderers.typography import text_w
 
     pg, port, cable, block, io, ends = reference
     source = f"{pg['plc_tag']}（{pg['plc_model']}）{port or 'I/Oコネクタ'}"

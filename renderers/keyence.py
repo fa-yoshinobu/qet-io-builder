@@ -2,12 +2,8 @@
 import copy
 
 def draw_half(page, pg, spec, section, side):
-    from gen_io_page import (
-        HALF_W, IN_X, OUT_X, IN_TEXTS, OUT_TEXTS, ROW_PITCH,
-        LANE, LANE_TOP_Y, ctext, io_table_header, tb_label, line_no,
-        output_lane_labels,
-        FX_IN_X, FX_OUT_X,
-    )
+    from drawing import HALF_W, IN_X, OUT_X, IN_TEXTS, OUT_TEXTS, ROW_PITCH, LANE, LANE_TOP_Y, ctext, io_table_header, output_lane_labels, FX_IN_X, FX_OUT_X
+    from renderers.relay_references import tb_label, line_no
 
     output = section['directions'][side] == 'output' if 'directions' in section else spec['output']
     positions = dict(OUT_X, P=FX_OUT_X['inner'], N=FX_OUT_X['outer']) if output else dict(IN_X, P=FX_IN_X['outer'], N=FX_IN_X['inner'])
@@ -81,9 +77,7 @@ def draw_half(page, pg, spec, section, side):
 
 
 def build_nano_body(pg, spec, symbols):
-    from gen_io_page import (
-        Symbol, Page, unit_identity_header, ctext, FX_IN_X, LANE, LANE_TOP_Y,
-    )
+    from drawing import Symbol, Page, unit_identity_header, ctext, FX_IN_X, LANE, LANE_TOP_Y
     from .connectors import draw
 
     body = spec['body']
@@ -152,7 +146,7 @@ def build_nano_body(pg, spec, symbols):
 
 
 def build_module(pg, spec, symbols):
-    from gen_io_page import Page, Symbol, unit_identity_header, ctext, BORDER_COLS, COL_SIZE, FX_IN_X, LANE, LANE_TOP_Y
+    from drawing import Page, Symbol, unit_identity_header, ctext, BORDER_COLS, COL_SIZE, FX_IN_X, LANE, LANE_TOP_Y
     from . import connectors, settings
     from .communication import draw_notes, pin_table_layout, draw_pin_table, wrap
 
@@ -239,7 +233,7 @@ def build_module(pg, spec, symbols):
 
 
 def build_analog(pg, spec, symbols):
-    from gen_io_page import Page, IN_X, IN_TEXTS, ROW_PITCH, io_table_header
+    from drawing import Page, IN_X, IN_TEXTS, ROW_PITCH, io_table_header
     from .communication import draw_notes
 
     page = Page(symbols)
@@ -254,7 +248,7 @@ def build_analog(pg, spec, symbols):
 
 
 def build_pages(pg, spec, symbols):
-    from gen_io_page import Page
+    from drawing import Page
 
     if spec.get('module'):
         return [build_module(pg, spec, symbols)]

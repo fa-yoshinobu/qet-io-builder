@@ -26,6 +26,13 @@ class UpdateXrefsTest(unittest.TestCase):
         table = self.tables()[master.get('uuid')]
         return [t.get('text') for t in definitions(self.root)[table.get('type')].findall('./description/text')]
 
+    def row_references(self, master, row):
+        table = self.tables()[master.get('uuid')]
+        texts = definitions(self.root)[table.get('type')].findall('./description/text')
+        header = next(text for text in texts if text.get('text') == row)
+        return [text.get('text') for text in texts
+                if text is not header and text.get('y') == header.get('y')]
+
     @requires_qet
     def test_real_poles_and_unused_changeover_side(self):
         before_wires = ET.tostring(self.root.find('./diagram/conductors'))
@@ -36,7 +43,7 @@ class UpdateXrefsTest(unittest.TestCase):
         self.assertEqual(text[0], 'a')
         self.assertIn('1-E6', text)
         self.assertIn('1-C11', text)
-        self.assertEqual(text[-3:], ['b', '', ''])
+        self.assertEqual(self.row_references(relay, 'b'), [])
         self.assertEqual(before_wires, ET.tostring(self.root.find('./diagram/conductors')))
         self.assertEqual(positions, {e.get('uuid'): (e.get('x'), e.get('y')) for e in self.parts().values()})
         self.assertEqual(len(relay.findall('./links_uuids/link_uuid')), 2)
@@ -80,7 +87,7 @@ class UpdateXrefsTest(unittest.TestCase):
                 if conductor.get('element' + n) == first.get('uuid') and conductor.get('terminal' + n) == pins['5']:
                     conductor.set('terminal' + n, pins['1'])
         update(self.root)
-        self.assertEqual(self.table_texts(parts['relay_coil'])[-3:], ['b', '1-E6', ''])
+        self.assertEqual(self.row_references(parts['relay_coil'], 'b'), ['1-E6'])
         page = self.root.find('diagram')
         page.find('elements').remove(first)
         relay = parts['relay_coil']
@@ -88,7 +95,7 @@ class UpdateXrefsTest(unittest.TestCase):
             if link.get('uuid') == first.get('uuid'):
                 relay.find('links_uuids').remove(link)
         update(self.root)
-        self.assertEqual(self.table_texts(relay)[-3:], ['b', '', ''])
+        self.assertEqual(self.row_references(relay, 'b'), [])
 
     @requires_qet
     def test_out_of_range_or_broken_link_does_not_replace_output(self):

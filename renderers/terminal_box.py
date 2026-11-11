@@ -5,7 +5,8 @@ import math
 
 def unit_header(symbol, model, width):
     """接続点を動かさず、箱の上へ編集可能な管理情報の3欄を足す。"""
-    from gen_io_page import text_w, vcenter, PX_PER_PT
+    from renderers.typography import text_w, PX_PER_PT
+    from drawing import vcenter
     symbol.height += 18
     symbol.hy += 18
     symbol.rect(0, -18, width, 18)
@@ -33,7 +34,8 @@ def align_unit_header(xml, width):
 
 
 def definition(model, spec):
-    from gen_io_page import Symbol, text_w
+    from drawing import Symbol
+    from renderers.typography import text_w
     from .standard import stable_id
     symbol = Symbol(model, model + ' 電子式保護器', 300, 450, 20, 20)
     symbol.rect(0, 0, 260, 410)

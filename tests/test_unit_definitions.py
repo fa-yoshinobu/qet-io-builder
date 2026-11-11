@@ -72,5 +72,23 @@ class UnitFilesTest(unittest.TestCase):
             (Path(folder) / 'mixed.json').write_text(json.dumps(item), encoding='utf-8')
             self.assertEqual(gen.load_units(folder)[15]['TEST_MIXED']['input']['pins'], ['1', '2'])
 
+    def test_reload_keeps_renderer_catalog_references_and_failure_preserves_data(self):
+        from renderers.melsec_analog import Q_ANALOG
+        original = gen.Q_ANALOG
+        try:
+            with tempfile.TemporaryDirectory() as folder:
+                item = {'category': 'q_analog', 'model': 'CUSTOM_ANALOG', 'definition': {'channels': []}}
+                (Path(folder) / 'unit.json').write_text(json.dumps(item), encoding='utf-8')
+                gen.use_units(folder)
+                self.assertIs(gen.Q_ANALOG, original)
+                self.assertIs(Q_ANALOG, original)
+                self.assertEqual(Q_ANALOG['CUSTOM_ANALOG'], {'channels': []})
+                with tempfile.TemporaryDirectory() as empty:
+                    with self.assertRaises(ValueError):
+                        gen.use_units(empty)
+                self.assertEqual(Q_ANALOG['CUSTOM_ANALOG'], {'channels': []})
+        finally:
+            gen.use_units()
+
 if __name__ == '__main__':
     unittest.main()
