@@ -1,10 +1,16 @@
 """FX5 本体の形名から、サンプルのプロジェクトJSONと入出力CSV(予備で埋めたもの)を作る。
 使い方: python3 tools/make_sample.py FX5U-32MT/DS units/fx5u-32mt-ds   (→ .json と _in.csv / _out.csv)
 電源ページ付き。DC電源タイプなら DC版の電源ページになる。"""
-import csv, importlib.util, json, os, sys
-HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-spec = importlib.util.spec_from_file_location("g", os.path.join(HERE, "gen_io_page.py"))
-g = importlib.util.module_from_spec(spec); spec.loader.exec_module(g)
+
+import sys
+from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+import csv, json, os
+import argparse
+import gen_io_page as g
 
 IN_NAMES = ["運転押釦", "停止押釦", "非常停止", "リセット押釦", "自動/手動切替", "原点LS", "終点LS", "ワーク有無センサ"]
 OUT_NAMES = [("運転表示灯", "PL1", "PL"), ("異常表示灯", "PL2", "PL"), ("ブザー", "BZ1", "RY"), ("コンベア運転", "MC1", "RY")]
@@ -60,4 +66,8 @@ def make(model, out_base):
 
 
 if __name__ == "__main__":
-    make(sys.argv[1], sys.argv[2])
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("model", help="FX5本体または混合I/Oの形名")
+    parser.add_argument("output", help="出力ファイルのベース名（拡張子なし）")
+    args = parser.parse_args()
+    make(args.model, args.output)

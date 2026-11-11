@@ -1,10 +1,14 @@
 """A3横1ページの製作仕様書サンプルをQETで作る。記入例であり実案件の仕様ではない。"""
-import argparse
+
 import sys
 from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+import argparse
 from xml.etree import ElementTree as ET
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import gen_io_page as g
 
 

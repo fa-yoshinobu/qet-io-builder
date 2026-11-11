@@ -1,14 +1,18 @@
 """コネクタの絵(renderers/connectors.py の共通部品)を、QET に置ける単体 .elmt 部品として書き出す。
 使い方: python tools/export_connector_elements.py parts/connectors/elements
 QET の「ユーザーコレクション」にフォルダごとコピーすると、図面に手で置ける。"""
-import argparse
+
 import sys
-import uuid
 from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+import argparse
+import uuid
 from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
 from gen_io_page import Symbol
 from renderers import connectors
 

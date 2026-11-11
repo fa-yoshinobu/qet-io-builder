@@ -1,8 +1,14 @@
 """機種別JSONからメーカー別の全機種カタログQETを組み立てる。"""
+
+import sys
+from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 import copy
 import json
 from collections import defaultdict
-from pathlib import Path
 from xml.etree import ElementTree as ET
 
 import gen_io_page as g
@@ -128,3 +134,11 @@ def build_category(category, models, out):
     destination = out / (category + '.qet')
     ET.ElementTree(project).write(destination, encoding='utf-8', xml_declaration=True)
     return destination
+
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description=__doc__, epilog='カタログ生成には python tools/qet_export_pdf.py --manufacturer を使用してください。')
+    parser.parse_args()
+    parser.print_help()

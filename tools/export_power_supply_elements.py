@@ -1,13 +1,17 @@
 """電源の機種JSONから、QETに配置できる単体.elmt部品を生成する。"""
+
+import sys
+from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 import argparse
 import json
-import sys
 import uuid
-from pathlib import Path
 from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
 from gen_io_page import Symbol, draw_rj45
 from renderers.terminal_box import unit_header, align_unit_header
 

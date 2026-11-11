@@ -2,8 +2,15 @@
 QET の自動配線は L 字で近似し、表題欄は名称だけを描く。正式な確認は QET の「PDFにエクスポート」で行う。
 使い方: python tools/preview_qet.py 図面.qet 出力フォルダ [ページ(例 1,2,5-7 / all)] [倍率(既定0.8)]
 必要: Pillow。日本語フォントは Noto Sans CJK(Linux)か MS ゴシック(Windows)を使う。"""
+
+import sys
+from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 import argparse
-import sys, os, re, math
+import os, re, math
 import xml.etree.ElementTree as ET
 from PIL import Image, ImageDraw, ImageFont
 # QET の図面は MS ゴシック(等幅・半角0.5em)。文字幅をそろえるため等幅のゴシックを優先する

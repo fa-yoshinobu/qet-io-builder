@@ -4,17 +4,21 @@ python tools/qet_export_pdf.py project.json [output.pdf] [--qet-exe PATH]
 python tools/qet_export_pdf.py --manufacturer keyence --output-dir PDF
 python tools/qet_export_pdf.py --list-manufacturers
 """
+
+import sys
+from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 import argparse
 import os
-from pathlib import Path
 import shutil
 import subprocess
-import sys
 import tempfile
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
 from pypdf import PdfReader, PdfWriter
 from pypdf.errors import PdfReadError
 from tools.pdf_to_a3 import to_a3

@@ -1,10 +1,14 @@
 """機種定義から標準記号または箱型電子機器の端子図の部品を書き出す。"""
-import argparse
+
 import sys
 from pathlib import Path
 
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+import argparse
+
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
 import gen_io_page as gen
 from renderers.standard import export_model
 

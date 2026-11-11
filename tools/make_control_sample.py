@@ -1,11 +1,15 @@
 """メーカー定義とQET標準記号で、配線済みの自己保持回路を作る。PDFは出力しない。"""
-import argparse
-import copy
+
 import sys
 from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+import argparse
+import copy
 from xml.etree import ElementTree as ET
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import gen_io_page as g
 from renderers import standard
 

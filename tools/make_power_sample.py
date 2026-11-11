@@ -1,12 +1,16 @@
 """登録済み電源を、端子数に合わせて1冊の確認用QETへまとめる。"""
-import argparse
-import copy
+
 import sys
 from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+import argparse
+import copy
 from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
 import gen_io_page as gen
 from tools.export_power_supply_elements import definition
 from tools.make_control_sample import Imported

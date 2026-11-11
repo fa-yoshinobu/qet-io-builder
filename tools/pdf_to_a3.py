@@ -2,9 +2,16 @@
 使い方: python tools/pdf_to_a3.py [--drawing 1260x870] pdf/*.pdf   (ファイルを上書き。pypdf が必要)
 図面の範囲は Ghostscript で測る。Ghostscript がなければ --drawing(図面の幅x高さ)から計算する
 (QET の書き出しは 10mm の余白で図面を左上に寄せて縮小するので、図面の大きさから位置が決まる)。"""
+
+import sys
+from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 import argparse
 import math
-import re, shutil, subprocess, sys
+import re, shutil, subprocess
 from pypdf import PdfReader, PdfWriter, Transformation
 A3 = (1190.55, 841.89)
 MIN_MARGIN = 28.35   # 10mm

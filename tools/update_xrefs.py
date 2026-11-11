@@ -1,15 +1,19 @@
 """保存済みQETのコイル・接点リンクからa/b横表を更新する。"""
+
+import sys
+from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 import argparse
 import json
 import math
 import os
 import shutil
-import sys
 import tempfile
-from pathlib import Path
 from xml.etree import ElementTree as ET
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import gen_io_page as g
 from renderers.standard import collection_root
 

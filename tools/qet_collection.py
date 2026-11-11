@@ -1,6 +1,12 @@
 """選んだ制御部品をQETのユーザーコレクションへ登録する。"""
-import os
+
+import sys
 from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+import os
 from xml.etree import ElementTree as ET
 
 
@@ -94,3 +100,11 @@ def register_all_parts(models=None):
     message += '\nQETのユーザーコレクションを更新するか、QETを再起動してください。'
     return dict(ok=not errors, models=len(success), configurations=configurations, parts=len(paths),
                 errors=errors, message=message)
+
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description=__doc__, epilog='登録はGUIの部品書出しメニューから行います。このモジュールは登録APIを提供します。')
+    parser.parse_args()
+    parser.print_help()

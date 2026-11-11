@@ -1,15 +1,18 @@
 """プレビューの文字外接矩形と水平・垂直線で、QETのレイアウトを検査する。"""
+
+import sys
+from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 import argparse
 import math
 from collections import Counter
 from dataclasses import dataclass
-import sys
 import xml.etree.ElementTree as ET
 
-try:
-    from . import preview_qet
-except ImportError:
-    import preview_qet
+from tools import preview_qet
 
 
 @dataclass(frozen=True)
