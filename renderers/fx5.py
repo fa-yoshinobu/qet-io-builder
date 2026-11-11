@@ -57,7 +57,7 @@ def fx_input_half(p, off, rows, pg, cfg, show_ss, mode):
     lane_x = {sw_lane: X["inner"], ss_lane: X["outer"]}
     pw = cfg["power"]
     for name, x in lane_x.items():
-        ctext(p, x, 44, LANE[name], 8, True)
+        p.power_lane_label(x, LANE[name])
     io_table_header(p,pg,X['plc']+4,260,(55,),('アドレス','用途'))
 
     prev = p.place("junction", X["inner"], LANE_TOP_Y)

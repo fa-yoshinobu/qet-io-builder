@@ -13,7 +13,7 @@ class PowerRails(dict):
     def connect(self, row, terminal, terminal_name='t'):
         if not row.get('lane') or row.get('connectable', True) is False:
             return
-        from drawing import FX_IN_X, LANE, LANE_TOP_Y, ctext
+        from drawing import FX_IN_X, LANE, LANE_TOP_Y
         from .typography import text_w, TEXT_MARGIN, PX_PER_PT
         group, name = row.get('power_group', 'main'), row['lane']
         index = self.groups.index(group)
@@ -22,7 +22,7 @@ class PowerRails(dict):
             x = FX_IN_X['outer' if name == 'P' else 'inner'] + index * 90 + self.offset
             suffix = '' if len(self.groups) == 1 else ('U' if group == 'unit' else 'I' if group == 'io' else str(index + 1))
             label = LANE[name] + suffix
-            ctext(self.page, x, 44, label, 8, True)
+            self.page.power_lane_label(x, label)
             self[key] = [x, self.page.place('junction', x, LANE_TOP_Y), label]
         x, previous, label = self[key]
         _, _, dx, dy = terminal[1].terminals[terminal_name]

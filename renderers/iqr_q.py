@@ -40,8 +40,8 @@ def iqr_input_half(p, off, uc, rows, h, base):
     p.text(X["tb"] - 18, 46, uc.get("tb_name", "TB"), 8, True)
     voltage = str(uc.get("input_voltage", unit.get("input_voltages", [""])[0]))
     lanes = {"P": "P" + voltage, "N": "N" + voltage} if voltage else LANE
-    ctext(p, X["P"], 44, lanes["P"], 8, True)
-    ctext(p, X["N"], 44, lanes["N"], 8, True)
+    p.power_lane_label(X["P"], lanes["P"])
+    p.power_lane_label(X["N"], lanes["N"])
 
     common_lane = "N" if unit.get("input_common") == "negative" else "P"
     contact_lane = "P" if common_lane == "N" else "N"
@@ -358,9 +358,9 @@ def build_iqr_body_page(pg, symbols):
         title = f"{series} ユニット構成" + (f" ({start // per_page + 1}/{(len(stages) + per_page - 1) // per_page})"
                                           if len(stages) > per_page else "")
         page_heading(p, f"{series} ユニット構成  ベース: " + "・".join(st[1] for st in stages) if start == 0 else title, x=RX)
-        # 入出力ページと同じ位置に P24/N24 のレーン(電源・ERR などを QET で配線するため)
+        # 実際に給電先を接続したレーンだけを finish 時に残す。
         for name, lx in (("P", FX_IN_X["outer"]), ("N", FX_IN_X["inner"])):
-            ctext(p, lx, 44, LANE[name], 8, True)
+            p.power_lane_label(lx, LANE[name])
             p.place("junction", lx, LANE_TOP_Y)
         p.extend_lanes([FX_IN_X["outer"], FX_IN_X["inner"]])
         slot_boxes = []

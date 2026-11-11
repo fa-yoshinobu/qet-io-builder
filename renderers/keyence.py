@@ -27,7 +27,7 @@ def draw_half(page, pg, spec, section, side):
             output_lane_labels(page, x['P'], LANE[load_lane], x['N'], LANE[common_lane])
         else:
             for name, lx in lanes.items():
-                ctext(page, lx, 44, LANE[name], 8, True)
+                page.power_lane_label(lx, LANE[name])
         page.text(x['tb'] - 18, 46, pg.get('tb_name', 'TB'), 8, True)
         previous = {name: page.place('junction', lx, LANE_TOP_Y) for name, lx in lanes.items()}
     top = 70

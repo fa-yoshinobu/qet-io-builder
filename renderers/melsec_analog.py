@@ -138,7 +138,7 @@ def build_fx_analog_page(pg, cfg, symbols, rows, start=0):
         lane_tops = {}
         if use_lanes:
             for name in ('P', 'N'):
-                ctext(p, IN_X[name], 44, LANE[name], 8, True)
+                p.power_lane_label(IN_X[name], LANE[name])
                 lane_tops[name] = p.place('junction', IN_X[name], LANE_TOP_Y)
         row_index = [0, 0]
         for idx in range(start, start + n):
@@ -202,7 +202,7 @@ def build_fx_analog_page(pg, cfg, symbols, rows, start=0):
         if use_lanes:
             for name, offset in (('P', FX_IN_X['outer']), ('N', FX_IN_X['inner'])):
                 offset += layout_offset
-                ctext(p, offset, 44, LANE[name], 8, True)
+                p.power_lane_label(offset, LANE[name])
                 lane_tops[name] = p.place('junction', offset, LANE_TOP_Y)
         for idx in range(start, start + n):
             direction = spec['channels'][idx]

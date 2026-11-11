@@ -246,6 +246,41 @@ class Page:
         self.texts = []
         self.shapes = []
         self.placed = []      # (部品の種類, 要素, x, y)
+        self._power_lane_labels = []
+
+    def power_lane_label(self, x, label, size=8):
+        """上端から始まる電源レーンを登録し、見出しを関連付ける。"""
+        count = len(self.texts)
+        ctext(self, x, 44, label, size, True)
+        self._power_lane_labels.append((x, self.texts[-1] if len(self.texts) > count else None))
+
+    def _remove_unused_power_lanes(self):
+        """登録したレーンのうち、実部品への接続がないものだけを除く。"""
+        nodes = {e.get('uuid') for key, e, _, _ in self.placed if key in ('node', 'junction')}
+        graph = {}
+        for wire in self.conductors:
+            a, b = wire.get('element1'), wire.get('element2')
+            graph.setdefault(a, set()).add(b)
+            graph.setdefault(b, set()).add(a)
+        remove = set()
+        for x, label in self._power_lane_labels:
+            pending = [e.get('uuid') for key, e, px, py in self.placed
+                       if key in ('node', 'junction') and px == x and py == LANE_TOP_Y]
+            connected = set()
+            while pending:
+                node = pending.pop()
+                if node in connected:
+                    continue
+                connected.add(node)
+                pending.extend(graph.get(node, set()) - connected)
+            if connected <= nodes:
+                remove.update(connected)
+                if label in self.texts:
+                    self.texts.remove(label)
+        self.elements[:] = [e for e in self.elements if e.get('uuid') not in remove]
+        self.placed[:] = [p for p in self.placed if p[1].get('uuid') not in remove]
+        self.conductors[:] = [w for w in self.conductors
+                              if w.get('element1') not in remove and w.get('element2') not in remove]
 
     def place(self, key, x, y, label="", comment="", prefix="", texts=(), infos=None, tag=""):
         if tag:
@@ -348,6 +383,7 @@ class Page:
 
     def finish(self):
         """3本以上の線がつながる所だけ点を打つ(線の端や曲がり角は点なし)"""
+        self._remove_unused_power_lanes()
         deg = {}
         for c in self.conductors:
             for k in ("element1", "element2"):
@@ -394,14 +430,14 @@ def page_note(p, pg, pw):
     return
 
 def lane_labels(p, X):
-    ctext(p, X["P"], 44, LANE["P"], 8, True)      # 線の真上に中央ぞろえ
-    ctext(p, X["N"], 44, LANE["N"], 8, True)
+    p.power_lane_label(X["P"], LANE["P"])
+    p.power_lane_label(X["N"], LANE["N"])
 
 def output_lane_labels(p, left_x, left_name, right_x, right_name):
     gap = right_x-left_x
     size = next((s for s in (8,7,6) if (text_w(left_name,s)+text_w(right_name,s))/2+6 <= gap),6)
-    ctext(p,left_x,44,left_name,size,True)
-    ctext(p,right_x,44,right_name,size,True)
+    p.power_lane_label(left_x, left_name, size)
+    p.power_lane_label(right_x, right_name, size)
 
 def is_slot_unit(kind, model):
     return kind in ('qcomm','iqrcomm','qbody','iqrbody','qanalog','iqranalog','qmixed','iqrmixed') or str(model).upper().startswith(('Q','R'))
