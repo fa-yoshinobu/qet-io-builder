@@ -1092,6 +1092,16 @@ def identity_cells(p, config, x, width, top, bottom):
     number = str(config.get('slot','') if rack else config.get('unit_no',config.get('slot','')))
     cuts=(x,x+width*0.33,x+width*0.57,x+width)
     values=(('スロットNo. ' if rack else 'ユニットNo. ')+number,config.get('tag',''),config['model'])
+    if (config.get('kind') == 'terminal_block' or config.get('cable_layout')) and not number and text_w(values[1],6)>cuts[2]-cuts[1]-8:
+        # ケーブルの両端の完全なタグはページ下にも表示する。空のユニットNo.欄を長いタグに使う。
+        cuts=(x,cuts[2],x+width)
+        tag=values[1]
+        max_width=cuts[1]-x-8
+        if text_w(tag,6)>max_width:
+            while text_w(tag+'…',6)>max_width:
+                tag=tag[:-1]
+            tag+='…'
+        values=(tag,config['model'])
     for i,value in enumerate(values):
         cell_width=cuts[i+1]-cuts[i]-8
         size=next((s for s in (8,7,6) if text_w(value,s)<=cell_width),6)
@@ -1511,36 +1521,16 @@ def terminal_block_choice(pg):
     spec = TERMINAL_BLOCKS.get(str(pg.get('model', '')).upper())
     if spec is None:
         raise ValueError('登録済みの中継端子台を選んでください')
-    for key, label in [('plc_tag', 'PLC側のタグ'), ('tag', '端子台のタグ'), ('cable_tag', 'ケーブル番号')]:
-        value = pg.get(key)
-        if not isinstance(value, str) or not value.strip() or '\n' in value or '\r' in value:
-            raise ValueError(label + 'を1行で入力してください')
-        if text_w(value, 9) > 360:
-            raise ValueError(label + 'が図面の接続表示に収まる長さにしてください')
-    if pg['tag'].strip() == pg['plc_tag'].strip():
-        raise ValueError('PLC側と端子台にはそれぞれのタグを指定してください')
-    for choice in spec['compatible']:
-        if pg.get('plc_model') in choice['models'] and pg.get('cable') == choice['cable']:
-            return spec, choice
-    raise ValueError('このPLC・中継端子台に対応するケーブルを選んでください')
+    from renderers.cable_routes import check_page
+    return spec, check_page(pg, spec)
 
 
-def terminal_block_project_pages(model, plc_model, cable, plc_tag, block_tag, cable_tag):
+def terminal_block_project_pages(model, plc_model, cable, plc_tag, block_tag, cable_tag, *, tag2=None, cable_tag2=None, cable2=None, start=None):
     pg = dict(kind='terminal_block', model=model, plc_model=plc_model, cable=cable,
               plc_tag=plc_tag, tag=block_tag, cable_tag=cable_tag)
+    pg.update({k: v for k, v in dict(tag2=tag2, cable_tag2=cable_tag2, cable2=cable2, start=start).items() if v is not None})
     terminal_block_choice(pg)
     return [(pg, None)]
-
-
-def label_cable_sheets(pg, spec, choice, io_diagrams, block_diagrams, nums):
-    source = f"{pg['plc_tag']}（{pg['plc_model']}）I/Oコネクタ"
-    target = f"{pg['tag']}（{spec['model']}）コネクタ"
-    cable = f"{pg['cable_tag']}  {choice['cable_manufacturer']}  {choice['cable']}"
-    for diagrams, peers in [(io_diagrams, block_diagrams), (block_diagrams, io_diagrams)]:
-        pages = '・'.join(str(nums[id(sheet)]) for _, sheet in peers)
-        for _, sheet in diagrams:
-            sheet.text(30, 773, f"ケーブル  {cable}     相手図  p.{pages}", 9, True)
-            sheet.text(30, 793, f"{source}  ↔  {target}", 9)
 
 
 def fx_spec(pg):
@@ -3171,18 +3161,10 @@ def build_project(cfg, pages_rows):
             from renderers.plc_configuration import build_pages
             body.extend(build_pages(pg, symbols))
         elif pg["kind"] == "terminal_block":
-            from renderers.terminal_blocks import build_pages as block_pages
-            from renderers.keyence import build_pages as kv_pages
-            spec, choice = terminal_block_choice(pg)
-            cable_id = pg['cable_tag'].strip()
-            if cable_id in cable_ids:
-                raise ValueError(f'中継端子台のケーブル番号が重複しています: {cable_id}')
-            cable_ids.add(cable_id)
-            io_pg = dict(pg, kind='kv_io', model=pg["plc_model"], tag=pg["plc_tag"], cable_layout=True)
-            io_diagrams = kv_pages(io_pg, KV_IO[io_pg["model"]], symbols)
-            block_diagrams = block_pages(pg, spec, symbols)
-            body.extend(io_diagrams + block_diagrams)
-            cable_sheets.append((pg, spec, choice, io_diagrams, block_diagrams))
+            from renderers.cable_routes import build_sheets
+            sheets, refs = build_sheets(pg, *terminal_block_choice(pg), symbols, cable_ids)
+            body.extend(sheets)
+            cable_sheets.extend(refs)
         elif pg["kind"] == "unit_diagram":
             from renderers.unit_diagrams import build_pages
             body.extend(build_pages(pg, UNIT_DIAGRAMS[pg["model"].upper()], symbols))
@@ -3294,8 +3276,9 @@ def build_project(cfg, pages_rows):
         front += toc
 
     nums = {id(page): i for i, (_, page) in enumerate(front + body, 1)}
-    for pg, spec, choice, io_diagrams, block_diagrams in cable_sheets:
-        label_cable_sheets(pg, spec, choice, io_diagrams, block_diagrams, nums)
+    from renderers.cable_routes import label_sheets
+    for reference in cable_sheets:
+        label_sheets(reference, nums)
     # 構成ページに各ユニットのページ番号を書く(ページ番号が決まってから)
     def page_of(pg_):
         got = pages_of.get(id(pg_))
@@ -3411,13 +3394,8 @@ def write_iolist(path, pages_rows):
                             w.writerow([pg['model'], signal, '', '', f'{location} {pin}'.strip(), '', ''])
                 continue
             if pg['kind'] == 'terminal_block':
-                spec, _ = terminal_block_choice(pg)
-                signals = {pin: signal for section in KV_IO[pg['plc_model']]['pages']
-                           for half in section['halves'] for pin, signal in half}
-                for row in spec['connections']:
-                    for pin in row['pins']:
-                        endpoint = ' '.join((pg['tag'], row['bank'], row['terminal'])).strip()
-                        w.writerow([pg['plc_tag'], signals[pin], '', '', pin, endpoint, ''])
+                from renderers.cable_routes import iolist_rows
+                w.writerows(iolist_rows(pg, *terminal_block_choice(pg)))
                 continue
             if pg['kind'] in ('mxbody', 'inverter'):
                 continue

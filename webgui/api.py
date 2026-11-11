@@ -250,7 +250,8 @@ class Api:
                     by_model = choices.setdefault(plc_maker, {})
                     by_model.setdefault(plc_model, []).append(dict(model=block['model'], maker=block['manufacturer'],
                                                                    cable=connection['cable'], cable_maker=connection['cable_manufacturer'],
-                                                                   kit=connection.get('kit', '')))
+                                                                   kit=connection.get('kit', ''), ports=connection.get('ports'),
+                                                                   branches=[b['connector'] for b in connection.get('branches', [])] or None))
         return choices
 
     @_safe
@@ -1786,8 +1787,8 @@ class Api:
         return self._export_diagrams(path, config, [(page, None)])
 
     @_safe
-    def generate_terminal_block(self, model, plc_model, cable, plc_tag, block_tag, cable_tag, out=None):
-        pages = gen.terminal_block_project_pages(model, plc_model, cable, plc_tag, block_tag, cable_tag)
+    def generate_terminal_block(self, model, plc_model, cable, plc_tag, block_tag, cable_tag, out=None, extra=None):
+        pages = gen.terminal_block_project_pages(model, plc_model, cable, plc_tag, block_tag, cable_tag, **(extra or {}))
         path = self._ask('save', 'I/O図・中継端子台図の保存先', out, model + '.qet', ('QET図面 (*.qet)',))
         if path.suffix.lower() != '.qet':
             path = path.with_suffix('.qet')

@@ -189,10 +189,32 @@ function showTerminalBlocks() {
 
 function showTerminalCables() {
   const choices = compatibleTerminalChoices().filter((row) => row.model === $('#terminal-model').value);
-  $('#terminal-cable').replaceChildren(...choices.map((row) => {
-    const label = row.cable_maker + '　' + row.cable + (row.kit ? '（セット ' + row.kit + '）' : '');
-    return new Option(label, row.cable);
-  }));
+  for (const id of ['terminal-cable', 'terminal-cable2']) {
+    $('#' + id).replaceChildren(...choices.map((row) => {
+      const label = row.cable_maker + '　' + row.cable + (row.kit ? '（セット ' + row.kit + '）' : '');
+      return new Option(label, row.cable);
+    }));
+  }
+  showTerminalPorts();
+}
+
+function showTerminalPorts() {
+  const choice = compatibleTerminalChoices().find(row =>
+    row.model === $('#terminal-model').value && row.cable === $('#terminal-cable').value);
+  const ports = choice.ports;
+  const ends = ports || choice.branches;
+  function field(id, label, visible = true) {
+    const title = $('label[for="' + id + '"]');
+    if (label) title.textContent = label;
+    title.hidden = $('#' + id).hidden = !visible;
+  }
+  field('terminal-start', null, S.mode === 'terminals');
+  field('terminal-block-tag', ends ? ends[0] + ' 端子台タグ' : '端子台タグ');
+  field('terminal-block-tag2', ends && ends[1] + ' 端子台タグ', !!ends);
+  field('terminal-cable', ports ? ports[0] + ' 接続ケーブル' : '接続ケーブル');
+  field('terminal-cable-tag', ports ? ports[0] + ' ケーブル番号' : 'ケーブル番号');
+  field('terminal-cable2', null, !!ports);
+  field('terminal-cable-tag2', null, !!ports);
 }
 
 function render() {
@@ -1304,8 +1326,15 @@ const actions = {
     const model = $('#terminal-model').value;
     const path = await pathFor('I/O図・中継端子台図の保存先（.qet）', model + '.qet');
     if (path === null) return;
+    const extra = {};
+    if (!$('#terminal-start').hidden) extra.start = $('#terminal-start').value.trim();
+    if (!$('#terminal-block-tag2').hidden) extra.tag2 = $('#terminal-block-tag2').value.trim();
+    if (!$('#terminal-cable2').hidden) {
+      extra.cable2 = $('#terminal-cable2').value;
+      extra.cable_tag2 = $('#terminal-cable-tag2').value.trim();
+    }
     const result = await run('generate_terminal_block', model, $('#terminal-plc').value, $('#terminal-cable').value,
-      $('#terminal-plc-tag').value.trim(), $('#terminal-block-tag').value.trim(), $('#terminal-cable-tag').value.trim(), path);
+      $('#terminal-plc-tag').value.trim(), $('#terminal-block-tag').value.trim(), $('#terminal-cable-tag').value.trim(), path, extra);
     if (result) setStatus('図面を生成しました: ' + result.out);
   },
   async 'kv-config-new'() { await newConfiguration('keyence', $('#kv-series').value); },
@@ -1467,6 +1496,7 @@ document.addEventListener('input', (e) => {
 async function onChange(el) {
   if (el.name === 'kv-task' || el.name === 'nx-task') { renderConfigurationMenu(); return; }
   if (el.id === 'terminal-plc') { showTerminalBlocks(); return; }
+  if (el.id === 'terminal-cable') { showTerminalPorts(); return; }
   if (el.id === 'terminal-model') { showTerminalCables(); return; }
   if (el.id === 'nx-series' || el.id === 'kv-series') { showMakerModels(el.id.slice(0, 2)); return; }
   if (el.id === 'kv-model') { showKvSettings(); return; }

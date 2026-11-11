@@ -5,8 +5,9 @@
     "manufacturer": "ミスミ",
     "source": [
       "ミスミ MWSシリーズ（バネアップ）製品仕様（シリーズコード110400193520）「記名版イメージ」「結線図 MWS-M34-HT34-KV」 KV Nano用端子番号と記名、丸・Y端子用インターフェイス端子台カタログ EC-345～346",
-      "ミスミ PLC対応ケーブル端子台セット カタログ p.580「KVシリーズ専用カスタマイズ端子台」 KV-NC32EX／KV-NC32ET適合、p.579 34芯ケーブル",
-      "キーエンス KV Nanoシリーズ 基本ユニット（コネクタタイプ）ユーザーズマニュアル（084542） 第2章 2-21、2-29"
+      "ミスミ PLC対応ケーブル端子台セット カタログ p.579 34芯ケーブル、p.580～581 キーエンスPLC専用カスタマイズ端子台の適合表",
+      "キーエンス KV Nanoシリーズ 基本ユニット（コネクタタイプ）ユーザーズマニュアル（084542） 第2章 2-21、2-29",
+      "キーエンス KV-8000シリーズ ユーザーズマニュアル（084823）第2章 2-21 KV-C32XC、2-22 KV-C64XCのL側・H側、2-30 KV-C32TCのコネクタピンNo.・結線図"
     ],
     "compatible": [
       {
@@ -17,6 +18,21 @@
         "cable_manufacturer": "ミスミ",
         "cable": "GRPTS-M34-M34-1",
         "kit": "GRPTS-M34-M34-1-KVSET"
+      },
+      {
+        "models": ["KV-C32XC", "KV-C32TC"],
+        "cable_manufacturer": "ミスミ",
+        "cable": "GRPTS-M34-M34-1",
+        "kit": "GRPTS-M34-M34-1-KVSET",
+        "pin_numbering": "sequential_banks"
+      },
+      {
+        "models": ["KV-C64XC"],
+        "cable_manufacturer": "ミスミ",
+        "cable": "GRPTS-M34-M34-1",
+        "kit": "GRPTS-M34-M34-1-KVSET",
+        "pin_numbering": "sequential_banks",
+        "ports": ["L側", "H側"]
       }
     ],
     "connections": [

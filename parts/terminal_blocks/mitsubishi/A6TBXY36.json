@@ -1,0 +1,64 @@
+{
+  "category": "terminal_block",
+  "model": "A6TBXY36",
+  "definition": {
+    "manufacturer": "三菱電機",
+    "source": [
+      "三菱電機 ビルディングブロック入出力ユニットユーザーズマニュアル（SH-080024-AJ）2.8 p.2-9 QX41、3.8 p.3-9 QY41P、8.1～8.2.1 pp.8-1～8-3 適用機種・専用ケーブル・A6TBXY36接続図",
+      "三菱電機 MELSEC iQ-R 入出力ユニットユーザーズマニュアル（SH-081246-M）付1 pp.131～132 A6TBXY36の端子記名と接続図、p.136 コネクタ付き専用ケーブル"
+    ],
+    "compatible": [
+      {
+        "models": ["QX41"],
+        "cable_manufacturer": "三菱電機",
+        "cable": "AC10TB",
+        "unused_terminals": ["0V"],
+        "notes": ["上下の24Vは内部共通で、QX41のB1・B2（入力COM）に接続。上下の0Vに対応するPLC側ピンはすべて空き。0V端子への外部配線は不要。"]
+      },
+      {
+        "models": ["QY41P"],
+        "cable_manufacturer": "三菱電機",
+        "cable": "AC10TB",
+        "notes": ["上下の24Vは内部共通で、QY41PのB1・B2（外部電源）に接続。上下の0Vも内部共通で、A1・A2が出力COM。B3・B4・A4はPLC側の空きピン。"]
+      }
+    ],
+    "connections": [
+      {"bank": "上側端子台", "position": 1, "terminal": "0", "pins": ["B20"]},
+      {"bank": "上側端子台", "position": 2, "terminal": "1", "pins": ["B19"]},
+      {"bank": "上側端子台", "position": 3, "terminal": "2", "pins": ["B18"]},
+      {"bank": "上側端子台", "position": 4, "terminal": "3", "pins": ["B17"]},
+      {"bank": "上側端子台", "position": 5, "terminal": "4", "pins": ["B16"]},
+      {"bank": "上側端子台", "position": 6, "terminal": "5", "pins": ["B15"]},
+      {"bank": "上側端子台", "position": 7, "terminal": "6", "pins": ["B14"]},
+      {"bank": "上側端子台", "position": 8, "terminal": "7", "pins": ["B13"]},
+      {"bank": "上側端子台", "position": 9, "terminal": "8", "pins": ["B12"]},
+      {"bank": "上側端子台", "position": 10, "terminal": "9", "pins": ["B11"]},
+      {"bank": "上側端子台", "position": 11, "terminal": "A", "pins": ["B10"]},
+      {"bank": "上側端子台", "position": 12, "terminal": "B", "pins": ["B9"]},
+      {"bank": "上側端子台", "position": 13, "terminal": "C", "pins": ["B8"]},
+      {"bank": "上側端子台", "position": 14, "terminal": "D", "pins": ["B7"]},
+      {"bank": "上側端子台", "position": 15, "terminal": "E", "pins": ["B6"]},
+      {"bank": "上側端子台", "position": 16, "terminal": "F", "pins": ["B5"]},
+      {"bank": "上側端子台", "position": 17, "terminal": "24V", "pins": ["B2", "B1"]},
+      {"bank": "上側端子台", "position": 18, "terminal": "0V", "pins": ["B4", "B3", "A4", "A2", "A1"]},
+      {"bank": "下側端子台", "position": 1, "terminal": "10", "pins": ["A20"]},
+      {"bank": "下側端子台", "position": 2, "terminal": "11", "pins": ["A19"]},
+      {"bank": "下側端子台", "position": 3, "terminal": "12", "pins": ["A18"]},
+      {"bank": "下側端子台", "position": 4, "terminal": "13", "pins": ["A17"]},
+      {"bank": "下側端子台", "position": 5, "terminal": "14", "pins": ["A16"]},
+      {"bank": "下側端子台", "position": 6, "terminal": "15", "pins": ["A15"]},
+      {"bank": "下側端子台", "position": 7, "terminal": "16", "pins": ["A14"]},
+      {"bank": "下側端子台", "position": 8, "terminal": "17", "pins": ["A13"]},
+      {"bank": "下側端子台", "position": 9, "terminal": "18", "pins": ["A12"]},
+      {"bank": "下側端子台", "position": 10, "terminal": "19", "pins": ["A11"]},
+      {"bank": "下側端子台", "position": 11, "terminal": "1A", "pins": ["A10"]},
+      {"bank": "下側端子台", "position": 12, "terminal": "1B", "pins": ["A9"]},
+      {"bank": "下側端子台", "position": 13, "terminal": "1C", "pins": ["A8"]},
+      {"bank": "下側端子台", "position": 14, "terminal": "1D", "pins": ["A7"]},
+      {"bank": "下側端子台", "position": 15, "terminal": "1E", "pins": ["A6"]},
+      {"bank": "下側端子台", "position": 16, "terminal": "1F", "pins": ["A5"]},
+      {"bank": "下側端子台", "position": 17, "terminal": "24V", "pins": ["B2", "B1"]},
+      {"bank": "下側端子台", "position": 18, "terminal": "0V", "pins": ["B4", "B3", "A4", "A2", "A1"]}
+    ]
+  }
+}

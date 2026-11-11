@@ -1,0 +1,65 @@
+{
+  "category": "terminal_block",
+  "model": "XW2R-J34GD-C4",
+  "definition": {
+    "manufacturer": "オムロン",
+    "source": [
+      "オムロン XW2R Connector-Terminal Block Conversion Units for PLCs（CSM_XW2R-C_M_K_DS_E_5_8）p.4 ケーブル結線、p.7 適合表・32点1コモン、p.8 十字ねじ端子台の結線・記名",
+      "NXシリーズ デジタルI/Oユニット ユーザーズマニュアル（SBCA-407N）付録 A-1 A-83",
+      "ミスミ PLC対応ケーブル端子台セット p.579 ケーブル単品、「GRPTS ケーブル対応機種一覧」p.2 オムロンNX、「GRPTS 結線図」p.1 40芯ケーブルのピン対応"
+    ],
+    "notes": ["端子台内で+V0・+V1は+V端子に、COM0・COM1は0V端子にまとまり、出力32点で電源を共用します。"],
+    "compatible": [
+      {
+        "models": [
+          "NX-OD6121-5"
+        ],
+        "cable_manufacturer": "オムロン",
+        "cable": "XW2Z-100K"
+      },
+      {
+        "models": [
+          "NX-OD6121-5"
+        ],
+        "cable_manufacturer": "ミスミ",
+        "cable": "GRPTS-M40-M40-1"
+      }
+    ],
+    "connections": [
+      {"bank": "上段（m+1）", "position": 1, "terminal": "+V", "pins": ["1", "2", "21", "22"]},
+      {"bank": "上段（m+1）", "position": 2, "terminal": "00", "pins": ["20"]},
+      {"bank": "上段（m+1）", "position": 3, "terminal": "01", "pins": ["18"]},
+      {"bank": "上段（m+1）", "position": 4, "terminal": "02", "pins": ["16"]},
+      {"bank": "上段（m+1）", "position": 5, "terminal": "03", "pins": ["14"]},
+      {"bank": "上段（m+1）", "position": 6, "terminal": "04", "pins": ["12"]},
+      {"bank": "上段（m+1）", "position": 7, "terminal": "05", "pins": ["10"]},
+      {"bank": "上段（m+1）", "position": 8, "terminal": "06", "pins": ["8"]},
+      {"bank": "上段（m+1）", "position": 9, "terminal": "07", "pins": ["6"]},
+      {"bank": "上段（m+1）", "position": 10, "terminal": "08", "pins": ["19"]},
+      {"bank": "上段（m+1）", "position": 11, "terminal": "09", "pins": ["17"]},
+      {"bank": "上段（m+1）", "position": 12, "terminal": "10", "pins": ["15"]},
+      {"bank": "上段（m+1）", "position": 13, "terminal": "11", "pins": ["13"]},
+      {"bank": "上段（m+1）", "position": 14, "terminal": "12", "pins": ["11"]},
+      {"bank": "上段（m+1）", "position": 15, "terminal": "13", "pins": ["9"]},
+      {"bank": "上段（m+1）", "position": 16, "terminal": "14", "pins": ["7"]},
+      {"bank": "上段（m+1）", "position": 17, "terminal": "15", "pins": ["5"]},
+      {"bank": "下段（m）", "position": 1, "terminal": "0V", "pins": ["3", "4", "23", "24"]},
+      {"bank": "下段（m）", "position": 2, "terminal": "00", "pins": ["40"]},
+      {"bank": "下段（m）", "position": 3, "terminal": "01", "pins": ["38"]},
+      {"bank": "下段（m）", "position": 4, "terminal": "02", "pins": ["36"]},
+      {"bank": "下段（m）", "position": 5, "terminal": "03", "pins": ["34"]},
+      {"bank": "下段（m）", "position": 6, "terminal": "04", "pins": ["32"]},
+      {"bank": "下段（m）", "position": 7, "terminal": "05", "pins": ["30"]},
+      {"bank": "下段（m）", "position": 8, "terminal": "06", "pins": ["28"]},
+      {"bank": "下段（m）", "position": 9, "terminal": "07", "pins": ["26"]},
+      {"bank": "下段（m）", "position": 10, "terminal": "08", "pins": ["39"]},
+      {"bank": "下段（m）", "position": 11, "terminal": "09", "pins": ["37"]},
+      {"bank": "下段（m）", "position": 12, "terminal": "10", "pins": ["35"]},
+      {"bank": "下段（m）", "position": 13, "terminal": "11", "pins": ["33"]},
+      {"bank": "下段（m）", "position": 14, "terminal": "12", "pins": ["31"]},
+      {"bank": "下段（m）", "position": 15, "terminal": "13", "pins": ["29"]},
+      {"bank": "下段（m）", "position": 16, "terminal": "14", "pins": ["27"]},
+      {"bank": "下段（m）", "position": 17, "terminal": "15", "pins": ["25"]}
+    ]
+  }
+}

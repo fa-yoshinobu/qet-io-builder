@@ -6,9 +6,11 @@
     "out": "sink",
     "points": 32,
     "pins": "PINS32",
+    "unused_pins": ["B4", "B3", "A4", "A3"],
     "vplus": "B1/B2",
     "com": "A1/A2",
     "confirmed": true,
+    "source": "三菱電機 ビルディングブロック入出力ユニットユーザーズマニュアル（SH-080024-AJ）3.8 p.3-9 ピン配列",
     "note": "A6TBXY36の端子は 0〜1F・24V・0V(SH-081247ENG 付録1)",
     "production_end_date": "2029-12-31",
     "production_end_source": "https://www.mitsubishielectric.co.jp/fa/products/dbdbsearch/SearchServlet.page?kisyu=%2Fplcq&category=discon&bunrui1=%E5%85%A5%E5%87%BA%E5%8A%9B"

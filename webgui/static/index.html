@@ -169,10 +169,18 @@
         <select id="terminal-cable"></select>
         <label for="terminal-plc-tag">PLC側タグ</label>
         <input id="terminal-plc-tag" type="text" value="PLC1">
+        <label for="terminal-start" hidden>先頭XY（16進）</label>
+        <input id="terminal-start" type="text" value="0" hidden>
         <label for="terminal-block-tag">端子台タグ</label>
         <input id="terminal-block-tag" type="text" value="TB1">
         <label for="terminal-cable-tag">ケーブル番号</label>
         <input id="terminal-cable-tag" type="text" value="CB1">
+        <label for="terminal-block-tag2" hidden>2台目の端子台タグ</label>
+        <input id="terminal-block-tag2" type="text" value="TB2" hidden>
+        <label for="terminal-cable2" hidden>H側 接続ケーブル</label>
+        <select id="terminal-cable2" hidden></select>
+        <label for="terminal-cable-tag2" hidden>H側 ケーブル番号</label>
+        <input id="terminal-cable-tag2" type="text" value="CB2" hidden>
         <button type="button" class="btn solid big" data-action="generate-terminal-block">別ページにまとめて生成（.qet）</button>
       </div>
     </section>
