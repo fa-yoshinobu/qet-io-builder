@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import copy
 import tempfile
 import unittest
@@ -5,11 +6,12 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 import gen_io_page as g
-import gui
+import gui_core as gui
 from renderers import standard
 
 
 class StandardPartsExportTest(unittest.TestCase):
+    @requires_qet
     def test_all_catalog_symbols_match_the_installed_collection(self):
         root = standard.collection_root()
         self.assertTrue({'coil', 'contact_no', 'contact_nc', 'contact_changeover', 'lamp'} <= set(standard.catalog()))
@@ -20,6 +22,7 @@ class StandardPartsExportTest(unittest.TestCase):
                 self.assertEqual(actual, {tuple(p) for p in record['terminal_roles'].values()})
                 self.assertEqual(xml.get('link_type'), record['link_type'])
 
+    @requires_qet
     def test_each_model_and_auxiliary_choice_exports_with_standard_geometry(self):
         devices = g.read_unit_definitions()['standard_device']
         self.assertGreaterEqual(len(devices), 75)
@@ -47,6 +50,7 @@ class StandardPartsExportTest(unittest.TestCase):
                         self.assertIn('QElectroTech', xml.findtext('informations'))
                         self.assertEqual(xml.findtext("./elementInformations/elementInformation[@name='manufacturer_reference']"), model)
 
+    @requires_qet
     def test_physical_relay_pins_replace_generic_coil_numbers(self):
         spec = g.STANDARD_DEVICES['MY4N']
         xml = standard.bind_definition('MY4N', spec, 'coil', 'coil', {'a1': ['13'], 'a2': ['14']})
@@ -66,6 +70,7 @@ class StandardPartsExportTest(unittest.TestCase):
                 standard.export_model('MY4N', g.STANDARD_DEVICES['MY4N'], target, elements=Path(folder) / 'missing')
             self.assertFalse(target.exists())
 
+    @requires_qet
     def test_auxiliary_variants_have_distinct_ids_and_dc_polarity_is_visible(self):
         spec = g.STANDARD_DEVICES['SC09XG']
         variants = []
@@ -98,6 +103,7 @@ class StandardPartsExportTest(unittest.TestCase):
             self.assertIn(pin, texts)
         g.xref_reset([])
 
+    @requires_qet
     def test_generic_binding_preserves_switch_positions_and_sets_breaker_rating(self):
         spec = {'manufacturer': 'テスト', 'source': 'テスト用定義',
                 'symbol_bindings': [{'name': 'switch', 'symbol': 'selector_2position',
@@ -113,6 +119,7 @@ class StandardPartsExportTest(unittest.TestCase):
         self.assertIn('10A', texts)
         self.assertNotIn('Calibre __A', texts)
 
+    @requires_qet
     def test_sensor_modes_are_required_and_export_distinct_contact_states(self):
         model = 'E3Z-D61 2M'
         spec = g.STANDARD_DEVICES[model]
@@ -136,6 +143,7 @@ class StandardPartsExportTest(unittest.TestCase):
                 standard.export_model('E2E-X2B1D12 2M', sio, target)
             self.assertTrue(standard.export_model('E2E-X2B1D12 2M', sio, target, configuration='sio_no'))
 
+    @requires_qet
     def test_field_symbols_keep_function_marks_and_separate_long_wire_text(self):
         for model, marks in [('SF-PR(200V-4P-0.75KW)', {'M', '3 ~'}), ('IS10-01', {'P'})]:
             spec = g.STANDARD_DEVICES[model]
@@ -159,6 +167,7 @@ class StandardPartsExportTest(unittest.TestCase):
             self.assertIn(maker, gui.MAKER_NAMES)
             self.assertIn(series, gui.SERIES_NAMES)
 
+    @requires_qet
     def test_breaker_pole_counts_and_example_rating_are_not_reused(self):
         spec = {'manufacturer': 'テスト', 'source': '検証用', 'display_ratings': '1A'}
         for poles in (1, 2, 3):
@@ -170,6 +179,7 @@ class StandardPartsExportTest(unittest.TestCase):
             texts = {n.findtext('text') for n in xml.findall('./description/dynamic_text')}
             self.assertFalse({'C, 16A', 'Calibre __A'} & texts)
 
+    @requires_qet
     def test_idec_and_mitsubishi_picker_and_fixed_coil_voltage(self):
         picker = gui.part_catalog('standard_model', '')
         for maker, series in [('idec', 'hw'), ('idec', 'rj'), ('idec', 'ru'), ('idec', 'sj'), ('mitsubishi', 'ms_t'), ('mitsubishi', 'th_t'), ('mitsubishi', 'nf'), ('mitsubishi', 'cp30_ba')]:

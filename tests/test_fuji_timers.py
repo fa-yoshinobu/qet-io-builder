@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -16,6 +17,7 @@ SOCKETS = ['TP48X', 'TP88X1', 'TP814X1']
 
 
 class FujiTimersTest(unittest.TestCase):
+    @requires_qet
     def test_terminal_maps_contact_timing_and_ratings(self):
         for model in TIMERS:
             spec = gen.STANDARD_DEVICES[model]
@@ -40,6 +42,7 @@ class FujiTimersTest(unittest.TestCase):
                     self.assertEqual(actual, {(0, 20): pins[0], (0, -20): pins[1], (-20, -20): pins[2]})
                     self.assertEqual(root.findtext("./kindInformations/kindInformation[@name='type']"), 'simple' if instant else 'delayOn')
 
+    @requires_qet
     def test_time_ranges_socket_compatibility_and_mode_guard(self):
         for model in TIMERS:
             spec = gen.STANDARD_DEVICES[model]
@@ -67,6 +70,7 @@ class FujiTimersTest(unittest.TestCase):
                     self.assertEqual({t.get('name') for t in terminals}, {path.stem.removeprefix('pin_')})
                     self.assertEqual(len({t.get('uuid') for t in terminals}), 2)
 
+    @requires_qet
     def test_gui_and_registration(self):
         picker = gui_core.part_catalog('standard_model', '')
         for model in TIMERS:

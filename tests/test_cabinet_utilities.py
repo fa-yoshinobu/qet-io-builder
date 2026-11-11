@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -17,6 +18,7 @@ LIGHTS = {'LF1B-NA3P-2THWW2-1M': (134, 1.5),
 
 
 class CabinetUtilitiesTest(unittest.TestCase):
+    @requires_qet
     def test_lighting_is_separate_from_indicator_and_has_the_verified_polarity(self):
         self.assertEqual(GROUP_NAMES['lighting'], '盤内LED照明')
         self.assertNotEqual(GROUP_NAMES['lighting'], GROUP_NAMES['lamp'])
@@ -40,6 +42,7 @@ class CabinetUtilitiesTest(unittest.TestCase):
                 self.assertEqual(pins, {(0, -20): '茶 (+)', (0, 20): '青 (-)'})
                 self.assertIn('盤内LED照明', root.findtext('./names/name[@lang="ja"]'))
 
+    @requires_qet
     def test_outlet_neutral_is_not_protective_earth_and_feedthrough_is_common(self):
         for model, outlets in [('WK3001W', 1), ('WK3004W', 2)]:
             with self.subTest(model=model), tempfile.TemporaryDirectory() as folder:
@@ -64,6 +67,7 @@ class CabinetUtilitiesTest(unittest.TestCase):
                 # 並列の巻締端子を一つの電位へまとめても、物理端子の記録を落とさない。
                 self.assertEqual(sum(map(len, spec['terminal_groups'].values())), spec['physical_wiring_terminals'])
 
+    @requires_qet
     def test_all_five_parts_register_in_manufacturer_series_folders(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(
                 qet_collection, 'user_collection_dir', return_value=Path(folder)):

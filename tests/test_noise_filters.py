@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,6 +13,7 @@ from webgui.api import Api, GROUP_NAMES
 
 
 class NoiseFiltersTest(unittest.TestCase):
+    @requires_qet
     def test_cosel_line_paths_do_not_inherit_tdk_output_numbers(self):
         models = [f'NAC-{amps:02}-472' for amps in (4, 6, 10)]
         for model, amps in zip(models, (4, 6, 10)):
@@ -39,6 +41,7 @@ class NoiseFiltersTest(unittest.TestCase):
             self.assertEqual((result['models'], result['parts']), (3, 3))
             self.assertTrue((Path(folder) / 'qet-io-builder/cosel/nac/NAC-06-472/filter.elmt').is_file())
 
+    @requires_qet
     def test_rsen_ratings_and_six_physical_terminals_are_preserved(self):
         self.assertEqual(GROUP_NAMES['noise_filter'], 'ノイズフィルタ')
         for amps in (3, 6, 10):
@@ -74,6 +77,7 @@ class NoiseFiltersTest(unittest.TestCase):
                 fg = next(t for t in texts if t.findtext('text') == 'FG/FG')
                 self.assertLess(float(fg.get('y')) + 14, 0)
 
+    @requires_qet
     def test_three_filters_register_in_the_manufacturer_series_folder(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(
                 qet_collection, 'user_collection_dir', return_value=Path(folder)):

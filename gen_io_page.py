@@ -15,6 +15,10 @@ I/OリストCSVから QElectroTech のプロジェクト(.qet)を生成する試
 ユニット側のピン・端子番号は機種別定義から入る。
 中継端子台の番号が空欄の場合は「?」と表示し、未設定であることを図面上で明示する。
 """
+from runtime_check import require_python
+
+require_python()
+
 import copy
 import csv
 import io

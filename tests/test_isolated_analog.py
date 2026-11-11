@@ -2,7 +2,7 @@ import contextlib,io,json,tempfile,unittest
 from pathlib import Path
 from xml.etree import ElementTree as ET
 import gen_io_page as g
-import gui
+import gui_core as gui
 
 class IsolatedAnalogTest(unittest.TestCase):
  def test_special_inputs_channel_and_auxiliary_pins(self):

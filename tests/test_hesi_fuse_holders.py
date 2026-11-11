@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from xml.etree import ElementTree as ET
@@ -8,6 +9,7 @@ from renderers import standard
 
 
 class HesiFuseHoldersTest(unittest.TestCase):
+    @requires_qet
     def test_holder_limits_do_not_become_selected_fuse_ratings(self):
         catalog = gui_core.part_catalog('standard_model', '')
         for model, voltage, current, size in [

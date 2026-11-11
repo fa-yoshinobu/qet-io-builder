@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 from xml.etree import ElementTree as ET
 import gen_io_page as gen
-import gui
+import gui_core as gui
 
 class RemoteIoTest(unittest.TestCase):
     def test_paired_outputs_use_one_return_wire_without_dummy_bend(self):

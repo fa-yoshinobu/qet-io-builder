@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,6 +13,7 @@ from webgui.api import Api
 
 
 class WatanabeProcessMeterTest(unittest.TestCase):
+    @requires_qet
     def test_complete_external_connections_and_input_burden(self):
         spec = gen.STANDARD_DEVICES['AL-512']
         self.assertFalse(spec['auxiliary_supply_required'])
@@ -33,6 +35,7 @@ class WatanabeProcessMeterTest(unittest.TestCase):
         self.assertIn('プロセス電流計', definitions[0].findtext('./names/name'))
         self.assertNotIn('交流', definitions[0].findtext('./names/name'))
 
+    @requires_qet
     def test_picker_and_both_parts_register(self):
         self.assertIn('AL-512', gui_core.part_catalog('standard_model', '')['watanabe']['al'])
         self.assertNotIn('error', Api().part_options('AL-512'))

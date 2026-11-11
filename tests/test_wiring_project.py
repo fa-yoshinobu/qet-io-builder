@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import contextlib
 import csv
 import io
@@ -51,6 +52,7 @@ class WiringProjectTest(unittest.TestCase):
             self.assertEqual([rows[0][key] for key in ('タグ名', '端子番号', '線番', '相手機器', '送り先')],
                              ['PLC1', '01', '001', 'LS1', '5-B3'])
 
+    @requires_qet
     def test_native_reports_link_across_the_actual_generated_pages(self):
         pages = [body(wiring={'connections': [{'x': 900, 'y': 110, 'reference': reference,
                                                'link_id': 'LAN1', 'cable': 'W1'}]})

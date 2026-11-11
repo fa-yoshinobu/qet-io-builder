@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,6 +13,7 @@ from webgui.api import Api, GROUP_NAMES
 
 
 class CurrentMeasurementTest(unittest.TestCase):
+    @requires_qet
     def test_meter_input_and_ct_ratios_match_without_inventing_terminal_numbers(self):
         spec = gen.STANDARD_DEVICES['YS-8NAA']
         self.assertFalse(spec['auxiliary_supply_required'])
@@ -42,6 +44,7 @@ class CurrentMeasurementTest(unittest.TestCase):
             # 同じ端子・標準図形でもCT比が違う構成は同一UUIDにしない。
             self.assertEqual(len(set(ids)), 3)
 
+    @requires_qet
     def test_ct_primary_direction_is_distinct_from_secondary_wiring_posts(self):
         spec = gen.STANDARD_DEVICES['CW-5L']
         self.assertEqual(spec['physical_wiring_terminals'], 2)
@@ -68,6 +71,7 @@ class CurrentMeasurementTest(unittest.TestCase):
                     label = next(t for t in root.findall('./description/dynamic_text') if t.findtext('info_name') == info)
                     self.assertLess(float(label.get('y')) + 14, 0)
 
+    @requires_qet
     def test_gui_and_all_configurations_register_separately(self):
         picker = gui_core.part_catalog('standard_model', '')
         for model, series in [('YS-8NAA', 'y_n'), ('CW-5L', 'cw')]:

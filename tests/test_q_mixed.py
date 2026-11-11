@@ -8,7 +8,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 import gen_io_page as gen
-import gui
+import gui_core as gui
 
 
 class QMixedTest(unittest.TestCase):

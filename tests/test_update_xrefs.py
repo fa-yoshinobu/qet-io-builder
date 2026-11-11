@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -25,6 +26,7 @@ class UpdateXrefsTest(unittest.TestCase):
         table = self.tables()[master.get('uuid')]
         return [t.get('text') for t in definitions(self.root)[table.get('type')].findall('./description/text')]
 
+    @requires_qet
     def test_real_poles_and_unused_changeover_side(self):
         before_wires = ET.tostring(self.root.find('./diagram/conductors'))
         positions = {e.get('uuid'): (e.get('x'), e.get('y')) for e in self.parts().values()}
@@ -42,6 +44,7 @@ class UpdateXrefsTest(unittest.TestCase):
         self.assertTrue(labels)
         self.assertTrue(all(t.get('text_from') == 'UserText' and t.findtext('text') == 'K1' for t in labels))
 
+    @requires_qet
     def test_move_rename_reorder_and_repeat_preserve_manual_table_position(self):
         parts = self.parts()
         update(self.root)
@@ -66,6 +69,7 @@ class UpdateXrefsTest(unittest.TestCase):
         self.assertEqual(len(self.tables()), 2)
         self.assertEqual(float(self.tables()[relay.get('uuid')].get('x')), old_x + 50)
 
+    @requires_qet
     def test_b_contact_and_deleted_contact_clear_only_managed_entries(self):
         parts = self.parts()
         first = parts['relay_contact_1']
@@ -86,6 +90,7 @@ class UpdateXrefsTest(unittest.TestCase):
         update(self.root)
         self.assertEqual(self.table_texts(relay)[-3:], ['b', '', ''])
 
+    @requires_qet
     def test_out_of_range_or_broken_link_does_not_replace_output(self):
         self.parts()['relay_contact_1'].set('x', '-1')
         ET.ElementTree(self.root).write(self.path, encoding='utf-8')
@@ -99,6 +104,7 @@ class UpdateXrefsTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, '関連付け先'):
             update(self.root)
 
+    @requires_qet
     def test_in_place_backup_and_removed_coil(self):
         before = self.path.read_bytes()
         update_file(self.path, self.path)
@@ -113,12 +119,7 @@ class UpdateXrefsTest(unittest.TestCase):
         self.assertEqual(len(self.tables()), 1)
         self.assertNotIn(relay.get('uuid'), self.tables())
 
-    def test_unrelated_document_is_unchanged(self):
-        root = ET.fromstring('<project><diagram order="0"><elements/></diagram></project>')
-        before = ET.tostring(root)
-        self.assertEqual(update(root), 0)
-        self.assertEqual(ET.tostring(root), before)
-
+    @requires_qet
     def test_link_across_pages_and_one_way_link(self):
         parts = self.parts()
         contact = parts['relay_contact_1']
@@ -130,6 +131,7 @@ class UpdateXrefsTest(unittest.TestCase):
         update(self.root)
         self.assertIn('2-E6', self.table_texts(parts['relay_coil']))
 
+    @requires_qet
     def test_horizontal_table_is_below_coil_and_keeps_rotation(self):
         self.root = ET.parse(make(self.path, horizontal_coils=True)).getroot()
         relay = self.parts()['relay_coil']
@@ -141,6 +143,7 @@ class UpdateXrefsTest(unittest.TestCase):
         update(self.root)
         self.assertEqual(len(self.tables()), 2)
 
+    @requires_qet
     def test_table_uses_compact_io_dimensions(self):
         update(self.root)
         relay = self.parts()['relay_coil']
@@ -149,6 +152,14 @@ class UpdateXrefsTest(unittest.TestCase):
         rect = definition.find('./description/rect')
         self.assertEqual(float(rect.get('width')), 62)
         self.assertEqual(float(rect.get('height')), 24)
+
+
+class UnrelatedDocumentTest(unittest.TestCase):
+    def test_unrelated_document_is_unchanged(self):
+        root = ET.fromstring('<project><diagram order="0"><elements/></diagram></project>')
+        before = ET.tostring(root)
+        self.assertEqual(update(root), 0)
+        self.assertEqual(ET.tostring(root), before)
 
 
 if __name__ == '__main__':

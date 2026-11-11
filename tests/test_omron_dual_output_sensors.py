@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -22,6 +23,7 @@ class OmronDualOutputSensorsTest(unittest.TestCase):
         self.assertEqual([c['id'] for c in spec['configuration_options']], ['sio_no_nc'])
         self.assertNotIn('default_configuration', spec)
 
+    @requires_qet
     def test_four_leads_two_outputs_and_100ma_rating(self):
         for model, output in zip(MODELS, ['NPN', 'PNP']):
             spec = standard.configured_spec(gen.STANDARD_DEVICES[model], 'sio_no_nc' if output == 'PNP' else None)
@@ -45,6 +47,7 @@ class OmronDualOutputSensorsTest(unittest.TestCase):
                 if text.findtext('info_name') in ['label', 'manufacturer_reference', 'comment']:
                     self.assertLess(float(text.get('y')) + 14, -8)
 
+    @requires_qet
     def test_picker_and_model_registration(self):
         picker = gui_core.part_catalog('standard_model', '')
         for model in MODELS:

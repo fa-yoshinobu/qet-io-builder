@@ -93,7 +93,7 @@ class IqrBodyTest(unittest.TestCase):
     def test_iqr_communication_connector_types_and_terminals(self):
         cases = [('RJ61BT11', 'module_pin', 5), ('RJ71BR11', 'module_coax', 1),
                  ('RJ71EN71', 'module_rj45', 2), ('RJ71GP21S-SX', 'module_optical', 2),
-                 ('RJ71C24', 'module_dsub_f', 1), ('RJ71C24-R4', 'module_pin', 14)]
+                 ('RJ71C24', 'module_dsub', 1), ('RJ71C24-R4', 'module_pin', 14)]
         for model, kind, count in cases:
             with self.subTest(model=model):
                 page=gen.build_q_comm_page({'kind':'iqrcomm','right_model':model}, gen.build_symbols())
@@ -123,10 +123,10 @@ class IqrBodyTest(unittest.TestCase):
         for model, dsub_count, terminal_count in [('QJ71C24N', 1, 7), ('QJ71C24N-R2', 2, 0), ('QJ71C24N-R4', 0, 12)]:
             with self.subTest(model=model):
                 page = gen.build_q_comm_page({'kind':'qcomm', 'right_model':model}, gen.build_symbols())
-                self.assertEqual(sum(kind == 'module_dsub_f' for kind, _, _, _ in page.placed), dsub_count)
+                self.assertEqual(sum(kind == 'module_dsub' for kind, _, _, _ in page.placed), dsub_count)
                 pins = [e for kind, e, _, _ in page.placed if kind == 'module_pin']
                 self.assertEqual(len(pins), terminal_count)
-                self.assertTrue(all(x == 895 for kind, _, x, _ in page.placed if kind in ('module_pin','module_dsub_f')))
+                self.assertTrue(all(x == 895 for kind, _, x, _ in page.placed if kind in ('module_pin','module_dsub')))
                 self.assertEqual(sum(next((v.text for v in e.findall('./elementInformations/elementInformation') if v.get('name') == 'label'), '') == 'FG' for e in pins), 2 if terminal_count else 0)
 
     def test_fx_communication_modules_and_board_compatibility(self):

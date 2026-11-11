@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,6 +13,7 @@ from webgui.api import Api
 
 
 class WagoPhoenixTerminalsTest(unittest.TestCase):
+    @requires_qet
     def test_catalog_export_and_registration_keep_all_wire_ports(self):
         catalog = gui_core.part_catalog('standard_model', '')
         expected = {

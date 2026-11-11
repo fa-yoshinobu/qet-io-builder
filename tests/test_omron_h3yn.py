@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -15,6 +16,7 @@ MODELS = [f'H3YN-{t}-B DC24' for t in ('2', '21', '4', '41')]
 
 
 class OmronH3ynTest(unittest.TestCase):
+    @requires_qet
     def test_pins_polarity_contact_ratings_and_time_ranges(self):
         for model in MODELS:
             typ = model.split('-')[1]
@@ -55,6 +57,7 @@ class OmronH3ynTest(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, '動作構成'):
                     standard.configured_spec(spec, mode)
 
+    @requires_qet
     def test_all_four_models_register(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(qet_collection, 'user_collection_dir', return_value=Path(folder)):
             result = qet_collection.register_all_parts(models=MODELS)

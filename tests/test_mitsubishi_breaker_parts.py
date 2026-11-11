@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import json
 import tempfile
 import unittest
@@ -39,6 +40,7 @@ class MitsubishiBreakerPartsTest(unittest.TestCase):
             self.assertIn('直接接続不可', ' '.join(spec['notes']))
             self.assertFalse(spec['shunt_trip'])
 
+    @requires_qet
     def test_pole_count_and_function_labels_survive_native_export(self):
         for series in ('cp30_ba', 'nf'):
             for record in records(series):

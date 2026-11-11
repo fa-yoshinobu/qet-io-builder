@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import copy
 import unittest
 from unittest.mock import patch
@@ -101,6 +102,7 @@ class WiringRenderingTest(unittest.TestCase):
             with self.subTest(settings=settings), self.assertRaisesRegex(ValueError, 'PLC1.*図枠外'):
                 self.apply(settings)
 
+    @requires_qet
     def test_native_report_pair_preserves_standard_source_and_has_no_automatic_conductor(self):
         second = gen.Page(self.page.sym)
         refs = self.apply({'connections': [{'reference': '送り', 'link_id': 'SIG-1', 'unit_tag': 'PLC1'}]})
@@ -129,6 +131,7 @@ class WiringRenderingTest(unittest.TestCase):
             self.assertTrue(all(text.get('font') == wiring.FONT for text in saved.findall('./description/dynamic_text')))
             self.assertFalse(source['page'].conductors)
 
+    @requires_qet
     def test_reference_pair_requires_two_opposite_roles_on_different_pages(self):
         for roles, same_page in ((['送り'], False), (['送り', '送り'], False),
                                  (['送り', '受け', '受け'], False), (['送り', '受け'], True)):
@@ -141,6 +144,7 @@ class WiringRenderingTest(unittest.TestCase):
                     wiring.link_references(refs)
                 self.assertTrue(all(item['element'].find('links_uuids') is None for item in refs))
 
+    @requires_qet
     def test_reference_configuration_is_complete_and_pair_validation_is_atomic(self):
         for row in ({'reference': '送り'}, {'link_id': 'SIG'}):
             with self.subTest(row=row), self.assertRaisesRegex(ValueError, '両方指定'):
@@ -160,6 +164,7 @@ class WiringRenderingTest(unittest.TestCase):
         self.assertEqual(settings, before)
         self.assertFalse(self.page.elements)
 
+    @requires_qet
     def test_note_overlap_is_checked_across_apply_calls_and_includes_native_arrow(self):
         for first in ({'purpose': '通常注記'}, {'reference': '送り', 'link_id': 'REF'}):
             with self.subTest(first=first):

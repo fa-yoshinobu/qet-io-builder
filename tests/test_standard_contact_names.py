@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from xml.etree import ElementTree as ET
@@ -7,6 +8,7 @@ from renderers import standard
 
 
 class StandardContactNamesTest(unittest.TestCase):
+    @requires_qet
     def test_socket_pins_and_multilevel_terminals_are_distinguishable(self):
         for model in ('TP58X1', 'SU4S-21L', 'P2RF-08-PU', '2002-2701'):
             with self.subTest(model=model), tempfile.TemporaryDirectory() as folder:
@@ -22,6 +24,7 @@ class StandardContactNamesTest(unittest.TestCase):
                     self.assertNotIn(' / '.join(list(actual) * 2), name)
                 self.assertEqual(len(names), len(set(names)))
 
+    @requires_qet
     def test_changeover_contacts_have_distinct_names_and_actual_pin_numbers(self):
         for model in ('MY4N', 'MY4Z', 'MY2N', 'H3Y-4', 'RJ2S-CL-D24'):
             with self.subTest(model=model), tempfile.TemporaryDirectory() as folder:

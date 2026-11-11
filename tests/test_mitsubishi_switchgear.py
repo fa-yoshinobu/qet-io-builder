@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import json
 import tempfile
 import unittest
@@ -55,6 +56,7 @@ class MitsubishiSwitchgearTest(unittest.TestCase):
             self.assertEqual(parts[1][1:], ('thermal_contact_nc', {'first': ['95'], 'second': ['96']}))
             self.assertEqual(parts[2][1:], ('thermal_contact_no', {'first': ['97'], 'second': ['98']}))
 
+    @requires_qet
     def test_all_parts_export_with_correct_electrical_terminal_count(self):
         for series in ('ms_t', 'th_t'):
             for model, spec in definitions(series).items():

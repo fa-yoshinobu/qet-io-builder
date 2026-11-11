@@ -7,7 +7,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 import gen_io_page as g
-import gui
+import gui_core as gui
 from renderers import communication
 
 

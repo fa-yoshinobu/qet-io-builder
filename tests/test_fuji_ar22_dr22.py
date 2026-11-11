@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -16,6 +17,7 @@ MODELS = ['AR22F0R-10G', 'AR22F0R-01R', 'AR22F0R-11G', 'AR22F0L-11E3G',
 
 
 class FujiAr22Dr22Test(unittest.TestCase):
+    @requires_qet
     def test_contact_numbers_are_manufacturer_block_markings(self):
         for model in MODELS:
             spec = gen.STANDARD_DEVICES[model]
@@ -40,6 +42,7 @@ class FujiAr22Dr22Test(unittest.TestCase):
                     else:
                         self.assertEqual(pins, {'3', '4'})
 
+    @requires_qet
     def test_mechanical_operation_and_isolated_lamp(self):
         s = gen.STANDARD_DEVICES['AR22PR-211B']
         self.assertEqual(s['position_contact_table'], {'1': {'no': 'open', 'nc': 'closed'}, '2': {'no': 'closed', 'nc': 'open'}})
@@ -56,6 +59,7 @@ class FujiAr22Dr22Test(unittest.TestCase):
         self.assertEqual(root.get('link_type'), 'master')
         self.assertEqual(root.findtext("./kindInformations/kindInformation[@name='type']"), 'commutator')
 
+    @requires_qet
     def test_picker_options_and_registration(self):
         picker = gui_core.part_catalog('standard_model', '')
         for model in MODELS:

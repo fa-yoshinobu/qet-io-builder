@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,6 +13,7 @@ from webgui.api import Api
 
 
 class FuseDefinitionsTest(unittest.TestCase):
+    @requires_qet
     def test_current_and_response_are_part_of_the_selected_fuse(self):
         catalog = gui_core.part_catalog('standard_model', '')
         for series, response in [(217, 'fast_acting'), (218, 'time_lag')]:
@@ -40,6 +42,7 @@ class FuseDefinitionsTest(unittest.TestCase):
                     comment = root.findtext("./elementInformations/elementInformation[@name='comment']")
                     self.assertIn('速断' if series == 217 else 'タイムラグ', comment)
 
+    @requires_qet
     def test_holder_iec_rating_and_power_loss_are_not_fuse_capacity(self):
         holder = gen.STANDARD_DEVICES['2002-1611']
         self.assertEqual(holder['ratings']['holder_rated_current_a'], 6.3)
@@ -59,6 +62,7 @@ class FuseDefinitionsTest(unittest.TestCase):
             self.assertIn('ヒューズ未選択', root.findtext(
                 "./elementInformations/elementInformation[@name='comment']"))
 
+    @requires_qet
     def test_bulk_registration_includes_bodies_and_holder(self):
         catalog = gui_core.part_catalog('standard_model', '')
         models = [m for entries in catalog['littelfuse'].values() for m in entries] + ['2002-1611']

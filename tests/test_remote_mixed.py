@@ -2,7 +2,7 @@ import contextlib,csv,io,json,tempfile,unittest
 from pathlib import Path
 from xml.etree import ElementTree as ET
 import gen_io_page as g
-import gui
+import gui_core as gui
 
 class RemoteMixedTest(unittest.TestCase):
  def test_multiline_mixed_inputs_outputs_and_commons(self):

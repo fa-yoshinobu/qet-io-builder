@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -15,6 +16,7 @@ MODELS = ['LT-C12G801W', 'LT-C14G801W', 'VAL-SEC-T2-1S-350', 'VAL-SEC-T2-1S-350-
 
 
 class SurgeProtectionTest(unittest.TestCase):
+    @requires_qet
     def test_device_terminals_and_optional_alarm_are_not_confused(self):
         picker = gui_core.part_catalog('standard_model', '')
         self.assertEqual(GROUP_NAMES['surge_protection'], 'サージ保護器（SPD）')
@@ -74,6 +76,7 @@ class SurgeProtectionTest(unittest.TestCase):
                 {'backup_fuse_type': 'gG', 'backup_fuse_max_a': 315, 'short_circuit_rating_ka': 25},
                 {'backup_fuse_type': 'gG', 'backup_fuse_max_a': 200, 'short_circuit_rating_ka': 50}])
 
+    @requires_qet
     def test_registration_has_four_models_and_five_parts(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(qet_collection, 'user_collection_dir', return_value=Path(folder)):
             result = qet_collection.register_all_parts(models=MODELS)

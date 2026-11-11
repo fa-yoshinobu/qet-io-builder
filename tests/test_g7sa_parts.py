@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -21,6 +22,7 @@ MODELS = [f'G7SA-{suffix} DC24' for suffix in PINS]
 
 
 class G7saPartsTest(unittest.TestCase):
+    @requires_qet
     def test_manual_pins_polarity_and_linkable_symbols(self):
         for suffix, (no, nc) in PINS.items():
             model = f'G7SA-{suffix} DC24'
@@ -40,6 +42,7 @@ class G7saPartsTest(unittest.TestCase):
                 ids = [t.get('uuid') for r in roots for t in r.findall('./description/terminal')]
                 self.assertEqual(len(ids), len(set(ids)))
 
+    @requires_qet
     def test_catalog_and_bulk_registration(self):
         self.assertEqual(set(gui_core.part_catalog('standard_model', '')['omron']['g7sa']), set(MODELS))
         with tempfile.TemporaryDirectory() as folder, patch.object(qet_collection, 'user_collection_dir', return_value=Path(folder)):

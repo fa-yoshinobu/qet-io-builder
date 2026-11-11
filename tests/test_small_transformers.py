@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,6 +13,7 @@ from webgui.api import Api, GROUP_NAMES
 
 
 class SmallTransformersTest(unittest.TestCase):
+    @requires_qet
     def test_all_taps_and_separate_windings_are_exported(self):
         self.assertEqual(GROUP_NAMES['transformer'], 'トランス')
         for va in (50, 100, 200):
@@ -43,6 +45,7 @@ class SmallTransformersTest(unittest.TestCase):
                 self.assertEqual({float(t.get('y')) for t in texts}, {-26, 38})
                 self.assertFalse({'230V', '400V', '12V', '24V'} & {t.findtext('text') for t in texts})
 
+    @requires_qet
     def test_only_the_known_duplicate_terminal_is_removed(self):
         record = standard.catalog()['transformer_1p_tapped']
         source = ET.parse(standard.collection_root() / record['path']).getroot()
@@ -60,6 +63,7 @@ class SmallTransformersTest(unittest.TestCase):
         self.assertEqual(sum(t.get('x') == '20' and t.get('y') == '10'
                              for t in root.findall('./description/terminal')), 1)
 
+    @requires_qet
     def test_registration(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(
                 qet_collection, 'user_collection_dir', return_value=Path(folder)):

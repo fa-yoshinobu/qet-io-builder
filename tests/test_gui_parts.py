@@ -1,7 +1,7 @@
 import unittest
 import tempfile
 from xml.etree import ElementTree as ET
-import gui
+import gui_core as gui
 
 
 class PartCatalogTest(unittest.TestCase):

@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -16,6 +17,7 @@ class FujiHhTpTest(unittest.TestCase):
               'HH54P': (4, False), 'HH54P-L': (4, True)}
     SOCKETS = {'TP58X1': 8, 'TP58X2': 8, 'TP514X1': 14, 'TP514X2': 14}
 
+    @requires_qet
     def test_relay_body_pins_and_led_polarity(self):
         catalog = gui_core.part_catalog('standard_model', '')
         for model, (poles, led) in self.RELAYS.items():
@@ -45,6 +47,7 @@ class FujiHhTpTest(unittest.TestCase):
                     self.assertEqual(actual, {(0, 20): str(pin + 8), (0, -20): str(pin + 4),
                                               (-20, -20): str(pin)})
 
+    @requires_qet
     def test_socket_maps_each_external_terminal_to_the_same_relay_pin(self):
         for model, count in self.SOCKETS.items():
             with self.subTest(model=model), tempfile.TemporaryDirectory() as folder:
@@ -65,6 +68,7 @@ class FujiHhTpTest(unittest.TestCase):
                                    for pins in roles.values() for p in pins}
                     self.assertEqual(actual_pins, expected)
 
+    @requires_qet
     def test_bulk_registration(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(
                 qet_collection, 'user_collection_dir', return_value=Path(folder)):

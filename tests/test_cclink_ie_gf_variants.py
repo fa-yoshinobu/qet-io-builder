@@ -125,7 +125,7 @@ class GfVariantDefinitionTest(unittest.TestCase):
 class GfVariantGenerationTest(unittest.TestCase):
     def test_all_models_generate_and_appear_in_picker(self):
         import gen_io_page as gen
-        import gui
+        import gui_core as gui
         cfg = json.loads((ROOT / "tests/fixtures/project.json").read_text(encoding="utf-8"))
         for model in MODELS:
             with self.subTest(model=model), tempfile.TemporaryDirectory() as folder:

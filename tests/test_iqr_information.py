@@ -8,7 +8,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 import gen_io_page as g
-import gui
+import gui_core as gui
 
 ROOT = Path(__file__).resolve().parents[1]
 MODELS = {'RD81RC96': 1, 'RD81RC96-CA': 1, 'RD81MES96N': 2,

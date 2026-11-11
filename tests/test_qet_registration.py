@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import os
 from pathlib import Path
 import tempfile
@@ -26,6 +27,7 @@ class QetRegistrationTest(unittest.TestCase):
                 modern.mkdir(parents=True)
                 self.assertEqual(qet_collection.user_collection_dir(), modern)
 
+    @requires_qet
     def test_idec_registration_is_repeatable_without_a_folder_dialog(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(qet_collection, 'user_collection_dir', return_value=Path(folder)):
             existing = Path(folder) / 'my_part.elmt'
@@ -57,6 +59,7 @@ class QetRegistrationTest(unittest.TestCase):
             self.assertIn('error', Api().register_part('NOT-A-PART'))
             self.assertEqual(list(Path(folder).iterdir()), [])
 
+    @requires_qet
     def test_bulk_registration_covers_all_catalog_models_and_configurations(self):
         import gen_io_page as gen
         with tempfile.TemporaryDirectory() as folder, patch.object(qet_collection, 'user_collection_dir', return_value=Path(folder)):

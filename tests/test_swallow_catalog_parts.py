@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -44,6 +45,7 @@ class SwallowCatalogPartsTest(unittest.TestCase):
             if model.startswith('ELB'):
                 self.assertEqual(spec['protection']['location'], 'outlet_branch')
 
+    @requires_qet
     def test_export_preserves_all_ports_and_has_repeatable_ids(self):
         catalog = gui_core.part_catalog('standard_model', '')['swallow']
         for model in MODELS:
@@ -64,6 +66,7 @@ class SwallowCatalogPartsTest(unittest.TestCase):
                 standard.export_model(model, spec, folder)
                 self.assertEqual(before, p.read_bytes())
 
+    @requires_qet
     def test_bulk_registration(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(qet_collection, 'user_collection_dir', return_value=Path(folder)):
             result = qet_collection.register_all_parts(MODELS)

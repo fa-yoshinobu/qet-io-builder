@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -22,6 +23,7 @@ class InterfaceRelaysTest(unittest.TestCase):
         'PLC-RPT-24DC/21-21': ('phoenix_contact', 'plc_interface', 2),
     }
 
+    @requires_qet
     def test_module_external_terminals_polarity_and_contact_roles(self):
         catalog = gui_core.part_catalog('standard_model', '')
         for model, (maker, series, poles) in self.CASES.items():
@@ -58,6 +60,7 @@ class InterfaceRelaysTest(unittest.TestCase):
                     names.add(name)
                 self.assertEqual(len(names), poles)
 
+    @requires_qet
     def test_registration_handles_slash_in_order_names_without_nesting(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(
                 qet_collection, 'user_collection_dir', return_value=Path(folder)):

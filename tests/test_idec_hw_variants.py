@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import copy
 import tempfile
 import unittest
@@ -27,6 +28,7 @@ MODELS = [*CONTACTS, *LAMPS]
 
 
 class IdecHwVariantsTest(unittest.TestCase):
+    @requires_qet
     def test_real_contact_pins_lamps_and_display_names(self):
         for model in MODELS:
             with self.subTest(model=model), tempfile.TemporaryDirectory() as folder:
@@ -75,6 +77,7 @@ class IdecHwVariantsTest(unittest.TestCase):
                 self.assertEqual(spec['operation'], 'push_lock_key_reset' if key else 'push_lock_turn_reset')
                 self.assertEqual(spec['symbol_bindings'][0]['symbol'], 'emergency_key_reset_nc' if key else 'emergency_turn_reset_nc')
 
+    @requires_qet
     def test_alternate_is_linkable_without_momentary_geometry(self):
         for model in MODELS:
             spec = gen.STANDARD_DEVICES[model]
@@ -98,6 +101,7 @@ class IdecHwVariantsTest(unittest.TestCase):
                 return result
             self.assertEqual(geometry(root), geometry(source))
 
+    @requires_qet
     def test_gui_and_all_added_parts_register(self):
         catalog = gui_core.part_catalog('standard_model', '')['idec']['hw']
         for model in MODELS:

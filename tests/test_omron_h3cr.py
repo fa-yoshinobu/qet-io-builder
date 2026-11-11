@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -16,6 +17,7 @@ A8E = 'H3CR-A8E AC/DC24-48'
 
 
 class OmronH3crTest(unittest.TestCase):
+    @requires_qet
     def test_supply_pins_and_timed_vs_instant_contacts(self):
         for model, dc_min in ((A8, 12), (A8E, 24)):
             spec = gen.STANDARD_DEVICES[model]
@@ -44,6 +46,7 @@ class OmronH3crTest(unittest.TestCase):
                     actual = {(float(t.get('x')), float(t.get('y'))): t.get('name') for t in root.findall('./description/terminal')}
                     self.assertEqual(actual, {(0, 20): pins[0], (0, -20): pins[1], (-20, -20): pins[2]})
 
+    @requires_qet
     def test_socket_mapping_mode_guard_and_picker(self):
         socket = gen.STANDARD_DEVICES['P2CF-08']
         self.assertEqual(socket['electrical_terminals'], 8)
@@ -69,6 +72,7 @@ class OmronH3crTest(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, '動作構成'):
                     standard.configured_spec(spec, mode)
 
+    @requires_qet
     def test_registration_of_both_timers_and_socket(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(qet_collection, 'user_collection_dir', return_value=Path(folder)):
             result = qet_collection.register_all_parts(models=[A8, A8E, 'P2CF-08'])

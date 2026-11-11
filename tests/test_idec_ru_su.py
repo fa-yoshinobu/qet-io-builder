@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,6 +13,7 @@ from webgui.api import Api
 
 
 class IdecRuSuTest(unittest.TestCase):
+    @requires_qet
     def test_four_poles_and_fixed_voltage(self):
         for model, lever in [('RU4S-D24', True), ('RU4S-C-D24', False)]:
             with self.subTest(model=model), tempfile.TemporaryDirectory() as folder:
@@ -33,6 +35,7 @@ class IdecRuSuTest(unittest.TestCase):
                             for t in root.findall('./description/terminal')}
                     self.assertEqual(pins, {(0, 20): str(i + 8), (0, -20): str(i + 4), (-20, -20): str(i)})
 
+    @requires_qet
     def test_sockets_have_electrical_pins_not_double_the_wire_entries(self):
         for model, poles in [('SU2S-21L', 2), ('SU4S-21L', 4)]:
             with self.subTest(model=model), tempfile.TemporaryDirectory() as folder:
@@ -60,6 +63,7 @@ class IdecRuSuTest(unittest.TestCase):
                             for labels in roles.values() for p in labels}
                     self.assertEqual(pins, set(expected))
 
+    @requires_qet
     def test_register_all_four_models(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(
                 qet_collection, 'user_collection_dir', return_value=Path(folder)):
@@ -68,6 +72,7 @@ class IdecRuSuTest(unittest.TestCase):
             self.assertTrue(result['ok'], result['errors'])
             self.assertEqual((result['models'], result['parts']), (4, 32))
 
+    @requires_qet
     def test_timers_export_only_the_verified_on_delay_mode(self):
         for model, poles in [('GT5Y-2SN1D24', 2), ('GT5Y-4SN1D24', 4)]:
             with self.subTest(model=model), tempfile.TemporaryDirectory() as folder:

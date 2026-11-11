@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import json
 from pathlib import Path
 import unittest
@@ -45,6 +46,7 @@ class IDECStandardPartsTest(unittest.TestCase):
                 self.assertFalse(c['voltage_selection_required'])
                 self.assertEqual(c['surge'], 'none')
 
+    @requires_qet
     def test_hw_lamp_is_separate_and_selector_positions_match_manufacturer(self):
         d = spec('hw', 'switch', 'HW1L-M111Q4G')
         self.assertEqual(len(d['symbol_bindings']), 3)

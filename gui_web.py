@@ -5,6 +5,10 @@
 """
 import argparse
 import sys
+from runtime_check import require_python
+
+require_python()
+
 import webbrowser
 from pathlib import Path
 

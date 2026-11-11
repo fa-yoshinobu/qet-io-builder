@@ -157,7 +157,10 @@ def connector_pages(pg, symbols, spec, Page, Symbol, heading):
             for j, (pin, signal) in enumerate(pins):
                 py = y + 48 + j * 18
                 if str(pin) in blocked:
-                    p.text(x + 16, py - 7, f'{pin}  {signal}（配線不可）', 7)
+                    if str(pin) in item.get('unconfirmed_pins', []):
+                        p.text(x + 16, py - 7, f'{pin}  接続不可', 7)
+                    else:
+                        p.text(x + 16, py - 7, f'{pin}  {signal}（配線不可）', 7)
                 else:
                     p.place('module_pin', x, py, label=str(pin), comment=signal,
                             texts=[('label', 14, -7, 7, False), ('comment', 72, -7, 7, False)])

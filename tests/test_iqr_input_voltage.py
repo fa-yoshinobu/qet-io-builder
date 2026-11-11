@@ -1,6 +1,6 @@
 import unittest
 import gen_io_page as g
-import gui
+import gui_core as gui
 
 class IqrInputVoltageTest(unittest.TestCase):
     def info(self, element, name):

@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -17,6 +18,7 @@ SOCKETS = ['P2RF-05-PU', 'P2RF-08-PU', 'P2RFZ-05', 'P2RFZ-08', 'P2RFZ-05-E', 'P2
 
 
 class OmronG2rPartsTest(unittest.TestCase):
+    @requires_qet
     def test_g2r_actual_body_pin_numbers_and_dc_polarity(self):
         for model, (poles, version) in G2R.items():
             with self.subTest(model=model), tempfile.TemporaryDirectory() as folder:
@@ -44,6 +46,7 @@ class OmronG2rPartsTest(unittest.TestCase):
                               for t in root.findall('./description/terminal')}
                     self.assertEqual(actual, {(0, 20): common, (0, -20): no, (-20, -20): nc})
 
+    @requires_qet
     def test_g2rv_input_is_not_the_internal_relay_coil_rating(self):
         for model in G2RV:
             with self.subTest(model=model), tempfile.TemporaryDirectory() as folder:
@@ -65,6 +68,7 @@ class OmronG2rPartsTest(unittest.TestCase):
                 self.assertIn('A1 (+)', texts)
                 self.assertIn('A2 (-)', texts)
 
+    @requires_qet
     def test_sockets_match_body_pins_and_do_not_invent_iec_marking(self):
         for model in SOCKETS:
             with self.subTest(model=model), tempfile.TemporaryDirectory() as folder:
@@ -87,6 +91,7 @@ class OmronG2rPartsTest(unittest.TestCase):
                             for names in roles.values() for p in names}
                     self.assertEqual(pins, set(expected))
 
+    @requires_qet
     def test_register_all_sixteen_models(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(
                 qet_collection, 'user_collection_dir', return_value=Path(folder)):

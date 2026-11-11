@@ -5,7 +5,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 import gen_io_page as g
-import gui
+import gui_core as gui
 from renderers.standard import export_model
 
 
@@ -42,7 +42,8 @@ class EthernetSwitchExportTest(unittest.TestCase):
                 self.assertTrue(all(0 < float(t.get('y')) < 750 for t in terms))
                 frames.add(tuple(xml.find('./description/rect').get(k) for k in ('x', 'y', 'width', 'height')))
                 self.assertIn(spec['power']['voltage'], xml.findtext('informations'))
-                self.assertIn(spec['power']['voltage'], ''.join(n.get('text', '') for n in xml.findall('./description/text')))
+                self.assertIn(''.join(spec['power']['voltage'].split()),
+                              ''.join(''.join(n.get('text', '').split()) for n in xml.findall('./description/text')))
                 self.assertIn(spec['source'], xml.findtext('informations'))
                 texts = [n.findtext('text', '') for n in xml.findall('./description/dynamic_text') if n.get('text_from') == 'UserText']
                 self.assertEqual(bool(texts), bool(spec.get('dip_switches')))

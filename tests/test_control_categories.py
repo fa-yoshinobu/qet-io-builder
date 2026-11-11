@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from collections import Counter
@@ -5,7 +6,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 import gen_io_page as g
-import gui
+import gui_core as gui
 from renderers import standard
 
 
@@ -46,6 +47,7 @@ class ControlCategoriesTest(unittest.TestCase):
                                               max(float(line.get('x1')),float(line.get('x2'))) > 260)
                                          for line in xml.findall('./description/line')))
 
+    @requires_qet
     def test_timer_uses_delayed_contacts_and_dc_only_polarity(self):
         for model, contact_count in [('H3Y-2', 2), ('H3Y-4', 4)]:
             with tempfile.TemporaryDirectory() as folder:
@@ -57,6 +59,7 @@ class ControlCategoriesTest(unittest.TestCase):
                 for path in paths[1:]:
                     self.assertEqual(ET.parse(path).findtext("./kindInformations/kindInformation[@name='type']"), 'delayOn')
 
+    @requires_qet
     def test_thermal_trip_and_unselected_setting_are_preserved(self):
         model = 'TR18X3H-005'
         spec = g.STANDARD_DEVICES[model]

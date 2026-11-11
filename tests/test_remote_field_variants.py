@@ -9,7 +9,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 import gen_io_page as g
-import gui
+import gui_core as gui
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -136,6 +136,8 @@ class RemoteFieldVariantsTest(unittest.TestCase):
                               if info.get('name') == 'label']
                     self.assertNotIn('3', labels)
                     self.assertEqual(set(labels), {'2', '4'})
+                    texts = [text.get('text') for _, page in pages for text in page.texts]
+                    self.assertEqual(texts.count('3  接続不可'), len(units[model][1]['io_connectors']))
 
     def test_all_models_generate_and_are_in_the_correct_picker(self):
         config = json.loads((ROOT / 'tests/fixtures/project.json').read_text(encoding='utf-8'))
@@ -175,7 +177,8 @@ class RemoteFieldVariantsTest(unittest.TestCase):
                     text = ET.tostring(ET.parse(folder / 'result.qet').getroot(), encoding='unicode')
                     for connector in spec['io_connectors']:
                         for pin, signal in connector['pins']:
-                            self.assertIn(signal, text)
+                            expected = f'{pin}  接続不可' if str(pin) in connector.get('unconfirmed_pins', []) else signal
+                            self.assertIn(expected, text)
 
 
 if __name__ == '__main__':

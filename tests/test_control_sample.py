@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -7,6 +8,7 @@ from tools.make_control_sample import make
 
 
 class ControlSampleTest(unittest.TestCase):
+    @requires_qet
     def test_native_links_terminals_and_self_hold_sequence(self):
         for horizontal in (False, True):
             with self.subTest(horizontal=horizontal):

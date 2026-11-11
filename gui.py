@@ -1,3 +1,7 @@
+from runtime_check import require_python
+
+require_python()
+
 import json
 import os
 import re

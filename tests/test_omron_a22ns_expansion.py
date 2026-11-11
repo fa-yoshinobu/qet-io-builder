@@ -1,3 +1,4 @@
+from tests.qet_support import requires_qet
 import tempfile
 import unittest
 from pathlib import Path
@@ -17,6 +18,7 @@ MODELS = [f'A22NS-{position}BM-NBA-{terminal}{code}-NN'
 
 
 class OmronA22nsExpansionTest(unittest.TestCase):
+    @requires_qet
     def test_two_position_no_nc_follow_position_one_and_three(self):
         for terminal in ['G', 'P']:
             model = f'A22NS-2BM-NBA-{terminal}102-NN'
@@ -33,6 +35,7 @@ class OmronA22nsExpansionTest(unittest.TestCase):
                 self.assertEqual({t.get('name') for t in roots['nc'].findall('./description/terminal')}, {'1', '2'})
                 self.assertEqual({t.get('text') for t in roots['selector'].findall('./description/text')}, {'1', '2'})
 
+    @requires_qet
     def test_three_position_center_off_has_four_independent_terminals(self):
         all_ids = []
         for terminal in ['G', 'P']:
@@ -55,6 +58,7 @@ class OmronA22nsExpansionTest(unittest.TestCase):
             all_ids.extend(t.get('uuid') for t in terminals)
         self.assertEqual(len(set(all_ids)), 8)
 
+    @requires_qet
     def test_picker_export_and_registration(self):
         picker = gui_core.part_catalog('standard_model', '')
         for model in MODELS:
