@@ -139,16 +139,66 @@ class UpdateXrefsTest(unittest.TestCase):
         self.assertIn('2-E6', self.table_texts(parts['relay_coil']))
 
     @requires_qet
+    def test_vertical_update_keeps_captions_clear_of_incoming_wires(self):
+        parts = self.parts()
+        captions = lambda element: [(t.get('uuid'), t.get('x'), t.get('y'), t.get('rotation'))
+                                   for t in element.findall('./dynamic_texts/dynamic_elmt_text')]
+        before = {name: captions(parts[name]) for name in ('relay_coil', 'contactor_coil')}
+        update(self.root)
+        for name, expected in before.items():
+            self.assertEqual(captions(parts[name]), expected)
+        from tools.check_layout import check
+        ET.ElementTree(self.root).write(self.path, encoding='utf-8')
+        self.assertTrue(all(not issues for _, _, issues in check(self.path)))
+        update(self.root)
+        for name, expected in before.items():
+            self.assertEqual(captions(parts[name]), expected)
+
+    @requires_qet
     def test_horizontal_table_is_below_coil_and_keeps_rotation(self):
         self.root = ET.parse(make(self.path, horizontal_coils=True)).getroot()
         relay = self.parts()['relay_coil']
         update(self.root)
         table = self.tables()[relay.get('uuid')]
         self.assertEqual(relay.get('orientation'), '3')
-        self.assertEqual(float(table.get('x')), 382)
-        self.assertEqual(float(table.get('y')), float(relay.get('y')) - 16)
+        rect = definitions(self.root)[table.get('type')].find('./description/rect')
+        self.assertAlmostEqual(float(table.get('x')) + float(rect.get('width')) / 2,
+                               float(relay.get('x')))
+        self.assertGreater(float(table.get('y')), float(relay.get('y')))
+        from tools.check_layout import check
+        ET.ElementTree(self.root).write(self.path, encoding='utf-8')
+        self.assertTrue(all(not issues for _, _, issues in check(self.path)))
         update(self.root)
         self.assertEqual(len(self.tables()), 2)
+
+    @requires_qet
+    def test_legacy_horizontal_offsets_migrate_without_moving_a_manual_table(self):
+        self.root = ET.parse(make(self.path, horizontal_coils=True)).getroot()
+        relay = self.parts()['relay_coil']
+        for key, value in (('qet_io_xref_dx', '82'), ('qet_io_xref_dy', '-16')):
+            ET.SubElement(relay.find('elementInformations'), 'elementInformation', name=key).text = value
+        update(self.root)
+        table = self.tables()[relay.get('uuid')]
+        rect = definitions(self.root)[table.get('type')].find('./description/rect')
+        self.assertEqual(float(table.get('x')) + float(rect.get('width')) / 2, float(relay.get('x')))
+        self.assertGreater(float(table.get('y')), float(relay.get('y')))
+        table.set('x', str(float(table.get('x')) + 30))
+        table.set('y', str(float(table.get('y')) + 20))
+        moved = (table.get('x'), table.get('y'))
+        update(self.root)
+        table = self.tables()[relay.get('uuid')]
+        self.assertEqual((table.get('x'), table.get('y')), moved)
+
+    @requires_qet
+    def test_explicit_horizontal_offsets_override_legacy_defaults(self):
+        self.root = ET.parse(make(self.path, horizontal_coils=True)).getroot()
+        relay = self.parts()['relay_coil']
+        for key, value in (('qet_io_xref_dx', '82'), ('qet_io_xref_dy', '-16')):
+            ET.SubElement(relay.find('elementInformations'), 'elementInformation', name=key).text = value
+        update(self.root, dx=12, dy=95)
+        table = self.tables()[relay.get('uuid')]
+        self.assertEqual(float(table.get('x')), float(relay.get('x')) + 12)
+        self.assertEqual(float(table.get('y')), float(relay.get('y')) + 95)
 
     @requires_qet
     def test_table_uses_compact_io_dimensions(self):

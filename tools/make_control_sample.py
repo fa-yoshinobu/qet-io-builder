@@ -97,9 +97,6 @@ def make(output, horizontal_coils=False):
                 # 記号を270度回し、文字を逆回転して読める向きを保つ。
                 text.set('x', str(-ty)); text.set('y', str(tx))
                 text.set('rotation', '90')
-            if name.endswith('_coil'):
-                ET.SubElement(infos, 'elementInformation', name='qet_io_xref_dx', show='0').text = '82'
-                ET.SubElement(infos, 'elementInformation', name='qet_io_xref_dy', show='0').text = '-16'
         return placed
 
     def link(master, *contacts):

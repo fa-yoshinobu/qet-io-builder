@@ -131,6 +131,8 @@ def render(path, outdir, pages=None, s=1.0, *, draw_factory=None):
                     raise ValueError(f"p.{pi}: 部品定義がありません: {e.get('type')}")
                 continue
             def Q(x, y): dx, dy = tr(o, float(x), float(y)); return P(ex + dx, ey + dy)
+            if hasattr(dr, "begin_element"):
+                dr.begin_element()
             desc = d.find("description")
             for g in desc:
                 st = g.get("style", "")
@@ -172,6 +174,8 @@ def render(path, outdir, pages=None, s=1.0, *, draw_factory=None):
                 width = float(t.get('text_width', '-1'))
                 draw_text(im, dr, (x, y), txt, sz, bd, s, width, t.get('Halignment'),
                           float(t.get('rotation', '0')) + o * 90, save_image=outdir is not None)
+            if hasattr(dr, "end_element"):
+                dr.end_element(e, d, Q)
         for c in dg.find("conductors") or []:
             a = terms.get((c.get("element1"), c.get("terminal1"))); b = terms.get((c.get("element2"), c.get("terminal2")))
             if not a or not b: continue

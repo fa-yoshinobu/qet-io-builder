@@ -16,9 +16,19 @@ class TableCommentPlacementTest(unittest.TestCase):
                     for x in {item[2] for item in page.placed}:
                         first = next(item for item in page.placed if item[2] == x)
                         self.assertEqual(first[3] - page.sym[first[0]].hy, 70)
-                    for text in page.texts:
-                        if text.get('text', '').startswith(('入力', '出力')) and '点' in text.get('text', ''):
-                            self.assertEqual(float(text.get('y')), 782)
+                    specs = [t for t in page.texts
+                             if t.get('text', '').startswith(('入力', '出力')) and '点' in t.get('text', '')]
+                    notes = [t for t in page.texts if float(t.get('x')) == 30]
+                    self.assertTrue(specs)
+                    self.assertTrue(all(t in notes for t in specs))
+                    ys = sorted(float(t.get('y')) for t in notes)
+                    # 入出力兼用なら3行、単機能なら2行。先頭ではなく最下行をそろえる。
+                    self.assertEqual(ys[-1], 800)
+                    self.assertTrue(all(b - a == 16 for a, b in zip(ys, ys[1:])))
+                    table_bottom = max(y + page.sym[key].height - page.sym[key].hy
+                                       for key, _, _, y in page.placed)
+                    self.assertGreater(ys[0], table_bottom)
+                    self.assertTrue(all(float(t.get('font').split(',')[1]) >= 8 for t in notes))
 
     def test_remote_connector_warning_is_at_bottom(self):
         spec = dict(io_connectors=[dict(name='CON1', pins=[('1', 'X0')])])

@@ -196,15 +196,20 @@ def update(root, dx=None, dy=None):
             category.remove(existing)
         category.append(definition_node)
         x, y = float(element.get('x')), float(element.get('y'))
+        horizontal = int(element.get('orientation', '0')) % 2 == 1
+        if horizontal and (data.get('qet_io_xref_dx'), data.get('qet_io_xref_dy')) == ('82', '-16'):
+            # 旧横ラダーが自動付与した右側配置だけ移行する。手動表とCLI指定は優先する。
+            data.pop('qet_io_xref_dx')
+            data.pop('qet_io_xref_dy')
         previous = old.get(uid)
         if previous is not None:
             metadata = infos(previous)
             tx = float(previous.get('x')) + x - float(metadata['qet_io_xref_master_x'])
             ty = float(previous.get('y')) + y - float(metadata['qet_io_xref_master_y'])
         else:
-            horizontal = int(element.get('orientation', '0')) % 2 == 1
-            tx = x + (dx if dx is not None else float(data.get('qet_io_xref_dx', -20 if horizontal else 55)))
-            ty = y + (dy if dy is not None else float(data.get('qet_io_xref_dy', 35 if horizontal else -16)))
+            # 機器情報の下に表を置き、コイルへ接続する配線経路を空ける。
+            tx = x + (dx if dx is not None else float(data.get('qet_io_xref_dx', -width / 2 if horizontal else 55)))
+            ty = y + (dy if dy is not None else float(data.get('qet_io_xref_dy', 80 if horizontal else 55)))
         holder = g.Page({name: symbol})
         holder.place(name, tx, ty, infos={OWNER: uid, 'qet_io_xref_master_x': str(x), 'qet_io_xref_master_y': str(y)})
         table = holder.elements[0]
@@ -220,13 +225,6 @@ def update(root, dx=None, dy=None):
             is_label = text.findtext('info_name') == 'label' or text.get('uuid') in label_ids
             is_model = text.findtext('info_name') == 'manufacturer_reference' or text.get('uuid') in model_ids
             if is_label or is_model:
-                if data.get('qet_io_xref_coil_caption') != '1':
-                    orientation = int(element.get('orientation', '0')) % 4
-                    tx = -g.text_w(label if is_label else model, 9 if is_label else 7) / 2
-                    ty = -64 if is_label else -43
-                    local_x, local_y = [(tx, ty), (ty, -tx), (-tx, -ty), (-ty, tx)][orientation]
-                    text.set('x', str(local_x)); text.set('y', str(local_y))
-                    text.set('rotation', str((-orientation * 90) % 360))
                 if is_model:
                     text.set('text_from', 'ElementInfo')
                     if text.find('info_name') is None:

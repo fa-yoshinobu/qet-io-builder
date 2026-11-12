@@ -27,8 +27,8 @@ class FujiAr22Dr22Test(unittest.TestCase):
                     root = ET.parse(path).getroot()
                     if root.get('link_type') == 'master':
                         fields = {t.findtext('info_name'): float(t.get('y')) for t in root.findall('./description/dynamic_text') if t.findtext('info_name')}
+                        self.assertLess(fields['label'], fields['manufacturer_reference'])
                         self.assertLess(fields['manufacturer_reference'], fields['comment'])
-                        self.assertLess(fields['comment'], fields['label'])
                     pins = {t.get('name') for t in root.findall('./description/terminal')}
                     if path.stem == 'lamp':
                         self.assertEqual(pins, {'X1', 'X2'})

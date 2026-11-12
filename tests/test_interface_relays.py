@@ -44,10 +44,10 @@ class InterfaceRelaysTest(unittest.TestCase):
                 self.assertIn('A2 (-)', texts)
                 info_texts = {t.findtext('info_name'): t for t in coil.findall('./description/dynamic_text')
                               if t.findtext('info_name')}
+                self.assertLess(float(info_texts['label'].get('y')),
+                                float(info_texts['manufacturer_reference'].get('y')))
                 self.assertLess(float(info_texts['manufacturer_reference'].get('y')),
                                 float(info_texts['comment'].get('y')))
-                self.assertLess(float(info_texts['comment'].get('y')) + 10,
-                                float(info_texts['label'].get('y')))
                 names = set()
                 for i in range(1, poles + 1):
                     root = roots[f'contact_{i}']

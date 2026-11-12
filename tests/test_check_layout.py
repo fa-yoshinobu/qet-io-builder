@@ -26,6 +26,26 @@ class LayoutCheckTest(unittest.TestCase):
             self.assertEqual(draw.call_args.args[3], title)
             self.assertEqual(draw.call_args.kwargs['s'], 0.8)
 
+    def test_reference_table_region_detects_empty_cell_intrusions(self):
+        draw = check_layout.RecordingDraw(ImageDraw.Draw(Image.new('RGB', (200, 200))), (0, 0, 200, 200))
+        element = ET.fromstring('<element><elementInformations><elementInformation name="qet_io_xref_owner">coil</elementInformation></elementInformations></element>')
+        definition = ET.fromstring('<definition><description><rect x="20" y="20" width="60" height="24"/></description></definition>')
+        draw.begin_element()
+        draw.rectangle((20, 20, 80, 44))
+        draw.line([(20, 32), (80, 32)])
+        draw.record_text('a', (23, 23, 28, 29))
+        draw.end_element(element, definition, lambda x, y: (x, y))
+        self.assertEqual(draw.issues(), [])
+        draw.line([(10, 38), (90, 38)])
+        draw.record_text('outside text', (65, 34, 75, 40))
+        kinds = {issue.kind for issue in draw.issues()}
+        self.assertIn('参照表と配線の重なり', kinds)
+        self.assertIn('参照表と文字の重なり', kinds)
+        draw.lines.clear()
+        draw.texts.pop()
+        draw.line([(10, 50), (90, 50)])
+        self.assertEqual(draw.issues(), [])
+
     def test_white_ellipse_hides_only_covered_line_segments(self):
         draw = check_layout.RecordingDraw(ImageDraw.Draw(Image.new('RGB', (100, 100))), (0, 0, 100, 100))
         draw.line([(0, 50), (100, 50)])

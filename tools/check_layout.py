@@ -30,6 +30,25 @@ class RecordingDraw:
         self.bounds = bounds
         self.texts = []
         self.lines = []
+        self.regions = []
+        self.table_lines = []
+
+    def begin_element(self):
+        self.element_start = len(self.lines), len(self.texts)
+
+    def end_element(self, element, definition, transform):
+        if element.find("./elementInformations/elementInformation[@name='qet_io_xref_owner']") is None:
+            return
+        line_start, text_start = self.element_start
+        own_texts = set(range(text_start, len(self.texts)))
+        for rect in definition.findall('./description/rect'):
+            x, y, width, height = (float(rect.get(k)) for k in ('x', 'y', 'width', 'height'))
+            a, b = transform(x, y), transform(x + width, y + height)
+            bounds = min(a[0], b[0]), min(a[1], b[1]), max(a[0], b[0]), max(a[1], b[1])
+            self.regions.append((bounds, own_texts))
+        # 表自身の罫線を外部配線として判定しない。
+        self.table_lines.extend(self.lines[line_start:])
+        del self.lines[line_start:]
 
     def __getattr__(self, name):
         return getattr(self.draw, name)
@@ -102,7 +121,7 @@ class RecordingDraw:
     def issues(self):
         result = []
         left, top, right, bottom = self.bounds
-        lines = set(self.lines)
+        lines = set(self.lines + self.table_lines)
         for i, (text, box) in enumerate(self.texts):
             x1, y1, x2, y2 = box
             if x1 < left or y1 < top or x2 > right or y2 > bottom:
@@ -115,6 +134,17 @@ class RecordingDraw:
                 vertical = a == c and x1 < a < x2 and min(y2, d) > max(y1, b)
                 if horizontal or vertical:
                     result.append(Issue('線横切り', text, box, f'({a:g},{b:g})-({c:g},{d:g})'))
+        for box, own_texts in self.regions:
+            x1, y1, x2, y2 = box
+            for a, b, c, d in set(self.lines):
+                horizontal = b == d and y1 < b < y2 and min(x2, c) > max(x1, a)
+                vertical = a == c and x1 < a < x2 and min(y2, d) > max(y1, b)
+                if horizontal or vertical:
+                    result.append(Issue('参照表と配線の重なり', 'a/b参照表', box,
+                                        f'({a:g},{b:g})-({c:g},{d:g})'))
+            for index, (text, (a, b, c, d)) in enumerate(self.texts):
+                if index not in own_texts and min(x2, c) > max(x1, a) and min(y2, d) > max(y1, b):
+                    result.append(Issue('参照表と文字の重なり', 'a/b参照表', box, text))
         return result
 
 
